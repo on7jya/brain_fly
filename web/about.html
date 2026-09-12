@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Как это работает — MaleCNS Tetris</title>
+  <link rel="stylesheet" href="/web/styles.css" />
+</head>
+<body>
+  <div class="grain" aria-hidden="true"></div>
+  <header class="top">
+    <div class="brand">
+      <span class="mark">♂</span>
+      <div>
+        <h1>MaleCNS Tetris</h1>
+        <p>короткий тур по конвейеру сигнала</p>
+      </div>
+    </div>
+    <nav class="links">
+      <a href="/">← к игре</a>
+      <a href="https://reiserlab.github.io/celltype-explorer-drosophila-male-cns/" target="_blank" rel="noreferrer">Cell Type Explorer</a>
+      <a href="https://codex.flywire.ai/" target="_blank" rel="noreferrer">Codex</a>
+    </nav>
+  </header>
+
+  <main class="tour-main">
+    <section class="tour-hero">
+      <h2>Как мозг мухи играет в тетрис</h2>
+      <p>
+        Поле кодируется как зрительный вход. Сигнал проходит по реальному мотиву
+        MaleCNS (R1–R6 → … → DNg13 → VNC). Descending neurons «решают» сдвиг, поворот и дроп.
+      </p>
+      <a class="tour-cta" href="/">Играть</a>
+    </section>
+
+    <div class="tour-strip" aria-label="9 стадий">
+      <span style="border-color:#e9d5ff;color:#e9d5ff">фото</span><span class="arr">→</span>
+      <span style="border-color:#d8b4fe;color:#d8b4fe">lam</span><span class="arr">→</span>
+      <span style="border-color:#c084fc;color:#c084fc">med</span><span class="arr">→</span>
+      <span style="border-color:#a78bfa;color:#a78bfa">lob</span><span class="arr">→</span>
+      <span style="border-color:#818cf8;color:#818cf8">VPN</span><span class="arr">→</span>
+      <span style="border-color:#4ade80;color:#4ade80">центр</span><span class="arr">→</span>
+      <span style="border-color:#fbbf24;color:#fbbf24">DN</span><span class="arr">→</span>
+      <span style="border-color:#38bdf8;color:#38bdf8">VNC</span><span class="arr">→</span>
+      <span style="border-color:#fb923c;color:#fb923c">act</span>
+    </div>
+
+    <section class="tour-flow">
+      <article class="tour-card">
+        <div class="swatch" style="background:linear-gradient(90deg,#e9d5ff,#a78bfa)"></div>
+        <h3>1–4 · Зрительные доли</h3>
+        <p>Фоторецепторы R1–R6 → ламина (L1–L3) → медулла (Mi1/Tm) → lobula / lobula plate. Здесь формируется «картинка» стека и фигуры.</p>
+        <div class="mono">optic lobe · слои lam→med→lob→LP</div>
+      </article>
+      <article class="tour-card">
+        <div class="swatch" style="background:linear-gradient(90deg,#818cf8,#4ade80)"></div>
+        <h3>5–6 · VPN и центр</h3>
+        <p>Visual projection neurons (LoVP92 и др.) несут объектный сигнал в AOTU / LAL / VES. Центральный мозг интегрирует L/R и готовит руление.</p>
+        <div class="mono">LoVP92 → CB0244 / LAL · VES200m ⊣ DNg13</div>
+      </article>
+      <article class="tour-card">
+        <div class="swatch" style="background:linear-gradient(90deg,#fbbf24,#38bdf8,#fb923c)"></div>
+        <h3>7–9 · DN → VNC → ход</h3>
+        <p>DNg13 L/R сдвигают, DNa02 крутит, интернейроны VNC (IN17A025) дропают. Стадия «act» — видимый ход на доске.</p>
+        <div class="mono">descending · neck connective · VNC T1–T3</div>
+      </article>
+    </section>
+
+    <section class="tour-flow">
+      <article class="tour-card">
+        <div class="swatch" style="background:#7dd3fc"></div>
+        <h3>Фильтр стадий</h3>
+        <p>Клик по стадии в конвейере подсвечивает только её узлы, связи, частицы и строки растра. «Все» сбрасывает.</p>
+      </article>
+      <article class="tour-card">
+        <div class="swatch" style="background:#c084fc"></div>
+        <h3>Нейропиль 3D</h3>
+        <p>Объёмные оболочки optic / central / DN / VNC с нейронами внутри. След решения при ходе мозга · режим «Только активные».</p>
+      </article>
+      <article class="tour-card">
+        <div class="swatch" style="background:#4ade80"></div>
+        <h3>Каталоги</h3>
+        <p>Клик / тултип узла открывает Cell Type Explorer и поиск Codex / FlyWire по имени типа.</p>
+      </article>
+    </section>
+
+    <p class="tour-note">
+      Это учебная визуализация подграфа, не полная симуляция 166 700 нейронов.
+      Источник данных: <code>male-cns:v1.0</code>, Google Research / Janelia FlyEM.
+    </p>
+  </main>
+</body>
+</html>

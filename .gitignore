@@ -1,0 +1,12 @@
+.venv/
+__pycache__/
+*.pyc
+.DS_Store
+vendor/
+data/processed/*.png
+data/raw/types/*.raw.html
+data/raw/connectome-weights*.feather
+data/raw/syn-*.feather
+data/raw/body-stats*.feather
+data/raw/tbar-*.feather
+data/raw/body-neurotransmitters*.feather
