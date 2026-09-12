@@ -10,3 +10,9 @@ data/raw/syn-*.feather
 data/raw/body-stats*.feather
 data/raw/tbar-*.feather
 data/raw/body-neurotransmitters*.feather
+# FAFB secrets + bulky public downloads (rebuild via scripts/fetch_fafb.py)
+data/raw/fafb/.codex_cookie
+data/raw/fafb/*.feather
+data/raw/fafb/connections_princeton*.csv.gz
+data/raw/fafb/consolidated_cell_types.csv.gz
+data/raw/fafb/Supplemental_file1_neuron_annotations.tsv

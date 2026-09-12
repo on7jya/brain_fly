@@ -17,18 +17,18 @@
       </div>
     </div>
     <nav class="links">
-      <a href="/tour.html">Как это работает</a>
-      <a href="https://research.google/blog/a-connectomics-milestone-mapping-the-complete-male-fruit-fly-brain/" target="_blank" rel="noreferrer">блог Google</a>
-      <a href="https://male-cns.janelia.org/" target="_blank" rel="noreferrer">MaleCNS</a>
-      <a id="link-neuroglancer" href="https://neuroglancer-demo.appspot.com/#!gs://flyem-male-cns/v1.0/male-cns-v1.0.jso" target="_blank" rel="noreferrer">Neuroglancer</a>
-      <a id="link-codex" href="https://codex.flywire.ai/?dataset=male-cns" target="_blank" rel="noreferrer">Codex</a>
+      <a href="/tour.html" title="тур: конвейер сигнала, фильтры, 3D и каталоги">Как это работает</a>
+      <a href="https://research.google/blog/a-connectomics-milestone-mapping-the-complete-male-fruit-fly-brain/" target="_blank" rel="noreferrer" title="статья Google Research о MaleCNS">блог Google</a>
+      <a href="https://male-cns.janelia.org/" target="_blank" rel="noreferrer" title="портал данных Janelia MaleCNS">MaleCNS</a>
+      <a id="link-neuroglancer" href="https://neuroglancer-demo.appspot.com/#!gs://flyem-male-cns/v1.0/male-cns-v1.0.jso" target="_blank" rel="noreferrer" title="3D-просмотрщик объёма MaleCNS (Neuroglancer)">Neuroglancer</a>
+      <a id="link-codex" href="https://codex.flywire.ai/?dataset=male-cns" target="_blank" rel="noreferrer" title="поиск типов и синапсов в Codex / FlyWire">Codex</a>
     </nav>
   </header>
 
   <div class="toolbar">
-    <label class="ds-switch" for="dataset">
+    <label class="ds-switch" for="dataset" title="какой коннектом рисовать на карте мозга">
       <span>датасет</span>
-      <select id="dataset" title="MaleCNS / FAFB / BANC / MANC / MAOL">
+      <select id="dataset" title="MaleCNS / FAFB / BANC / MANC / MAOL — источник узлов и связей">
         <option value="male-cns">♂ MaleCNS</option>
         <option value="fafb">♀ FAFB</option>
         <option value="banc">BANC</option>
@@ -36,49 +36,50 @@
         <option value="maol">MAOL · optic</option>
       </select>
     </label>
-    <label class="ds-switch" for="sex-play">
+    <label class="ds-switch" for="sex-play" title="чьи синаптические веса решают ход">
       <span>геймплей</span>
-      <select id="sex-play" title="веса самца / самки">
+      <select id="sex-play" title="веса самца (MaleCNS) / самки (FAFB) или дуэль">
         <option value="male">♂ веса MaleCNS</option>
         <option value="female">♀ веса FAFB</option>
         <option value="duel">дуэль ♀↔♂</option>
       </select>
     </label>
-    <label class="ds-switch" for="pathway-select">
+    <label class="ds-switch" for="pathway-select" title="подсветить один мотив контура на карте">
       <span>путь</span>
-      <select id="pathway-select">
+      <select id="pathway-select" title="весь контур или отдельный путь (руление, дроп…)">
         <option value="">весь контур</option>
       </select>
     </label>
-    <button type="button" id="btn-columns" title="колоночная карта поля → optic columns">колонки</button>
-    <button type="button" id="btn-compare" title="сравнение ♀ FAFB ↔ ♂ MaleCNS">♀↔♂</button>
-    <button type="button" id="btn-rate" title="rate-сеть на синапсах (WebWorker)">rate-сеть</button>
-    <button type="button" id="btn-nt-color" class="on" title="цвет связей по нейротрансмиттеру">NT цвет</button>
+    <button type="button" id="btn-columns" title="колоночная карта поля → optic columns поверх доски">колонки</button>
+    <button type="button" id="btn-compare" title="сравнить число клеток ♀ FAFB ↔ ♂ MaleCNS">♀↔♂</button>
+    <button type="button" id="btn-rate" title="rate-сеть: динамика спайков на синапсах (WebWorker)">rate-сеть</button>
+    <button type="button" id="btn-nt-color" class="on" title="окрасить связи по нейротрансмиттеру (ACh / GABA…)">NT цвет</button>
     <span id="dataset-note" class="dataset-note"></span>
   </div>
+  <p class="toolbar-hint">датасет — карта · геймплей — веса хода · путь — мотив · колонки / ♀↔♂ / rate / NT — отображение</p>
 
   <main class="stage">
     <section class="panel game-col">
       <div class="hud-row">
-        <div class="stat">
+        <div class="stat" title="набранные очки за линии">
           <span>счёт</span>
           <strong id="score">0</strong>
         </div>
-        <div class="stat">
+        <div class="stat" title="сколько рядов закрыто">
           <span>линии</span>
           <strong id="lines">0</strong>
         </div>
-        <div class="stat">
+        <div class="stat" title="растёт с числом линий — фигура падает быстрее">
           <span>уровень</span>
           <strong id="level">1</strong>
         </div>
       </div>
       <div class="minis">
-        <div class="mini">
+        <div class="mini" title="следующая фигура в очереди">
           <span>следующая</span>
           <canvas id="next" width="120" height="120"></canvas>
         </div>
-        <div class="mini">
+        <div class="mini" title="удержание (C) — отложить фигуру">
           <span>удержание</span>
           <canvas id="hold" width="120" height="120"></canvas>
         </div>
@@ -92,12 +93,16 @@
         </div>
       </div>
       <div class="game-controls">
-        <button id="btn-pause" type="button" title="Space / P">Пауза</button>
-        <label class="speed-ctl" for="speed">
+        <div class="ctl-block">
+          <button id="btn-pause" type="button" title="Space / P — остановить игру и волну сигнала">Пауза</button>
+          <p class="ctl-hint">Space / P · стоп игры и волны</p>
+        </div>
+        <label class="speed-ctl" for="speed" title="темп падения фигуры и обновления мозга">
           <span>Скорость</span>
-          <input id="speed" type="range" min="0.25" max="2.5" step="0.05" value="1" />
+          <input id="speed" type="range" min="0.25" max="2.5" step="0.05" value="1" title="0.25× … 2.5× — темп тетриса и симуляции" />
           <em id="speed-val">1.0×</em>
         </label>
+        <p class="ctl-hint">слайдер · темп падения и мозга</p>
       </div>
       <p class="keys">← → сдвиг · ↑ поворот · ↓ мягко · Shift дроп · C hold · B мозг · Space/P пауза · R заново</p>
     </section>
@@ -108,7 +113,7 @@
           <h2>живой контур MaleCNS</h2>
           <p id="pathway">фото → ламина → медулла → lobula/LP → VPN → центр → DN → VNC → действие</p>
         </div>
-        <div class="legend">
+        <div class="legend" title="цвета регионов и тип связей">
           <i class="optic"></i> зрительные доли
           <i class="central"></i> центральный мозг
           <i class="desc"></i> descending
@@ -117,10 +122,11 @@
         </div>
       </div>
       <div class="view-toggle" role="tablist" aria-label="вид карты">
-        <button type="button" id="btn-view-3d" class="on" data-view="3d">нейропиль 3D</button>
-        <button type="button" id="btn-view-2d" data-view="2d">карта 2D</button>
-        <button type="button" id="btn-active-only" data-toggle="active" title="скрыть тихие узлы и связи">Только активные</button>
+        <button type="button" id="btn-view-3d" class="on" data-view="3d" title="объёмный нейропиль: optic / central / DN / VNC">нейропиль 3D</button>
+        <button type="button" id="btn-view-2d" data-view="2d" title="плоская схема слоёв слева→направо">карта 2D</button>
+        <button type="button" id="btn-active-only" data-toggle="active" title="скрыть тихие узлы и связи (оставить «горячие»)">Только активные</button>
       </div>
+      <p class="ctl-hint view-hint">3D — объём · 2D — схема · активные — без «тишины»</p>
       <div class="brain-wrap">
         <canvas id="brain" width="980" height="680"></canvas>
         <canvas id="neuropil3d" width="980" height="680" class="hidden"></canvas>
@@ -132,15 +138,40 @@
       <div class="pipeline-block">
         <div class="pipeline-head">
           <strong>конвейер сигнала</strong>
-          <span id="stage-peak">пик: —</span>
-          <span id="stage-latency">латентность: —</span>
-          <button type="button" id="btn-filter-all" class="chip-btn on" title="сбросить фильтр стадии">Все</button>
+          <span id="stage-peak" title="стадия с максимальной активностью сейчас">пик: —</span>
+          <span id="stage-latency" title="задержка волны от первого пика до текущей стадии">латентность: —</span>
+          <button type="button" id="btn-filter-all" class="chip-btn on" title="сбросить фильтр стадии — показать весь контур">Все</button>
         </div>
         <div class="pipeline" id="pipeline" aria-label="стадии обработки"></div>
-        <p class="pipe-hint" id="pipe-hint">клик по стадии — фильтр узлов / связей / растра</p>
+        <p class="pipe-hint" id="pipe-hint">клик по стадии — фильтр узлов / связей / растра · «?» ниже — что делает каждая стадия</p>
+        <details class="pipe-help" id="pipe-help">
+          <summary title="развернуть пояснение конвейера">что такое конвейер? <span class="qmark" aria-hidden="true">?</span></summary>
+          <div class="pipe-help-body">
+            <p class="pipe-help-lead">
+              Во время тетриса поле кодируется как зрительный вход. Активность бежит волной
+              <strong>фото → lam → med → lob → VPN → центр → DN → VNC → act</strong>.
+              Клик по стадии фильтрует карту, связи и растр; повторный клик или «Все» сбрасывает.
+            </p>
+            <ol class="pipe-stages-list">
+              <li><b>фото</b> — R1–R6: пиксели доски → фоторецепторы</li>
+              <li><b>lam</b> — ламина (L1–L3): локальный контраст по колонкам</li>
+              <li><b>med</b> — медулла (Mi/Tm): движение и ориентация фигуры</li>
+              <li><b>lob</b> — lobula / LP: «объект» стека и текущей фигуры</li>
+              <li><b>VPN</b> — проекции (LoVP92…): из optic lobe в центральный мозг</li>
+              <li><b>центр</b> — AOTU / LAL / VES: интеграция L/R, подготовка руления</li>
+              <li><b>DN</b> — descending (DNg13, DNa02…): решение сдвиг / поворот</li>
+              <li><b>VNC</b> — брюшная цепь: моторные интернейроны (дроп и т.п.)</li>
+              <li><b>act</b> — видимый ход на доске (сдвиг, поворот, дроп)</li>
+            </ol>
+            <p class="pipe-help-foot">
+              Полный тур:
+              <a href="/tour.html">Как это работает</a>
+            </p>
+          </div>
+        </details>
       </div>
       <div class="pop-row">
-        <div class="pop-meter" title="средняя активность по регионам">
+        <div class="pop-meter" title="средняя активность по регионам мозга прямо сейчас">
           <span>optic</span>
           <div class="track"><div id="pop-optic" class="fill optic"></div></div>
           <span>central</span>
@@ -150,24 +181,26 @@
           <span>VNC</span>
           <div class="track"><div id="pop-vnc" class="fill vnc"></div></div>
         </div>
+        <p class="ctl-hint">полоски · средняя активность регионов</p>
       </div>
     </section>
 
     <section class="panel side-col">
       <div class="mode">
-        <button id="btn-brain" class="on">мозг мухи играет</button>
-        <button id="btn-human">человек играет</button>
-        <button id="btn-restart" class="restart" type="button" title="R — начать заново">Заново</button>
+        <button id="btn-brain" class="on" title="B — мозг сам решает ходы по контуру MaleCNS">мозг мухи играет</button>
+        <button id="btn-human" title="B — вы управляете клавишами, мозг только визуализируется">человек играет</button>
+        <button id="btn-restart" class="restart" type="button" title="R — начать партию заново (режим мозга/человека сохраняется)">Заново</button>
       </div>
-      <h3>процесс решения</h3>
+      <p class="ctl-hint mode-hint">мозг — AI по контуру · человек — клавиши · R — рестарт</p>
+      <h3 title="шаги от входа до решения DN">процесс решения</h3>
       <div id="process" class="process"></div>
-      <h3>решения DNs</h3>
+      <h3 title="активность descending neurons: сдвиг / поворот / дроп">решения DNs</h3>
       <div id="decisions" class="decisions"></div>
-      <h3>журнал событий</h3>
+      <h3 title="краткий лог спайков и ходов">журнал событий</h3>
       <div id="event-log" class="event-log" aria-live="polite"></div>
-      <h3>спайк-растр · популяции</h3>
-      <canvas id="raster" width="360" height="360"></canvas>
-      <h3>последний ход мозга</h3>
+      <h3 title="спайки популяций во времени; фильтр стадии сужает строки">спайк-растр · популяции</h3>
+      <canvas id="raster" width="360" height="360" title="растр спайков · клик стадии в конвейере фильтрует строки"></canvas>
+      <h3 title="текстовое объяснение последнего хода мозга">последний ход мозга</h3>
       <p id="thought" class="thought">ждёт зрительный вход…</p>
       <h3>источник</h3>
       <ul class="cite">
@@ -178,17 +211,20 @@
         <li id="weight-stat">веса: —</li>
         <li id="rate-stat" class="hidden">rate: —</li>
       </ul>
+      <p class="ctl-hint tip-links-hint">в тултипе узла: Explorer · Codex · FlyWire · NG</p>
     </section>
   </main>
 
   <aside id="compare-panel" class="compare-panel hidden" aria-label="сравнение FAFB и MaleCNS">
     <header>
-      <strong>♀ FAFB ↔ ♂ MaleCNS</strong>
-      <button type="button" id="btn-compare-close" aria-label="закрыть">×</button>
+      <strong title="сравнение числа клеток по типам">♀ FAFB ↔ ♂ MaleCNS</strong>
+      <button type="button" id="btn-compare-close" aria-label="закрыть" title="закрыть панель сравнения">×</button>
     </header>
     <p id="compare-note" class="compare-note"></p>
     <div class="compare-chart" id="compare-chart"></div>
   </aside>
+
+  <div id="ui-tip" class="ui-tip" role="tooltip" hidden></div>
 
   <script src="/web/app.js" type="module"></script>
 </body>

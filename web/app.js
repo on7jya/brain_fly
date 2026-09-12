@@ -38,16 +38,17 @@ const ROLE_LABEL = {
 };
 const RASTER_COLS = 64;
 const PIPELINE = [
-  { id: "photo", label: "фото", full: "R1–R6", color: "#e9d5ff", x: 0.05 },
-  { id: "lamina", label: "lam", full: "ламина", color: "#d8b4fe", x: 0.1 },
-  { id: "medulla", label: "med", full: "медулла", color: "#c084fc", x: 0.16 },
-  { id: "lobula", label: "lob", full: "lobula/LP", color: "#a78bfa", x: 0.23 },
-  { id: "vpn", label: "VPN", full: "VPN", color: "#818cf8", x: 0.3 },
-  { id: "central", label: "центр", full: "AOTU/LAL/VES", color: "#4ade80", x: 0.5 },
-  { id: "dn", label: "DN", full: "descending", color: "#fbbf24", x: 0.5 },
-  { id: "vnc", label: "VNC", full: "VNC", color: "#38bdf8", x: 0.5 },
-  { id: "action", label: "act", full: "действие", color: "#fb923c", x: 0.5 },
+  { id: "photo", label: "фото", full: "R1–R6", color: "#e9d5ff", x: 0.05, hint: "фоторецепторы: пиксели доски → R1–R6" },
+  { id: "lamina", label: "lam", full: "ламина", color: "#d8b4fe", x: 0.1, hint: "ламина L1–L3: локальный контраст по колонкам" },
+  { id: "medulla", label: "med", full: "медулла", color: "#c084fc", x: 0.16, hint: "медулла Mi/Tm: движение и ориентация фигуры" },
+  { id: "lobula", label: "lob", full: "lobula/LP", color: "#a78bfa", x: 0.23, hint: "lobula / LP: объект стека и текущей фигуры" },
+  { id: "vpn", label: "VPN", full: "VPN", color: "#818cf8", x: 0.3, hint: "VPN (LoVP92…): проекция из optic lobe в центр" },
+  { id: "central", label: "центр", full: "AOTU/LAL/VES", color: "#4ade80", x: 0.5, hint: "центр AOTU/LAL/VES: интеграция L/R, руление" },
+  { id: "dn", label: "DN", full: "descending", color: "#fbbf24", x: 0.5, hint: "DN (DNg13, DNa02…): решение сдвиг / поворот" },
+  { id: "vnc", label: "VNC", full: "VNC", color: "#38bdf8", x: 0.5, hint: "VNC: моторные интернейроны (дроп и т.п.)" },
+  { id: "action", label: "act", full: "действие", color: "#fb923c", x: 0.5, hint: "act: видимый ход на доске" },
 ];
+const PIPE_HINT_DEFAULT = "клик по стадии — фильтр узлов / связей / растра · «?» ниже — что делает каждая стадия";
 
 const boardCanvas = document.getElementById("board");
 const nextCanvas = document.getElementById("next");
@@ -277,7 +278,11 @@ function edgeVizMode(preNode, postNode, flow) {
 function getDecisionTrail(t) {
   const tr = state.decisionTrail;
   if (!tr) return null;
-  const age = (t - tr.t0) / tr.life;
+  // rAF `t` is the frame timestamp; trail.t0 uses performance.now() set mid-frame
+  // during stepBrain, so t can briefly lag t0. Clamp so age never goes negative
+  // (negative Math.floor indices crash drawDecisionTrail* and kill the game loop).
+  const now = Number.isFinite(t) ? t : performance.now();
+  const age = Math.max(0, (now - tr.t0) / tr.life);
   if (age >= 1) {
     if (state.decisionTrail === tr) clearDecisionTrailUi();
     state.decisionTrail = null;
@@ -425,7 +430,7 @@ function applyStageFilterUi() {
     } else if (ao) {
       pipeHint.textContent = "только активные — тихие узлы и связи приглушены";
     } else {
-      pipeHint.textContent = "клик по стадии — фильтр узлов / связей / растра";
+      pipeHint.textContent = PIPE_HINT_DEFAULT;
     }
   }
   if (brainWrap) {
@@ -839,7 +844,7 @@ function buildPipelineDom() {
   if (!pipelineEl) return;
   pipelineEl.innerHTML = PIPELINE.map(
     (s, i) => `
-    <div class="pipe-stage" data-stage="${s.id}" style="--stage:${s.color}" role="button" tabindex="0" title="фильтр: ${s.full}">
+    <div class="pipe-stage" data-stage="${s.id}" style="--stage:${s.color}" role="button" tabindex="0" title="${s.hint} · клик — фильтр «${s.full}»">
       <div class="bar-wrap">
         <div class="bar l" id="pipe-${s.id}-l"></div>
         <div class="bar r" id="pipe-${s.id}-r"></div>
@@ -1038,9 +1043,10 @@ function stepBrain() {
 
   for (const e of effectiveEdges()) {
     const a = act[e.pre] || 0;
-    // Keep excitation moderate so L/R DNs do not both clip at max.
+    // Cap log-weight so large explorer bilateral counts cannot flood both DNs equally.
     const gain = e.sign < 0 ? 0.14 : 0.11;
-    incoming[e.post] = (incoming[e.post] || 0) + a * e.sign * Math.log1p(e.weight) * gain;
+    const wTerm = Math.log1p(Math.min(e.weight || 1, 36));
+    incoming[e.post] = (incoming[e.post] || 0) + a * e.sign * wTerm * gain;
     const flow = a * (e.sign > 0 ? 1 : 0.85);
     if (flow > 0.32 && Math.random() < (e.sign < 0 ? 0.42 : 0.38)) {
       const burst = flow > 0.72 && state.spikes[e.pre];
@@ -1077,13 +1083,31 @@ function stepBrain() {
     if (id === "IN17A025_L" || id === "IN17A025_R") inj += (drive.needDrop || 0) * 0.85;
     const v = Math.max(0, Math.min(1.6, (act[n.id] || 0) * 0.5 + inj));
     next[n.id] = v;
-    state.spikes[n.id] = v > 0.72 && Math.random() < Math.min(0.9, v * 0.55);
+    if (!state.rateMode) {
+      state.spikes[n.id] = v > 0.72 && Math.random() < Math.min(0.9, v * 0.55);
+    }
   }
-  state.activity = next;
+  // Rate worker owns bulk rates when ON; local sim only seeds sensory nodes.
+  if (!state.rateMode) {
+    state.activity = next;
+  } else {
+    for (const n of c.nodes) {
+      const id = n.id;
+      if (
+        id.startsWith("R1-R6") ||
+        id.startsWith("L1_") ||
+        id.startsWith("L2_") ||
+        id.startsWith("L3_")
+      ) {
+        state.activity[id] = next[id];
+      }
+    }
+  }
 
   const pop = { optic: [], central: [], descending: [], vnc: [] };
+  const actView = state.rateMode ? state.activity : next;
   for (const n of c.nodes) {
-    (pop[n.region] || pop.central).push(next[n.id] || 0);
+    (pop[n.region] || pop.central).push(actView[n.id] || 0);
   }
   for (const k of Object.keys(state.popAvg)) {
     const arr = pop[k] || [];
@@ -1093,14 +1117,21 @@ function stepBrain() {
   }
 
   state.raster.unshift(
-    c.nodes.map((n) => (state.spikes[n.id] ? 1 : next[n.id] > 0.45 ? 0.4 + next[n.id] * 0.35 : next[n.id] > 0.2 ? 0.18 : 0))
+    c.nodes.map((n) => {
+      const v = actView[n.id] || 0;
+      return state.spikes[n.id] ? 1 : v > 0.45 ? 0.4 + v * 0.35 : v > 0.2 ? 0.18 : 0;
+    })
   );
   if (state.raster.length > RASTER_COLS) state.raster.pop();
 
-  const l = next.DNg13_L || 0;
-  const r = next.DNg13_R || 0;
-  const rot = next.DNa02 || 0;
-  const drop = Math.max(next.IN17A025_L || 0, next.IN17A025_R || 0);
+  // Blend explicit steer intent into DN readout. Large bilateral explorer weights
+  // otherwise clip L+R to the same max and lateral moves die (rate worker was
+  // accidentally "fixing" this by resetting activity every frame).
+  const src = state.rateMode ? state.activity : next;
+  const l = (src.DNg13_L || 0) + drive.steerLeft * 0.95;
+  const r = (src.DNg13_R || 0) + drive.steerRight * 0.95;
+  const rot = (src.DNa02 || 0) + (drive.needRotate || 0) * 0.6;
+  const drop = Math.max(src.IN17A025_L || 0, src.IN17A025_R || 0) + (drive.needDrop || 0) * 0.5;
   renderDecisions({ left: l, right: r, rotate: rot, drop });
 
   const best = bestPlacement();
@@ -1181,7 +1212,7 @@ function stepBrain() {
   }
   if (action) {
     state.lastAction = action;
-    state.thought = `${action}. LoVP92 L/R = ${(next.LoVP92_L || 0).toFixed(2)} / ${(next.LoVP92_R || 0).toFixed(2)}; ΔDNg13=${(l - r).toFixed(2)}; цель кол. ${best?.x ?? "—"}; ${why}`;
+    state.thought = `${action}. LoVP92 L/R = ${(src.LoVP92_L || 0).toFixed(2)} / ${(src.LoVP92_R || 0).toFixed(2)}; ΔDNg13=${(l - r).toFixed(2)}; цель кол. ${best?.x ?? "—"}; ${why}`;
     document.getElementById("thought").textContent = state.thought;
     state.brainCooldown = Math.max(3, Math.round(7 / Math.max(0.35, state.speed)));
     state.decisionMarks.unshift({ t: performance.now(), label: action.split("→")[0].trim() });
@@ -1479,19 +1510,23 @@ function drawDecisionTrail2d(ctx, pos, w, h, t) {
   ctx.shadowColor = tr.color;
   ctx.shadowBlur = 18 * tr.glow;
   ctx.globalAlpha = 0.25 + tr.glow * 0.55;
-  ctx.lineWidth = 2.2 + tr.glow * 3.5;
+  ctx.lineWidth = 1.1 + tr.glow * 1.75;
   ctx.beginPath();
   ctx.moveTo(pts[0][0], pts[0][1]);
   for (let i = 1; i < pts.length; i++) ctx.lineTo(pts[i][0], pts[i][1]);
   ctx.stroke();
 
   // traveling pulse along path
-  const head = Math.min(0.98, tr.age * 1.15);
+  const head = Math.min(0.98, Math.max(0, tr.age) * 1.15);
   const seg = head * (pts.length - 1);
-  const i0 = Math.floor(seg);
+  const i0 = Math.max(0, Math.min(pts.length - 1, Math.floor(seg)));
   const f = seg - i0;
   const a = pts[i0];
-  const b = pts[Math.min(pts.length - 1, i0 + 1)];
+  const b = pts[Math.min(pts.length - 1, i0 + 1)] || a;
+  if (!a || !b) {
+    ctx.restore();
+    return;
+  }
   const hx = a[0] + (b[0] - a[0]) * f;
   const hy = a[1] + (b[1] - a[1]) * f;
   ctx.shadowBlur = 22;
@@ -1523,18 +1558,22 @@ function drawDecisionTrail3d(ctx, screen, t) {
   ctx.lineJoin = "round";
   ctx.strokeStyle = tr.color;
   ctx.globalAlpha = 0.3 + tr.glow * 0.55;
-  ctx.lineWidth = 2 + tr.glow * 3;
+  ctx.lineWidth = 1 + tr.glow * 1.5;
   ctx.beginPath();
   ctx.moveTo(pts[0][0], pts[0][1]);
   for (let i = 1; i < pts.length; i++) ctx.lineTo(pts[i][0], pts[i][1]);
   ctx.stroke();
 
-  const head = Math.min(0.98, tr.age * 1.15);
+  const head = Math.min(0.98, Math.max(0, tr.age) * 1.15);
   const seg = head * (pts.length - 1);
-  const i0 = Math.floor(seg);
+  const i0 = Math.max(0, Math.min(pts.length - 1, Math.floor(seg)));
   const f = seg - i0;
   const a = pts[i0];
-  const b = pts[Math.min(pts.length - 1, i0 + 1)];
+  const b = pts[Math.min(pts.length - 1, i0 + 1)] || a;
+  if (!a || !b) {
+    ctx.restore();
+    return;
+  }
   const hx = a[0] + (b[0] - a[0]) * f;
   const hy = a[1] + (b[1] - a[1]) * f;
   ctx.globalAlpha = 0.65 + tr.glow * 0.35;
@@ -1588,7 +1627,7 @@ function drawBrain(t) {
       ctx.moveTo(a[0], a[1]);
       ctx.lineTo(b[0], b[1]);
       ctx.strokeStyle = "rgba(232,237,245,0.03)";
-      ctx.lineWidth = 0.5;
+      ctx.lineWidth = 0.28;
       ctx.stroke();
       continue;
     }
@@ -1608,7 +1647,7 @@ function drawBrain(t) {
       : 0.10 + flow * 0.38 + (highlighted ? 0.16 : 0) + boost;
     ctx.strokeStyle = onTrail ? (state.decisionTrail?.color || `rgba(${base},${alpha})`) : `rgba(${base},${alpha})`;
     if (onTrail) ctx.globalAlpha = Math.min(1, alpha + 0.35);
-    ctx.lineWidth = 0.55 + Math.log1p(e.weight) * 0.32 + flow * 2.0 + (state.stageFilter ? 0.6 : 0) + (onTrail ? 1.2 : 0);
+    ctx.lineWidth = 0.28 + Math.log1p(e.weight) * 0.16 + flow * 1.0 + (state.stageFilter ? 0.3 : 0) + (onTrail ? 0.6 : 0);
     if (e.sign < 0) ctx.setLineDash([3, 5]);
     else ctx.setLineDash([]);
     ctx.stroke();
@@ -1624,10 +1663,10 @@ function drawBrain(t) {
       ctx.translate(px, py);
       ctx.rotate(ang);
       ctx.strokeStyle = `rgba(${base},0.9)`;
-      ctx.lineWidth = 2;
+      ctx.lineWidth = 1;
       ctx.beginPath();
-      ctx.moveTo(0, -5);
-      ctx.lineTo(0, 5);
+      ctx.moveTo(0, -3);
+      ctx.lineTo(0, 3);
       ctx.stroke();
       ctx.restore();
     }
@@ -1643,9 +1682,9 @@ function drawBrain(t) {
       ctx.rotate(ang);
       ctx.fillStyle = e.sign < 0 ? "rgba(251,113,133,0.85)" : "rgba(125,211,252,0.85)";
       ctx.beginPath();
-      ctx.moveTo(6, 0);
-      ctx.lineTo(-4, 3.5);
-      ctx.lineTo(-4, -3.5);
+      ctx.moveTo(3.5, 0);
+      ctx.lineTo(-2.5, 2);
+      ctx.lineTo(-2.5, -2);
       ctx.closePath();
       ctx.fill();
       ctx.restore();
@@ -2100,7 +2139,7 @@ function drawNeuropil3D(t) {
         ctx.moveTo(a[0], a[1]);
         ctx.lineTo(b[0], b[1]);
         ctx.strokeStyle = "rgba(232,237,245,0.03)";
-        ctx.lineWidth = 0.5;
+        ctx.lineWidth = 0.28;
         ctx.stroke();
         continue;
       }
@@ -2120,7 +2159,7 @@ function drawNeuropil3D(t) {
         : 0.10 + flow * 0.38 + (highlighted ? 0.16 : 0) + boost;
       ctx.strokeStyle = onTrail ? (state.decisionTrail?.color || `rgba(${base},${alpha})`) : `rgba(${base},${alpha})`;
       if (onTrail) ctx.globalAlpha = Math.min(1, alpha + 0.3);
-      ctx.lineWidth = 0.55 + Math.log1p(e.weight) * 0.28 + flow * 1.8 + (state.stageFilter ? 0.5 : 0) + (onTrail ? 1 : 0);
+      ctx.lineWidth = 0.28 + Math.log1p(e.weight) * 0.14 + flow * 0.9 + (state.stageFilter ? 0.25 : 0) + (onTrail ? 0.5 : 0);
       if (e.sign < 0) ctx.setLineDash([3, 5]);
       else ctx.setLineDash([]);
       ctx.stroke();
@@ -2135,10 +2174,10 @@ function drawNeuropil3D(t) {
         ctx.translate(px, py);
         ctx.rotate(ang);
         ctx.strokeStyle = "rgba(251,113,133,0.85)";
-        ctx.lineWidth = 1.8;
+        ctx.lineWidth = 0.9;
         ctx.beginPath();
-        ctx.moveTo(0, -4);
-        ctx.lineTo(0, 4);
+        ctx.moveTo(0, -2.5);
+        ctx.lineTo(0, 2.5);
         ctx.stroke();
         ctx.restore();
       }
@@ -2153,9 +2192,9 @@ function drawNeuropil3D(t) {
         ctx.rotate(ang);
         ctx.fillStyle = e.sign < 0 ? "rgba(251,113,133,0.8)" : "rgba(125,211,252,0.8)";
         ctx.beginPath();
-        ctx.moveTo(5, 0);
-        ctx.lineTo(-3.5, 3);
-        ctx.lineTo(-3.5, -3);
+        ctx.moveTo(3, 0);
+        ctx.lineTo(-2, 1.8);
+        ctx.lineTo(-2, -1.8);
         ctx.closePath();
         ctx.fill();
         ctx.restore();
@@ -2244,7 +2283,7 @@ function drawNeuropil3D(t) {
   ctx.save();
   ctx.globalAlpha = 0.35 + (stages[state.waveStage]?.mean || 0) * 0.4;
   ctx.strokeStyle = PIPELINE[waveIdx]?.color || "#fbbf24";
-  ctx.lineWidth = 2;
+  ctx.lineWidth = 1;
   ctx.beginPath();
   ctx.arc(wx, wy2, 10 + (t % 600) / 60, 0, Math.PI * 2);
   ctx.stroke();
@@ -2323,6 +2362,7 @@ function showTip(node, clientX, clientY) {
     <div class="row"><span>синапсы in/out</span><span>${synIn} / ${synOut}</span></div>
     <div class="row"><span>активность</span><span class="act">${act.toFixed(2)}${state.spikes[node.id] ? " · spike" : ""}</span></div>
     ${links}
+    ${links ? `<div class="meta tip-help">Explorer · Codex · FlyWire · NG — каталоги типа</div>` : ""}
   `;
   brainTip.classList.toggle("has-links", !!urls);
   brainTip.classList.remove("hidden");
@@ -2457,13 +2497,17 @@ function tick(ts) {
       stepBrain();
     }
   }
-  // when paused / before start: freeze decisions; gentle viz redraw only
-  drawBoard();
-  if (state.viewMode === "3d") drawNeuropil3D(ts);
-  else drawBrain(ts);
-  drawRaster();
-  if (typeof tickRateWorker === "function") tickRateWorker();
-  if (state.showColumns && typeof drawColumnsOverlay === "function") drawColumnsOverlay();
+  // Viz must never kill the gameplay RAF loop.
+  try {
+    drawBoard();
+    if (state.viewMode === "3d") drawNeuropil3D(ts);
+    else drawBrain(ts);
+    drawRaster();
+    if (typeof tickRateWorker === "function") tickRateWorker();
+    if (state.showColumns && typeof drawColumnsOverlay === "function") drawColumnsOverlay();
+  } catch (err) {
+    console.warn("viz tick error", err);
+  }
   requestAnimationFrame(tick);
 }
 
@@ -2740,9 +2784,15 @@ function renderCompare() {
   const data = state.compareData;
   if (!data) return;
   if (note) {
-    note.textContent = data.auth_blocker
-      ? `FAFB CSV: нужен Google login. ${data.fafb_scaffold ? "Показан scaffold." : ""} ${data.auth_blocker}`
-      : (data.fafb_scaffold ? "FAFB scaffold (без CSV)." : "Реальные агрегаты FAFB CSV.");
+    if (data.fafb_scaffold) {
+      // Short RU steps only — avoid dumping long English auth walls into the UI.
+      const tip = (data.auth_blocker || "").trim();
+      note.textContent = tip
+        ? tip
+        : "FAFB scaffold. Скачай CSV: python3 scripts/fetch_fafb.py (зеркало без логина) или положи файлы в data/raw/fafb/.";
+    } else {
+      note.textContent = "Реальные агрегаты FAFB (CSV).";
+    }
   }
   const rows = data.rows || [];
   const max = Math.max(1, ...rows.map((r) => Math.max(r.male_mcns, r.female_fafb)));
@@ -2787,10 +2837,19 @@ function initRateWorker(circuit) {
 
 function tickRateWorker() {
   if (!state.rateMode || !state.rateWorker || !state.circuit) return;
-  const input = {};
+  const drive = sensoryDrive();
+  const input = {
+    "R1-R6_L": Math.max(state.activity["R1-R6_L"] || 0, drive.visualL),
+    "R1-R6_R": Math.max(state.activity["R1-R6_R"] || 0, drive.visualR),
+    DNg13_L: drive.steerLeft * 1.45,
+    DNg13_R: drive.steerRight * 1.45,
+    DNa02: (drive.needRotate || 0) * 1.15,
+    IN17A025_L: (drive.needDrop || 0) * 0.95,
+    IN17A025_R: (drive.needDrop || 0) * 0.95,
+  };
   for (const n of state.circuit.nodes || []) {
     if ((n.type === "R1-R6" || n.role === "photoreceptor") && (state.activity[n.id] || 0) > 0.1) {
-      input[n.id] = state.activity[n.id];
+      input[n.id] = Math.max(input[n.id] || 0, state.activity[n.id]);
     }
   }
   state.rateWorker.postMessage({ type: "input", input });
@@ -2856,6 +2915,13 @@ document.getElementById("btn-rate")?.addEventListener("click", (e) => {
   } else {
     state.rateWorker?.terminate();
     state.rateWorker = null;
+    // Hand gameplay back to local controller from a calm baseline.
+    if (state.circuit) {
+      for (const n of state.circuit.nodes || []) {
+        state.activity[n.id] = 0.05;
+        state.spikes[n.id] = false;
+      }
+    }
     if (el) el.classList.add("hidden");
   }
 });
@@ -2886,3 +2952,205 @@ updateHud();
 buildPipelineDom();
 renderEventLog();
 renderProcess(null);
+initUiTips();
+
+/** Visible pop-out tips for controls (hover / focus / long-press). */
+function initUiTips() {
+  const tipEl = document.getElementById("ui-tip");
+  if (!tipEl) return;
+
+  const TIP_SEL = [
+    "button[title], button[data-tip]",
+    "a[title], a[data-tip]",
+    "select[title], select[data-tip]",
+    'input[type="range"][title], input[type="range"][data-tip]',
+    "label.ds-switch[title], label.ds-switch[data-tip]",
+    "label.speed-ctl[title], label.speed-ctl[data-tip]",
+    ".pipe-stage[title], .pipe-stage[data-tip]",
+    "summary[title], summary[data-tip]",
+  ].join(", ");
+
+  let active = null;
+  let hideTimer = 0;
+  let longPressTimer = 0;
+  let touchLockedUntil = 0;
+
+  function tipText(el) {
+    if (!el) return "";
+    if (!el.dataset.tip) {
+      const t = el.getAttribute("title");
+      if (t) {
+        el.dataset.tip = t;
+        el.removeAttribute("title");
+      }
+    }
+    return el.dataset.tip || "";
+  }
+
+  function findTipTarget(node) {
+    if (!node || !(node instanceof Element)) return null;
+    if (node.closest("#brain-tip, #ui-tip, .brain-wrap canvas")) return null;
+    return node.closest(TIP_SEL);
+  }
+
+  function placeTip(anchor) {
+    const text = tipText(anchor);
+    if (!text) {
+      hideTip(true);
+      return;
+    }
+    tipEl.hidden = false;
+    tipEl.textContent = text;
+    tipEl.classList.remove("is-visible");
+    // Force layout so size is known before positioning.
+    tipEl.style.setProperty("--tip-x", "0px");
+    tipEl.style.setProperty("--tip-y", "0px");
+
+    const pad = 8;
+    const gap = 10;
+    const r = anchor.getBoundingClientRect();
+    const tw = tipEl.offsetWidth;
+    const th = tipEl.offsetHeight;
+    const preferAbove = r.top >= th + gap + pad;
+    const place = preferAbove ? "above" : "below";
+    let top = place === "above" ? r.top - th - gap : r.bottom + gap;
+    let left = r.left + r.width / 2 - tw / 2;
+    left = Math.max(pad, Math.min(left, window.innerWidth - tw - pad));
+    top = Math.max(pad, Math.min(top, window.innerHeight - th - pad));
+
+    const arrowX = Math.max(12, Math.min(r.left + r.width / 2 - left, tw - 12));
+    tipEl.dataset.place = place;
+    tipEl.style.setProperty("--tip-x", `${Math.round(left)}px`);
+    tipEl.style.setProperty("--tip-y", `${Math.round(top)}px`);
+    tipEl.style.setProperty("--tip-arrow-x", `${Math.round(arrowX)}px`);
+    tipEl.setAttribute("aria-hidden", "false");
+    requestAnimationFrame(() => tipEl.classList.add("is-visible"));
+  }
+
+  function showTip(anchor) {
+    if (!anchor) {
+      hideTip(true);
+      return;
+    }
+    clearTimeout(hideTimer);
+    active = anchor;
+    placeTip(anchor);
+  }
+
+  function hideTip(immediate = false) {
+    clearTimeout(hideTimer);
+    const clear = () => {
+      active = null;
+      tipEl.classList.remove("is-visible");
+      tipEl.setAttribute("aria-hidden", "true");
+      const finish = () => {
+        if (!tipEl.classList.contains("is-visible")) tipEl.hidden = true;
+      };
+      if (immediate) finish();
+      else setTimeout(finish, 130);
+    };
+    if (immediate) clear();
+    else hideTimer = setTimeout(clear, 40);
+  }
+
+  document.addEventListener(
+    "pointerover",
+    (e) => {
+      if (e.pointerType === "touch") return;
+      if (Date.now() < touchLockedUntil) return;
+      const el = findTipTarget(e.target);
+      if (el) showTip(el);
+    },
+    true
+  );
+
+  document.addEventListener(
+    "pointerout",
+    (e) => {
+      if (e.pointerType === "touch") return;
+      if (!active) return;
+      const next = e.relatedTarget instanceof Element ? e.relatedTarget : null;
+      if (next && active.contains(next)) return;
+      if (next && findTipTarget(next) === active) return;
+      hideTip();
+    },
+    true
+  );
+
+  document.addEventListener(
+    "focusin",
+    (e) => {
+      const el = findTipTarget(e.target);
+      if (el) showTip(el);
+    },
+    true
+  );
+
+  document.addEventListener(
+    "focusout",
+    (e) => {
+      if (!active) return;
+      const next = e.relatedTarget instanceof Element ? e.relatedTarget : null;
+      if (next && findTipTarget(next) === active) return;
+      hideTip();
+    },
+    true
+  );
+
+  document.addEventListener(
+    "touchstart",
+    (e) => {
+      const el = findTipTarget(e.target);
+      clearTimeout(longPressTimer);
+      if (!el) {
+        hideTip(true);
+        return;
+      }
+      longPressTimer = setTimeout(() => {
+        touchLockedUntil = Date.now() + 900;
+        showTip(el);
+      }, 420);
+    },
+    { passive: true, capture: true }
+  );
+
+  document.addEventListener(
+    "touchend",
+    () => {
+      clearTimeout(longPressTimer);
+      if (active) {
+        touchLockedUntil = Date.now() + 900;
+        hideTimer = setTimeout(() => hideTip(true), 1100);
+      }
+    },
+    { passive: true, capture: true }
+  );
+
+  document.addEventListener(
+    "touchmove",
+    () => {
+      clearTimeout(longPressTimer);
+    },
+    { passive: true, capture: true }
+  );
+
+  document.addEventListener(
+    "keydown",
+    (e) => {
+      if (e.key === "Escape") hideTip(true);
+    },
+    true
+  );
+
+  window.addEventListener(
+    "scroll",
+    () => {
+      if (active) hideTip(true);
+    },
+    true
+  );
+
+  window.addEventListener("resize", () => {
+    if (active) hideTip(true);
+  });
+}

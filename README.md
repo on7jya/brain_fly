@@ -48,19 +48,23 @@ python3 server.py
 
 ```bash
 python3 scripts/fetch_mcns.py --skip-existing
-python3 scripts/fetch_fafb.py --skip-existing   # часто требует Google login
+python3 scripts/fetch_fafb.py --skip-existing   # по умолчанию — публичное GCS-зеркало (без Google)
 python3 scripts/build_circuit.py --expand-partners 6
 python3 scripts/build_datasets.py
 ```
 
-FAFB CSV: Codex отдаёт 401 без логина. Открой https://codex.flywire.ai/api/download?dataset=fafb, войди, положи файлы в `data/raw/fafb/` или вызови `fetch_fafb.py --cookie '...'`, затем `build_datasets.py`. Без CSV используется scaffold весов.
+### FAFB CSV (♀)
+
+1. **Без логина (рекомендуется):** `python3 scripts/fetch_fafb.py` тянет lee-lab GCS (`fafb_783_meta` + `simple_edgelist`) и пишет `data/raw/fafb/*.csv.gz`. Нужен `pyarrow` (`uv pip install pyarrow`).
+2. **Cookie Codex:** войди на https://codex.flywire.ai/api/download?dataset=fafb, скопируй Cookie → `export CODEX_COOKIE='...'` или файл `data/raw/fafb/.codex_cookie` (в `.gitignore`) → `python3 scripts/fetch_fafb.py --codex-only`.
+3. **Вручную:** положи `consolidated_cell_types.csv.gz` и `connections_princeton.csv.gz` в `data/raw/fafb/`, затем `build_datasets.py`. Без CSV — scaffold весов.
 
 ## Новые возможности (roadmap)
 
 1. **Реальные веса** — `build_circuit.py` предпочитает синаптические счётчики Explorer (`weight_source: explorer|heuristic|mirror`).
 2. **Codex deep-link** — тултип / шапка: `?dataset=` + поиск типа (FAFB / MCNS / BANC…).
-3. **♀↔♂ сравнение** — кнопка сравнения, `/api/compare` (scaffold, если FAFB CSV закрыт логином).
-4. **`scripts/fetch_fafb.py`** — зеркало Codex download; пишет `data/raw/fafb/STATUS.json`.
+3. **♀↔♂ сравнение** — кнопка сравнения, `/api/compare` (реальные веса, если FAFB CSV есть; иначе scaffold).
+4. **`scripts/fetch_fafb.py`** — публичное GCS-зеркало lee-lab (без Google) → CSV; иначе Codex + cookie / ручная выкладка; `STATUS.json`.
 5. **Переключатель датасетов** — MaleCNS / FAFB / BANC / MANC·VNC / MAOL → `circuit_*.json`.
 6. **Колонки** — overlay поля Tetris → optic columns L/R.
 7. **Авто-расширение** — `--expand-partners N` (топ-партнёры ключевых типов, cap `--max-nodes`).
@@ -98,6 +102,6 @@ FAFB CSV: Codex отдаёт 401 без логина. Открой https://codex
 - `data/raw/types/*.html` — синаптические таблицы контура
 - `data/processed/circuit_malecns.json` — основной игровой граф
 - `data/processed/circuit_{fafb,banc,manc,maol}.json` — альтернативы
-- `data/raw/fafb/STATUS.json` — статус загрузки FAFB (часто auth)
+- `data/raw/fafb/STATUS.json` — статус загрузки FAFB (зеркало / cookie / scaffold)
 
 Полный граф весов (~0.5–1 GB) и EM-том не качаются. Том: [Neuroglancer MaleCNS](https://neuroglancer-demo.appspot.com/#!gs://flyem-male-cns/v1.0/male-cns-v1.0.jso).

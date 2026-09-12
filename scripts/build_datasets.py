@@ -211,15 +211,26 @@ def build_comparison(mcns: dict, fafb: dict) -> dict:
 
 
 def _fafb_auth_note() -> str:
+    """Short RU note for UI when FAFB CSV is missing; empty if data is present."""
+    types = RAW_FAFB / "consolidated_cell_types.csv.gz"
+    conn = RAW_FAFB / "connections_princeton.csv.gz"
+    if not conn.exists():
+        conn = RAW_FAFB / "connections_princeton_no_threshold.csv.gz"
+    if types.exists() and conn.exists() and types.stat().st_size > 1000 and conn.stat().st_size > 1000:
+        return ""
     status = RAW_FAFB / "STATUS.json"
     if status.exists():
         try:
             st = json.loads(status.read_text())
-            if st.get("auth_required"):
-                return st.get("note") or "Codex FAFB download requires Google login."
+            if st.get("auth_required") or st.get("note_ru") or st.get("note"):
+                return (
+                    st.get("note_ru")
+                    or st.get("note")
+                    or "Нужен вход Codex или CSV в data/raw/fafb/ — сейчас scaffold."
+                )
         except json.JSONDecodeError:
             pass
-    return ""
+    return "FAFB CSV нет — scaffold. См. scripts/fetch_fafb.py (публичное зеркало или cookie)."
 
 
 def build_manc_vnc(mcns: dict) -> dict:

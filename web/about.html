@@ -17,9 +17,9 @@
       </div>
     </div>
     <nav class="links">
-      <a href="/">← к игре</a>
-      <a href="https://reiserlab.github.io/celltype-explorer-drosophila-male-cns/" target="_blank" rel="noreferrer">Cell Type Explorer</a>
-      <a href="https://codex.flywire.ai/" target="_blank" rel="noreferrer">Codex</a>
+      <a href="/" title="вернуться к игре">← к игре</a>
+      <a href="https://reiserlab.github.io/celltype-explorer-drosophila-male-cns/" target="_blank" rel="noreferrer" title="Cell Type Explorer MaleCNS">Cell Type Explorer</a>
+      <a href="https://codex.flywire.ai/" target="_blank" rel="noreferrer" title="поиск типов в Codex / FlyWire">Codex</a>
     </nav>
   </header>
 
@@ -29,6 +29,7 @@
       <p>
         Поле кодируется как зрительный вход. Сигнал проходит по реальному мотиву
         MaleCNS (R1–R6 → … → DNg13 → VNC). Descending neurons «решают» сдвиг, поворот и дроп.
+        На экране игры тот же конвейер: клик по стадии фильтрует карту; панель «?» объясняет каждую ступень.
       </p>
       <a class="tour-cta" href="/">Играть</a>
     </section>
@@ -66,21 +67,40 @@
       </article>
     </section>
 
+    <section class="tour-stages">
+      <h2>Девять ступеней конвейера</h2>
+      <p class="tour-stages-lead">
+        Во время партии активность бежит волной слева направо. Пик на бейдже «волна» и полоски под стадиями
+        показывают, где сейчас «горячо». Клик по стадии на экране игры оставляет только её узлы, связи и строки растра.
+      </p>
+      <ol class="tour-stage-ol">
+        <li><b style="color:#e9d5ff">фото</b> — R1–R6: пиксели доски → фоторецепторы</li>
+        <li><b style="color:#d8b4fe">lam</b> — ламина (L1–L3): локальный контраст по колонкам</li>
+        <li><b style="color:#c084fc">med</b> — медулла (Mi/Tm): движение и ориентация фигуры</li>
+        <li><b style="color:#a78bfa">lob</b> — lobula / LP: «объект» стека и текущей фигуры</li>
+        <li><b style="color:#818cf8">VPN</b> — проекции (LoVP92…): из optic lobe в центральный мозг</li>
+        <li><b style="color:#4ade80">центр</b> — AOTU / LAL / VES: интеграция L/R, подготовка руления</li>
+        <li><b style="color:#fbbf24">DN</b> — descending (DNg13, DNa02…): решение сдвиг / поворот</li>
+        <li><b style="color:#38bdf8">VNC</b> — брюшная цепь: моторные интернейроны (дроп и т.п.)</li>
+        <li><b style="color:#fb923c">act</b> — видимый ход на доске (сдвиг, поворот, дроп)</li>
+      </ol>
+    </section>
+
     <section class="tour-flow">
       <article class="tour-card">
         <div class="swatch" style="background:#7dd3fc"></div>
         <h3>Фильтр стадий</h3>
-        <p>Клик по стадии в конвейере подсвечивает только её узлы, связи, частицы и строки растра. «Все» сбрасывает.</p>
+        <p>Клик по стадии в конвейере подсвечивает только её узлы, связи, частицы и строки растра. «Все» или повторный клик сбрасывает. «Только активные» прячет тихие узлы.</p>
       </article>
       <article class="tour-card">
         <div class="swatch" style="background:#c084fc"></div>
         <h3>Нейропиль 3D</h3>
-        <p>Объёмные оболочки optic / central / DN / VNC с нейронами внутри. След решения при ходе мозга · режим «Только активные».</p>
+        <p>Объёмные оболочки optic / central / DN / VNC с нейронами внутри. След решения при ходе мозга · переключение на карту 2D.</p>
       </article>
       <article class="tour-card">
         <div class="swatch" style="background:#4ade80"></div>
         <h3>Каталоги</h3>
-        <p>Клик / тултип узла открывает Cell Type Explorer и поиск Codex / FlyWire по имени типа.</p>
+        <p>Клик / тултип узла открывает Cell Type Explorer и поиск Codex / FlyWire / Neuroglancer (NG) по имени типа.</p>
       </article>
     </section>
 

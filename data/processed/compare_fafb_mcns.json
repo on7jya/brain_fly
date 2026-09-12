@@ -1,13 +1,67 @@
 {
   "title": "\u2640 FAFB \u2194 \u2642 MaleCNS \u2014 \u0432\u0435\u0441\u0430 \u043f\u043e \u0442\u0438\u043f\u0430\u043c \u0432 \u0438\u0433\u0440\u043e\u0432\u043e\u043c \u043a\u043e\u043d\u0442\u0443\u0440\u0435",
-  "fafb_scaffold": true,
-  "auth_blocker": "Codex FAFB bulk CSV download requires FlyWire / Google login. Open https://codex.flywire.ai/api/download?dataset=fafb in a browser, sign in, then re-run with --cookie '...' or place CSVs manually under data/raw/fafb/. Roadmap continues with scaffolded FAFB circuit + MaleCNS comparison.",
+  "fafb_scaffold": false,
+  "auth_blocker": "",
   "rows": [
+    {
+      "type": "Mi1",
+      "male_mcns": 382,
+      "female_fafb": 200752,
+      "ratio_f_over_m": 524.159
+    },
+    {
+      "type": "L1",
+      "male_mcns": 374,
+      "female_fafb": 179074,
+      "ratio_f_over_m": 477.533
+    },
+    {
+      "type": "C2",
+      "male_mcns": 140,
+      "female_fafb": 85920,
+      "ratio_f_over_m": 609.369
+    },
+    {
+      "type": "T4a",
+      "male_mcns": 204,
+      "female_fafb": 73984,
+      "ratio_f_over_m": 360.902
+    },
+    {
+      "type": "L2",
+      "male_mcns": 432,
+      "female_fafb": 30120,
+      "ratio_f_over_m": 69.564
+    },
+    {
+      "type": "Mi4",
+      "male_mcns": 88,
+      "female_fafb": 23930,
+      "ratio_f_over_m": 268.888
+    },
+    {
+      "type": "Tm3",
+      "male_mcns": 272,
+      "female_fafb": 19872,
+      "ratio_f_over_m": 72.795
+    },
     {
       "type": "DNg13",
       "male_mcns": 8752,
-      "female_fafb": 7108,
-      "ratio_f_over_m": 0.812
+      "female_fafb": 10878,
+      "ratio_f_over_m": 1.243
+    },
+    {
+      "type": "T4b",
+      "male_mcns": 140,
+      "female_fafb": 19188,
+      "ratio_f_over_m": 136.092
+    },
+    {
+      "type": "LAL073",
+      "male_mcns": 928,
+      "female_fafb": 2728,
+      "ratio_f_over_m": 2.938
     },
     {
       "type": "IN16B045",
@@ -18,8 +72,8 @@
     {
       "type": "CB0244",
       "male_mcns": 1010,
-      "female_fafb": 854,
-      "ratio_f_over_m": 0.846
+      "female_fafb": 1914,
+      "ratio_f_over_m": 1.894
     },
     {
       "type": "IN19A016",
@@ -34,16 +88,16 @@
       "ratio_f_over_m": 0.707
     },
     {
-      "type": "LAL073",
-      "male_mcns": 928,
-      "female_fafb": 782,
-      "ratio_f_over_m": 0.843
-    },
-    {
       "type": "IN17A025",
       "male_mcns": 880,
       "female_fafb": 732,
       "ratio_f_over_m": 0.832
+    },
+    {
+      "type": "DNg97",
+      "male_mcns": 609,
+      "female_fafb": 869,
+      "ratio_f_over_m": 1.426
     },
     {
       "type": "GNG532",
@@ -58,18 +112,6 @@
       "ratio_f_over_m": 0.756
     },
     {
-      "type": "DNg97",
-      "male_mcns": 609,
-      "female_fafb": 515,
-      "ratio_f_over_m": 0.846
-    },
-    {
-      "type": "L2",
-      "male_mcns": 432,
-      "female_fafb": 440,
-      "ratio_f_over_m": 1.018
-    },
-    {
       "type": "DNp13",
       "male_mcns": 468,
       "female_fafb": 394,
@@ -78,8 +120,8 @@
     {
       "type": "OA-VUMa1",
       "male_mcns": 442,
-      "female_fafb": 394,
-      "ratio_f_over_m": 0.892
+      "female_fafb": 410,
+      "ratio_f_over_m": 0.928
     },
     {
       "type": "R1-R6",
@@ -88,28 +130,16 @@
       "ratio_f_over_m": 0.971
     },
     {
-      "type": "Mi1",
-      "male_mcns": 382,
-      "female_fafb": 404,
-      "ratio_f_over_m": 1.057
-    },
-    {
       "type": "IN17A022",
       "male_mcns": 416,
       "female_fafb": 344,
       "ratio_f_over_m": 0.827
     },
     {
-      "type": "L1",
-      "male_mcns": 374,
-      "female_fafb": 378,
-      "ratio_f_over_m": 1.011
-    },
-    {
       "type": "AOTU019",
       "male_mcns": 362,
-      "female_fafb": 316,
-      "ratio_f_over_m": 0.873
+      "female_fafb": 374,
+      "ratio_f_over_m": 1.033
     },
     {
       "type": "IN13B006",
@@ -124,40 +154,22 @@
       "ratio_f_over_m": 0.897
     },
     {
-      "type": "Tm3",
-      "male_mcns": 272,
-      "female_fafb": 278,
-      "ratio_f_over_m": 1.022
-    },
-    {
-      "type": "T4a",
-      "male_mcns": 204,
-      "female_fafb": 216,
-      "ratio_f_over_m": 1.059
+      "type": "L3",
+      "male_mcns": 182,
+      "female_fafb": 276,
+      "ratio_f_over_m": 1.514
     },
     {
       "type": "T5a",
       "male_mcns": 176,
-      "female_fafb": 186,
-      "ratio_f_over_m": 1.056
-    },
-    {
-      "type": "L3",
-      "male_mcns": 182,
-      "female_fafb": 172,
-      "ratio_f_over_m": 0.945
+      "female_fafb": 134,
+      "ratio_f_over_m": 0.763
     },
     {
       "type": "MeTu1",
       "male_mcns": 176,
-      "female_fafb": 164,
-      "ratio_f_over_m": 0.932
-    },
-    {
-      "type": "LC10a",
-      "male_mcns": 170,
-      "female_fafb": 163,
-      "ratio_f_over_m": 0.959
+      "female_fafb": 122,
+      "ratio_f_over_m": 0.695
     },
     {
       "type": "LC10b",
@@ -166,22 +178,22 @@
       "ratio_f_over_m": 0.882
     },
     {
-      "type": "T4b",
-      "male_mcns": 140,
-      "female_fafb": 146,
-      "ratio_f_over_m": 1.043
+      "type": "LC10a",
+      "male_mcns": 170,
+      "female_fafb": 111,
+      "ratio_f_over_m": 0.655
     },
     {
-      "type": "C2",
-      "male_mcns": 140,
-      "female_fafb": 134,
-      "ratio_f_over_m": 0.957
+      "type": "LAL016",
+      "male_mcns": 52,
+      "female_fafb": 150,
+      "ratio_f_over_m": 2.849
     },
     {
-      "type": "Mi4",
-      "male_mcns": 88,
-      "female_fafb": 90,
-      "ratio_f_over_m": 1.022
+      "type": "DNge119",
+      "male_mcns": 24,
+      "female_fafb": 162,
+      "ratio_f_over_m": 6.52
     },
     {
       "type": "LC6",
@@ -202,10 +214,10 @@
       "ratio_f_over_m": 0.901
     },
     {
-      "type": "LAL016",
-      "male_mcns": 52,
-      "female_fafb": 44,
-      "ratio_f_over_m": 0.849
+      "type": "PVLP114",
+      "male_mcns": 30,
+      "female_fafb": 70,
+      "ratio_f_over_m": 2.29
     },
     {
       "type": "AN05B007",
@@ -214,10 +226,10 @@
       "ratio_f_over_m": 0.907
     },
     {
-      "type": "PVLP114",
-      "male_mcns": 30,
+      "type": "SIP022",
+      "male_mcns": 28,
       "female_fafb": 26,
-      "ratio_f_over_m": 0.871
+      "ratio_f_over_m": 0.931
     },
     {
       "type": "Y12",
@@ -226,22 +238,10 @@
       "ratio_f_over_m": 0.806
     },
     {
-      "type": "SIP022",
-      "male_mcns": 28,
-      "female_fafb": 24,
-      "ratio_f_over_m": 0.862
-    },
-    {
       "type": "IN09A002",
       "male_mcns": 28,
       "female_fafb": 23,
       "ratio_f_over_m": 0.828
-    },
-    {
-      "type": "AN06B009",
-      "male_mcns": 26,
-      "female_fafb": 20,
-      "ratio_f_over_m": 0.778
     }
   ]
 }

@@ -1,19 +1,19 @@
 {
   "source": {
-    "name": "FAFB v783 scaffold (\u2640)",
+    "name": "FAFB v783 (FlyWire \u2640 brain)",
     "dataset": "fafb",
     "dataset_id": "male-cns:v1.0",
     "sex": "female",
     "uuid": "4b2087c0fbe046bfaf0d60bc970e3e5d",
     "neurons": 139255,
-    "synapses": null,
+    "synapses": 125000000,
     "types_in_catalog": 11751,
     "blog": "https://research.google/blog/a-connectomics-milestone-mapping-the-complete-male-fruit-fly-brain/",
     "portal": "https://male-cns.janelia.org/",
     "neuprint": "https://neuprint.janelia.org/",
     "codex": "https://codex.flywire.ai/?dataset=fafb",
     "codex_dataset": "fafb",
-    "neuroglancer": "https://codex.flywire.ai/?dataset=fafb",
+    "neuroglancer": "https://neuroglancer-demo.appspot.com/#!gs://flywire_fafb_public/",
     "explorer": "https://reiserlab.github.io/celltype-explorer-drosophila-male-cns/",
     "annotations": "gs://flyem-male-cns/v1.0/connectome-data/flat-connectome/body-annotations-male-cns-v1.0-minconf-0.5.feather",
     "license": "CC-BY",
@@ -23,9 +23,9 @@
       "mirror": 2,
       "explorer_hits_raw": 282
     },
-    "note": "Scaffolded female weight set: MaleCNS topology \u00d7 public/literature-ish scales. Replace by running scripts/fetch_fafb.py after Codex login, then rebuild.",
-    "scaffold": true,
-    "auth_blocker": "Codex FAFB bulk CSV download requires FlyWire / Google login. Open https://codex.flywire.ai/api/download?dataset=fafb in a browser, sign in, then re-run with --cookie '...' or place CSVs manually under data/raw/fafb/. Roadmap continues with scaffolded FAFB circuit + MaleCNS comparison."
+    "note": "Female FlyWire brain weights where CSV available; VNC nodes are gameplay stubs (FAFB is brain-only).",
+    "scaffold": false,
+    "fafb_csv_hits": 79
   },
   "nodes": [
     {
@@ -1303,7 +1303,8 @@
       "layer": "T2",
       "n_cells": 3,
       "body_ids": [],
-      "official": true
+      "official": true,
+      "dataset_note": "FAFB has no native VNC \u2014 VNC nodes are gameplay stubs"
     },
     {
       "id": "IN19A016_L",
@@ -1317,7 +1318,8 @@
       "layer": "T1",
       "n_cells": 1,
       "body_ids": [],
-      "official": true
+      "official": true,
+      "dataset_note": "FAFB has no native VNC \u2014 VNC nodes are gameplay stubs"
     },
     {
       "id": "IN17A025_L",
@@ -1331,7 +1333,8 @@
       "layer": "T3",
       "n_cells": 1,
       "body_ids": [],
-      "official": true
+      "official": true,
+      "dataset_note": "FAFB has no native VNC \u2014 VNC nodes are gameplay stubs"
     },
     {
       "id": "IN16B045_R",
@@ -1345,7 +1348,8 @@
       "layer": "T2",
       "n_cells": 4,
       "body_ids": [],
-      "official": true
+      "official": true,
+      "dataset_note": "FAFB has no native VNC \u2014 VNC nodes are gameplay stubs"
     },
     {
       "id": "IN19A016_R",
@@ -1359,7 +1363,8 @@
       "layer": "T1",
       "n_cells": 1,
       "body_ids": [],
-      "official": true
+      "official": true,
+      "dataset_note": "FAFB has no native VNC \u2014 VNC nodes are gameplay stubs"
     },
     {
       "id": "IN17A025_R",
@@ -1373,7 +1378,8 @@
       "layer": "T3",
       "n_cells": 1,
       "body_ids": [],
-      "official": true
+      "official": true,
+      "dataset_note": "FAFB has no native VNC \u2014 VNC nodes are gameplay stubs"
     }
   ],
   "edges": [
@@ -1383,8 +1389,8 @@
       "weight": 3,
       "nt": "Glu",
       "sign": -1,
-      "evidence": "Cell Type Explorer VES200m upstream \u00b7 fafb scaffold scale 0.78",
-      "weight_source": "explorer+fafb_scale"
+      "evidence": "FAFB scaffold (pair missing in CSV aggregate)",
+      "weight_source": "fafb_scaffold"
     },
     {
       "pre": "AOTU103m_L",
@@ -1392,8 +1398,8 @@
       "weight": 3,
       "nt": "Glu",
       "sign": -1,
-      "evidence": "Cell Type Explorer VES200m upstream \u00b7 fafb scaffold scale 0.78",
-      "weight_source": "explorer+fafb_scale"
+      "evidence": "FAFB scaffold (pair missing in CSV aggregate)",
+      "weight_source": "fafb_scaffold"
     },
     {
       "pre": "SIP022_L",
@@ -1401,8 +1407,8 @@
       "weight": 2,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer VES200m upstream \u00b7 fafb scaffold scale 0.78",
-      "weight_source": "explorer+fafb_scale"
+      "evidence": "FAFB scaffold (pair missing in CSV aggregate)",
+      "weight_source": "fafb_scaffold"
     },
     {
       "pre": "SIP022_L",
@@ -1410,8 +1416,8 @@
       "weight": 2,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer VES200m upstream \u00b7 fafb scaffold scale 0.78",
-      "weight_source": "explorer+fafb_scale"
+      "evidence": "FAFB scaffold (pair missing in CSV aggregate)",
+      "weight_source": "fafb_scaffold"
     },
     {
       "pre": "VES085_a_L",
@@ -1419,8 +1425,8 @@
       "weight": 2,
       "nt": "GABA",
       "sign": -1,
-      "evidence": "Cell Type Explorer VES200m upstream \u00b7 fafb scaffold scale 0.78",
-      "weight_source": "explorer+fafb_scale"
+      "evidence": "FAFB scaffold (pair missing in CSV aggregate)",
+      "weight_source": "fafb_scaffold"
     },
     {
       "pre": "VES085_a_L",
@@ -1428,8 +1434,8 @@
       "weight": 2,
       "nt": "GABA",
       "sign": -1,
-      "evidence": "Cell Type Explorer VES200m upstream \u00b7 fafb scaffold scale 0.78",
-      "weight_source": "explorer+fafb_scale"
+      "evidence": "FAFB scaffold (pair missing in CSV aggregate)",
+      "weight_source": "fafb_scaffold"
     },
     {
       "pre": "VES200m_L",
@@ -1437,8 +1443,8 @@
       "weight": 5,
       "nt": "GABA",
       "sign": -1,
-      "evidence": "Cell Type Explorer VES200m downstream \u00b7 fafb scaffold scale 0.78",
-      "weight_source": "explorer+fafb_scale"
+      "evidence": "FAFB scaffold (pair missing in CSV aggregate)",
+      "weight_source": "fafb_scaffold"
     },
     {
       "pre": "VES200m_R",
@@ -1446,8 +1452,8 @@
       "weight": 5,
       "nt": "GABA",
       "sign": -1,
-      "evidence": "Cell Type Explorer VES200m downstream \u00b7 fafb scaffold scale 0.78",
-      "weight_source": "explorer+fafb_scale"
+      "evidence": "FAFB scaffold (pair missing in CSV aggregate)",
+      "weight_source": "fafb_scaffold"
     },
     {
       "pre": "VES200m_L",
@@ -1455,8 +1461,8 @@
       "weight": 3,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer VES200m downstream \u00b7 fafb scaffold scale 0.78",
-      "weight_source": "explorer+fafb_scale"
+      "evidence": "FAFB scaffold (pair missing in CSV aggregate)",
+      "weight_source": "fafb_scaffold"
     },
     {
       "pre": "VES200m_R",
@@ -1464,8 +1470,8 @@
       "weight": 3,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer VES200m downstream \u00b7 fafb scaffold scale 0.78",
-      "weight_source": "explorer+fafb_scale"
+      "evidence": "FAFB scaffold (pair missing in CSV aggregate)",
+      "weight_source": "fafb_scaffold"
     },
     {
       "pre": "VES200m_L",
@@ -1473,8 +1479,8 @@
       "weight": 2,
       "nt": "Glu",
       "sign": -1,
-      "evidence": "Cell Type Explorer VES200m downstream \u00b7 fafb scaffold scale 0.78",
-      "weight_source": "explorer+fafb_scale"
+      "evidence": "FAFB scaffold (pair missing in CSV aggregate)",
+      "weight_source": "fafb_scaffold"
     },
     {
       "pre": "VES200m_R",
@@ -1482,8 +1488,8 @@
       "weight": 2,
       "nt": "Glu",
       "sign": -1,
-      "evidence": "Cell Type Explorer VES200m downstream \u00b7 fafb scaffold scale 0.78",
-      "weight_source": "explorer+fafb_scale"
+      "evidence": "FAFB scaffold (pair missing in CSV aggregate)",
+      "weight_source": "fafb_scaffold"
     },
     {
       "pre": "PS065_L",
@@ -1491,8 +1497,8 @@
       "weight": 5,
       "nt": "GABA",
       "sign": -1,
-      "evidence": "Cell Type Explorer VES200m_R upstream \u00b7 fafb scaffold scale 0.78",
-      "weight_source": "explorer+fafb_scale"
+      "evidence": "FAFB scaffold (pair missing in CSV aggregate)",
+      "weight_source": "fafb_scaffold"
     },
     {
       "pre": "PS065_L",
@@ -1500,8 +1506,8 @@
       "weight": 5,
       "nt": "GABA",
       "sign": -1,
-      "evidence": "Cell Type Explorer VES200m_R upstream \u00b7 fafb scaffold scale 0.78",
-      "weight_source": "explorer+fafb_scale"
+      "evidence": "FAFB scaffold (pair missing in CSV aggregate)",
+      "weight_source": "fafb_scaffold"
     },
     {
       "pre": "LAL073_L",
@@ -1509,8 +1515,8 @@
       "weight": 3,
       "nt": "Glu",
       "sign": -1,
-      "evidence": "Cell Type Explorer VES200m_R upstream \u00b7 fafb scaffold scale 0.78",
-      "weight_source": "explorer+fafb_scale"
+      "evidence": "FAFB scaffold (pair missing in CSV aggregate)",
+      "weight_source": "fafb_scaffold"
     },
     {
       "pre": "LAL073_L",
@@ -1518,8 +1524,8 @@
       "weight": 3,
       "nt": "Glu",
       "sign": -1,
-      "evidence": "Cell Type Explorer VES200m_R upstream \u00b7 fafb scaffold scale 0.78",
-      "weight_source": "explorer+fafb_scale"
+      "evidence": "FAFB scaffold (pair missing in CSV aggregate)",
+      "weight_source": "fafb_scaffold"
     },
     {
       "pre": "VES200m_L",
@@ -1527,8 +1533,8 @@
       "weight": 5,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer VES200m_R downstream \u00b7 fafb scaffold scale 0.78",
-      "weight_source": "explorer+fafb_scale"
+      "evidence": "FAFB scaffold (pair missing in CSV aggregate)",
+      "weight_source": "fafb_scaffold"
     },
     {
       "pre": "VES200m_R",
@@ -1536,8 +1542,8 @@
       "weight": 5,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer VES200m_R downstream \u00b7 fafb scaffold scale 0.78",
-      "weight_source": "explorer+fafb_scale"
+      "evidence": "FAFB scaffold (pair missing in CSV aggregate)",
+      "weight_source": "fafb_scaffold"
     },
     {
       "pre": "VES200m_L",
@@ -1545,8 +1551,8 @@
       "weight": 5,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer VES200m_R downstream \u00b7 fafb scaffold scale 0.78",
-      "weight_source": "explorer+fafb_scale"
+      "evidence": "FAFB scaffold (pair missing in CSV aggregate)",
+      "weight_source": "fafb_scaffold"
     },
     {
       "pre": "VES200m_R",
@@ -1554,8 +1560,8 @@
       "weight": 5,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer VES200m_R downstream \u00b7 fafb scaffold scale 0.78",
-      "weight_source": "explorer+fafb_scale"
+      "evidence": "FAFB scaffold (pair missing in CSV aggregate)",
+      "weight_source": "fafb_scaffold"
     },
     {
       "pre": "VES200m_L",
@@ -1563,8 +1569,8 @@
       "weight": 2,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer VES200m_R downstream \u00b7 fafb scaffold scale 0.68",
-      "weight_source": "explorer+fafb_scale"
+      "evidence": "FAFB scaffold (pair missing in CSV aggregate)",
+      "weight_source": "fafb_scaffold"
     },
     {
       "pre": "VES200m_R",
@@ -1572,8 +1578,8 @@
       "weight": 2,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer VES200m_R downstream \u00b7 fafb scaffold scale 0.68",
-      "weight_source": "explorer+fafb_scale"
+      "evidence": "FAFB scaffold (pair missing in CSV aggregate)",
+      "weight_source": "fafb_scaffold"
     },
     {
       "pre": "VES200m_L",
@@ -1581,8 +1587,8 @@
       "weight": 2,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer VES200m_R downstream \u00b7 fafb scaffold scale 0.78",
-      "weight_source": "explorer+fafb_scale"
+      "evidence": "FAFB scaffold (pair missing in CSV aggregate)",
+      "weight_source": "fafb_scaffold"
     },
     {
       "pre": "VES200m_R",
@@ -1590,8 +1596,8 @@
       "weight": 2,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer VES200m_R downstream \u00b7 fafb scaffold scale 0.78",
-      "weight_source": "explorer+fafb_scale"
+      "evidence": "FAFB scaffold (pair missing in CSV aggregate)",
+      "weight_source": "fafb_scaffold"
     },
     {
       "pre": "VES200m_L",
@@ -1599,8 +1605,8 @@
       "weight": 3,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer VES200m_L downstream \u00b7 fafb scaffold scale 0.68",
-      "weight_source": "explorer+fafb_scale"
+      "evidence": "FAFB scaffold (pair missing in CSV aggregate)",
+      "weight_source": "fafb_scaffold"
     },
     {
       "pre": "VES200m_R",
@@ -1608,8 +1614,8 @@
       "weight": 3,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer VES200m_L downstream \u00b7 fafb scaffold scale 0.68",
-      "weight_source": "explorer+fafb_scale"
+      "evidence": "FAFB scaffold (pair missing in CSV aggregate)",
+      "weight_source": "fafb_scaffold"
     },
     {
       "pre": "VES200m_L",
@@ -1617,8 +1623,8 @@
       "weight": 1,
       "nt": "GABA",
       "sign": -1,
-      "evidence": "Cell Type Explorer VES200m_R downstream \u00b7 fafb scaffold scale 0.78",
-      "weight_source": "explorer+fafb_scale"
+      "evidence": "FAFB scaffold (pair missing in CSV aggregate)",
+      "weight_source": "fafb_scaffold"
     },
     {
       "pre": "VES200m_R",
@@ -1626,8 +1632,8 @@
       "weight": 1,
       "nt": "GABA",
       "sign": -1,
-      "evidence": "Cell Type Explorer VES200m_R downstream \u00b7 fafb scaffold scale 0.78",
-      "weight_source": "explorer+fafb_scale"
+      "evidence": "FAFB scaffold (pair missing in CSV aggregate)",
+      "weight_source": "fafb_scaffold"
     },
     {
       "pre": "VES200m_L",
@@ -1635,8 +1641,8 @@
       "weight": 1,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer VES200m_R downstream \u00b7 fafb scaffold scale 0.78",
-      "weight_source": "explorer+fafb_scale"
+      "evidence": "FAFB scaffold (pair missing in CSV aggregate)",
+      "weight_source": "fafb_scaffold"
     },
     {
       "pre": "VES200m_R",
@@ -1644,8 +1650,8 @@
       "weight": 1,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer VES200m_R downstream \u00b7 fafb scaffold scale 0.78",
-      "weight_source": "explorer+fafb_scale"
+      "evidence": "FAFB scaffold (pair missing in CSV aggregate)",
+      "weight_source": "fafb_scaffold"
     },
     {
       "pre": "VES200m_L",
@@ -1653,8 +1659,8 @@
       "weight": 1,
       "nt": "OA",
       "sign": 1,
-      "evidence": "Cell Type Explorer VES200m_R downstream \u00b7 fafb scaffold scale 0.78",
-      "weight_source": "explorer+fafb_scale"
+      "evidence": "FAFB scaffold (pair missing in CSV aggregate)",
+      "weight_source": "fafb_scaffold"
     },
     {
       "pre": "VES200m_R",
@@ -1662,8 +1668,8 @@
       "weight": 1,
       "nt": "OA",
       "sign": 1,
-      "evidence": "Cell Type Explorer VES200m_R downstream \u00b7 fafb scaffold scale 0.78",
-      "weight_source": "explorer+fafb_scale"
+      "evidence": "FAFB scaffold (pair missing in CSV aggregate)",
+      "weight_source": "fafb_scaffold"
     },
     {
       "pre": "AN05B007_L",
@@ -1671,8 +1677,8 @@
       "weight": 7,
       "nt": "GABA",
       "sign": -1,
-      "evidence": "Cell Type Explorer GNG532 upstream \u00b7 fafb scaffold scale 0.90",
-      "weight_source": "explorer+fafb_scale"
+      "evidence": "FAFB scaffold (pair missing in CSV aggregate)",
+      "weight_source": "fafb_scaffold"
     },
     {
       "pre": "AN05B007_L",
@@ -1680,8 +1686,8 @@
       "weight": 7,
       "nt": "GABA",
       "sign": -1,
-      "evidence": "Cell Type Explorer GNG532 upstream \u00b7 fafb scaffold scale 0.90",
-      "weight_source": "explorer+fafb_scale"
+      "evidence": "FAFB scaffold (pair missing in CSV aggregate)",
+      "weight_source": "fafb_scaffold"
     },
     {
       "pre": "DNg13_L",
@@ -1689,8 +1695,8 @@
       "weight": 1,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer GNG532 upstream \u00b7 fafb scaffold scale 0.82",
-      "weight_source": "explorer+fafb_scale"
+      "evidence": "FAFB scaffold (pair missing in CSV aggregate)",
+      "weight_source": "fafb_scaffold"
     },
     {
       "pre": "DNg13_R",
@@ -1698,8 +1704,8 @@
       "weight": 2,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer DNg13_R downstream \u00b7 fafb scaffold scale 0.82",
-      "weight_source": "explorer+fafb_scale"
+      "evidence": "FAFB scaffold (pair missing in CSV aggregate)",
+      "weight_source": "fafb_scaffold"
     },
     {
       "pre": "GNG532_L",
@@ -1707,8 +1713,8 @@
       "weight": 1,
       "nt": "GABA",
       "sign": -1,
-      "evidence": "Cell Type Explorer GNG532 downstream \u00b7 fafb scaffold scale 0.90",
-      "weight_source": "explorer+fafb_scale"
+      "evidence": "FAFB scaffold (pair missing in CSV aggregate)",
+      "weight_source": "fafb_scaffold"
     },
     {
       "pre": "GNG532_R",
@@ -1716,26 +1722,26 @@
       "weight": 1,
       "nt": "GABA",
       "sign": -1,
-      "evidence": "Cell Type Explorer GNG532 downstream \u00b7 fafb scaffold scale 0.90",
-      "weight_source": "explorer+fafb_scale"
+      "evidence": "FAFB scaffold (pair missing in CSV aggregate)",
+      "weight_source": "fafb_scaffold"
     },
     {
       "pre": "OA-VUMa1",
       "post": "LAL073_L",
-      "weight": 32,
-      "nt": "OA",
+      "weight": 30,
+      "nt": "octopamine",
       "sign": 1,
-      "evidence": "Cell Type Explorer LAL073 upstream \u00b7 fafb scaffold scale 0.90",
-      "weight_source": "explorer+fafb_scale"
+      "evidence": "FAFB Codex connections aggregated by cell type",
+      "weight_source": "fafb_csv"
     },
     {
       "pre": "OA-VUMa1",
       "post": "LAL073_R",
-      "weight": 32,
-      "nt": "OA",
+      "weight": 30,
+      "nt": "octopamine",
       "sign": 1,
-      "evidence": "Cell Type Explorer LAL073 upstream \u00b7 fafb scaffold scale 0.90",
-      "weight_source": "explorer+fafb_scale"
+      "evidence": "FAFB Codex connections aggregated by cell type",
+      "weight_source": "fafb_csv"
     },
     {
       "pre": "SLP450_L",
@@ -1743,8 +1749,8 @@
       "weight": 5,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer LAL073 upstream \u00b7 fafb scaffold scale 0.90",
-      "weight_source": "explorer+fafb_scale"
+      "evidence": "FAFB scaffold (pair missing in CSV aggregate)",
+      "weight_source": "fafb_scaffold"
     },
     {
       "pre": "SLP450_L",
@@ -1752,8 +1758,8 @@
       "weight": 5,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer LAL073 upstream \u00b7 fafb scaffold scale 0.90",
-      "weight_source": "explorer+fafb_scale"
+      "evidence": "FAFB scaffold (pair missing in CSV aggregate)",
+      "weight_source": "fafb_scaffold"
     },
     {
       "pre": "LAL205_L",
@@ -1761,8 +1767,8 @@
       "weight": 3,
       "nt": "GABA",
       "sign": -1,
-      "evidence": "Cell Type Explorer LAL073 upstream \u00b7 fafb scaffold scale 0.90",
-      "weight_source": "explorer+fafb_scale"
+      "evidence": "FAFB scaffold (pair missing in CSV aggregate)",
+      "weight_source": "fafb_scaffold"
     },
     {
       "pre": "LAL205_L",
@@ -1770,26 +1776,26 @@
       "weight": 3,
       "nt": "GABA",
       "sign": -1,
-      "evidence": "Cell Type Explorer LAL073 upstream \u00b7 fafb scaffold scale 0.90",
-      "weight_source": "explorer+fafb_scale"
+      "evidence": "FAFB scaffold (pair missing in CSV aggregate)",
+      "weight_source": "fafb_scaffold"
     },
     {
       "pre": "PVLP114_L",
       "post": "LAL073_L",
-      "weight": 3,
-      "nt": "ACh",
+      "weight": 2,
+      "nt": "acetylcholine",
       "sign": 1,
-      "evidence": "Cell Type Explorer LAL073 upstream \u00b7 fafb scaffold scale 0.90",
-      "weight_source": "explorer+fafb_scale"
+      "evidence": "FAFB Codex connections aggregated by cell type",
+      "weight_source": "fafb_csv"
     },
     {
       "pre": "PVLP114_L",
       "post": "LAL073_R",
-      "weight": 3,
-      "nt": "ACh",
+      "weight": 2,
+      "nt": "acetylcholine",
       "sign": 1,
-      "evidence": "Cell Type Explorer LAL073 upstream \u00b7 fafb scaffold scale 0.90",
-      "weight_source": "explorer+fafb_scale"
+      "evidence": "FAFB Codex connections aggregated by cell type",
+      "weight_source": "fafb_csv"
     },
     {
       "pre": "CB0244_L",
@@ -1797,8 +1803,8 @@
       "weight": 1,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer LAL073 upstream \u00b7 fafb scaffold scale 0.90",
-      "weight_source": "explorer+fafb_scale"
+      "evidence": "FAFB scaffold (pair missing in CSV aggregate)",
+      "weight_source": "fafb_scaffold"
     },
     {
       "pre": "CB0244_R",
@@ -1806,26 +1812,26 @@
       "weight": 1,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer LAL073 upstream \u00b7 fafb scaffold scale 0.90",
-      "weight_source": "explorer+fafb_scale"
+      "evidence": "FAFB scaffold (pair missing in CSV aggregate)",
+      "weight_source": "fafb_scaffold"
     },
     {
       "pre": "LAL073_L",
       "post": "CB2143_L",
-      "weight": 4,
-      "nt": "ACh",
+      "weight": 1,
+      "nt": "glutamate",
       "sign": 1,
-      "evidence": "Cell Type Explorer LAL073 downstream \u00b7 fafb scaffold scale 0.90",
-      "weight_source": "explorer+fafb_scale"
+      "evidence": "FAFB Codex connections aggregated by cell type",
+      "weight_source": "fafb_csv"
     },
     {
       "pre": "LAL073_R",
       "post": "CB2143_L",
-      "weight": 4,
-      "nt": "ACh",
+      "weight": 1,
+      "nt": "glutamate",
       "sign": 1,
-      "evidence": "Cell Type Explorer LAL073 downstream \u00b7 fafb scaffold scale 0.90",
-      "weight_source": "explorer+fafb_scale"
+      "evidence": "FAFB Codex connections aggregated by cell type",
+      "weight_source": "fafb_csv"
     },
     {
       "pre": "LAL073_L",
@@ -1833,8 +1839,8 @@
       "weight": 4,
       "nt": "Glu",
       "sign": -1,
-      "evidence": "Cell Type Explorer LAL073 downstream \u00b7 fafb scaffold scale 0.90",
-      "weight_source": "explorer+fafb_scale"
+      "evidence": "FAFB scaffold (pair missing in CSV aggregate)",
+      "weight_source": "fafb_scaffold"
     },
     {
       "pre": "LAL073_R",
@@ -1842,8 +1848,8 @@
       "weight": 4,
       "nt": "Glu",
       "sign": -1,
-      "evidence": "Cell Type Explorer LAL073 downstream \u00b7 fafb scaffold scale 0.90",
-      "weight_source": "explorer+fafb_scale"
+      "evidence": "FAFB scaffold (pair missing in CSV aggregate)",
+      "weight_source": "fafb_scaffold"
     },
     {
       "pre": "OA-VUMa1",
@@ -1851,8 +1857,8 @@
       "weight": 37,
       "nt": "OA",
       "sign": 1,
-      "evidence": "Cell Type Explorer AOTU019 upstream \u00b7 fafb scaffold scale 0.90",
-      "weight_source": "explorer+fafb_scale"
+      "evidence": "FAFB scaffold (pair missing in CSV aggregate)",
+      "weight_source": "fafb_scaffold"
     },
     {
       "pre": "OA-VUMa1",
@@ -1860,62 +1866,62 @@
       "weight": 37,
       "nt": "OA",
       "sign": 1,
-      "evidence": "Cell Type Explorer AOTU019 upstream \u00b7 fafb scaffold scale 0.90",
-      "weight_source": "explorer+fafb_scale"
+      "evidence": "FAFB scaffold (pair missing in CSV aggregate)",
+      "weight_source": "fafb_scaffold"
     },
     {
       "pre": "AOTU019_L",
       "post": "OA-VUMa1",
-      "weight": 14,
-      "nt": "OA",
+      "weight": 6,
+      "nt": "gaba",
       "sign": 1,
-      "evidence": "Cell Type Explorer AOTU019 downstream \u00b7 fafb scaffold scale 0.90",
-      "weight_source": "explorer+fafb_scale"
+      "evidence": "FAFB Codex connections aggregated by cell type",
+      "weight_source": "fafb_csv"
     },
     {
       "pre": "AOTU019_R",
       "post": "OA-VUMa1",
-      "weight": 14,
-      "nt": "OA",
+      "weight": 6,
+      "nt": "gaba",
       "sign": 1,
-      "evidence": "Cell Type Explorer AOTU019 downstream \u00b7 fafb scaffold scale 0.90",
-      "weight_source": "explorer+fafb_scale"
+      "evidence": "FAFB Codex connections aggregated by cell type",
+      "weight_source": "fafb_csv"
     },
     {
       "pre": "AOTU019_L",
       "post": "SIP022_L",
-      "weight": 4,
-      "nt": "ACh",
+      "weight": 5,
+      "nt": "gaba",
       "sign": 1,
-      "evidence": "Cell Type Explorer AOTU019 downstream \u00b7 fafb scaffold scale 0.90",
-      "weight_source": "explorer+fafb_scale"
+      "evidence": "FAFB Codex connections aggregated by cell type",
+      "weight_source": "fafb_csv"
     },
     {
       "pre": "AOTU019_R",
       "post": "SIP022_L",
-      "weight": 4,
-      "nt": "ACh",
+      "weight": 5,
+      "nt": "gaba",
       "sign": 1,
-      "evidence": "Cell Type Explorer AOTU019 downstream \u00b7 fafb scaffold scale 0.90",
-      "weight_source": "explorer+fafb_scale"
+      "evidence": "FAFB Codex connections aggregated by cell type",
+      "weight_source": "fafb_csv"
     },
     {
       "pre": "AOTU019_L",
       "post": "LAL016_L",
       "weight": 1,
-      "nt": "ACh",
+      "nt": "gaba",
       "sign": 1,
-      "evidence": "Cell Type Explorer AOTU019 downstream \u00b7 fafb scaffold scale 0.90",
-      "weight_source": "explorer+fafb_scale"
+      "evidence": "FAFB Codex connections aggregated by cell type",
+      "weight_source": "fafb_csv"
     },
     {
       "pre": "AOTU019_R",
       "post": "LAL016_L",
       "weight": 1,
-      "nt": "ACh",
+      "nt": "gaba",
       "sign": 1,
-      "evidence": "Cell Type Explorer AOTU019 downstream \u00b7 fafb scaffold scale 0.90",
-      "weight_source": "explorer+fafb_scale"
+      "evidence": "FAFB Codex connections aggregated by cell type",
+      "weight_source": "fafb_csv"
     },
     {
       "pre": "AOTU019_L",
@@ -1923,8 +1929,8 @@
       "weight": 1,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer AOTU019 downstream \u00b7 fafb scaffold scale 0.90",
-      "weight_source": "explorer+fafb_scale"
+      "evidence": "FAFB scaffold (pair missing in CSV aggregate)",
+      "weight_source": "fafb_scaffold"
     },
     {
       "pre": "AOTU019_R",
@@ -1932,8 +1938,8 @@
       "weight": 1,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer AOTU019 downstream \u00b7 fafb scaffold scale 0.90",
-      "weight_source": "explorer+fafb_scale"
+      "evidence": "FAFB scaffold (pair missing in CSV aggregate)",
+      "weight_source": "fafb_scaffold"
     },
     {
       "pre": "PVLP114_L",
@@ -1941,8 +1947,8 @@
       "weight": 1,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer VES200m_L upstream \u00b7 fafb scaffold scale 0.78",
-      "weight_source": "explorer+fafb_scale"
+      "evidence": "FAFB scaffold (pair missing in CSV aggregate)",
+      "weight_source": "fafb_scaffold"
     },
     {
       "pre": "PVLP114_L",
@@ -1950,8 +1956,8 @@
       "weight": 1,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer VES200m_L upstream \u00b7 fafb scaffold scale 0.78",
-      "weight_source": "explorer+fafb_scale"
+      "evidence": "FAFB scaffold (pair missing in CSV aggregate)",
+      "weight_source": "fafb_scaffold"
     },
     {
       "pre": "OA-VUMa1",
@@ -1959,8 +1965,8 @@
       "weight": 18,
       "nt": "OA",
       "sign": 1,
-      "evidence": "Cell Type Explorer DNp13 upstream \u00b7 fafb scaffold scale 0.90",
-      "weight_source": "explorer+fafb_scale"
+      "evidence": "FAFB scaffold (pair missing in CSV aggregate)",
+      "weight_source": "fafb_scaffold"
     },
     {
       "pre": "OA-VUMa1",
@@ -1968,8 +1974,8 @@
       "weight": 18,
       "nt": "OA",
       "sign": 1,
-      "evidence": "Cell Type Explorer DNp13 upstream \u00b7 fafb scaffold scale 0.90",
-      "weight_source": "explorer+fafb_scale"
+      "evidence": "FAFB scaffold (pair missing in CSV aggregate)",
+      "weight_source": "fafb_scaffold"
     },
     {
       "pre": "DNp13_L",
@@ -1977,8 +1983,8 @@
       "weight": 1,
       "nt": "GABA",
       "sign": -1,
-      "evidence": "Cell Type Explorer DNp13 downstream \u00b7 fafb scaffold scale 0.90",
-      "weight_source": "explorer+fafb_scale"
+      "evidence": "FAFB scaffold (pair missing in CSV aggregate)",
+      "weight_source": "fafb_scaffold"
     },
     {
       "pre": "DNp13_R",
@@ -1986,8 +1992,8 @@
       "weight": 1,
       "nt": "GABA",
       "sign": -1,
-      "evidence": "Cell Type Explorer DNp13 downstream \u00b7 fafb scaffold scale 0.90",
-      "weight_source": "explorer+fafb_scale"
+      "evidence": "FAFB scaffold (pair missing in CSV aggregate)",
+      "weight_source": "fafb_scaffold"
     },
     {
       "pre": "DNp13_L",
@@ -1995,8 +2001,8 @@
       "weight": 1,
       "nt": "Glu",
       "sign": -1,
-      "evidence": "Cell Type Explorer DNp13 downstream \u00b7 fafb scaffold scale 0.90",
-      "weight_source": "explorer+fafb_scale"
+      "evidence": "FAFB scaffold (pair missing in CSV aggregate)",
+      "weight_source": "fafb_scaffold"
     },
     {
       "pre": "DNp13_R",
@@ -2004,44 +2010,44 @@
       "weight": 1,
       "nt": "Glu",
       "sign": -1,
-      "evidence": "Cell Type Explorer DNp13 downstream \u00b7 fafb scaffold scale 0.90",
-      "weight_source": "explorer+fafb_scale"
+      "evidence": "FAFB scaffold (pair missing in CSV aggregate)",
+      "weight_source": "fafb_scaffold"
     },
     {
       "pre": "OA-VUMa1",
       "post": "DNg97_L",
-      "weight": 35,
-      "nt": "OA",
+      "weight": 18,
+      "nt": "octopamine",
       "sign": 1,
-      "evidence": "Cell Type Explorer DNg97 upstream \u00b7 fafb scaffold scale 0.90",
-      "weight_source": "explorer+fafb_scale"
+      "evidence": "FAFB Codex connections aggregated by cell type",
+      "weight_source": "fafb_csv"
     },
     {
       "pre": "OA-VUMa1",
       "post": "DNg97_R",
-      "weight": 35,
-      "nt": "OA",
+      "weight": 18,
+      "nt": "octopamine",
       "sign": 1,
-      "evidence": "Cell Type Explorer DNg97 upstream \u00b7 fafb scaffold scale 0.90",
-      "weight_source": "explorer+fafb_scale"
+      "evidence": "FAFB Codex connections aggregated by cell type",
+      "weight_source": "fafb_csv"
     },
     {
       "pre": "DNg13_L",
       "post": "DNg97_L",
-      "weight": 2,
-      "nt": "ACh",
+      "weight": 5,
+      "nt": "acetylcholine",
       "sign": 1,
-      "evidence": "Cell Type Explorer DNg13_R downstream \u00b7 fafb scaffold scale 0.82",
-      "weight_source": "explorer+fafb_scale"
+      "evidence": "FAFB Codex connections aggregated by cell type",
+      "weight_source": "fafb_csv"
     },
     {
       "pre": "DNg13_R",
       "post": "DNg97_R",
-      "weight": 1,
-      "nt": "ACh",
+      "weight": 5,
+      "nt": "acetylcholine",
       "sign": 1,
-      "evidence": "Cell Type Explorer DNg97 upstream \u00b7 fafb scaffold scale 0.82",
-      "weight_source": "explorer+fafb_scale"
+      "evidence": "FAFB Codex connections aggregated by cell type",
+      "weight_source": "fafb_csv"
     },
     {
       "pre": "SIP022_L",
@@ -2049,8 +2055,8 @@
       "weight": 1,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer DNg97 upstream \u00b7 fafb scaffold scale 0.90",
-      "weight_source": "explorer+fafb_scale"
+      "evidence": "FAFB scaffold (pair missing in CSV aggregate)",
+      "weight_source": "fafb_scaffold"
     },
     {
       "pre": "SIP022_L",
@@ -2058,8 +2064,8 @@
       "weight": 1,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer DNg97 upstream \u00b7 fafb scaffold scale 0.90",
-      "weight_source": "explorer+fafb_scale"
+      "evidence": "FAFB scaffold (pair missing in CSV aggregate)",
+      "weight_source": "fafb_scaffold"
     },
     {
       "pre": "DNg97_L",
@@ -2067,8 +2073,8 @@
       "weight": 2,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer DNg97 downstream \u00b7 fafb scaffold scale 0.90",
-      "weight_source": "explorer+fafb_scale"
+      "evidence": "FAFB scaffold (pair missing in CSV aggregate)",
+      "weight_source": "fafb_scaffold"
     },
     {
       "pre": "DNg97_R",
@@ -2076,8 +2082,8 @@
       "weight": 2,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer DNg97 downstream \u00b7 fafb scaffold scale 0.90",
-      "weight_source": "explorer+fafb_scale"
+      "evidence": "FAFB scaffold (pair missing in CSV aggregate)",
+      "weight_source": "fafb_scaffold"
     },
     {
       "pre": "DNge023_L",
@@ -2085,8 +2091,8 @@
       "weight": 1,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer IN17A025 upstream \u00b7 fafb scaffold scale 0.90",
-      "weight_source": "explorer+fafb_scale"
+      "evidence": "FAFB scaffold (pair missing in CSV aggregate)",
+      "weight_source": "fafb_scaffold"
     },
     {
       "pre": "DNge023_L",
@@ -2094,8 +2100,8 @@
       "weight": 1,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer IN17A025 upstream \u00b7 fafb scaffold scale 0.90",
-      "weight_source": "explorer+fafb_scale"
+      "evidence": "FAFB scaffold (pair missing in CSV aggregate)",
+      "weight_source": "fafb_scaffold"
     },
     {
       "pre": "VES200m_R",
@@ -2103,8 +2109,8 @@
       "weight": 136,
       "nt": "Glu",
       "sign": -1,
-      "evidence": "Cell Type Explorer DNg13_R upstream \u00b7 fafb scaffold scale 0.70",
-      "weight_source": "explorer+fafb_scale"
+      "evidence": "FAFB scaffold (pair missing in CSV aggregate)",
+      "weight_source": "fafb_scaffold"
     },
     {
       "pre": "VES200m_R",
@@ -2112,26 +2118,26 @@
       "weight": 136,
       "nt": "Glu",
       "sign": -1,
-      "evidence": "Cell Type Explorer DNg13_R upstream \u00b7 fafb scaffold scale 0.70",
-      "weight_source": "explorer+fafb_scale"
+      "evidence": "FAFB scaffold (pair missing in CSV aggregate)",
+      "weight_source": "fafb_scaffold"
     },
     {
       "pre": "LAL073_L",
       "post": "DNg13_L",
-      "weight": 137,
-      "nt": "Glu",
+      "weight": 614,
+      "nt": "glutamate",
       "sign": -1,
-      "evidence": "Cell Type Explorer DNg13_R upstream \u00b7 fafb scaffold scale 0.82",
-      "weight_source": "explorer+fafb_scale"
+      "evidence": "FAFB Codex connections aggregated by cell type",
+      "weight_source": "fafb_csv"
     },
     {
       "pre": "LAL073_L",
       "post": "DNg13_R",
-      "weight": 137,
-      "nt": "Glu",
+      "weight": 614,
+      "nt": "glutamate",
       "sign": -1,
-      "evidence": "Cell Type Explorer DNg13_R upstream \u00b7 fafb scaffold scale 0.82",
-      "weight_source": "explorer+fafb_scale"
+      "evidence": "FAFB Codex connections aggregated by cell type",
+      "weight_source": "fafb_csv"
     },
     {
       "pre": "GNG532_R",
@@ -2139,8 +2145,8 @@
       "weight": 130,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer DNg13_R upstream \u00b7 fafb scaffold scale 0.82",
-      "weight_source": "explorer+fafb_scale"
+      "evidence": "FAFB scaffold (pair missing in CSV aggregate)",
+      "weight_source": "fafb_scaffold"
     },
     {
       "pre": "GNG532_R",
@@ -2148,44 +2154,44 @@
       "weight": 130,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer DNg13_R upstream \u00b7 fafb scaffold scale 0.82",
-      "weight_source": "explorer+fafb_scale"
+      "evidence": "FAFB scaffold (pair missing in CSV aggregate)",
+      "weight_source": "fafb_scaffold"
     },
     {
       "pre": "CB0244_R",
       "post": "DNg13_L",
-      "weight": 130,
-      "nt": "ACh",
+      "weight": 400,
+      "nt": "acetylcholine",
       "sign": 1,
-      "evidence": "Cell Type Explorer DNg13_R upstream \u00b7 fafb scaffold scale 0.82",
-      "weight_source": "explorer+fafb_scale"
+      "evidence": "FAFB Codex connections aggregated by cell type",
+      "weight_source": "fafb_csv"
     },
     {
       "pre": "CB0244_R",
       "post": "DNg13_R",
-      "weight": 130,
-      "nt": "ACh",
+      "weight": 400,
+      "nt": "acetylcholine",
       "sign": 1,
-      "evidence": "Cell Type Explorer DNg13_R upstream \u00b7 fafb scaffold scale 0.82",
-      "weight_source": "explorer+fafb_scale"
+      "evidence": "FAFB Codex connections aggregated by cell type",
+      "weight_source": "fafb_csv"
     },
     {
       "pre": "DNg97_L",
       "post": "DNg13_L",
-      "weight": 79,
-      "nt": "ACh",
+      "weight": 192,
+      "nt": "acetylcholine",
       "sign": 1,
-      "evidence": "Cell Type Explorer DNg13_R upstream \u00b7 fafb scaffold scale 0.82",
-      "weight_source": "explorer+fafb_scale"
+      "evidence": "FAFB Codex connections aggregated by cell type",
+      "weight_source": "fafb_csv"
     },
     {
       "pre": "DNg97_L",
       "post": "DNg13_R",
-      "weight": 79,
-      "nt": "ACh",
+      "weight": 192,
+      "nt": "acetylcholine",
       "sign": 1,
-      "evidence": "Cell Type Explorer DNg13_R upstream \u00b7 fafb scaffold scale 0.82",
-      "weight_source": "explorer+fafb_scale"
+      "evidence": "FAFB Codex connections aggregated by cell type",
+      "weight_source": "fafb_csv"
     },
     {
       "pre": "DNp13_L",
@@ -2193,8 +2199,8 @@
       "weight": 77,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer DNg13_R upstream \u00b7 fafb scaffold scale 0.82",
-      "weight_source": "explorer+fafb_scale"
+      "evidence": "FAFB scaffold (pair missing in CSV aggregate)",
+      "weight_source": "fafb_scaffold"
     },
     {
       "pre": "DNp13_L",
@@ -2202,44 +2208,44 @@
       "weight": 77,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer DNg13_R upstream \u00b7 fafb scaffold scale 0.82",
-      "weight_source": "explorer+fafb_scale"
+      "evidence": "FAFB scaffold (pair missing in CSV aggregate)",
+      "weight_source": "fafb_scaffold"
     },
     {
       "pre": "OA-VUMa1",
       "post": "DNg13_L",
-      "weight": 37,
-      "nt": "OA",
+      "weight": 73,
+      "nt": "octopamine",
       "sign": 1,
-      "evidence": "Cell Type Explorer DNg13_R upstream \u00b7 fafb scaffold scale 0.82",
-      "weight_source": "explorer+fafb_scale"
+      "evidence": "FAFB Codex connections aggregated by cell type",
+      "weight_source": "fafb_csv"
     },
     {
       "pre": "OA-VUMa1",
       "post": "DNg13_R",
-      "weight": 37,
-      "nt": "OA",
+      "weight": 73,
+      "nt": "octopamine",
       "sign": 1,
-      "evidence": "Cell Type Explorer DNg13_R upstream \u00b7 fafb scaffold scale 0.82",
-      "weight_source": "explorer+fafb_scale"
+      "evidence": "FAFB Codex connections aggregated by cell type",
+      "weight_source": "fafb_csv"
     },
     {
       "pre": "LAL016_L",
       "post": "DNg13_L",
-      "weight": 16,
-      "nt": "ACh",
+      "weight": 71,
+      "nt": "acetylcholine",
       "sign": 1,
-      "evidence": "Cell Type Explorer DNg13_R upstream \u00b7 fafb scaffold scale 0.82",
-      "weight_source": "explorer+fafb_scale"
+      "evidence": "FAFB Codex connections aggregated by cell type",
+      "weight_source": "fafb_csv"
     },
     {
       "pre": "LAL016_L",
       "post": "DNg13_R",
-      "weight": 16,
-      "nt": "ACh",
+      "weight": 71,
+      "nt": "acetylcholine",
       "sign": 1,
-      "evidence": "Cell Type Explorer DNg13_R upstream \u00b7 fafb scaffold scale 0.82",
-      "weight_source": "explorer+fafb_scale"
+      "evidence": "FAFB Codex connections aggregated by cell type",
+      "weight_source": "fafb_csv"
     },
     {
       "pre": "LoVP92_R",
@@ -2247,8 +2253,8 @@
       "weight": 12,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer DNg13_R upstream \u00b7 fafb scaffold scale 0.72",
-      "weight_source": "explorer+fafb_scale"
+      "evidence": "FAFB scaffold (pair missing in CSV aggregate)",
+      "weight_source": "fafb_scaffold"
     },
     {
       "pre": "LoVP92_R",
@@ -2256,8 +2262,8 @@
       "weight": 12,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer DNg13_R upstream \u00b7 fafb scaffold scale 0.72",
-      "weight_source": "explorer+fafb_scale"
+      "evidence": "FAFB scaffold (pair missing in CSV aggregate)",
+      "weight_source": "fafb_scaffold"
     },
     {
       "pre": "LoVP92_L",
@@ -2265,8 +2271,8 @@
       "weight": 9,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer DNg13_R upstream \u00b7 fafb scaffold scale 0.72",
-      "weight_source": "explorer+fafb_scale"
+      "evidence": "FAFB scaffold (pair missing in CSV aggregate)",
+      "weight_source": "fafb_scaffold"
     },
     {
       "pre": "LoVP92_L",
@@ -2274,26 +2280,26 @@
       "weight": 9,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer DNg13_R upstream \u00b7 fafb scaffold scale 0.72",
-      "weight_source": "explorer+fafb_scale"
+      "evidence": "FAFB scaffold (pair missing in CSV aggregate)",
+      "weight_source": "fafb_scaffold"
     },
     {
       "pre": "DNge119_L",
       "post": "DNg13_L",
-      "weight": 7,
-      "nt": "Glu",
+      "weight": 78,
+      "nt": "glutamate",
       "sign": -1,
-      "evidence": "Cell Type Explorer DNg13_R upstream \u00b7 fafb scaffold scale 0.82",
-      "weight_source": "explorer+fafb_scale"
+      "evidence": "FAFB Codex connections aggregated by cell type",
+      "weight_source": "fafb_csv"
     },
     {
       "pre": "DNge119_L",
       "post": "DNg13_R",
-      "weight": 7,
-      "nt": "Glu",
+      "weight": 78,
+      "nt": "glutamate",
       "sign": -1,
-      "evidence": "Cell Type Explorer DNg13_R upstream \u00b7 fafb scaffold scale 0.82",
-      "weight_source": "explorer+fafb_scale"
+      "evidence": "FAFB Codex connections aggregated by cell type",
+      "weight_source": "fafb_csv"
     },
     {
       "pre": "IN16B045_L",
@@ -2301,8 +2307,8 @@
       "weight": 7,
       "nt": "Glu",
       "sign": -1,
-      "evidence": "Cell Type Explorer DNg13_R upstream \u00b7 fafb scaffold scale 0.82",
-      "weight_source": "explorer+fafb_scale"
+      "evidence": "FAFB scaffold (pair missing in CSV aggregate)",
+      "weight_source": "fafb_scaffold"
     },
     {
       "pre": "IN16B045_L",
@@ -2310,44 +2316,44 @@
       "weight": 7,
       "nt": "Glu",
       "sign": -1,
-      "evidence": "Cell Type Explorer DNg13_R upstream \u00b7 fafb scaffold scale 0.82",
-      "weight_source": "explorer+fafb_scale"
+      "evidence": "FAFB scaffold (pair missing in CSV aggregate)",
+      "weight_source": "fafb_scaffold"
     },
     {
       "pre": "PVLP114_L",
       "post": "DNg13_L",
-      "weight": 9,
-      "nt": "ACh",
+      "weight": 32,
+      "nt": "acetylcholine",
       "sign": 1,
-      "evidence": "Cell Type Explorer DNg13_L upstream \u00b7 fafb scaffold scale 0.82",
-      "weight_source": "explorer+fafb_scale"
+      "evidence": "FAFB Codex connections aggregated by cell type",
+      "weight_source": "fafb_csv"
     },
     {
       "pre": "PVLP114_L",
       "post": "DNg13_R",
-      "weight": 9,
-      "nt": "ACh",
+      "weight": 32,
+      "nt": "acetylcholine",
       "sign": 1,
-      "evidence": "Cell Type Explorer DNg13_L upstream \u00b7 fafb scaffold scale 0.82",
-      "weight_source": "explorer+fafb_scale"
+      "evidence": "FAFB Codex connections aggregated by cell type",
+      "weight_source": "fafb_csv"
     },
     {
       "pre": "AOTU019_L",
       "post": "DNg13_L",
-      "weight": 3,
-      "nt": "GABA",
+      "weight": 13,
+      "nt": "gaba",
       "sign": -1,
-      "evidence": "Cell Type Explorer DNg13_R upstream \u00b7 fafb scaffold scale 0.82",
-      "weight_source": "explorer+fafb_scale"
+      "evidence": "FAFB Codex connections aggregated by cell type",
+      "weight_source": "fafb_csv"
     },
     {
       "pre": "AOTU019_L",
       "post": "DNg13_R",
-      "weight": 3,
-      "nt": "GABA",
+      "weight": 13,
+      "nt": "gaba",
       "sign": -1,
-      "evidence": "Cell Type Explorer DNg13_R upstream \u00b7 fafb scaffold scale 0.82",
-      "weight_source": "explorer+fafb_scale"
+      "evidence": "FAFB Codex connections aggregated by cell type",
+      "weight_source": "fafb_csv"
     },
     {
       "pre": "LAL205_L",
@@ -2355,8 +2361,8 @@
       "weight": 2,
       "nt": "GABA",
       "sign": -1,
-      "evidence": "Cell Type Explorer DNg13_R upstream \u00b7 fafb scaffold scale 0.82",
-      "weight_source": "explorer+fafb_scale"
+      "evidence": "FAFB scaffold (pair missing in CSV aggregate)",
+      "weight_source": "fafb_scaffold"
     },
     {
       "pre": "LAL205_L",
@@ -2364,8 +2370,8 @@
       "weight": 2,
       "nt": "GABA",
       "sign": -1,
-      "evidence": "Cell Type Explorer DNg13_R upstream \u00b7 fafb scaffold scale 0.82",
-      "weight_source": "explorer+fafb_scale"
+      "evidence": "FAFB scaffold (pair missing in CSV aggregate)",
+      "weight_source": "fafb_scaffold"
     },
     {
       "pre": "AN06B009_L",
@@ -2373,8 +2379,8 @@
       "weight": 8,
       "nt": "GABA",
       "sign": -1,
-      "evidence": "Cell Type Explorer DNg13_L upstream \u00b7 fafb scaffold scale 0.82",
-      "weight_source": "explorer+fafb_scale"
+      "evidence": "FAFB scaffold (pair missing in CSV aggregate)",
+      "weight_source": "fafb_scaffold"
     },
     {
       "pre": "AN06B009_L",
@@ -2382,8 +2388,8 @@
       "weight": 8,
       "nt": "GABA",
       "sign": -1,
-      "evidence": "Cell Type Explorer DNg13_L upstream \u00b7 fafb scaffold scale 0.82",
-      "weight_source": "explorer+fafb_scale"
+      "evidence": "FAFB scaffold (pair missing in CSV aggregate)",
+      "weight_source": "fafb_scaffold"
     },
     {
       "pre": "IN17A025_L",
@@ -2391,8 +2397,8 @@
       "weight": 1,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer DNg13_R upstream \u00b7 fafb scaffold scale 0.82",
-      "weight_source": "explorer+fafb_scale"
+      "evidence": "FAFB scaffold (pair missing in CSV aggregate)",
+      "weight_source": "fafb_scaffold"
     },
     {
       "pre": "IN17A025_L",
@@ -2400,8 +2406,8 @@
       "weight": 1,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer DNg13_R upstream \u00b7 fafb scaffold scale 0.82",
-      "weight_source": "explorer+fafb_scale"
+      "evidence": "FAFB scaffold (pair missing in CSV aggregate)",
+      "weight_source": "fafb_scaffold"
     },
     {
       "pre": "VES200m_L",
@@ -2409,8 +2415,8 @@
       "weight": 117,
       "nt": "Glu",
       "sign": -1,
-      "evidence": "Cell Type Explorer DNg13_L upstream \u00b7 fafb scaffold scale 0.70",
-      "weight_source": "explorer+fafb_scale"
+      "evidence": "FAFB scaffold (pair missing in CSV aggregate)",
+      "weight_source": "fafb_scaffold"
     },
     {
       "pre": "VES200m_L",
@@ -2418,8 +2424,8 @@
       "weight": 117,
       "nt": "Glu",
       "sign": -1,
-      "evidence": "Cell Type Explorer DNg13_L upstream \u00b7 fafb scaffold scale 0.70",
-      "weight_source": "explorer+fafb_scale"
+      "evidence": "FAFB scaffold (pair missing in CSV aggregate)",
+      "weight_source": "fafb_scaffold"
     },
     {
       "pre": "PVLP204m_L",
@@ -2427,8 +2433,8 @@
       "weight": 1,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer DNg13_R upstream \u00b7 fafb scaffold scale 0.82",
-      "weight_source": "explorer+fafb_scale"
+      "evidence": "FAFB scaffold (pair missing in CSV aggregate)",
+      "weight_source": "fafb_scaffold"
     },
     {
       "pre": "PVLP204m_L",
@@ -2436,8 +2442,8 @@
       "weight": 1,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer DNg13_R upstream \u00b7 fafb scaffold scale 0.82",
-      "weight_source": "explorer+fafb_scale"
+      "evidence": "FAFB scaffold (pair missing in CSV aggregate)",
+      "weight_source": "fafb_scaffold"
     },
     {
       "pre": "DNa02",
@@ -2445,8 +2451,8 @@
       "weight": 1,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer DNg13_R upstream \u00b7 fafb scaffold scale 0.82",
-      "weight_source": "explorer+fafb_scale"
+      "evidence": "FAFB scaffold (pair missing in CSV aggregate)",
+      "weight_source": "fafb_scaffold"
     },
     {
       "pre": "DNa02",
@@ -2454,8 +2460,8 @@
       "weight": 1,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer DNg13_R upstream \u00b7 fafb scaffold scale 0.82",
-      "weight_source": "explorer+fafb_scale"
+      "evidence": "FAFB scaffold (pair missing in CSV aggregate)",
+      "weight_source": "fafb_scaffold"
     },
     {
       "pre": "DNg13_L",
@@ -2463,8 +2469,8 @@
       "weight": 398,
       "nt": "Glu",
       "sign": -1,
-      "evidence": "Cell Type Explorer DNg13_R downstream \u00b7 fafb scaffold scale 0.82",
-      "weight_source": "explorer+fafb_scale"
+      "evidence": "FAFB scaffold (pair missing in CSV aggregate)",
+      "weight_source": "fafb_scaffold"
     },
     {
       "pre": "DNg13_R",
@@ -2472,8 +2478,8 @@
       "weight": 398,
       "nt": "Glu",
       "sign": -1,
-      "evidence": "Cell Type Explorer DNg13_R downstream \u00b7 fafb scaffold scale 0.82",
-      "weight_source": "explorer+fafb_scale"
+      "evidence": "FAFB scaffold (pair missing in CSV aggregate)",
+      "weight_source": "fafb_scaffold"
     },
     {
       "pre": "DNg13_L",
@@ -2481,8 +2487,8 @@
       "weight": 186,
       "nt": "GABA",
       "sign": -1,
-      "evidence": "Cell Type Explorer DNg13_R downstream \u00b7 fafb scaffold scale 0.82",
-      "weight_source": "explorer+fafb_scale"
+      "evidence": "FAFB scaffold (pair missing in CSV aggregate)",
+      "weight_source": "fafb_scaffold"
     },
     {
       "pre": "DNg13_R",
@@ -2490,8 +2496,8 @@
       "weight": 186,
       "nt": "GABA",
       "sign": -1,
-      "evidence": "Cell Type Explorer DNg13_R downstream \u00b7 fafb scaffold scale 0.82",
-      "weight_source": "explorer+fafb_scale"
+      "evidence": "FAFB scaffold (pair missing in CSV aggregate)",
+      "weight_source": "fafb_scaffold"
     },
     {
       "pre": "DNg13_L",
@@ -2499,8 +2505,8 @@
       "weight": 162,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer DNg13_R downstream \u00b7 fafb scaffold scale 0.82",
-      "weight_source": "explorer+fafb_scale"
+      "evidence": "FAFB scaffold (pair missing in CSV aggregate)",
+      "weight_source": "fafb_scaffold"
     },
     {
       "pre": "DNg13_R",
@@ -2508,8 +2514,8 @@
       "weight": 162,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer DNg13_R downstream \u00b7 fafb scaffold scale 0.82",
-      "weight_source": "explorer+fafb_scale"
+      "evidence": "FAFB scaffold (pair missing in CSV aggregate)",
+      "weight_source": "fafb_scaffold"
     },
     {
       "pre": "DNg13_L",
@@ -2517,8 +2523,8 @@
       "weight": 171,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer DNg13_L downstream \u00b7 fafb scaffold scale 0.82",
-      "weight_source": "explorer+fafb_scale"
+      "evidence": "FAFB scaffold (pair missing in CSV aggregate)",
+      "weight_source": "fafb_scaffold"
     },
     {
       "pre": "DNg13_R",
@@ -2526,8 +2532,8 @@
       "weight": 171,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer DNg13_L downstream \u00b7 fafb scaffold scale 0.82",
-      "weight_source": "explorer+fafb_scale"
+      "evidence": "FAFB scaffold (pair missing in CSV aggregate)",
+      "weight_source": "fafb_scaffold"
     },
     {
       "pre": "DNg13_L",
@@ -2535,8 +2541,8 @@
       "weight": 142,
       "nt": "GABA",
       "sign": -1,
-      "evidence": "Cell Type Explorer DNg13_L downstream \u00b7 fafb scaffold scale 0.82",
-      "weight_source": "explorer+fafb_scale"
+      "evidence": "FAFB scaffold (pair missing in CSV aggregate)",
+      "weight_source": "fafb_scaffold"
     },
     {
       "pre": "DNg13_R",
@@ -2544,8 +2550,8 @@
       "weight": 142,
       "nt": "GABA",
       "sign": -1,
-      "evidence": "Cell Type Explorer DNg13_L downstream \u00b7 fafb scaffold scale 0.82",
-      "weight_source": "explorer+fafb_scale"
+      "evidence": "FAFB scaffold (pair missing in CSV aggregate)",
+      "weight_source": "fafb_scaffold"
     },
     {
       "pre": "DNg13_L",
@@ -2553,8 +2559,8 @@
       "weight": 8,
       "nt": "GABA",
       "sign": -1,
-      "evidence": "Cell Type Explorer DNg13_R downstream \u00b7 fafb scaffold scale 0.82",
-      "weight_source": "explorer+fafb_scale"
+      "evidence": "FAFB scaffold (pair missing in CSV aggregate)",
+      "weight_source": "fafb_scaffold"
     },
     {
       "pre": "DNg13_R",
@@ -2562,8 +2568,8 @@
       "weight": 8,
       "nt": "GABA",
       "sign": -1,
-      "evidence": "Cell Type Explorer DNg13_R downstream \u00b7 fafb scaffold scale 0.82",
-      "weight_source": "explorer+fafb_scale"
+      "evidence": "FAFB scaffold (pair missing in CSV aggregate)",
+      "weight_source": "fafb_scaffold"
     },
     {
       "pre": "DNg13_L",
@@ -2571,8 +2577,8 @@
       "weight": 5,
       "nt": "GABA",
       "sign": -1,
-      "evidence": "Cell Type Explorer DNg13_R downstream \u00b7 fafb scaffold scale 0.82",
-      "weight_source": "explorer+fafb_scale"
+      "evidence": "FAFB scaffold (pair missing in CSV aggregate)",
+      "weight_source": "fafb_scaffold"
     },
     {
       "pre": "DNg13_R",
@@ -2580,8 +2586,8 @@
       "weight": 5,
       "nt": "GABA",
       "sign": -1,
-      "evidence": "Cell Type Explorer DNg13_R downstream \u00b7 fafb scaffold scale 0.82",
-      "weight_source": "explorer+fafb_scale"
+      "evidence": "FAFB scaffold (pair missing in CSV aggregate)",
+      "weight_source": "fafb_scaffold"
     },
     {
       "pre": "DNg13_L",
@@ -2589,8 +2595,8 @@
       "weight": 2,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer DNg13_R downstream \u00b7 fafb scaffold scale 0.82",
-      "weight_source": "explorer+fafb_scale"
+      "evidence": "FAFB scaffold (pair missing in CSV aggregate)",
+      "weight_source": "fafb_scaffold"
     },
     {
       "pre": "DNg13_R",
@@ -2598,8 +2604,8 @@
       "weight": 2,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer DNg13_R downstream \u00b7 fafb scaffold scale 0.82",
-      "weight_source": "explorer+fafb_scale"
+      "evidence": "FAFB scaffold (pair missing in CSV aggregate)",
+      "weight_source": "fafb_scaffold"
     },
     {
       "pre": "DNg13_L",
@@ -2607,17 +2613,17 @@
       "weight": 2,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer DNg13_R downstream \u00b7 fafb scaffold scale 0.82",
-      "weight_source": "explorer+fafb_scale"
+      "evidence": "FAFB scaffold (pair missing in CSV aggregate)",
+      "weight_source": "fafb_scaffold"
     },
     {
       "pre": "DNg13_R",
       "post": "DNg97_L",
-      "weight": 2,
-      "nt": "ACh",
+      "weight": 5,
+      "nt": "acetylcholine",
       "sign": 1,
-      "evidence": "Cell Type Explorer DNg13_R downstream \u00b7 fafb scaffold scale 0.82",
-      "weight_source": "explorer+fafb_scale"
+      "evidence": "FAFB Codex connections aggregated by cell type",
+      "weight_source": "fafb_csv"
     },
     {
       "pre": "DNg13_L",
@@ -2625,8 +2631,8 @@
       "weight": 1,
       "nt": "OA",
       "sign": 1,
-      "evidence": "Cell Type Explorer DNg13_R downstream \u00b7 fafb scaffold scale 0.82",
-      "weight_source": "explorer+fafb_scale"
+      "evidence": "FAFB scaffold (pair missing in CSV aggregate)",
+      "weight_source": "fafb_scaffold"
     },
     {
       "pre": "DNg13_R",
@@ -2634,8 +2640,8 @@
       "weight": 1,
       "nt": "OA",
       "sign": 1,
-      "evidence": "Cell Type Explorer DNg13_R downstream \u00b7 fafb scaffold scale 0.82",
-      "weight_source": "explorer+fafb_scale"
+      "evidence": "FAFB scaffold (pair missing in CSV aggregate)",
+      "weight_source": "fafb_scaffold"
     },
     {
       "pre": "DNg86_L",
@@ -2643,8 +2649,8 @@
       "weight": 10,
       "nt": "unc",
       "sign": 1,
-      "evidence": "Cell Type Explorer CB0244 upstream \u00b7 fafb scaffold scale 0.90",
-      "weight_source": "explorer+fafb_scale"
+      "evidence": "FAFB scaffold (pair missing in CSV aggregate)",
+      "weight_source": "fafb_scaffold"
     },
     {
       "pre": "DNg86_L",
@@ -2652,8 +2658,8 @@
       "weight": 10,
       "nt": "unc",
       "sign": 1,
-      "evidence": "Cell Type Explorer CB0244 upstream \u00b7 fafb scaffold scale 0.90",
-      "weight_source": "explorer+fafb_scale"
+      "evidence": "FAFB scaffold (pair missing in CSV aggregate)",
+      "weight_source": "fafb_scaffold"
     },
     {
       "pre": "AN05B007_L",
@@ -2661,8 +2667,8 @@
       "weight": 9,
       "nt": "GABA",
       "sign": -1,
-      "evidence": "Cell Type Explorer CB0244 upstream \u00b7 fafb scaffold scale 0.90",
-      "weight_source": "explorer+fafb_scale"
+      "evidence": "FAFB scaffold (pair missing in CSV aggregate)",
+      "weight_source": "fafb_scaffold"
     },
     {
       "pre": "AN05B007_L",
@@ -2670,26 +2676,26 @@
       "weight": 9,
       "nt": "GABA",
       "sign": -1,
-      "evidence": "Cell Type Explorer CB0244 upstream \u00b7 fafb scaffold scale 0.90",
-      "weight_source": "explorer+fafb_scale"
+      "evidence": "FAFB scaffold (pair missing in CSV aggregate)",
+      "weight_source": "fafb_scaffold"
     },
     {
       "pre": "LAL016_L",
       "post": "CB0244_L",
-      "weight": 4,
-      "nt": "ACh",
+      "weight": 2,
+      "nt": "acetylcholine",
       "sign": 1,
-      "evidence": "Cell Type Explorer CB0244 upstream \u00b7 fafb scaffold scale 0.90",
-      "weight_source": "explorer+fafb_scale"
+      "evidence": "FAFB Codex connections aggregated by cell type",
+      "weight_source": "fafb_csv"
     },
     {
       "pre": "LAL016_L",
       "post": "CB0244_R",
-      "weight": 4,
-      "nt": "ACh",
+      "weight": 2,
+      "nt": "acetylcholine",
       "sign": 1,
-      "evidence": "Cell Type Explorer CB0244 upstream \u00b7 fafb scaffold scale 0.90",
-      "weight_source": "explorer+fafb_scale"
+      "evidence": "FAFB Codex connections aggregated by cell type",
+      "weight_source": "fafb_csv"
     },
     {
       "pre": "CB0244_L",
@@ -2697,8 +2703,8 @@
       "weight": 9,
       "nt": "GABA",
       "sign": -1,
-      "evidence": "Cell Type Explorer CB0244 downstream \u00b7 fafb scaffold scale 0.90",
-      "weight_source": "explorer+fafb_scale"
+      "evidence": "FAFB scaffold (pair missing in CSV aggregate)",
+      "weight_source": "fafb_scaffold"
     },
     {
       "pre": "CB0244_R",
@@ -2706,8 +2712,8 @@
       "weight": 9,
       "nt": "GABA",
       "sign": -1,
-      "evidence": "Cell Type Explorer CB0244 downstream \u00b7 fafb scaffold scale 0.90",
-      "weight_source": "explorer+fafb_scale"
+      "evidence": "FAFB scaffold (pair missing in CSV aggregate)",
+      "weight_source": "fafb_scaffold"
     },
     {
       "pre": "CB0244_L",
@@ -2715,8 +2721,8 @@
       "weight": 4,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer CB0244 downstream \u00b7 fafb scaffold scale 0.90",
-      "weight_source": "explorer+fafb_scale"
+      "evidence": "FAFB scaffold (pair missing in CSV aggregate)",
+      "weight_source": "fafb_scaffold"
     },
     {
       "pre": "CB0244_R",
@@ -2724,8 +2730,8 @@
       "weight": 4,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer CB0244 downstream \u00b7 fafb scaffold scale 0.90",
-      "weight_source": "explorer+fafb_scale"
+      "evidence": "FAFB scaffold (pair missing in CSV aggregate)",
+      "weight_source": "fafb_scaffold"
     },
     {
       "pre": "CB0244_L",
@@ -2733,8 +2739,8 @@
       "weight": 4,
       "nt": "Glu",
       "sign": -1,
-      "evidence": "Cell Type Explorer CB0244 downstream \u00b7 fafb scaffold scale 0.90",
-      "weight_source": "explorer+fafb_scale"
+      "evidence": "FAFB scaffold (pair missing in CSV aggregate)",
+      "weight_source": "fafb_scaffold"
     },
     {
       "pre": "CB0244_R",
@@ -2742,26 +2748,26 @@
       "weight": 4,
       "nt": "Glu",
       "sign": -1,
-      "evidence": "Cell Type Explorer CB0244 downstream \u00b7 fafb scaffold scale 0.90",
-      "weight_source": "explorer+fafb_scale"
+      "evidence": "FAFB scaffold (pair missing in CSV aggregate)",
+      "weight_source": "fafb_scaffold"
     },
     {
       "pre": "CB0244_L",
       "post": "OA-VUMa1",
-      "weight": 2,
-      "nt": "OA",
+      "weight": 1,
+      "nt": "acetylcholine",
       "sign": 1,
-      "evidence": "Cell Type Explorer CB0244 downstream \u00b7 fafb scaffold scale 0.90",
-      "weight_source": "explorer+fafb_scale"
+      "evidence": "FAFB Codex connections aggregated by cell type",
+      "weight_source": "fafb_csv"
     },
     {
       "pre": "CB0244_R",
       "post": "OA-VUMa1",
-      "weight": 2,
-      "nt": "OA",
+      "weight": 1,
+      "nt": "acetylcholine",
       "sign": 1,
-      "evidence": "Cell Type Explorer CB0244 downstream \u00b7 fafb scaffold scale 0.90",
-      "weight_source": "explorer+fafb_scale"
+      "evidence": "FAFB Codex connections aggregated by cell type",
+      "weight_source": "fafb_csv"
     },
     {
       "pre": "CB0244_L",
@@ -2769,8 +2775,8 @@
       "weight": 2,
       "nt": "GABA",
       "sign": -1,
-      "evidence": "Cell Type Explorer CB0244 downstream \u00b7 fafb scaffold scale 0.90",
-      "weight_source": "explorer+fafb_scale"
+      "evidence": "FAFB scaffold (pair missing in CSV aggregate)",
+      "weight_source": "fafb_scaffold"
     },
     {
       "pre": "CB0244_R",
@@ -2778,26 +2784,26 @@
       "weight": 2,
       "nt": "GABA",
       "sign": -1,
-      "evidence": "Cell Type Explorer CB0244 downstream \u00b7 fafb scaffold scale 0.90",
-      "weight_source": "explorer+fafb_scale"
+      "evidence": "FAFB scaffold (pair missing in CSV aggregate)",
+      "weight_source": "fafb_scaffold"
     },
     {
       "pre": "CB0244_L",
       "post": "LAL016_L",
       "weight": 1,
-      "nt": "ACh",
+      "nt": "acetylcholine",
       "sign": 1,
-      "evidence": "Cell Type Explorer CB0244 downstream \u00b7 fafb scaffold scale 0.90",
-      "weight_source": "explorer+fafb_scale"
+      "evidence": "FAFB Codex connections aggregated by cell type",
+      "weight_source": "fafb_csv"
     },
     {
       "pre": "CB0244_R",
       "post": "LAL016_L",
       "weight": 1,
-      "nt": "ACh",
+      "nt": "acetylcholine",
       "sign": 1,
-      "evidence": "Cell Type Explorer CB0244 downstream \u00b7 fafb scaffold scale 0.90",
-      "weight_source": "explorer+fafb_scale"
+      "evidence": "FAFB Codex connections aggregated by cell type",
+      "weight_source": "fafb_csv"
     },
     {
       "pre": "CB0244_L",
@@ -2805,8 +2811,8 @@
       "weight": 1,
       "nt": "Glu",
       "sign": -1,
-      "evidence": "Cell Type Explorer CB0244 downstream \u00b7 fafb scaffold scale 0.78",
-      "weight_source": "explorer+fafb_scale"
+      "evidence": "FAFB scaffold (pair missing in CSV aggregate)",
+      "weight_source": "fafb_scaffold"
     },
     {
       "pre": "CB0244_R",
@@ -2814,8 +2820,8 @@
       "weight": 1,
       "nt": "Glu",
       "sign": -1,
-      "evidence": "Cell Type Explorer CB0244 downstream \u00b7 fafb scaffold scale 0.78",
-      "weight_source": "explorer+fafb_scale"
+      "evidence": "FAFB scaffold (pair missing in CSV aggregate)",
+      "weight_source": "fafb_scaffold"
     },
     {
       "pre": "LC10b_R",
@@ -2823,8 +2829,8 @@
       "weight": 28,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer LoVP92_R upstream \u00b7 fafb scaffold scale 0.80",
-      "weight_source": "explorer+fafb_scale"
+      "evidence": "FAFB scaffold (pair missing in CSV aggregate)",
+      "weight_source": "fafb_scaffold"
     },
     {
       "pre": "LC10b_R",
@@ -2832,8 +2838,8 @@
       "weight": 28,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer LoVP92_R upstream \u00b7 fafb scaffold scale 0.80",
-      "weight_source": "explorer+fafb_scale"
+      "evidence": "FAFB scaffold (pair missing in CSV aggregate)",
+      "weight_source": "fafb_scaffold"
     },
     {
       "pre": "LoVP50_L",
@@ -2841,8 +2847,8 @@
       "weight": 8,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer LoVP92_R upstream \u00b7 fafb scaffold scale 0.80",
-      "weight_source": "explorer+fafb_scale"
+      "evidence": "FAFB scaffold (pair missing in CSV aggregate)",
+      "weight_source": "fafb_scaffold"
     },
     {
       "pre": "LoVP50_L",
@@ -2850,8 +2856,8 @@
       "weight": 8,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer LoVP92_R upstream \u00b7 fafb scaffold scale 0.80",
-      "weight_source": "explorer+fafb_scale"
+      "evidence": "FAFB scaffold (pair missing in CSV aggregate)",
+      "weight_source": "fafb_scaffold"
     },
     {
       "pre": "LC10a_R",
@@ -2859,8 +2865,8 @@
       "weight": 7,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer LoVP92_R upstream \u00b7 fafb scaffold scale 0.77",
-      "weight_source": "explorer+fafb_scale"
+      "evidence": "FAFB scaffold (pair missing in CSV aggregate)",
+      "weight_source": "fafb_scaffold"
     },
     {
       "pre": "LC10a_R",
@@ -2868,8 +2874,8 @@
       "weight": 7,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer LoVP92_R upstream \u00b7 fafb scaffold scale 0.77",
-      "weight_source": "explorer+fafb_scale"
+      "evidence": "FAFB scaffold (pair missing in CSV aggregate)",
+      "weight_source": "fafb_scaffold"
     },
     {
       "pre": "LoVP92_R",
@@ -2877,8 +2883,8 @@
       "weight": 6,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer LoVP92_R upstream \u00b7 fafb scaffold scale 0.70",
-      "weight_source": "explorer+fafb_scale"
+      "evidence": "FAFB scaffold (pair missing in CSV aggregate)",
+      "weight_source": "fafb_scaffold"
     },
     {
       "pre": "LoVP92_R",
@@ -2886,8 +2892,8 @@
       "weight": 6,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer LoVP92_R upstream \u00b7 fafb scaffold scale 0.70",
-      "weight_source": "explorer+fafb_scale"
+      "evidence": "FAFB scaffold (pair missing in CSV aggregate)",
+      "weight_source": "fafb_scaffold"
     },
     {
       "pre": "AN06B009_L",
@@ -2895,8 +2901,8 @@
       "weight": 2,
       "nt": "GABA",
       "sign": -1,
-      "evidence": "Cell Type Explorer LoVP92 upstream \u00b7 fafb scaffold scale 0.80",
-      "weight_source": "explorer+fafb_scale"
+      "evidence": "FAFB scaffold (pair missing in CSV aggregate)",
+      "weight_source": "fafb_scaffold"
     },
     {
       "pre": "AN06B009_L",
@@ -2904,8 +2910,8 @@
       "weight": 2,
       "nt": "GABA",
       "sign": -1,
-      "evidence": "Cell Type Explorer LoVP92 upstream \u00b7 fafb scaffold scale 0.80",
-      "weight_source": "explorer+fafb_scale"
+      "evidence": "FAFB scaffold (pair missing in CSV aggregate)",
+      "weight_source": "fafb_scaffold"
     },
     {
       "pre": "LoVP92_L",
@@ -2913,8 +2919,8 @@
       "weight": 6,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer LoVP92_R downstream \u00b7 fafb scaffold scale 0.70",
-      "weight_source": "explorer+fafb_scale"
+      "evidence": "FAFB scaffold (pair missing in CSV aggregate)",
+      "weight_source": "fafb_scaffold"
     },
     {
       "pre": "LoVP92_L",
@@ -2922,8 +2928,8 @@
       "weight": 2,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer LoVP92 downstream \u00b7 fafb scaffold scale 0.80",
-      "weight_source": "explorer+fafb_scale"
+      "evidence": "FAFB scaffold (pair missing in CSV aggregate)",
+      "weight_source": "fafb_scaffold"
     },
     {
       "pre": "LoVP92_R",
@@ -2931,8 +2937,8 @@
       "weight": 2,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer LoVP92 downstream \u00b7 fafb scaffold scale 0.80",
-      "weight_source": "explorer+fafb_scale"
+      "evidence": "FAFB scaffold (pair missing in CSV aggregate)",
+      "weight_source": "fafb_scaffold"
     },
     {
       "pre": "Y12_L",
@@ -2940,8 +2946,8 @@
       "weight": 12,
       "nt": "Glu",
       "sign": -1,
-      "evidence": "Cell Type Explorer LoVP92 upstream \u00b7 fafb scaffold scale 0.80",
-      "weight_source": "explorer+fafb_scale"
+      "evidence": "FAFB scaffold (pair missing in CSV aggregate)",
+      "weight_source": "fafb_scaffold"
     },
     {
       "pre": "Y12_L",
@@ -2949,8 +2955,8 @@
       "weight": 12,
       "nt": "Glu",
       "sign": -1,
-      "evidence": "Cell Type Explorer LoVP92 upstream \u00b7 fafb scaffold scale 0.80",
-      "weight_source": "explorer+fafb_scale"
+      "evidence": "FAFB scaffold (pair missing in CSV aggregate)",
+      "weight_source": "fafb_scaffold"
     },
     {
       "pre": "Tm5a_L",
@@ -2958,8 +2964,8 @@
       "weight": 4,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer LoVP92 upstream \u00b7 fafb scaffold scale 0.80",
-      "weight_source": "explorer+fafb_scale"
+      "evidence": "FAFB scaffold (pair missing in CSV aggregate)",
+      "weight_source": "fafb_scaffold"
     },
     {
       "pre": "Tm5a_L",
@@ -2967,8 +2973,8 @@
       "weight": 4,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer LoVP92 upstream \u00b7 fafb scaffold scale 0.80",
-      "weight_source": "explorer+fafb_scale"
+      "evidence": "FAFB scaffold (pair missing in CSV aggregate)",
+      "weight_source": "fafb_scaffold"
     },
     {
       "pre": "LoVP92_L",
@@ -2976,8 +2982,8 @@
       "weight": 3,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer LoVP92 downstream \u00b7 fafb scaffold scale 0.80",
-      "weight_source": "explorer+fafb_scale"
+      "evidence": "FAFB scaffold (pair missing in CSV aggregate)",
+      "weight_source": "fafb_scaffold"
     },
     {
       "pre": "LoVP92_R",
@@ -2985,8 +2991,8 @@
       "weight": 3,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer LoVP92 downstream \u00b7 fafb scaffold scale 0.80",
-      "weight_source": "explorer+fafb_scale"
+      "evidence": "FAFB scaffold (pair missing in CSV aggregate)",
+      "weight_source": "fafb_scaffold"
     },
     {
       "pre": "LC6_L",
@@ -2994,8 +3000,8 @@
       "weight": 5,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer LoVP92_L upstream \u00b7 fafb scaffold scale 0.75",
-      "weight_source": "explorer+fafb_scale"
+      "evidence": "FAFB scaffold (pair missing in CSV aggregate)",
+      "weight_source": "fafb_scaffold"
     },
     {
       "pre": "LC6_L",
@@ -3003,8 +3009,8 @@
       "weight": 5,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer LoVP92_L upstream \u00b7 fafb scaffold scale 0.75",
-      "weight_source": "explorer+fafb_scale"
+      "evidence": "FAFB scaffold (pair missing in CSV aggregate)",
+      "weight_source": "fafb_scaffold"
     },
     {
       "pre": "LoVP92_L",
@@ -3012,8 +3018,8 @@
       "weight": 19,
       "nt": "Glu",
       "sign": -1,
-      "evidence": "Cell Type Explorer LoVP92_L downstream \u00b7 fafb scaffold scale 0.68",
-      "weight_source": "explorer+fafb_scale"
+      "evidence": "FAFB scaffold (pair missing in CSV aggregate)",
+      "weight_source": "fafb_scaffold"
     },
     {
       "pre": "LoVP92_R",
@@ -3021,8 +3027,8 @@
       "weight": 19,
       "nt": "Glu",
       "sign": -1,
-      "evidence": "Cell Type Explorer LoVP92_L downstream \u00b7 fafb scaffold scale 0.68",
-      "weight_source": "explorer+fafb_scale"
+      "evidence": "FAFB scaffold (pair missing in CSV aggregate)",
+      "weight_source": "fafb_scaffold"
     },
     {
       "pre": "OA-VUMa1",
@@ -3030,8 +3036,8 @@
       "weight": 40,
       "nt": "OA",
       "sign": 1,
-      "evidence": "Cell Type Explorer DNa02 upstream \u00b7 fafb scaffold scale 0.90",
-      "weight_source": "explorer+fafb_scale"
+      "evidence": "FAFB scaffold (pair missing in CSV aggregate)",
+      "weight_source": "fafb_scaffold"
     },
     {
       "pre": "PS002",
@@ -3039,8 +3045,8 @@
       "weight": 4,
       "nt": "GABA",
       "sign": -1,
-      "evidence": "Cell Type Explorer DNa02 upstream \u00b7 fafb scaffold scale 0.90",
-      "weight_source": "explorer+fafb_scale"
+      "evidence": "FAFB scaffold (pair missing in CSV aggregate)",
+      "weight_source": "fafb_scaffold"
     },
     {
       "pre": "PLP225_L",
@@ -3048,8 +3054,8 @@
       "weight": 1,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer DNa02 upstream \u00b7 fafb scaffold scale 0.90",
-      "weight_source": "explorer+fafb_scale"
+      "evidence": "FAFB scaffold (pair missing in CSV aggregate)",
+      "weight_source": "fafb_scaffold"
     },
     {
       "pre": "DNa02",
@@ -3057,8 +3063,8 @@
       "weight": 21,
       "nt": "GABA",
       "sign": -1,
-      "evidence": "Cell Type Explorer DNa02 downstream \u00b7 fafb scaffold scale 0.90",
-      "weight_source": "explorer+fafb_scale"
+      "evidence": "FAFB scaffold (pair missing in CSV aggregate)",
+      "weight_source": "fafb_scaffold"
     },
     {
       "pre": "DNa02",
@@ -3066,8 +3072,8 @@
       "weight": 11,
       "nt": "unc",
       "sign": 1,
-      "evidence": "Cell Type Explorer DNa02 downstream \u00b7 fafb scaffold scale 0.90",
-      "weight_source": "explorer+fafb_scale"
+      "evidence": "FAFB scaffold (pair missing in CSV aggregate)",
+      "weight_source": "fafb_scaffold"
     },
     {
       "pre": "DNa02",
@@ -3075,8 +3081,8 @@
       "weight": 7,
       "nt": "GABA",
       "sign": -1,
-      "evidence": "Cell Type Explorer DNa02 downstream \u00b7 fafb scaffold scale 0.90",
-      "weight_source": "explorer+fafb_scale"
+      "evidence": "FAFB scaffold (pair missing in CSV aggregate)",
+      "weight_source": "fafb_scaffold"
     },
     {
       "pre": "DNa02",
@@ -3084,44 +3090,44 @@
       "weight": 5,
       "nt": "Glu",
       "sign": -1,
-      "evidence": "Cell Type Explorer DNa02 downstream \u00b7 fafb scaffold scale 0.90",
-      "weight_source": "explorer+fafb_scale"
+      "evidence": "FAFB scaffold (pair missing in CSV aggregate)",
+      "weight_source": "fafb_scaffold"
     },
     {
       "pre": "CB0244_L",
       "post": "DNg13_L",
-      "weight": 138,
-      "nt": "ACh",
+      "weight": 400,
+      "nt": "acetylcholine",
       "sign": 1,
-      "evidence": "Cell Type Explorer DNg13_L upstream \u00b7 fafb scaffold scale 0.82",
-      "weight_source": "explorer+fafb_scale"
+      "evidence": "FAFB Codex connections aggregated by cell type",
+      "weight_source": "fafb_csv"
     },
     {
       "pre": "CB0244_L",
       "post": "DNg13_R",
-      "weight": 138,
-      "nt": "ACh",
+      "weight": 400,
+      "nt": "acetylcholine",
       "sign": 1,
-      "evidence": "Cell Type Explorer DNg13_L upstream \u00b7 fafb scaffold scale 0.82",
-      "weight_source": "explorer+fafb_scale"
+      "evidence": "FAFB Codex connections aggregated by cell type",
+      "weight_source": "fafb_csv"
     },
     {
       "pre": "LAL073_R",
       "post": "DNg13_L",
-      "weight": 133,
-      "nt": "Glu",
+      "weight": 614,
+      "nt": "glutamate",
       "sign": -1,
-      "evidence": "Cell Type Explorer DNg13_L upstream \u00b7 fafb scaffold scale 0.82",
-      "weight_source": "explorer+fafb_scale"
+      "evidence": "FAFB Codex connections aggregated by cell type",
+      "weight_source": "fafb_csv"
     },
     {
       "pre": "LAL073_R",
       "post": "DNg13_R",
-      "weight": 133,
-      "nt": "Glu",
+      "weight": 614,
+      "nt": "glutamate",
       "sign": -1,
-      "evidence": "Cell Type Explorer DNg13_L upstream \u00b7 fafb scaffold scale 0.82",
-      "weight_source": "explorer+fafb_scale"
+      "evidence": "FAFB Codex connections aggregated by cell type",
+      "weight_source": "fafb_csv"
     },
     {
       "pre": "GNG532_L",
@@ -3129,8 +3135,8 @@
       "weight": 129,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer DNg13_L upstream \u00b7 fafb scaffold scale 0.82",
-      "weight_source": "explorer+fafb_scale"
+      "evidence": "FAFB scaffold (pair missing in CSV aggregate)",
+      "weight_source": "fafb_scaffold"
     },
     {
       "pre": "GNG532_L",
@@ -3138,26 +3144,26 @@
       "weight": 129,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer DNg13_L upstream \u00b7 fafb scaffold scale 0.82",
-      "weight_source": "explorer+fafb_scale"
+      "evidence": "FAFB scaffold (pair missing in CSV aggregate)",
+      "weight_source": "fafb_scaffold"
     },
     {
       "pre": "DNg97_R",
       "post": "DNg13_L",
-      "weight": 116,
-      "nt": "ACh",
+      "weight": 192,
+      "nt": "acetylcholine",
       "sign": 1,
-      "evidence": "Cell Type Explorer DNg13_L upstream \u00b7 fafb scaffold scale 0.82",
-      "weight_source": "explorer+fafb_scale"
+      "evidence": "FAFB Codex connections aggregated by cell type",
+      "weight_source": "fafb_csv"
     },
     {
       "pre": "DNg97_R",
       "post": "DNg13_R",
-      "weight": 116,
-      "nt": "ACh",
+      "weight": 192,
+      "nt": "acetylcholine",
       "sign": 1,
-      "evidence": "Cell Type Explorer DNg13_L upstream \u00b7 fafb scaffold scale 0.82",
-      "weight_source": "explorer+fafb_scale"
+      "evidence": "FAFB Codex connections aggregated by cell type",
+      "weight_source": "fafb_csv"
     },
     {
       "pre": "DNp13_R",
@@ -3165,8 +3171,8 @@
       "weight": 81,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer DNg13_L upstream \u00b7 fafb scaffold scale 0.82",
-      "weight_source": "explorer+fafb_scale"
+      "evidence": "FAFB scaffold (pair missing in CSV aggregate)",
+      "weight_source": "fafb_scaffold"
     },
     {
       "pre": "DNp13_R",
@@ -3174,26 +3180,26 @@
       "weight": 81,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer DNg13_L upstream \u00b7 fafb scaffold scale 0.82",
-      "weight_source": "explorer+fafb_scale"
+      "evidence": "FAFB scaffold (pair missing in CSV aggregate)",
+      "weight_source": "fafb_scaffold"
     },
     {
       "pre": "AOTU019_R",
       "post": "DNg13_L",
-      "weight": 8,
-      "nt": "GABA",
+      "weight": 13,
+      "nt": "gaba",
       "sign": -1,
-      "evidence": "Cell Type Explorer DNg13_L upstream \u00b7 fafb scaffold scale 0.82",
-      "weight_source": "explorer+fafb_scale"
+      "evidence": "FAFB Codex connections aggregated by cell type",
+      "weight_source": "fafb_csv"
     },
     {
       "pre": "AOTU019_R",
       "post": "DNg13_R",
-      "weight": 8,
-      "nt": "GABA",
+      "weight": 13,
+      "nt": "gaba",
       "sign": -1,
-      "evidence": "Cell Type Explorer DNg13_L upstream \u00b7 fafb scaffold scale 0.82",
-      "weight_source": "explorer+fafb_scale"
+      "evidence": "FAFB Codex connections aggregated by cell type",
+      "weight_source": "fafb_csv"
     },
     {
       "pre": "IN16B045_R",
@@ -3201,8 +3207,8 @@
       "weight": 5,
       "nt": "Glu",
       "sign": -1,
-      "evidence": "Cell Type Explorer DNg13_L upstream \u00b7 fafb scaffold scale 0.82",
-      "weight_source": "explorer+fafb_scale"
+      "evidence": "FAFB scaffold (pair missing in CSV aggregate)",
+      "weight_source": "fafb_scaffold"
     },
     {
       "pre": "IN16B045_R",
@@ -3210,8 +3216,8 @@
       "weight": 5,
       "nt": "Glu",
       "sign": -1,
-      "evidence": "Cell Type Explorer DNg13_L upstream \u00b7 fafb scaffold scale 0.82",
-      "weight_source": "explorer+fafb_scale"
+      "evidence": "FAFB scaffold (pair missing in CSV aggregate)",
+      "weight_source": "fafb_scaffold"
     },
     {
       "pre": "GNG552_L",
@@ -3219,8 +3225,8 @@
       "weight": 2,
       "nt": "Glu",
       "sign": -1,
-      "evidence": "Cell Type Explorer DNg13_L upstream \u00b7 fafb scaffold scale 0.82",
-      "weight_source": "explorer+fafb_scale"
+      "evidence": "FAFB scaffold (pair missing in CSV aggregate)",
+      "weight_source": "fafb_scaffold"
     },
     {
       "pre": "GNG552_L",
@@ -3228,8 +3234,8 @@
       "weight": 2,
       "nt": "Glu",
       "sign": -1,
-      "evidence": "Cell Type Explorer DNg13_L upstream \u00b7 fafb scaffold scale 0.82",
-      "weight_source": "explorer+fafb_scale"
+      "evidence": "FAFB scaffold (pair missing in CSV aggregate)",
+      "weight_source": "fafb_scaffold"
     },
     {
       "pre": "IN17A022_R",
@@ -3237,8 +3243,8 @@
       "weight": 1,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer DNg13_L upstream \u00b7 fafb scaffold scale 0.82",
-      "weight_source": "explorer+fafb_scale"
+      "evidence": "FAFB scaffold (pair missing in CSV aggregate)",
+      "weight_source": "fafb_scaffold"
     },
     {
       "pre": "IN17A022_R",
@@ -3246,8 +3252,8 @@
       "weight": 1,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer DNg13_L upstream \u00b7 fafb scaffold scale 0.82",
-      "weight_source": "explorer+fafb_scale"
+      "evidence": "FAFB scaffold (pair missing in CSV aggregate)",
+      "weight_source": "fafb_scaffold"
     },
     {
       "pre": "PLP225_L",
@@ -3255,8 +3261,8 @@
       "weight": 1,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer DNg13_L upstream \u00b7 fafb scaffold scale 0.82",
-      "weight_source": "explorer+fafb_scale"
+      "evidence": "FAFB scaffold (pair missing in CSV aggregate)",
+      "weight_source": "fafb_scaffold"
     },
     {
       "pre": "PLP225_L",
@@ -3264,8 +3270,8 @@
       "weight": 1,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer DNg13_L upstream \u00b7 fafb scaffold scale 0.82",
-      "weight_source": "explorer+fafb_scale"
+      "evidence": "FAFB scaffold (pair missing in CSV aggregate)",
+      "weight_source": "fafb_scaffold"
     },
     {
       "pre": "DNge023_L",
@@ -3273,8 +3279,8 @@
       "weight": 1,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer DNg13_L upstream \u00b7 fafb scaffold scale 0.82",
-      "weight_source": "explorer+fafb_scale"
+      "evidence": "FAFB scaffold (pair missing in CSV aggregate)",
+      "weight_source": "fafb_scaffold"
     },
     {
       "pre": "DNge023_L",
@@ -3282,8 +3288,8 @@
       "weight": 1,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer DNg13_L upstream \u00b7 fafb scaffold scale 0.82",
-      "weight_source": "explorer+fafb_scale"
+      "evidence": "FAFB scaffold (pair missing in CSV aggregate)",
+      "weight_source": "fafb_scaffold"
     },
     {
       "pre": "DNg13_L",
@@ -3291,8 +3297,8 @@
       "weight": 397,
       "nt": "Glu",
       "sign": -1,
-      "evidence": "Cell Type Explorer DNg13_L downstream \u00b7 fafb scaffold scale 0.82",
-      "weight_source": "explorer+fafb_scale"
+      "evidence": "FAFB scaffold (pair missing in CSV aggregate)",
+      "weight_source": "fafb_scaffold"
     },
     {
       "pre": "DNg13_R",
@@ -3300,8 +3306,8 @@
       "weight": 397,
       "nt": "Glu",
       "sign": -1,
-      "evidence": "Cell Type Explorer DNg13_L downstream \u00b7 fafb scaffold scale 0.82",
-      "weight_source": "explorer+fafb_scale"
+      "evidence": "FAFB scaffold (pair missing in CSV aggregate)",
+      "weight_source": "fafb_scaffold"
     },
     {
       "pre": "DNg13_L",
@@ -3309,8 +3315,8 @@
       "weight": 224,
       "nt": "GABA",
       "sign": -1,
-      "evidence": "Cell Type Explorer DNg13_L downstream \u00b7 fafb scaffold scale 0.82",
-      "weight_source": "explorer+fafb_scale"
+      "evidence": "FAFB scaffold (pair missing in CSV aggregate)",
+      "weight_source": "fafb_scaffold"
     },
     {
       "pre": "DNg13_R",
@@ -3318,8 +3324,8 @@
       "weight": 224,
       "nt": "GABA",
       "sign": -1,
-      "evidence": "Cell Type Explorer DNg13_L downstream \u00b7 fafb scaffold scale 0.82",
-      "weight_source": "explorer+fafb_scale"
+      "evidence": "FAFB scaffold (pair missing in CSV aggregate)",
+      "weight_source": "fafb_scaffold"
     },
     {
       "pre": "DNg13_L",
@@ -3327,8 +3333,8 @@
       "weight": 177,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer DNg13_L downstream \u00b7 fafb scaffold scale 0.82",
-      "weight_source": "explorer+fafb_scale"
+      "evidence": "FAFB scaffold (pair missing in CSV aggregate)",
+      "weight_source": "fafb_scaffold"
     },
     {
       "pre": "DNg13_R",
@@ -3336,8 +3342,8 @@
       "weight": 177,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer DNg13_L downstream \u00b7 fafb scaffold scale 0.82",
-      "weight_source": "explorer+fafb_scale"
+      "evidence": "FAFB scaffold (pair missing in CSV aggregate)",
+      "weight_source": "fafb_scaffold"
     },
     {
       "pre": "DNg13_L",
@@ -3345,8 +3351,8 @@
       "weight": 1,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer DNg13_L downstream \u00b7 fafb scaffold scale 0.82",
-      "weight_source": "explorer+fafb_scale"
+      "evidence": "FAFB scaffold (pair missing in CSV aggregate)",
+      "weight_source": "fafb_scaffold"
     },
     {
       "pre": "DNg13_R",
@@ -3354,8 +3360,8 @@
       "weight": 1,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer DNg13_L downstream \u00b7 fafb scaffold scale 0.82",
-      "weight_source": "explorer+fafb_scale"
+      "evidence": "FAFB scaffold (pair missing in CSV aggregate)",
+      "weight_source": "fafb_scaffold"
     },
     {
       "pre": "DNg13_L",
@@ -3363,8 +3369,8 @@
       "weight": 1,
       "nt": "Glu",
       "sign": -1,
-      "evidence": "Cell Type Explorer DNg13_L downstream \u00b7 fafb scaffold scale 0.70",
-      "weight_source": "explorer+fafb_scale"
+      "evidence": "FAFB scaffold (pair missing in CSV aggregate)",
+      "weight_source": "fafb_scaffold"
     },
     {
       "pre": "DNg13_R",
@@ -3372,8 +3378,8 @@
       "weight": 1,
       "nt": "Glu",
       "sign": -1,
-      "evidence": "Cell Type Explorer DNg13_L downstream \u00b7 fafb scaffold scale 0.70",
-      "weight_source": "explorer+fafb_scale"
+      "evidence": "FAFB scaffold (pair missing in CSV aggregate)",
+      "weight_source": "fafb_scaffold"
     },
     {
       "pre": "DNg13_L",
@@ -3381,8 +3387,8 @@
       "weight": 1,
       "nt": "Glu",
       "sign": -1,
-      "evidence": "Cell Type Explorer DNg13_L downstream \u00b7 fafb scaffold scale 0.82",
-      "weight_source": "explorer+fafb_scale"
+      "evidence": "FAFB scaffold (pair missing in CSV aggregate)",
+      "weight_source": "fafb_scaffold"
     },
     {
       "pre": "DNg13_R",
@@ -3390,8 +3396,8 @@
       "weight": 1,
       "nt": "Glu",
       "sign": -1,
-      "evidence": "Cell Type Explorer DNg13_L downstream \u00b7 fafb scaffold scale 0.82",
-      "weight_source": "explorer+fafb_scale"
+      "evidence": "FAFB scaffold (pair missing in CSV aggregate)",
+      "weight_source": "fafb_scaffold"
     },
     {
       "pre": "DNg13_L",
@@ -3399,8 +3405,8 @@
       "weight": 1,
       "nt": "Glu",
       "sign": -1,
-      "evidence": "Cell Type Explorer DNg13_L downstream \u00b7 fafb scaffold scale 0.82",
-      "weight_source": "explorer+fafb_scale"
+      "evidence": "FAFB scaffold (pair missing in CSV aggregate)",
+      "weight_source": "fafb_scaffold"
     },
     {
       "pre": "DNg13_R",
@@ -3408,26 +3414,26 @@
       "weight": 1,
       "nt": "Glu",
       "sign": -1,
-      "evidence": "Cell Type Explorer DNg13_L downstream \u00b7 fafb scaffold scale 0.82",
-      "weight_source": "explorer+fafb_scale"
+      "evidence": "FAFB scaffold (pair missing in CSV aggregate)",
+      "weight_source": "fafb_scaffold"
     },
     {
       "pre": "DNg13_L",
       "post": "CB0244_L",
-      "weight": 1,
-      "nt": "ACh",
+      "weight": 2,
+      "nt": "acetylcholine",
       "sign": 1,
-      "evidence": "Cell Type Explorer DNg13_L downstream \u00b7 fafb scaffold scale 0.82",
-      "weight_source": "explorer+fafb_scale"
+      "evidence": "FAFB Codex connections aggregated by cell type",
+      "weight_source": "fafb_csv"
     },
     {
       "pre": "DNg13_R",
       "post": "CB0244_L",
-      "weight": 1,
-      "nt": "ACh",
+      "weight": 2,
+      "nt": "acetylcholine",
       "sign": 1,
-      "evidence": "Cell Type Explorer DNg13_L downstream \u00b7 fafb scaffold scale 0.82",
-      "weight_source": "explorer+fafb_scale"
+      "evidence": "FAFB Codex connections aggregated by cell type",
+      "weight_source": "fafb_csv"
     },
     {
       "pre": "DNg13_L",
@@ -3435,8 +3441,8 @@
       "weight": 1,
       "nt": "GABA",
       "sign": -1,
-      "evidence": "Cell Type Explorer DNg13_L downstream \u00b7 fafb scaffold scale 0.82",
-      "weight_source": "explorer+fafb_scale"
+      "evidence": "FAFB scaffold (pair missing in CSV aggregate)",
+      "weight_source": "fafb_scaffold"
     },
     {
       "pre": "DNg13_R",
@@ -3444,8 +3450,8 @@
       "weight": 1,
       "nt": "GABA",
       "sign": -1,
-      "evidence": "Cell Type Explorer DNg13_L downstream \u00b7 fafb scaffold scale 0.82",
-      "weight_source": "explorer+fafb_scale"
+      "evidence": "FAFB scaffold (pair missing in CSV aggregate)",
+      "weight_source": "fafb_scaffold"
     },
     {
       "pre": "R1-R6_L",
@@ -3453,8 +3459,8 @@
       "weight": 80,
       "nt": "His",
       "sign": 1,
-      "evidence": "optic-lobe feedforward (heuristic fallback) \u00b7 fafb scaffold scale 1.00",
-      "weight_source": "heuristic+fafb_scale"
+      "evidence": "FAFB scaffold (pair missing in CSV aggregate)",
+      "weight_source": "fafb_scaffold"
     },
     {
       "pre": "R1-R6_L",
@@ -3462,8 +3468,8 @@
       "weight": 68,
       "nt": "His",
       "sign": 1,
-      "evidence": "optic-lobe feedforward (heuristic fallback) \u00b7 fafb scaffold scale 0.97",
-      "weight_source": "heuristic+fafb_scale"
+      "evidence": "FAFB scaffold (pair missing in CSV aggregate)",
+      "weight_source": "fafb_scaffold"
     },
     {
       "pre": "R1-R6_L",
@@ -3471,107 +3477,107 @@
       "weight": 51,
       "nt": "His",
       "sign": 1,
-      "evidence": "lamina L3 pathway (heuristic fallback) \u00b7 fafb scaffold scale 0.93",
-      "weight_source": "heuristic+fafb_scale"
+      "evidence": "FAFB scaffold (pair missing in CSV aggregate)",
+      "weight_source": "fafb_scaffold"
     },
     {
       "pre": "L1_L",
       "post": "C2_L",
-      "weight": 29,
-      "nt": "His",
+      "weight": 17804,
+      "nt": "glutamate",
       "sign": 1,
-      "evidence": "lamina \u2192 C2 feedback (heuristic fallback) \u00b7 fafb scaffold scale 0.98",
-      "weight_source": "heuristic+fafb_scale"
+      "evidence": "FAFB Codex connections aggregated by cell type",
+      "weight_source": "fafb_csv"
     },
     {
       "pre": "C2_L",
       "post": "L1_L",
-      "weight": 21,
-      "nt": "GABA",
+      "weight": 11481,
+      "nt": "gaba",
       "sign": -1,
-      "evidence": "C2 inhibitory feedback (heuristic fallback) \u00b7 fafb scaffold scale 0.98",
-      "weight_source": "heuristic+fafb_scale"
+      "evidence": "FAFB Codex connections aggregated by cell type",
+      "weight_source": "fafb_csv"
     },
     {
       "pre": "C2_L",
       "post": "L2_L",
-      "weight": 17,
-      "nt": "GABA",
+      "weight": 13675,
+      "nt": "gaba",
       "sign": -1,
-      "evidence": "C2 inhibitory feedback (heuristic fallback) \u00b7 fafb scaffold scale 0.95",
-      "weight_source": "heuristic+fafb_scale"
+      "evidence": "FAFB Codex connections aggregated by cell type",
+      "weight_source": "fafb_csv"
     },
     {
       "pre": "L1_L",
       "post": "Mi1_L",
-      "weight": 59,
-      "nt": "His",
+      "weight": 60172,
+      "nt": "gaba",
       "sign": 1,
-      "evidence": "lamina \u2192 medulla (heuristic fallback) \u00b7 fafb scaffold scale 1.08",
-      "weight_source": "heuristic+fafb_scale"
+      "evidence": "FAFB Codex connections aggregated by cell type",
+      "weight_source": "fafb_csv"
     },
     {
       "pre": "L2_L",
       "post": "Mi1_L",
-      "weight": 50,
-      "nt": "His",
+      "weight": 1001,
+      "nt": "acetylcholine",
       "sign": 1,
-      "evidence": "lamina \u2192 medulla (heuristic fallback) \u00b7 fafb scaffold scale 1.05",
-      "weight_source": "heuristic+fafb_scale"
+      "evidence": "FAFB Codex connections aggregated by cell type",
+      "weight_source": "fafb_csv"
     },
     {
       "pre": "L2_L",
       "post": "Tm3_L",
-      "weight": 43,
-      "nt": "His",
+      "weight": 274,
+      "nt": "gaba",
       "sign": 1,
-      "evidence": "lamina \u2192 Tm3 (heuristic fallback) \u00b7 fafb scaffold scale 1.02",
-      "weight_source": "heuristic+fafb_scale"
+      "evidence": "FAFB Codex connections aggregated by cell type",
+      "weight_source": "fafb_csv"
     },
     {
       "pre": "L3_L",
       "post": "Tm3_L",
-      "weight": 35,
-      "nt": "His",
+      "weight": 87,
+      "nt": "acetylcholine",
       "sign": 1,
-      "evidence": "L3 \u2192 Tm3 (heuristic fallback) \u00b7 fafb scaffold scale 0.98",
-      "weight_source": "heuristic+fafb_scale"
+      "evidence": "FAFB Codex connections aggregated by cell type",
+      "weight_source": "fafb_csv"
     },
     {
       "pre": "Mi1_L",
       "post": "T4a_L",
-      "weight": 47,
-      "nt": "ACh",
+      "weight": 32091,
+      "nt": "acetylcholine",
       "sign": 1,
-      "evidence": "medulla \u2192 lobula plate motion (heuristic fallback) \u00b7 fafb scaffold scale 1.12",
-      "weight_source": "heuristic+fafb_scale"
+      "evidence": "FAFB Codex connections aggregated by cell type",
+      "weight_source": "fafb_csv"
     },
     {
       "pre": "Tm3_L",
       "post": "T4b_L",
-      "weight": 41,
-      "nt": "ACh",
+      "weight": 9562,
+      "nt": "acetylcholine",
       "sign": 1,
-      "evidence": "Tm3 \u2192 T4b motion (heuristic fallback) \u00b7 fafb scaffold scale 1.08",
-      "weight_source": "heuristic+fafb_scale"
+      "evidence": "FAFB Codex connections aggregated by cell type",
+      "weight_source": "fafb_csv"
     },
     {
       "pre": "Mi1_L",
       "post": "Mi4_L",
-      "weight": 20,
-      "nt": "ACh",
+      "weight": 7100,
+      "nt": "acetylcholine",
       "sign": 1,
-      "evidence": "Mi1 \u2192 Mi4 (heuristic fallback) \u00b7 fafb scaffold scale 1.00",
-      "weight_source": "heuristic+fafb_scale"
+      "evidence": "FAFB Codex connections aggregated by cell type",
+      "weight_source": "fafb_csv"
     },
     {
       "pre": "Mi4_L",
       "post": "T4a_L",
-      "weight": 25,
-      "nt": "GABA",
+      "weight": 4865,
+      "nt": "gaba",
       "sign": -1,
-      "evidence": "Mi4 motion gain control (heuristic fallback) \u00b7 fafb scaffold scale 1.02",
-      "weight_source": "heuristic+fafb_scale"
+      "evidence": "FAFB Codex connections aggregated by cell type",
+      "weight_source": "fafb_csv"
     },
     {
       "pre": "L2_L",
@@ -3579,8 +3585,8 @@
       "weight": 42,
       "nt": "His",
       "sign": 1,
-      "evidence": "lamina/lobula motion pathway (heuristic fallback) \u00b7 fafb scaffold scale 1.10",
-      "weight_source": "heuristic+fafb_scale"
+      "evidence": "FAFB scaffold (pair missing in CSV aggregate)",
+      "weight_source": "fafb_scaffold"
     },
     {
       "pre": "T4a_L",
@@ -3588,8 +3594,8 @@
       "weight": 36,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "motion \u2192 object feature (heuristic fallback) \u00b7 fafb scaffold scale 1.00",
-      "weight_source": "heuristic+fafb_scale"
+      "evidence": "FAFB scaffold (pair missing in CSV aggregate)",
+      "weight_source": "fafb_scaffold"
     },
     {
       "pre": "T4b_L",
@@ -3597,17 +3603,17 @@
       "weight": 32,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "motion \u2192 LC10b (heuristic fallback) \u00b7 fafb scaffold scale 1.00",
-      "weight_source": "heuristic+fafb_scale"
+      "evidence": "FAFB scaffold (pair missing in CSV aggregate)",
+      "weight_source": "fafb_scaffold"
     },
     {
       "pre": "T5a_L",
       "post": "LC10a_L",
-      "weight": 29,
-      "nt": "ACh",
+      "weight": 3,
+      "nt": "acetylcholine",
       "sign": 1,
-      "evidence": "motion \u2192 object feature (heuristic fallback) \u00b7 fafb scaffold scale 1.02",
-      "weight_source": "heuristic+fafb_scale"
+      "evidence": "FAFB Codex connections aggregated by cell type",
+      "weight_source": "fafb_csv"
     },
     {
       "pre": "T5a_L",
@@ -3615,26 +3621,26 @@
       "weight": 22,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "motion \u2192 LC6 (heuristic fallback) \u00b7 fafb scaffold scale 1.00",
-      "weight_source": "heuristic+fafb_scale"
+      "evidence": "FAFB scaffold (pair missing in CSV aggregate)",
+      "weight_source": "fafb_scaffold"
     },
     {
       "pre": "Mi1_L",
       "post": "MeTu1_L",
-      "weight": 26,
-      "nt": "ACh",
+      "weight": 12,
+      "nt": "acetylcholine",
       "sign": 1,
-      "evidence": "medulla \u2192 MeTu relay (heuristic fallback) \u00b7 fafb scaffold scale 1.00",
-      "weight_source": "heuristic+fafb_scale"
+      "evidence": "FAFB Codex connections aggregated by cell type",
+      "weight_source": "fafb_csv"
     },
     {
       "pre": "Tm3_L",
       "post": "MeTu1_L",
-      "weight": 20,
-      "nt": "ACh",
+      "weight": 13,
+      "nt": "acetylcholine",
       "sign": 1,
-      "evidence": "Tm3 \u2192 MeTu (heuristic fallback) \u00b7 fafb scaffold scale 0.98",
-      "weight_source": "heuristic+fafb_scale"
+      "evidence": "FAFB Codex connections aggregated by cell type",
+      "weight_source": "fafb_csv"
     },
     {
       "pre": "LC10a_L",
@@ -3642,8 +3648,8 @@
       "weight": 19,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "VPN convergence (heuristic fallback) \u00b7 fafb scaffold scale 0.77",
-      "weight_source": "heuristic+fafb_scale"
+      "evidence": "FAFB scaffold (pair missing in CSV aggregate)",
+      "weight_source": "fafb_scaffold"
     },
     {
       "pre": "LC10b_L",
@@ -3651,8 +3657,8 @@
       "weight": 14,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "LC10b \u2192 LoVP92 (heuristic fallback) \u00b7 fafb scaffold scale 0.80",
-      "weight_source": "heuristic+fafb_scale"
+      "evidence": "FAFB scaffold (pair missing in CSV aggregate)",
+      "weight_source": "fafb_scaffold"
     },
     {
       "pre": "LC6_L",
@@ -3660,8 +3666,8 @@
       "weight": 14,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "LC6 \u2192 LoVP11 (heuristic fallback) \u00b7 fafb scaffold scale 0.85",
-      "weight_source": "heuristic+fafb_scale"
+      "evidence": "FAFB scaffold (pair missing in CSV aggregate)",
+      "weight_source": "fafb_scaffold"
     },
     {
       "pre": "MeTu1_L",
@@ -3669,8 +3675,8 @@
       "weight": 11,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "MeTu \u2192 VPN (heuristic fallback) \u00b7 fafb scaffold scale 0.80",
-      "weight_source": "heuristic+fafb_scale"
+      "evidence": "FAFB scaffold (pair missing in CSV aggregate)",
+      "weight_source": "fafb_scaffold"
     },
     {
       "pre": "LoVP11_L",
@@ -3678,8 +3684,8 @@
       "weight": 10,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "VPN local mix (heuristic fallback) \u00b7 fafb scaffold scale 0.80",
-      "weight_source": "heuristic+fafb_scale"
+      "evidence": "FAFB scaffold (pair missing in CSV aggregate)",
+      "weight_source": "fafb_scaffold"
     },
     {
       "pre": "R1-R6_R",
@@ -3687,8 +3693,8 @@
       "weight": 80,
       "nt": "His",
       "sign": 1,
-      "evidence": "optic-lobe feedforward (heuristic fallback) \u00b7 fafb scaffold scale 1.00",
-      "weight_source": "heuristic+fafb_scale"
+      "evidence": "FAFB scaffold (pair missing in CSV aggregate)",
+      "weight_source": "fafb_scaffold"
     },
     {
       "pre": "R1-R6_R",
@@ -3696,8 +3702,8 @@
       "weight": 68,
       "nt": "His",
       "sign": 1,
-      "evidence": "optic-lobe feedforward (heuristic fallback) \u00b7 fafb scaffold scale 0.97",
-      "weight_source": "heuristic+fafb_scale"
+      "evidence": "FAFB scaffold (pair missing in CSV aggregate)",
+      "weight_source": "fafb_scaffold"
     },
     {
       "pre": "R1-R6_R",
@@ -3705,107 +3711,107 @@
       "weight": 51,
       "nt": "His",
       "sign": 1,
-      "evidence": "lamina L3 pathway (heuristic fallback) \u00b7 fafb scaffold scale 0.93",
-      "weight_source": "heuristic+fafb_scale"
+      "evidence": "FAFB scaffold (pair missing in CSV aggregate)",
+      "weight_source": "fafb_scaffold"
     },
     {
       "pre": "L1_R",
       "post": "C2_R",
-      "weight": 29,
-      "nt": "His",
+      "weight": 17804,
+      "nt": "glutamate",
       "sign": 1,
-      "evidence": "lamina \u2192 C2 feedback (heuristic fallback) \u00b7 fafb scaffold scale 0.98",
-      "weight_source": "heuristic+fafb_scale"
+      "evidence": "FAFB Codex connections aggregated by cell type",
+      "weight_source": "fafb_csv"
     },
     {
       "pre": "C2_R",
       "post": "L1_R",
-      "weight": 21,
-      "nt": "GABA",
+      "weight": 11481,
+      "nt": "gaba",
       "sign": -1,
-      "evidence": "C2 inhibitory feedback (heuristic fallback) \u00b7 fafb scaffold scale 0.98",
-      "weight_source": "heuristic+fafb_scale"
+      "evidence": "FAFB Codex connections aggregated by cell type",
+      "weight_source": "fafb_csv"
     },
     {
       "pre": "C2_R",
       "post": "L2_R",
-      "weight": 17,
-      "nt": "GABA",
+      "weight": 13675,
+      "nt": "gaba",
       "sign": -1,
-      "evidence": "C2 inhibitory feedback (heuristic fallback) \u00b7 fafb scaffold scale 0.95",
-      "weight_source": "heuristic+fafb_scale"
+      "evidence": "FAFB Codex connections aggregated by cell type",
+      "weight_source": "fafb_csv"
     },
     {
       "pre": "L1_R",
       "post": "Mi1_R",
-      "weight": 59,
-      "nt": "His",
+      "weight": 60172,
+      "nt": "gaba",
       "sign": 1,
-      "evidence": "lamina \u2192 medulla (heuristic fallback) \u00b7 fafb scaffold scale 1.08",
-      "weight_source": "heuristic+fafb_scale"
+      "evidence": "FAFB Codex connections aggregated by cell type",
+      "weight_source": "fafb_csv"
     },
     {
       "pre": "L2_R",
       "post": "Mi1_R",
-      "weight": 50,
-      "nt": "His",
+      "weight": 1001,
+      "nt": "acetylcholine",
       "sign": 1,
-      "evidence": "lamina \u2192 medulla (heuristic fallback) \u00b7 fafb scaffold scale 1.05",
-      "weight_source": "heuristic+fafb_scale"
+      "evidence": "FAFB Codex connections aggregated by cell type",
+      "weight_source": "fafb_csv"
     },
     {
       "pre": "L2_R",
       "post": "Tm3_R",
-      "weight": 43,
-      "nt": "His",
+      "weight": 274,
+      "nt": "gaba",
       "sign": 1,
-      "evidence": "lamina \u2192 Tm3 (heuristic fallback) \u00b7 fafb scaffold scale 1.02",
-      "weight_source": "heuristic+fafb_scale"
+      "evidence": "FAFB Codex connections aggregated by cell type",
+      "weight_source": "fafb_csv"
     },
     {
       "pre": "L3_R",
       "post": "Tm3_R",
-      "weight": 35,
-      "nt": "His",
+      "weight": 87,
+      "nt": "acetylcholine",
       "sign": 1,
-      "evidence": "L3 \u2192 Tm3 (heuristic fallback) \u00b7 fafb scaffold scale 0.98",
-      "weight_source": "heuristic+fafb_scale"
+      "evidence": "FAFB Codex connections aggregated by cell type",
+      "weight_source": "fafb_csv"
     },
     {
       "pre": "Mi1_R",
       "post": "T4a_R",
-      "weight": 47,
-      "nt": "ACh",
+      "weight": 32091,
+      "nt": "acetylcholine",
       "sign": 1,
-      "evidence": "medulla \u2192 lobula plate motion (heuristic fallback) \u00b7 fafb scaffold scale 1.12",
-      "weight_source": "heuristic+fafb_scale"
+      "evidence": "FAFB Codex connections aggregated by cell type",
+      "weight_source": "fafb_csv"
     },
     {
       "pre": "Tm3_R",
       "post": "T4b_R",
-      "weight": 41,
-      "nt": "ACh",
+      "weight": 9562,
+      "nt": "acetylcholine",
       "sign": 1,
-      "evidence": "Tm3 \u2192 T4b motion (heuristic fallback) \u00b7 fafb scaffold scale 1.08",
-      "weight_source": "heuristic+fafb_scale"
+      "evidence": "FAFB Codex connections aggregated by cell type",
+      "weight_source": "fafb_csv"
     },
     {
       "pre": "Mi1_R",
       "post": "Mi4_R",
-      "weight": 20,
-      "nt": "ACh",
+      "weight": 7100,
+      "nt": "acetylcholine",
       "sign": 1,
-      "evidence": "Mi1 \u2192 Mi4 (heuristic fallback) \u00b7 fafb scaffold scale 1.00",
-      "weight_source": "heuristic+fafb_scale"
+      "evidence": "FAFB Codex connections aggregated by cell type",
+      "weight_source": "fafb_csv"
     },
     {
       "pre": "Mi4_R",
       "post": "T4a_R",
-      "weight": 25,
-      "nt": "GABA",
+      "weight": 4865,
+      "nt": "gaba",
       "sign": -1,
-      "evidence": "Mi4 motion gain control (heuristic fallback) \u00b7 fafb scaffold scale 1.02",
-      "weight_source": "heuristic+fafb_scale"
+      "evidence": "FAFB Codex connections aggregated by cell type",
+      "weight_source": "fafb_csv"
     },
     {
       "pre": "L2_R",
@@ -3813,8 +3819,8 @@
       "weight": 42,
       "nt": "His",
       "sign": 1,
-      "evidence": "lamina/lobula motion pathway (heuristic fallback) \u00b7 fafb scaffold scale 1.10",
-      "weight_source": "heuristic+fafb_scale"
+      "evidence": "FAFB scaffold (pair missing in CSV aggregate)",
+      "weight_source": "fafb_scaffold"
     },
     {
       "pre": "T4a_R",
@@ -3822,8 +3828,8 @@
       "weight": 36,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "motion \u2192 object feature (heuristic fallback) \u00b7 fafb scaffold scale 1.00",
-      "weight_source": "heuristic+fafb_scale"
+      "evidence": "FAFB scaffold (pair missing in CSV aggregate)",
+      "weight_source": "fafb_scaffold"
     },
     {
       "pre": "T4b_R",
@@ -3831,17 +3837,17 @@
       "weight": 32,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "motion \u2192 LC10b (heuristic fallback) \u00b7 fafb scaffold scale 1.00",
-      "weight_source": "heuristic+fafb_scale"
+      "evidence": "FAFB scaffold (pair missing in CSV aggregate)",
+      "weight_source": "fafb_scaffold"
     },
     {
       "pre": "T5a_R",
       "post": "LC10a_R",
-      "weight": 29,
-      "nt": "ACh",
+      "weight": 3,
+      "nt": "acetylcholine",
       "sign": 1,
-      "evidence": "motion \u2192 object feature (heuristic fallback) \u00b7 fafb scaffold scale 1.02",
-      "weight_source": "heuristic+fafb_scale"
+      "evidence": "FAFB Codex connections aggregated by cell type",
+      "weight_source": "fafb_csv"
     },
     {
       "pre": "T5a_R",
@@ -3849,26 +3855,26 @@
       "weight": 22,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "motion \u2192 LC6 (heuristic fallback) \u00b7 fafb scaffold scale 1.00",
-      "weight_source": "heuristic+fafb_scale"
+      "evidence": "FAFB scaffold (pair missing in CSV aggregate)",
+      "weight_source": "fafb_scaffold"
     },
     {
       "pre": "Mi1_R",
       "post": "MeTu1_R",
-      "weight": 26,
-      "nt": "ACh",
+      "weight": 12,
+      "nt": "acetylcholine",
       "sign": 1,
-      "evidence": "medulla \u2192 MeTu relay (heuristic fallback) \u00b7 fafb scaffold scale 1.00",
-      "weight_source": "heuristic+fafb_scale"
+      "evidence": "FAFB Codex connections aggregated by cell type",
+      "weight_source": "fafb_csv"
     },
     {
       "pre": "Tm3_R",
       "post": "MeTu1_R",
-      "weight": 20,
-      "nt": "ACh",
+      "weight": 13,
+      "nt": "acetylcholine",
       "sign": 1,
-      "evidence": "Tm3 \u2192 MeTu (heuristic fallback) \u00b7 fafb scaffold scale 0.98",
-      "weight_source": "heuristic+fafb_scale"
+      "evidence": "FAFB Codex connections aggregated by cell type",
+      "weight_source": "fafb_csv"
     },
     {
       "pre": "LC6_R",
@@ -3876,8 +3882,8 @@
       "weight": 14,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "LC6 \u2192 LoVP11 (heuristic fallback) \u00b7 fafb scaffold scale 0.85",
-      "weight_source": "heuristic+fafb_scale"
+      "evidence": "FAFB scaffold (pair missing in CSV aggregate)",
+      "weight_source": "fafb_scaffold"
     },
     {
       "pre": "MeTu1_R",
@@ -3885,8 +3891,8 @@
       "weight": 11,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "MeTu \u2192 VPN (heuristic fallback) \u00b7 fafb scaffold scale 0.80",
-      "weight_source": "heuristic+fafb_scale"
+      "evidence": "FAFB scaffold (pair missing in CSV aggregate)",
+      "weight_source": "fafb_scaffold"
     },
     {
       "pre": "LoVP11_R",
@@ -3894,8 +3900,8 @@
       "weight": 10,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "VPN local mix (heuristic fallback) \u00b7 fafb scaffold scale 0.80",
-      "weight_source": "heuristic+fafb_scale"
+      "evidence": "FAFB scaffold (pair missing in CSV aggregate)",
+      "weight_source": "fafb_scaffold"
     },
     {
       "pre": "LoVP92_R",
@@ -3903,8 +3909,8 @@
       "weight": 61,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell paper frontal VPN\u2192VES200m \u00b7 fafb scaffold scale 0.68",
-      "weight_source": "heuristic+fafb_scale"
+      "evidence": "FAFB scaffold (pair missing in CSV aggregate)",
+      "weight_source": "fafb_scaffold"
     },
     {
       "pre": "LoVP92_L",
@@ -3912,8 +3918,8 @@
       "weight": 27,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell paper bilateral VES200m \u00b7 fafb scaffold scale 0.68",
-      "weight_source": "heuristic+fafb_scale"
+      "evidence": "FAFB scaffold (pair missing in CSV aggregate)",
+      "weight_source": "fafb_scaffold"
     },
     {
       "pre": "LoVP92_L",
@@ -3921,8 +3927,8 @@
       "weight": 32,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "VPN \u2192 AOTU (heuristic fallback) \u00b7 fafb scaffold scale 0.80",
-      "weight_source": "heuristic+fafb_scale"
+      "evidence": "FAFB scaffold (pair missing in CSV aggregate)",
+      "weight_source": "fafb_scaffold"
     },
     {
       "pre": "MeTu1_L",
@@ -3930,17 +3936,17 @@
       "weight": 25,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "MeTu \u2192 AOTU (heuristic fallback) \u00b7 fafb scaffold scale 0.90",
-      "weight_source": "heuristic+fafb_scale"
+      "evidence": "FAFB scaffold (pair missing in CSV aggregate)",
+      "weight_source": "fafb_scaffold"
     },
     {
       "pre": "AOTU019_L",
       "post": "LAL073_L",
-      "weight": 27,
-      "nt": "ACh",
+      "weight": 48,
+      "nt": "gaba",
       "sign": 1,
-      "evidence": "AOTU \u2192 LAL (heuristic fallback) \u00b7 fafb scaffold scale 0.90",
-      "weight_source": "heuristic+fafb_scale"
+      "evidence": "FAFB Codex connections aggregated by cell type",
+      "weight_source": "fafb_csv"
     },
     {
       "pre": "LoVP92_L",
@@ -3948,8 +3954,8 @@
       "weight": 29,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "VPN \u2192 central integrator (heuristic fallback) \u00b7 fafb scaffold scale 0.80",
-      "weight_source": "heuristic+fafb_scale"
+      "evidence": "FAFB scaffold (pair missing in CSV aggregate)",
+      "weight_source": "fafb_scaffold"
     },
     {
       "pre": "LoVP92_L",
@@ -3957,8 +3963,8 @@
       "weight": 22,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "VPN \u2192 LAL (heuristic fallback) \u00b7 fafb scaffold scale 0.80",
-      "weight_source": "heuristic+fafb_scale"
+      "evidence": "FAFB scaffold (pair missing in CSV aggregate)",
+      "weight_source": "fafb_scaffold"
     },
     {
       "pre": "LoVP11_L",
@@ -3966,8 +3972,8 @@
       "weight": 16,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "VPN \u2192 SMP (heuristic fallback) \u00b7 fafb scaffold scale 0.90",
-      "weight_source": "heuristic+fafb_scale"
+      "evidence": "FAFB scaffold (pair missing in CSV aggregate)",
+      "weight_source": "fafb_scaffold"
     },
     {
       "pre": "SMP108_L",
@@ -3975,8 +3981,8 @@
       "weight": 20,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "SMP \u2192 GNG (heuristic fallback) \u00b7 fafb scaffold scale 0.90",
-      "weight_source": "heuristic+fafb_scale"
+      "evidence": "FAFB scaffold (pair missing in CSV aggregate)",
+      "weight_source": "fafb_scaffold"
     },
     {
       "pre": "CB0244_L",
@@ -3984,8 +3990,8 @@
       "weight": 23,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "proto \u2192 GNG (heuristic fallback) \u00b7 fafb scaffold scale 0.90",
-      "weight_source": "heuristic+fafb_scale"
+      "evidence": "FAFB scaffold (pair missing in CSV aggregate)",
+      "weight_source": "fafb_scaffold"
     },
     {
       "pre": "GNG532_L",
@@ -3993,8 +3999,8 @@
       "weight": 22,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "GNG \u2192 DNg97 (heuristic fallback) \u00b7 fafb scaffold scale 0.90",
-      "weight_source": "heuristic+fafb_scale"
+      "evidence": "FAFB scaffold (pair missing in CSV aggregate)",
+      "weight_source": "fafb_scaffold"
     },
     {
       "pre": "CB0244_L",
@@ -4002,8 +4008,8 @@
       "weight": 18,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "proto \u2192 DNp13 (heuristic fallback) \u00b7 fafb scaffold scale 0.90",
-      "weight_source": "heuristic+fafb_scale"
+      "evidence": "FAFB scaffold (pair missing in CSV aggregate)",
+      "weight_source": "fafb_scaffold"
     },
     {
       "pre": "LoVP92_R",
@@ -4011,8 +4017,8 @@
       "weight": 32,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "VPN \u2192 AOTU (heuristic fallback) \u00b7 fafb scaffold scale 0.80",
-      "weight_source": "heuristic+fafb_scale"
+      "evidence": "FAFB scaffold (pair missing in CSV aggregate)",
+      "weight_source": "fafb_scaffold"
     },
     {
       "pre": "MeTu1_R",
@@ -4020,17 +4026,17 @@
       "weight": 25,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "MeTu \u2192 AOTU (heuristic fallback) \u00b7 fafb scaffold scale 0.90",
-      "weight_source": "heuristic+fafb_scale"
+      "evidence": "FAFB scaffold (pair missing in CSV aggregate)",
+      "weight_source": "fafb_scaffold"
     },
     {
       "pre": "AOTU019_R",
       "post": "LAL073_R",
-      "weight": 27,
-      "nt": "ACh",
+      "weight": 48,
+      "nt": "gaba",
       "sign": 1,
-      "evidence": "AOTU \u2192 LAL (heuristic fallback) \u00b7 fafb scaffold scale 0.90",
-      "weight_source": "heuristic+fafb_scale"
+      "evidence": "FAFB Codex connections aggregated by cell type",
+      "weight_source": "fafb_csv"
     },
     {
       "pre": "LoVP92_R",
@@ -4038,8 +4044,8 @@
       "weight": 29,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "VPN \u2192 central integrator (heuristic fallback) \u00b7 fafb scaffold scale 0.80",
-      "weight_source": "heuristic+fafb_scale"
+      "evidence": "FAFB scaffold (pair missing in CSV aggregate)",
+      "weight_source": "fafb_scaffold"
     },
     {
       "pre": "LoVP92_R",
@@ -4047,8 +4053,8 @@
       "weight": 22,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "VPN \u2192 LAL (heuristic fallback) \u00b7 fafb scaffold scale 0.80",
-      "weight_source": "heuristic+fafb_scale"
+      "evidence": "FAFB scaffold (pair missing in CSV aggregate)",
+      "weight_source": "fafb_scaffold"
     },
     {
       "pre": "LoVP11_R",
@@ -4056,8 +4062,8 @@
       "weight": 16,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "VPN \u2192 SMP (heuristic fallback) \u00b7 fafb scaffold scale 0.90",
-      "weight_source": "heuristic+fafb_scale"
+      "evidence": "FAFB scaffold (pair missing in CSV aggregate)",
+      "weight_source": "fafb_scaffold"
     },
     {
       "pre": "SMP108_R",
@@ -4065,8 +4071,8 @@
       "weight": 20,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "SMP \u2192 GNG (heuristic fallback) \u00b7 fafb scaffold scale 0.90",
-      "weight_source": "heuristic+fafb_scale"
+      "evidence": "FAFB scaffold (pair missing in CSV aggregate)",
+      "weight_source": "fafb_scaffold"
     },
     {
       "pre": "CB0244_R",
@@ -4074,8 +4080,8 @@
       "weight": 23,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "proto \u2192 GNG (heuristic fallback) \u00b7 fafb scaffold scale 0.90",
-      "weight_source": "heuristic+fafb_scale"
+      "evidence": "FAFB scaffold (pair missing in CSV aggregate)",
+      "weight_source": "fafb_scaffold"
     },
     {
       "pre": "GNG532_R",
@@ -4083,8 +4089,8 @@
       "weight": 22,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "GNG \u2192 DNg97 (heuristic fallback) \u00b7 fafb scaffold scale 0.90",
-      "weight_source": "heuristic+fafb_scale"
+      "evidence": "FAFB scaffold (pair missing in CSV aggregate)",
+      "weight_source": "fafb_scaffold"
     },
     {
       "pre": "CB0244_R",
@@ -4092,8 +4098,8 @@
       "weight": 18,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "proto \u2192 DNp13 (heuristic fallback) \u00b7 fafb scaffold scale 0.90",
-      "weight_source": "heuristic+fafb_scale"
+      "evidence": "FAFB scaffold (pair missing in CSV aggregate)",
+      "weight_source": "fafb_scaffold"
     },
     {
       "pre": "CB0244_L",
@@ -4101,8 +4107,8 @@
       "weight": 40,
       "nt": "OA",
       "sign": 1,
-      "evidence": "DNa02 upstream \u00b7 fafb scaffold scale 0.90",
-      "weight_source": "mirror+fafb_scale"
+      "evidence": "FAFB scaffold (pair missing in CSV aggregate)",
+      "weight_source": "fafb_scaffold"
     },
     {
       "pre": "CB0244_R",
@@ -4110,8 +4116,8 @@
       "weight": 40,
       "nt": "OA",
       "sign": 1,
-      "evidence": "DNa02 upstream \u00b7 fafb scaffold scale 0.90",
-      "weight_source": "mirror+fafb_scale"
+      "evidence": "FAFB scaffold (pair missing in CSV aggregate)",
+      "weight_source": "fafb_scaffold"
     },
     {
       "pre": "LAL073_L",
@@ -4119,8 +4125,8 @@
       "weight": 16,
       "nt": "Glu",
       "sign": -1,
-      "evidence": "DNa02 LAL mix \u00b7 fafb scaffold scale 0.90",
-      "weight_source": "heuristic+fafb_scale"
+      "evidence": "FAFB scaffold (pair missing in CSV aggregate)",
+      "weight_source": "fafb_scaffold"
     },
     {
       "pre": "LAL073_R",
@@ -4128,8 +4134,8 @@
       "weight": 16,
       "nt": "Glu",
       "sign": -1,
-      "evidence": "DNa02 LAL mix \u00b7 fafb scaffold scale 0.90",
-      "weight_source": "heuristic+fafb_scale"
+      "evidence": "FAFB scaffold (pair missing in CSV aggregate)",
+      "weight_source": "fafb_scaffold"
     },
     {
       "pre": "DNa02",
@@ -4137,8 +4143,8 @@
       "weight": 25,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "DNa02 \u2192 VNC \u00b7 fafb scaffold scale 0.90",
-      "weight_source": "heuristic+fafb_scale"
+      "evidence": "FAFB scaffold (pair missing in CSV aggregate)",
+      "weight_source": "fafb_scaffold"
     },
     {
       "pre": "DNa02",
@@ -4146,8 +4152,8 @@
       "weight": 25,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "DNa02 \u2192 VNC \u00b7 fafb scaffold scale 0.90",
-      "weight_source": "heuristic+fafb_scale"
+      "evidence": "FAFB scaffold (pair missing in CSV aggregate)",
+      "weight_source": "fafb_scaffold"
     },
     {
       "pre": "DNg13_L",
@@ -4155,8 +4161,8 @@
       "weight": 68,
       "nt": "Glu",
       "sign": -1,
-      "evidence": "bilateral DN mutual inhibition \u00b7 fafb scaffold scale 0.75",
-      "weight_source": "heuristic+fafb_scale"
+      "evidence": "FAFB scaffold (pair missing in CSV aggregate)",
+      "weight_source": "fafb_scaffold"
     },
     {
       "pre": "DNg13_R",
@@ -4164,8 +4170,8 @@
       "weight": 68,
       "nt": "Glu",
       "sign": -1,
-      "evidence": "bilateral DN mutual inhibition \u00b7 fafb scaffold scale 0.75",
-      "weight_source": "heuristic+fafb_scale"
+      "evidence": "FAFB scaffold (pair missing in CSV aggregate)",
+      "weight_source": "fafb_scaffold"
     }
   ],
   "pathways": [
