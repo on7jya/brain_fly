@@ -1,0 +1,632 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Codex</title>
+    <link rel="shortcut icon" href="/favicon.ico">
+    <script>
+      (function() {
+        try {
+          const pref = localStorage.getItem("codex-theme-pref");
+          const mqlLight = window.matchMedia("(prefers-color-scheme: light)");
+          const theme = (pref === "light" || pref === "dark")
+            ? pref
+            : (mqlLight.matches ? "light" : "dark");
+          document.documentElement.setAttribute("data-theme", theme);
+        } catch (e) {}
+      })();
+    </script>
+
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"></noscript>
+
+    <link rel="preload" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <noscript><link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous"></noscript>
+
+    <link rel="stylesheet" href="/styles/base.css">
+
+    
+</head>
+<body>
+
+<div id="contentBody">
+
+<link rel="stylesheet" href="/styles/index.css">
+<div class="jumbotron u-inline-088">
+    <div class="container">
+        
+        <h1 class="display-4 u-inline-001">Codex</h1>
+<p class="landing-subtitle">
+    <i class="u-inline-063">Connectome Data Explorer</i>
+    <br>
+    <span class="u-inline-016">
+        Developed at <a href="https://pni.princeton.edu/research-areas">Princeton Neuroscience Institute</a>
+    </span>
+</p>
+
+        <div class="login-intro-grid">
+            <section class="login-panel" aria-labelledby="login-panel-title">
+                <h2 id="login-panel-title">Sign in to browse brain maps</h2>
+                <p class="login-panel-lead">
+                    Explore and analyze large-scale connectomes without installing software or downloading massive datasets.
+                </p>
+
+                <script src="https://accounts.google.com/gsi/client" async defer></script>
+                <div id="g_id_onload"
+                     data-size="large"
+                     data-theme="filled_blue"
+                     data-enable_redirect_uri_validation="true"
+                     data-client_id="356707763910-l9ovf7f2at2vc23f3u2j356aokr4eb99.apps.googleusercontent.com"
+                     data-ux_mode="redirect"
+                     data-login_uri="https://codex.flywire.ai/login">
+                </div>
+                <div class="g_id_signin login-button"
+                     data-size="large"
+                     data-theme="filled_blue"
+                     data-type="standard"></div>
+
+                <p class="login-terms">
+                    <small>
+                        FlyWire and Codex are hosted by the
+                        <a href="https://pni.princeton.edu/research-areas">Princeton Neuroscience Institute</a>
+                        of Princeton University.<br>
+                        <em>By signing in, you agree to the
+                            <a href="https://flywire.ai/tos">FlyWire Terms of Service & Privacy Notice</a>.</em>
+                    </small>
+                </p>
+
+                <details class="login-reason">
+                    <summary>Why is sign-in required?</summary>
+                    <p>
+                        Codex is used by a wide audience, from scientists to high school programs, and as of early 2026,
+                        over 60,000 users have signed in. To keep Codex free, fast, and available to everyone, access to
+                        its apps requires signing in with a Google account. This helps prevent abuse, enables rate-limiting
+                        of excessive usage, and reduces server load from automated or malicious activity.
+                    </p>
+                    <p>
+                        Some static pages can be viewed without logging in, but any feature that performs computations on
+                        our servers requires you to be signed in. If you don’t have a Google account and can’t create one,
+                        please contact flywire@princeton.edu.
+                    </p>
+                </details>
+
+                <p class="login-general-info">
+                    For general information, visit the
+                    <a href="https://flywire.ai" target="_blank">FlyWire homepage</a>.
+                </p>
+            </section>
+
+            
+            
+<section class="connectome-intro connectome-intro-static">
+    <h2 class="connectome-intro-title">What's a connectome?</h2>
+
+    <div class="connectome-intro-content">
+        <div class="connectome-intro-content-inner">
+            <p>
+                A connectome is a wiring diagram of a brain or nervous system - a map of its neurons and the synaptic connections between them.
+            </p>
+            <div class="connectome-intro-inspiration">
+                <p>
+                    For the first time, we can explore an adult fruit fly’s entire brain neuron by neuron: about 150K neurons connected by more than 50M synapses.
+                </p>
+                <p>
+                    It is the most complete brain-wide connectome yet produced for an adult animal capable of complex behavior. Fruit flies navigate a three-dimensional world, learn, form memories, court and fight - all with a brain smaller than a grain of sand.
+                </p>
+            </div>
+        </div>
+    </div>
+
+</section>
+
+        </div>
+
+        <div class="main">
+            <div class="hr-with-text"><h1 class="u-inline-035"><i class="fa-solid fa-database"></i> &nbsp; datasets</h1></div>
+<ul class="cards">
+    
+    <li class="dataset_tile"
+        
+        onclick="toast(event, 'Sign in to access data');"
+        >
+        
+        <span class="card u-inline-040">
+        
+            <div class="u-inline-066">
+                <img src="https://storage.googleapis.com/flywire-data/codex/assets/fafb.png" loading="lazy" aria-hidden="true" alt="" class="u-inline-041">
+            </div>
+            <div class="dataset_tile_content" style="height: 120px; background: #CE93D8;">
+                <h2 class="dataset_tile_title">FAFB <small>v783 (CB)</small></h2>
+                <p class="dataset_tile_text">
+                    Female Adult Fly Brain<br>
+                    <small>139,255 neurons<br>3,732,460 connections</small>
+                </p>
+            </div>
+        </span>
+    </li>
+    
+    <li class="dataset_tile"
+        
+        onclick="toast(event, 'Sign in to access data');"
+        >
+        
+        <span class="card u-inline-040">
+        
+            <div class="u-inline-066">
+                <img src="https://storage.googleapis.com/flywire-data/codex/assets/banc.png" loading="lazy" aria-hidden="true" alt="" class="u-inline-041">
+            </div>
+            <div class="dataset_tile_content" style="height: 120px; background: #ff9248;">
+                <h2 class="dataset_tile_title">BANC <small>v888 (CNS)</small></h2>
+                <p class="dataset_tile_text">
+                    Female Adult Fly Brain and Nerve Cord<br>
+                    <small>158,262 neurons<br>3,037,361 connections</small>
+                </p>
+            </div>
+        </span>
+    </li>
+    
+    <li class="dataset_tile"
+        
+        onclick="toast(event, 'Sign in to access data');"
+        >
+        
+        <span class="card u-inline-040">
+        
+            <div class="u-inline-066">
+                <img src="https://storage.googleapis.com/flywire-data/codex/assets/manc.png" loading="lazy" aria-hidden="true" alt="" class="u-inline-041">
+            </div>
+            <div class="dataset_tile_content" style="height: 120px; background: #A4D3F4;">
+                <h2 class="dataset_tile_title">MANC <small>v1.2.1 (VNC)</small></h2>
+                <p class="dataset_tile_text">
+                    Male Adult Fly Nerve Cord<br>
+                    <small>23,665 neurons<br>5,305,638 connections</small>
+                </p>
+            </div>
+        </span>
+    </li>
+    
+    <li class="dataset_tile"
+        
+        onclick="toast(event, 'Sign in to access data');"
+        >
+        
+        <span class="card u-inline-040">
+        
+            <div class="u-inline-066">
+                <img src="https://storage.googleapis.com/flywire-data/codex/assets/maol.png" loading="lazy" aria-hidden="true" alt="" class="u-inline-041">
+            </div>
+            <div class="dataset_tile_content" style="height: 120px; background: #A5D6A7;">
+                <h2 class="dataset_tile_title">MAOL <small>v1.1 (OL/R)</small></h2>
+                <p class="dataset_tile_text">
+                    Male Adult Fly Right Optic Lobe<br>
+                    <small>52,445 neurons<br>6,484,936 connections</small>
+                </p>
+            </div>
+        </span>
+    </li>
+    
+    <li class="dataset_tile"
+        
+        onclick="toast(event, 'Sign in to access data');"
+        >
+        
+        <span class="card u-inline-040">
+        
+            <div class="u-inline-066">
+                <img src="https://storage.googleapis.com/flywire-data/codex/assets/mcns.png" loading="lazy" aria-hidden="true" alt="" class="u-inline-041">
+            </div>
+            <div class="dataset_tile_content" style="height: 120px; background: #000098;">
+                <h2 class="dataset_tile_title">MCNS <small>v1.0 (CNS)</small></h2>
+                <p class="dataset_tile_text">
+                    Male Adult Fly Brain and Nerve Cord<br>
+                    <small>166,700 neurons<br>6,242,118 connections</small>
+                </p>
+            </div>
+        </span>
+    </li>
+    
+</ul>
+
+
+
+<div class="hr-with-text"><h1 class="u-inline-035"><i class="fa-solid fa-play"></i> &nbsp; apps</h1></div>
+<ul class="cards">
+    
+    <li class="cards_item"
+        
+        onclick="toast(event, 'Sign in to access data');"
+        >
+        <div class="card u-inline-040">
+            <div class="u-inline-065">
+                <img src="https://storage.googleapis.com/flywire-data/codex/assets/card-search.jpg"
+                     loading="lazy" aria-hidden="true" alt="" class="u-inline-041">
+            </div>
+            <div class="card_content u-inline-064">
+                <h2 class="card_title">Search</h2>
+                <p class="card_text">Find neurons using free-form or structured queries<br></p>
+            </div>
+        </div>
+    </li>
+    
+    <li class="cards_item"
+        
+        onclick="toast(event, 'Sign in to access data');"
+        >
+        <div class="card u-inline-040">
+            <div class="u-inline-065">
+                <img src="https://storage.googleapis.com/flywire-data/codex/assets/card-stats.jpg"
+                     loading="lazy" aria-hidden="true" alt="" class="u-inline-041">
+            </div>
+            <div class="card_content u-inline-064">
+                <h2 class="card_title">Stats</h2>
+                <p class="card_text">See statistics and charts for various attributes of all or subset of neurons in the dataset<br></p>
+            </div>
+        </div>
+    </li>
+    
+    <li class="cards_item"
+        
+        onclick="toast(event, 'Sign in to access data');"
+        >
+        <div class="card u-inline-040">
+            <div class="u-inline-065">
+                <img src="https://storage.googleapis.com/flywire-data/codex/assets/card-explore.png"
+                     loading="lazy" aria-hidden="true" alt="" class="u-inline-041">
+            </div>
+            <div class="card_content u-inline-064">
+                <h2 class="card_title">Annotations</h2>
+                <p class="card_text">Browse cell types, labels, and groupings of the neurons in the dataset<br></p>
+            </div>
+        </div>
+    </li>
+    
+    <li class="cards_item"
+        
+        onclick="toast(event, 'Sign in to access data');"
+        >
+        <div class="card u-inline-040">
+            <div class="u-inline-065">
+                <img src="https://storage.googleapis.com/flywire-data/codex/assets/card-cell-details.png"
+                     loading="lazy" aria-hidden="true" alt="" class="u-inline-041">
+            </div>
+            <div class="card_content u-inline-064">
+                <h2 class="card_title">Cell Details</h2>
+                <p class="card_text">Information about individual cells, their connectivity, similar/twin cells, 3D rendering and annotations<br></p>
+            </div>
+        </div>
+    </li>
+    
+    <li class="cards_item"
+        
+        onclick="toast(event, 'Sign in to access data');"
+        >
+        <div class="card u-inline-040">
+            <div class="u-inline-065">
+                <img src="https://storage.googleapis.com/flywire-data/codex/assets/neuropils.gif"
+                     loading="lazy" aria-hidden="true" alt="" class="u-inline-041">
+            </div>
+            <div class="card_content u-inline-064">
+                <h2 class="card_title">Neuropils</h2>
+                <p class="card_text">Visualize and query connections in specific brain regions<br></p>
+            </div>
+        </div>
+    </li>
+    
+    <li class="cards_item"
+        
+        onclick="toast(event, 'Sign in to access data');"
+        >
+        <div class="card u-inline-040">
+            <div class="u-inline-065">
+                <img src="https://storage.googleapis.com/flywire-data/codex/assets/card-3d.png"
+                     loading="lazy" aria-hidden="true" alt="" class="u-inline-041">
+            </div>
+            <div class="card_content u-inline-064">
+                <h2 class="card_title">3D Viewer</h2>
+                <p class="card_text">Visualize queried neurons and synapses in annotated Neuroglancer scenes<br></p>
+            </div>
+        </div>
+    </li>
+    
+    <li class="cards_item"
+        
+        onclick="toast(event, 'Sign in to access data');"
+        >
+        <div class="card u-inline-040">
+            <div class="u-inline-065">
+                <img src="https://storage.googleapis.com/flywire-data/codex/assets/card-network.png"
+                     loading="lazy" aria-hidden="true" alt="" class="u-inline-041">
+            </div>
+            <div class="card_content u-inline-064">
+                <h2 class="card_title">Network Graphs</h2>
+                <p class="card_text">Visualize connectivity of neurons and their synaptic links<br></p>
+            </div>
+        </div>
+    </li>
+    
+    <li class="cards_item"
+        
+        onclick="toast(event, 'Sign in to access data');"
+        >
+        <div class="card u-inline-040">
+            <div class="u-inline-065">
+                <img src="https://storage.googleapis.com/flywire-data/codex/assets/card-pathways.png"
+                     loading="lazy" aria-hidden="true" alt="" class="u-inline-041">
+            </div>
+            <div class="card_content u-inline-064">
+                <h2 class="card_title">Pathways</h2>
+                <p class="card_text">Analyze shortest paths between pairs of neurons<br></p>
+            </div>
+        </div>
+    </li>
+    
+    <li class="cards_item"
+        
+        onclick="toast(event, 'Sign in to access data');"
+        >
+        <div class="card u-inline-040">
+            <div class="u-inline-065">
+                <img src="https://storage.googleapis.com/flywire-data/codex/assets/card-data.png"
+                     loading="lazy" aria-hidden="true" alt="" class="u-inline-041">
+            </div>
+            <div class="card_content u-inline-064">
+                <h2 class="card_title">Download Data</h2>
+                <p class="card_text">Export raw data for analysis with other tools / programs<br></p>
+            </div>
+        </div>
+    </li>
+    
+</ul>
+        </div>
+    </div>
+</div>
+
+<h6 class="u-inline-077">
+    <a href="/about_codex">
+        Made by humans in
+        <img class="princeton-wordmark princeton-wordmark-light" height="30px" src="/asset/princeton_logo.png">
+        <img class="princeton-wordmark princeton-wordmark-dark" height="30px" src="/asset/princeton_logo_light.png">
+    </a>
+</h6>
+<br>
+<hr class="my-4 u-inline-150">
+<h6 class="u-inline-198">
+    
+        &nbsp; <a href="/about_codex" class="u-inline-001">About Codex</a> &nbsp;
+    
+        &nbsp; <a href="/about_flywire" class="u-inline-001">About FlyWire</a> &nbsp;
+    
+        &nbsp; <a href="/news" class="u-inline-001">News</a> &nbsp;
+    
+        &nbsp; <a href="/academy_home" class="u-inline-001">FlyWire Academy</a> &nbsp;
+    
+        &nbsp; <a href="/academy_visual_pathways" class="u-inline-001">Visual Pathways Tutorial</a> &nbsp;
+    
+        &nbsp; <a href="/academy_summer_internships" class="u-inline-001">Summer Intern Projects</a> &nbsp;
+    
+        &nbsp; <a href="/faq" class="u-inline-001">Frequently Asked Questions</a> &nbsp;
+    
+        &nbsp; <a href="/sample_queries" class="u-inline-001">Sample Queries</a> &nbsp;
+    
+        &nbsp; <a href="/app/visual_columns_challenge" class="u-inline-001">Data Challenge #1</a> &nbsp;
+    
+        &nbsp; <a href="/app/mfas_challenge" class="u-inline-001">Data Challenge #2</a> &nbsp;
+    
+        &nbsp; <a href="/app/vnc_matching_challenge" class="u-inline-001">Data Challenge #3</a> &nbsp;
+    
+        &nbsp; <a href="/app/max_clique_challenge" class="u-inline-001">Data Challenge #4</a> &nbsp;
+    
+</h6>
+<br>
+
+</div>
+
+<div id="loadingSpinner" hidden="hidden">
+    <div class="u-inline-011">
+        <div id="loadingMessage" class="loading-message">Processing your request</div>
+        <div class="overlay u-inline-132">
+            <div class="ball a"></div>
+            <div class="ball b"></div>
+            <div class="ball c"></div>
+        </div>
+        <div class="u-inline-197">
+            <div class="u-inline-098"><i class="fa-solid fa-book-open-reader"></i></div>Example query:<br>
+            <b>label {not_contains} dsx</b><br>Finds neurons with a label that does not contain the substring 'dsx'<br><br>Additional query examples in <a href="/sample_queries" target="_blank"><b>Navbar → <i class="fa-regular fa-circle-question"></i> → Sample Queries</b></a>
+        </div>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous" defer></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js" integrity="sha384-LtrjvnR4Twt/qOuYxE721u19sVFLVSA4hf/rRt6PrZTmiPltdZcI7q7PXQBYTKyf" crossorigin="anonymous" defer></script>
+
+<script type="text/javascript">
+    function loading(evnt = false, message = "Processing your request") {
+        if (typeof evnt === "string") {
+            message = evnt;
+            evnt = false;
+        }
+        // Check if Ctrl or Cmd key is pressed to open in a new tab without showing the spinner
+        if (evnt && (evnt.ctrlKey || evnt.metaKey)) {
+            clear_loading();
+        } else {
+            document.getElementById("loadingMessage").textContent = message.slice(0, 100) || "Processing your request";
+            document.getElementById("contentBody").hidden = true;
+            document.getElementById("loadingSpinner").hidden = false;
+        }
+    }
+
+    let exodiacLoadingTimer;
+
+    function loadingExodiac(event, question = "") {
+        window.clearInterval(exodiacLoadingTimer);
+        question = question || document.getElementById("question")?.value.trim() || "";
+        loading(event, "Searching inside Codex, literature & web for: " + question);
+        if (document.getElementById("loadingSpinner").hidden) return;
+
+        const messages = [
+            "Checking Codex query syntax and dataset specific attributes..",
+            "Searching annotations and metadata..",
+            "Checking cell types in all datasets..",
+            "Searching FlyWire papers..",
+            "Preparing a concise answer.."
+        ];
+        let messageIndex = 0;
+
+        function showNextMessage() {
+            if (document.getElementById("loadingSpinner").hidden) {
+                window.clearInterval(exodiacLoadingTimer);
+                return;
+            }
+            if (messageIndex < messages.length) {
+                document.getElementById("loadingMessage").textContent = messages[messageIndex++];
+            } else {
+                document.getElementById("loadingMessage").textContent = "Waiting for Exodiac's response..";
+                window.clearInterval(exodiacLoadingTimer);
+            }
+        }
+
+        showNextMessage();
+        exodiacLoadingTimer = window.setInterval(showNextMessage, 2500);
+    }
+
+    function clear_loading() {
+        window.clearInterval(exodiacLoadingTimer);
+        document.getElementById("contentBody").hidden = false;
+        document.getElementById("loadingMessage").textContent = "Processing your request";
+        document.getElementById("loadingSpinner").hidden = true;
+    }
+
+    window.addEventListener("pagehide", clear_loading);
+    window.addEventListener("pageshow", clear_loading);
+
+    function applyDesktopAutofocus() {
+      const isMobileLike =
+        window.matchMedia("(pointer: coarse)").matches ||
+        /Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+      if (isMobileLike) {
+        return;
+      }
+      const candidates = document.querySelectorAll(
+        "input[data-desktop-autofocus='1'][type='search']"
+      );
+      let target = null;
+      for (const elem of candidates) {
+        const isVisible = elem.getClientRects().length > 0 && !elem.closest("[hidden]");
+        const isEnabled = !elem.disabled && elem.tabIndex !== -1;
+        const isEmpty = !elem.value || elem.value.trim() === "";
+        if (isVisible && isEnabled && isEmpty) {
+          target = elem;
+          break;
+        }
+      }
+      if (!target) {
+        return;
+      }
+      const focusTarget = () => {
+        if (document.activeElement !== target) {
+          try {
+            target.focus({preventScroll: true});
+          } catch (e) {
+            target.focus();
+          }
+        }
+      };
+      window.requestAnimationFrame(focusTarget);
+      window.setTimeout(focusTarget, 120);
+    }
+
+    function toast(evnt = false, message) {
+      const t = document.createElement("div");
+      t.textContent = message;
+      t.className = "app-toast";
+
+      document.body.appendChild(t);
+      setTimeout(() => t.remove(), 3000);
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+
+    const THEME_PREF_KEY = "codex-theme-pref";
+    const lightModeMedia = window.matchMedia("(prefers-color-scheme: light)");
+
+    function resolveTheme(preference) {
+      if (preference === "dark" || preference === "light") {
+        return preference;
+      }
+      return lightModeMedia.matches ? "light" : "dark";
+    }
+
+    function sendThemeEvent(theme, previousTheme, source) {
+      const payload = JSON.stringify({
+        theme: theme,
+        previous_theme: previousTheme,
+        source: source,
+        path: window.location.pathname,
+      });
+      if (navigator.sendBeacon) {
+        const blob = new Blob([payload], {type: "application/json"});
+        navigator.sendBeacon("/theme_event", blob);
+        return;
+      }
+      fetch("/theme_event", {
+        method: "POST",
+        headers: {"Content-Type": "application/json"},
+        body: payload,
+        keepalive: true,
+      }).catch(() => {});
+    }
+
+    function applyTheme(theme, source = "manual", shouldLog = false) {
+      const root = document.documentElement;
+      const previousTheme = root.getAttribute("data-theme") || "light";
+      root.setAttribute("data-theme", theme);
+
+      const button = document.getElementById("theme-toggle-btn");
+      if (button) {
+        button.classList.toggle("is-dark", theme === "dark");
+        button.setAttribute("aria-pressed", String(theme === "dark"));
+      }
+
+      if (shouldLog && previousTheme !== theme) {
+        sendThemeEvent(theme, previousTheme, source);
+      }
+    }
+
+    function initializeTheme() {
+      const storedPref = localStorage.getItem(THEME_PREF_KEY);
+      applyTheme(resolveTheme(storedPref), "initial", false);
+
+      const button = document.getElementById("theme-toggle-btn");
+      if (button) {
+        button.addEventListener("click", () => {
+          const currentTheme = document.documentElement.getAttribute("data-theme") || "light";
+          const nextTheme = currentTheme === "dark" ? "light" : "dark";
+          localStorage.setItem(THEME_PREF_KEY, nextTheme);
+          sendThemeEvent(nextTheme, currentTheme, "toggle_button");
+          loading("Applying theme");
+          window.location.reload();
+        });
+      }
+
+      const onSystemThemeChange = () => {
+        const pref = localStorage.getItem(THEME_PREF_KEY);
+        if (!pref) {
+          applyTheme(resolveTheme(pref), "system", true);
+        }
+      };
+      if (lightModeMedia.addEventListener) {
+        lightModeMedia.addEventListener("change", onSystemThemeChange);
+      } else if (lightModeMedia.addListener) {
+        lightModeMedia.addListener(onSystemThemeChange);
+      }
+    }
+
+    document.addEventListener("DOMContentLoaded", function() {
+      initializeTheme();
+      applyDesktopAutofocus();
+    });
+</script>
+
+</body>
+</html>

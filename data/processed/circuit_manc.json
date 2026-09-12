@@ -1,0 +1,886 @@
+{
+  "source": {
+    "name": "MANC VNC-only (stub from MaleCNS DN/VNC)",
+    "dataset": "manc",
+    "sex": "male",
+    "scaffold": true,
+    "codex": "https://codex.flywire.ai/?dataset=manc",
+    "codex_dataset": "manc",
+    "portal": "https://neuprint.janelia.org/?dataset=manc%3Av1.0",
+    "limitation": "Full MANC connectome bulk tables are not bundled. This mode filters descending + VNC nodes from the MaleCNS playable circuit as a teaching stub. Browse MANC on neuPrint / Codex for the real ventral nerve cord.",
+    "note": "VNC-only teaching stub",
+    "neuroglancer": "https://neuprint.janelia.org/?dataset=manc%3Av1.0"
+  },
+  "nodes": [
+    {
+      "id": "DNg97_L",
+      "type": "DNg97",
+      "side": "L",
+      "region": "descending",
+      "role": "steer_mod",
+      "nt": "ACh",
+      "x": 0.35,
+      "y": 0.2,
+      "layer": "DN",
+      "n_cells": 1,
+      "body_ids": [],
+      "official": true
+    },
+    {
+      "id": "DNp13_L",
+      "type": "DNp13",
+      "side": "L",
+      "region": "descending",
+      "role": "steer_mod",
+      "nt": "ACh",
+      "x": 0.35,
+      "y": 0.26,
+      "layer": "DN",
+      "n_cells": 1,
+      "body_ids": [],
+      "official": true
+    },
+    {
+      "id": "IN13B006_L",
+      "type": "IN13B006",
+      "side": "L",
+      "region": "descending",
+      "role": "expand",
+      "nt": "GABA",
+      "x": 0.35,
+      "y": 0.32,
+      "layer": "expand",
+      "n_cells": 3,
+      "body_ids": [
+        802324
+      ],
+      "official": true,
+      "expanded": true
+    },
+    {
+      "id": "DNg13_L",
+      "type": "DNg13",
+      "side": "L",
+      "region": "descending",
+      "role": "steer_left",
+      "nt": "ACh",
+      "x": 0.35,
+      "y": 0.38,
+      "layer": "DN",
+      "n_cells": 1,
+      "body_ids": [],
+      "official": true
+    },
+    {
+      "id": "DNa02",
+      "type": "DNa02",
+      "side": "B",
+      "region": "descending",
+      "role": "rotate",
+      "nt": "ACh",
+      "x": 0.5,
+      "y": 0.44,
+      "layer": "DN",
+      "n_cells": 1,
+      "body_ids": [],
+      "official": true
+    },
+    {
+      "id": "GNG283",
+      "type": "GNG283",
+      "side": "B",
+      "region": "descending",
+      "role": "expand",
+      "nt": "unc",
+      "x": 0.5,
+      "y": 0.5,
+      "layer": "expand",
+      "n_cells": 1,
+      "body_ids": [
+        231558
+      ],
+      "official": true,
+      "expanded": true
+    },
+    {
+      "id": "IN09A002",
+      "type": "IN09A002",
+      "side": "B",
+      "region": "descending",
+      "role": "expand",
+      "nt": "GABA",
+      "x": 0.5,
+      "y": 0.56,
+      "layer": "expand",
+      "n_cells": 3,
+      "body_ids": [
+        800296
+      ],
+      "official": true,
+      "expanded": true
+    },
+    {
+      "id": "OA-VUMa1",
+      "type": "OA-VUMa1",
+      "side": "B",
+      "region": "descending",
+      "role": "expand",
+      "nt": "OA",
+      "x": 0.5,
+      "y": 0.62,
+      "layer": "expand",
+      "n_cells": 2,
+      "body_ids": [
+        10041
+      ],
+      "official": true,
+      "expanded": true
+    },
+    {
+      "id": "IN02A007",
+      "type": "IN02A007",
+      "side": "B",
+      "region": "descending",
+      "role": "expand",
+      "nt": "Glu",
+      "x": 0.5,
+      "y": 0.6799999999999999,
+      "layer": "expand",
+      "n_cells": 1,
+      "body_ids": [
+        803176
+      ],
+      "official": true,
+      "expanded": true
+    },
+    {
+      "id": "PS002",
+      "type": "PS002",
+      "side": "B",
+      "region": "descending",
+      "role": "expand",
+      "nt": "GABA",
+      "x": 0.5,
+      "y": 0.74,
+      "layer": "expand",
+      "n_cells": 1,
+      "body_ids": [
+        14533
+      ],
+      "official": true,
+      "expanded": true
+    },
+    {
+      "id": "GNG003",
+      "type": "GNG003",
+      "side": "B",
+      "region": "descending",
+      "role": "expand",
+      "nt": "GABA",
+      "x": 0.5,
+      "y": 0.8,
+      "layer": "expand",
+      "n_cells": 1,
+      "body_ids": [
+        10205
+      ],
+      "official": true,
+      "expanded": true
+    },
+    {
+      "id": "DNg97_R",
+      "type": "DNg97",
+      "side": "R",
+      "region": "descending",
+      "role": "steer_mod",
+      "nt": "ACh",
+      "x": 0.6499999999999999,
+      "y": 0.8599999999999999,
+      "layer": "DN",
+      "n_cells": 1,
+      "body_ids": [],
+      "official": true
+    },
+    {
+      "id": "IN17A022_R",
+      "type": "IN17A022",
+      "side": "R",
+      "region": "descending",
+      "role": "expand",
+      "nt": "ACh",
+      "x": 0.6499999999999999,
+      "y": 0.2,
+      "layer": "expand",
+      "n_cells": 3,
+      "body_ids": [
+        802367
+      ],
+      "official": true,
+      "expanded": true
+    },
+    {
+      "id": "DNp13_R",
+      "type": "DNp13",
+      "side": "R",
+      "region": "descending",
+      "role": "steer_mod",
+      "nt": "ACh",
+      "x": 0.6499999999999999,
+      "y": 0.26,
+      "layer": "DN",
+      "n_cells": 1,
+      "body_ids": [],
+      "official": true
+    },
+    {
+      "id": "DNg13_R",
+      "type": "DNg13",
+      "side": "R",
+      "region": "descending",
+      "role": "steer_right",
+      "nt": "ACh",
+      "x": 0.6499999999999999,
+      "y": 0.32,
+      "layer": "DN",
+      "n_cells": 1,
+      "body_ids": [],
+      "official": true
+    },
+    {
+      "id": "IN16B045_L",
+      "type": "IN16B045",
+      "side": "L",
+      "region": "vnc",
+      "role": "leg_inter",
+      "nt": "Glu",
+      "x": 0.35,
+      "y": 0.38,
+      "layer": "T2",
+      "n_cells": 3,
+      "body_ids": [],
+      "official": true
+    },
+    {
+      "id": "IN19A016_L",
+      "type": "IN19A016",
+      "side": "L",
+      "region": "vnc",
+      "role": "leg_inter",
+      "nt": "ACh",
+      "x": 0.35,
+      "y": 0.44,
+      "layer": "T1",
+      "n_cells": 1,
+      "body_ids": [],
+      "official": true
+    },
+    {
+      "id": "IN17A025_L",
+      "type": "IN17A025",
+      "side": "L",
+      "region": "vnc",
+      "role": "drop",
+      "nt": "ACh",
+      "x": 0.35,
+      "y": 0.5,
+      "layer": "T3",
+      "n_cells": 1,
+      "body_ids": [],
+      "official": true
+    },
+    {
+      "id": "IN16B045_R",
+      "type": "IN16B045",
+      "side": "R",
+      "region": "vnc",
+      "role": "leg_inter",
+      "nt": "Glu",
+      "x": 0.6499999999999999,
+      "y": 0.56,
+      "layer": "T2",
+      "n_cells": 4,
+      "body_ids": [],
+      "official": true
+    },
+    {
+      "id": "IN19A016_R",
+      "type": "IN19A016",
+      "side": "R",
+      "region": "vnc",
+      "role": "leg_inter",
+      "nt": "ACh",
+      "x": 0.6499999999999999,
+      "y": 0.62,
+      "layer": "T1",
+      "n_cells": 1,
+      "body_ids": [],
+      "official": true
+    },
+    {
+      "id": "IN17A025_R",
+      "type": "IN17A025",
+      "side": "R",
+      "region": "vnc",
+      "role": "drop",
+      "nt": "ACh",
+      "x": 0.6499999999999999,
+      "y": 0.6799999999999999,
+      "layer": "T3",
+      "n_cells": 1,
+      "body_ids": [],
+      "official": true
+    }
+  ],
+  "edges": [
+    {
+      "pre": "OA-VUMa1",
+      "post": "DNp13_L",
+      "weight": 20,
+      "nt": "OA",
+      "sign": 1,
+      "evidence": "Cell Type Explorer DNp13 upstream",
+      "weight_source": "explorer"
+    },
+    {
+      "pre": "OA-VUMa1",
+      "post": "DNp13_R",
+      "weight": 20,
+      "nt": "OA",
+      "sign": 1,
+      "evidence": "Cell Type Explorer DNp13 upstream",
+      "weight_source": "explorer"
+    },
+    {
+      "pre": "OA-VUMa1",
+      "post": "DNg97_L",
+      "weight": 39,
+      "nt": "OA",
+      "sign": 1,
+      "evidence": "Cell Type Explorer DNg97 upstream",
+      "weight_source": "explorer"
+    },
+    {
+      "pre": "OA-VUMa1",
+      "post": "DNg97_R",
+      "weight": 39,
+      "nt": "OA",
+      "sign": 1,
+      "evidence": "Cell Type Explorer DNg97 upstream",
+      "weight_source": "explorer"
+    },
+    {
+      "pre": "DNg13_L",
+      "post": "DNg97_L",
+      "weight": 2,
+      "nt": "ACh",
+      "sign": 1,
+      "evidence": "Cell Type Explorer DNg13_R downstream",
+      "weight_source": "explorer"
+    },
+    {
+      "pre": "DNg13_R",
+      "post": "DNg97_R",
+      "weight": 1,
+      "nt": "ACh",
+      "sign": 1,
+      "evidence": "Cell Type Explorer DNg97 upstream",
+      "weight_source": "explorer"
+    },
+    {
+      "pre": "DNg97_L",
+      "post": "DNa02",
+      "weight": 2,
+      "nt": "ACh",
+      "sign": 1,
+      "evidence": "Cell Type Explorer DNg97 downstream",
+      "weight_source": "explorer"
+    },
+    {
+      "pre": "DNg97_R",
+      "post": "DNa02",
+      "weight": 2,
+      "nt": "ACh",
+      "sign": 1,
+      "evidence": "Cell Type Explorer DNg97 downstream",
+      "weight_source": "explorer"
+    },
+    {
+      "pre": "DNg97_L",
+      "post": "DNg13_L",
+      "weight": 96,
+      "nt": "ACh",
+      "sign": 1,
+      "evidence": "Cell Type Explorer DNg13_R upstream",
+      "weight_source": "explorer"
+    },
+    {
+      "pre": "DNg97_L",
+      "post": "DNg13_R",
+      "weight": 96,
+      "nt": "ACh",
+      "sign": 1,
+      "evidence": "Cell Type Explorer DNg13_R upstream",
+      "weight_source": "explorer"
+    },
+    {
+      "pre": "DNp13_L",
+      "post": "DNg13_L",
+      "weight": 93,
+      "nt": "ACh",
+      "sign": 1,
+      "evidence": "Cell Type Explorer DNg13_R upstream",
+      "weight_source": "explorer"
+    },
+    {
+      "pre": "DNp13_L",
+      "post": "DNg13_R",
+      "weight": 93,
+      "nt": "ACh",
+      "sign": 1,
+      "evidence": "Cell Type Explorer DNg13_R upstream",
+      "weight_source": "explorer"
+    },
+    {
+      "pre": "OA-VUMa1",
+      "post": "DNg13_L",
+      "weight": 45,
+      "nt": "OA",
+      "sign": 1,
+      "evidence": "Cell Type Explorer DNg13_R upstream",
+      "weight_source": "explorer"
+    },
+    {
+      "pre": "OA-VUMa1",
+      "post": "DNg13_R",
+      "weight": 45,
+      "nt": "OA",
+      "sign": 1,
+      "evidence": "Cell Type Explorer DNg13_R upstream",
+      "weight_source": "explorer"
+    },
+    {
+      "pre": "IN16B045_L",
+      "post": "DNg13_L",
+      "weight": 9,
+      "nt": "Glu",
+      "sign": -1,
+      "evidence": "Cell Type Explorer DNg13_R upstream",
+      "weight_source": "explorer"
+    },
+    {
+      "pre": "IN16B045_L",
+      "post": "DNg13_R",
+      "weight": 9,
+      "nt": "Glu",
+      "sign": -1,
+      "evidence": "Cell Type Explorer DNg13_R upstream",
+      "weight_source": "explorer"
+    },
+    {
+      "pre": "IN17A025_L",
+      "post": "DNg13_L",
+      "weight": 1,
+      "nt": "ACh",
+      "sign": 1,
+      "evidence": "Cell Type Explorer DNg13_R upstream",
+      "weight_source": "explorer"
+    },
+    {
+      "pre": "IN17A025_L",
+      "post": "DNg13_R",
+      "weight": 1,
+      "nt": "ACh",
+      "sign": 1,
+      "evidence": "Cell Type Explorer DNg13_R upstream",
+      "weight_source": "explorer"
+    },
+    {
+      "pre": "DNa02",
+      "post": "DNg13_L",
+      "weight": 1,
+      "nt": "ACh",
+      "sign": 1,
+      "evidence": "Cell Type Explorer DNg13_R upstream",
+      "weight_source": "explorer"
+    },
+    {
+      "pre": "DNa02",
+      "post": "DNg13_R",
+      "weight": 1,
+      "nt": "ACh",
+      "sign": 1,
+      "evidence": "Cell Type Explorer DNg13_R upstream",
+      "weight_source": "explorer"
+    },
+    {
+      "pre": "DNg13_L",
+      "post": "IN16B045_L",
+      "weight": 482,
+      "nt": "Glu",
+      "sign": -1,
+      "evidence": "Cell Type Explorer DNg13_R downstream",
+      "weight_source": "explorer"
+    },
+    {
+      "pre": "DNg13_R",
+      "post": "IN16B045_L",
+      "weight": 482,
+      "nt": "Glu",
+      "sign": -1,
+      "evidence": "Cell Type Explorer DNg13_R downstream",
+      "weight_source": "explorer"
+    },
+    {
+      "pre": "DNg13_L",
+      "post": "IN19A016_L",
+      "weight": 226,
+      "nt": "GABA",
+      "sign": -1,
+      "evidence": "Cell Type Explorer DNg13_R downstream",
+      "weight_source": "explorer"
+    },
+    {
+      "pre": "DNg13_R",
+      "post": "IN19A016_L",
+      "weight": 226,
+      "nt": "GABA",
+      "sign": -1,
+      "evidence": "Cell Type Explorer DNg13_R downstream",
+      "weight_source": "explorer"
+    },
+    {
+      "pre": "DNg13_L",
+      "post": "IN17A025_L",
+      "weight": 196,
+      "nt": "ACh",
+      "sign": 1,
+      "evidence": "Cell Type Explorer DNg13_R downstream",
+      "weight_source": "explorer"
+    },
+    {
+      "pre": "DNg13_R",
+      "post": "IN17A025_L",
+      "weight": 196,
+      "nt": "ACh",
+      "sign": 1,
+      "evidence": "Cell Type Explorer DNg13_R downstream",
+      "weight_source": "explorer"
+    },
+    {
+      "pre": "DNg13_L",
+      "post": "IN17A022_R",
+      "weight": 207,
+      "nt": "ACh",
+      "sign": 1,
+      "evidence": "Cell Type Explorer DNg13_L downstream",
+      "weight_source": "explorer"
+    },
+    {
+      "pre": "DNg13_R",
+      "post": "IN17A022_R",
+      "weight": 207,
+      "nt": "ACh",
+      "sign": 1,
+      "evidence": "Cell Type Explorer DNg13_L downstream",
+      "weight_source": "explorer"
+    },
+    {
+      "pre": "DNg13_L",
+      "post": "IN13B006_L",
+      "weight": 172,
+      "nt": "GABA",
+      "sign": -1,
+      "evidence": "Cell Type Explorer DNg13_L downstream",
+      "weight_source": "explorer"
+    },
+    {
+      "pre": "DNg13_R",
+      "post": "IN13B006_L",
+      "weight": 172,
+      "nt": "GABA",
+      "sign": -1,
+      "evidence": "Cell Type Explorer DNg13_L downstream",
+      "weight_source": "explorer"
+    },
+    {
+      "pre": "DNg13_L",
+      "post": "IN09A002",
+      "weight": 10,
+      "nt": "GABA",
+      "sign": -1,
+      "evidence": "Cell Type Explorer DNg13_R downstream",
+      "weight_source": "explorer"
+    },
+    {
+      "pre": "DNg13_R",
+      "post": "IN09A002",
+      "weight": 10,
+      "nt": "GABA",
+      "sign": -1,
+      "evidence": "Cell Type Explorer DNg13_R downstream",
+      "weight_source": "explorer"
+    },
+    {
+      "pre": "DNg13_L",
+      "post": "DNa02",
+      "weight": 3,
+      "nt": "ACh",
+      "sign": 1,
+      "evidence": "Cell Type Explorer DNg13_R downstream",
+      "weight_source": "explorer"
+    },
+    {
+      "pre": "DNg13_R",
+      "post": "DNa02",
+      "weight": 3,
+      "nt": "ACh",
+      "sign": 1,
+      "evidence": "Cell Type Explorer DNg13_R downstream",
+      "weight_source": "explorer"
+    },
+    {
+      "pre": "DNg13_R",
+      "post": "DNg97_L",
+      "weight": 2,
+      "nt": "ACh",
+      "sign": 1,
+      "evidence": "Cell Type Explorer DNg13_R downstream",
+      "weight_source": "explorer"
+    },
+    {
+      "pre": "DNg13_L",
+      "post": "OA-VUMa1",
+      "weight": 1,
+      "nt": "OA",
+      "sign": 1,
+      "evidence": "Cell Type Explorer DNg13_R downstream",
+      "weight_source": "explorer"
+    },
+    {
+      "pre": "DNg13_R",
+      "post": "OA-VUMa1",
+      "weight": 1,
+      "nt": "OA",
+      "sign": 1,
+      "evidence": "Cell Type Explorer DNg13_R downstream",
+      "weight_source": "explorer"
+    },
+    {
+      "pre": "OA-VUMa1",
+      "post": "DNa02",
+      "weight": 44,
+      "nt": "OA",
+      "sign": 1,
+      "evidence": "Cell Type Explorer DNa02 upstream",
+      "weight_source": "explorer"
+    },
+    {
+      "pre": "PS002",
+      "post": "DNa02",
+      "weight": 5,
+      "nt": "GABA",
+      "sign": -1,
+      "evidence": "Cell Type Explorer DNa02 upstream",
+      "weight_source": "explorer"
+    },
+    {
+      "pre": "DNa02",
+      "post": "GNG003",
+      "weight": 23,
+      "nt": "GABA",
+      "sign": -1,
+      "evidence": "Cell Type Explorer DNa02 downstream",
+      "weight_source": "explorer"
+    },
+    {
+      "pre": "DNa02",
+      "post": "GNG283",
+      "weight": 12,
+      "nt": "unc",
+      "sign": 1,
+      "evidence": "Cell Type Explorer DNa02 downstream",
+      "weight_source": "explorer"
+    },
+    {
+      "pre": "DNa02",
+      "post": "IN09A002",
+      "weight": 8,
+      "nt": "GABA",
+      "sign": -1,
+      "evidence": "Cell Type Explorer DNa02 downstream",
+      "weight_source": "explorer"
+    },
+    {
+      "pre": "DNa02",
+      "post": "IN02A007",
+      "weight": 6,
+      "nt": "Glu",
+      "sign": -1,
+      "evidence": "Cell Type Explorer DNa02 downstream",
+      "weight_source": "explorer"
+    },
+    {
+      "pre": "DNg97_R",
+      "post": "DNg13_L",
+      "weight": 140,
+      "nt": "ACh",
+      "sign": 1,
+      "evidence": "Cell Type Explorer DNg13_L upstream",
+      "weight_source": "explorer"
+    },
+    {
+      "pre": "DNg97_R",
+      "post": "DNg13_R",
+      "weight": 140,
+      "nt": "ACh",
+      "sign": 1,
+      "evidence": "Cell Type Explorer DNg13_L upstream",
+      "weight_source": "explorer"
+    },
+    {
+      "pre": "DNp13_R",
+      "post": "DNg13_L",
+      "weight": 98,
+      "nt": "ACh",
+      "sign": 1,
+      "evidence": "Cell Type Explorer DNg13_L upstream",
+      "weight_source": "explorer"
+    },
+    {
+      "pre": "DNp13_R",
+      "post": "DNg13_R",
+      "weight": 98,
+      "nt": "ACh",
+      "sign": 1,
+      "evidence": "Cell Type Explorer DNg13_L upstream",
+      "weight_source": "explorer"
+    },
+    {
+      "pre": "IN16B045_R",
+      "post": "DNg13_L",
+      "weight": 6,
+      "nt": "Glu",
+      "sign": -1,
+      "evidence": "Cell Type Explorer DNg13_L upstream",
+      "weight_source": "explorer"
+    },
+    {
+      "pre": "IN16B045_R",
+      "post": "DNg13_R",
+      "weight": 6,
+      "nt": "Glu",
+      "sign": -1,
+      "evidence": "Cell Type Explorer DNg13_L upstream",
+      "weight_source": "explorer"
+    },
+    {
+      "pre": "IN17A022_R",
+      "post": "DNg13_L",
+      "weight": 1,
+      "nt": "ACh",
+      "sign": 1,
+      "evidence": "Cell Type Explorer DNg13_L upstream",
+      "weight_source": "explorer"
+    },
+    {
+      "pre": "IN17A022_R",
+      "post": "DNg13_R",
+      "weight": 1,
+      "nt": "ACh",
+      "sign": 1,
+      "evidence": "Cell Type Explorer DNg13_L upstream",
+      "weight_source": "explorer"
+    },
+    {
+      "pre": "DNg13_L",
+      "post": "IN16B045_R",
+      "weight": 481,
+      "nt": "Glu",
+      "sign": -1,
+      "evidence": "Cell Type Explorer DNg13_L downstream",
+      "weight_source": "explorer"
+    },
+    {
+      "pre": "DNg13_R",
+      "post": "IN16B045_R",
+      "weight": 481,
+      "nt": "Glu",
+      "sign": -1,
+      "evidence": "Cell Type Explorer DNg13_L downstream",
+      "weight_source": "explorer"
+    },
+    {
+      "pre": "DNg13_L",
+      "post": "IN19A016_R",
+      "weight": 272,
+      "nt": "GABA",
+      "sign": -1,
+      "evidence": "Cell Type Explorer DNg13_L downstream",
+      "weight_source": "explorer"
+    },
+    {
+      "pre": "DNg13_R",
+      "post": "IN19A016_R",
+      "weight": 272,
+      "nt": "GABA",
+      "sign": -1,
+      "evidence": "Cell Type Explorer DNg13_L downstream",
+      "weight_source": "explorer"
+    },
+    {
+      "pre": "DNg13_L",
+      "post": "IN17A025_R",
+      "weight": 214,
+      "nt": "ACh",
+      "sign": 1,
+      "evidence": "Cell Type Explorer DNg13_L downstream",
+      "weight_source": "explorer"
+    },
+    {
+      "pre": "DNg13_R",
+      "post": "IN17A025_R",
+      "weight": 214,
+      "nt": "ACh",
+      "sign": 1,
+      "evidence": "Cell Type Explorer DNg13_L downstream",
+      "weight_source": "explorer"
+    },
+    {
+      "pre": "DNa02",
+      "post": "IN17A025_L",
+      "weight": 28,
+      "nt": "ACh",
+      "sign": 1,
+      "evidence": "DNa02 \u2192 VNC",
+      "weight_source": "heuristic"
+    },
+    {
+      "pre": "DNa02",
+      "post": "IN17A025_R",
+      "weight": 28,
+      "nt": "ACh",
+      "sign": 1,
+      "evidence": "DNa02 \u2192 VNC",
+      "weight_source": "heuristic"
+    },
+    {
+      "pre": "DNg13_L",
+      "post": "DNg13_R",
+      "weight": 90,
+      "nt": "Glu",
+      "sign": -1,
+      "evidence": "bilateral DN mutual inhibition",
+      "weight_source": "heuristic"
+    },
+    {
+      "pre": "DNg13_R",
+      "post": "DNg13_L",
+      "weight": 90,
+      "nt": "Glu",
+      "sign": -1,
+      "evidence": "bilateral DN mutual inhibition",
+      "weight_source": "heuristic"
+    }
+  ],
+  "pathways": []
+}

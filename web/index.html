@@ -20,10 +20,42 @@
       <a href="/tour.html">Как это работает</a>
       <a href="https://research.google/blog/a-connectomics-milestone-mapping-the-complete-male-fruit-fly-brain/" target="_blank" rel="noreferrer">блог Google</a>
       <a href="https://male-cns.janelia.org/" target="_blank" rel="noreferrer">MaleCNS</a>
-      <a href="https://neuroglancer-demo.appspot.com/#!gs://flyem-male-cns/v1.0/male-cns-v1.0.jso" target="_blank" rel="noreferrer">Neuroglancer</a>
-      <a href="https://codex.flywire.ai/" target="_blank" rel="noreferrer">Codex</a>
+      <a id="link-neuroglancer" href="https://neuroglancer-demo.appspot.com/#!gs://flyem-male-cns/v1.0/male-cns-v1.0.jso" target="_blank" rel="noreferrer">Neuroglancer</a>
+      <a id="link-codex" href="https://codex.flywire.ai/?dataset=male-cns" target="_blank" rel="noreferrer">Codex</a>
     </nav>
   </header>
+
+  <div class="toolbar">
+    <label class="ds-switch" for="dataset">
+      <span>датасет</span>
+      <select id="dataset" title="MaleCNS / FAFB / BANC / MANC / MAOL">
+        <option value="male-cns">♂ MaleCNS</option>
+        <option value="fafb">♀ FAFB</option>
+        <option value="banc">BANC</option>
+        <option value="manc">MANC · VNC</option>
+        <option value="maol">MAOL · optic</option>
+      </select>
+    </label>
+    <label class="ds-switch" for="sex-play">
+      <span>геймплей</span>
+      <select id="sex-play" title="веса самца / самки">
+        <option value="male">♂ веса MaleCNS</option>
+        <option value="female">♀ веса FAFB</option>
+        <option value="duel">дуэль ♀↔♂</option>
+      </select>
+    </label>
+    <label class="ds-switch" for="pathway-select">
+      <span>путь</span>
+      <select id="pathway-select">
+        <option value="">весь контур</option>
+      </select>
+    </label>
+    <button type="button" id="btn-columns" title="колоночная карта поля → optic columns">колонки</button>
+    <button type="button" id="btn-compare" title="сравнение ♀ FAFB ↔ ♂ MaleCNS">♀↔♂</button>
+    <button type="button" id="btn-rate" title="rate-сеть на синапсах (WebWorker)">rate-сеть</button>
+    <button type="button" id="btn-nt-color" class="on" title="цвет связей по нейротрансмиттеру">NT цвет</button>
+    <span id="dataset-note" class="dataset-note"></span>
+  </div>
 
   <main class="stage">
     <section class="panel game-col">
@@ -53,6 +85,7 @@
       </div>
       <div class="board-wrap">
         <canvas id="board" width="320" height="640"></canvas>
+        <canvas id="columns" width="320" height="640" class="columns-overlay hidden" aria-hidden="true"></canvas>
         <div id="overlay" class="overlay hidden">
           <p id="overlay-title">пауза</p>
           <p class="hint">пробел / P — пауза · Shift — дроп · R — заново · B — мозг мухи играет / человек играет</p>
@@ -138,13 +171,24 @@
       <p id="thought" class="thought">ждёт зрительный вход…</p>
       <h3>источник</h3>
       <ul class="cite">
-        <li><code>male-cns:v1.0</code></li>
-        <li>166 700 нейронов, ~125 M синапсов</li>
+        <li id="cite-dataset"><code>male-cns:v1.0</code></li>
+        <li id="cite-scale">166 700 нейронов, ~125 M синапсов</li>
         <li>контур руления: LoVP92 → AOTU/CB0244/LAL · VES200m ⊣ DNg13 (билат.)</li>
         <li id="catalog-stat">каталог типов загружается…</li>
+        <li id="weight-stat">веса: —</li>
+        <li id="rate-stat" class="hidden">rate: —</li>
       </ul>
     </section>
   </main>
+
+  <aside id="compare-panel" class="compare-panel hidden" aria-label="сравнение FAFB и MaleCNS">
+    <header>
+      <strong>♀ FAFB ↔ ♂ MaleCNS</strong>
+      <button type="button" id="btn-compare-close" aria-label="закрыть">×</button>
+    </header>
+    <p id="compare-note" class="compare-note"></p>
+    <div class="compare-chart" id="compare-chart"></div>
+  </aside>
 
   <script src="/web/app.js" type="module"></script>
 </body>

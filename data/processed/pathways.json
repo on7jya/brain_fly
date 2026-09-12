@@ -1,0 +1,70 @@
+{
+  "source": "Codex Pathways\u2013inspired motifs over local circuit nodes",
+  "items": [
+    {
+      "id": "steering_ves",
+      "label": "\u0440\u0443\u043b\u0435\u043d\u0438\u0435 LoVP92\u2192VES\u2192DNg13",
+      "nodes": [
+        "LoVP92_L",
+        "VES200m_L",
+        "DNg13_L",
+        "LoVP92_R",
+        "VES200m_R",
+        "DNg13_R"
+      ],
+      "note": "Cell paper frontal VPN steering motif"
+    },
+    {
+      "id": "motion_t4",
+      "label": "\u0434\u0432\u0438\u0436\u0435\u043d\u0438\u0435 Mi1/Tm3\u2192T4/T5\u2192LC",
+      "nodes": [
+        "Mi1_L",
+        "Tm3_L",
+        "T4a_L",
+        "T4b_L",
+        "T5a_L",
+        "LC10a_L",
+        "LC10b_L",
+        "Mi1_R",
+        "Tm3_R",
+        "T4a_R",
+        "T4b_R",
+        "T5a_R",
+        "LC10a_R",
+        "LC10b_R"
+      ],
+      "note": "classic optic motion cascade"
+    },
+    {
+      "id": "object_lc10",
+      "label": "\u043e\u0431\u044a\u0435\u043a\u0442 LC10\u2192LoVP92\u2192\u0446\u0435\u043d\u0442\u0440",
+      "nodes": [
+        "LC10a_L",
+        "LC10b_L",
+        "LoVP92_L",
+        "LC10a_R",
+        "LC10b_R",
+        "LoVP92_R",
+        "AOTU019_L",
+        "AOTU019_R",
+        "CB0244_L",
+        "CB0244_R"
+      ],
+      "note": "object feature \u2192 VPN \u2192 central"
+    },
+    {
+      "id": "rotate_dna02",
+      "label": "\u043f\u043e\u0432\u043e\u0440\u043e\u0442 \u2192 DNa02",
+      "nodes": [
+        "CB0244_L",
+        "CB0244_R",
+        "LAL073_L",
+        "LAL073_R",
+        "DNa02",
+        "IN17A025_L",
+        "IN17A025_R"
+      ],
+      "note": "DNa02 rotation pathway"
+    }
+  ]
+}

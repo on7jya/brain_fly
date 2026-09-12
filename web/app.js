@@ -75,6 +75,17 @@ const TRAIL_LIFE_MS = 1600;
 
 const EXPLORER_BASE = "https://reiserlab.github.io/celltype-explorer-drosophila-male-cns/";
 const CODEX_BASE = "https://codex.flywire.ai/";
+const NT_RGB = {
+  ACh: "74,222,128",
+  GABA: "251,113,133",
+  Glu: "244,114,182",
+  His: "167,139,250",
+  OA: "251,191,36",
+  DA: "56,189,248",
+  "5HT": "249,168,212",
+  unk: "148,163,184",
+  unc: "148,163,184",
+};
 
 const state = {
   grid: emptyGrid(),
@@ -131,6 +142,18 @@ const state = {
   synBurstCooldown: 0,
   lastPeakStage: null,
   tipPinned: false,
+  dataset: "male-cns",
+  circuits: {},
+  sexPlay: "male",
+  pathwayId: null,
+  pathwayNodeSet: null,
+  showColumns: false,
+  ntColor: true,
+  rateMode: false,
+  rateWorker: null,
+  rateSynOps: 0,
+  compareData: null,
+  ntPalette: null,
 };
 
 function emptyGrid() {
@@ -145,19 +168,53 @@ function brainStepMs() {
   return Math.max(8, 16 / Math.max(0.25, state.speed));
 }
 
+function codexDataset() {
+  return state.circuit?.source?.codex_dataset || state.dataset || "male-cns";
+}
+
 function catalogUrls(node) {
   const type = node?.type || "";
   if (!type) return null;
   const src = state.circuit?.source || {};
+  const ds = encodeURIComponent(codexDataset());
   const explorerRoot = (src.explorer || EXPLORER_BASE).replace(/\/?$/, "/");
   const typePath = encodeURIComponent(type);
   const explorer = `${explorerRoot}types/${typePath}.html`;
-  // Side-specific explorer pages exist for many types (e.g. DNg13_L)
   const sideType = node.side && node.side !== "B" ? `${type}_${node.side}` : null;
   const explorerSide = sideType ? `${explorerRoot}types/${encodeURIComponent(sideType)}.html` : null;
-  const codex = `${src.codex || CODEX_BASE}app/search?filter_string=${encodeURIComponent(type)}`;
-  const flywire = `https://codex.flywire.ai/app/search?filter_string=${encodeURIComponent(`type:${type}`)}`;
-  return { explorer, explorerSide, codex, flywire, type };
+  const q = encodeURIComponent(type);
+  const codexApp = `${CODEX_BASE}app/search?dataset=${ds}&filter_string=${q}`;
+  const flywire = `${CODEX_BASE}app/search?dataset=${ds}&filter_string=${encodeURIComponent(`type:${type}`)}`;
+  const ng = src.neuroglancer || null;
+  const body = (node.body_ids && node.body_ids[0]) || null;
+  const neuroglancer = body && ng
+    ? `${String(ng)}${String(ng).includes("?") ? "&" : "?"}body=${encodeURIComponent(body)}`
+    : ng;
+  return { explorer, explorerSide, codex: codexApp, flywire, neuroglancer, type, dataset: ds };
+}
+
+function edgeRgb(e) {
+  if (state.ntColor && e?.nt && NT_RGB[e.nt]) return NT_RGB[e.nt];
+  return e?.sign < 0 ? "251,113,133" : "125,211,252";
+}
+
+function effectiveEdges() {
+  const c = state.circuit;
+  if (!c?.edges) return [];
+  const female = state.circuits.fafb;
+  if (state.sexPlay === "male" || !female?.edges) return c.edges;
+  const fMap = Object.fromEntries(female.edges.map((e) => [`${e.pre}|${e.post}`, e]));
+  return c.edges.map((e) => {
+    const fe = fMap[`${e.pre}|${e.post}`];
+    if (!fe) return e;
+    if (state.sexPlay === "female") return { ...e, weight: fe.weight, nt: fe.nt || e.nt, sign: fe.sign ?? e.sign };
+    return { ...e, weight: Math.round((e.weight + fe.weight) / 2) };
+  });
+}
+
+function inPathway(node) {
+  if (!state.pathwayNodeSet) return true;
+  return state.pathwayNodeSet.has(node.id);
 }
 
 function matchesStageFilter(node) {
@@ -190,8 +247,9 @@ function isNodeHot(node) {
   return (state.activity[node.id] || 0) >= ACTIVE_THRESHOLD;
 }
 
-/** full | ghost | hide — stage filter + «только активные» */
+/** full | ghost | hide — stage filter + «только активные» + pathway */
 function nodeVizMode(node) {
+  if (!inPathway(node)) return state.pathwayNodeSet ? "ghost" : "full";
   const inStage = matchesStageFilter(node);
   if (state.stageFilter && !inStage) return "ghost";
   if (state.activeOnly && !isNodeHot(node)) return state.stageFilter ? "hide" : "ghost";
@@ -978,7 +1036,7 @@ function stepBrain() {
   const now = performance.now();
   state.synBurstCooldown = Math.max(0, state.synBurstCooldown - 1);
 
-  for (const e of c.edges) {
+  for (const e of effectiveEdges()) {
     const a = act[e.pre] || 0;
     // Keep excitation moderate so L/R DNs do not both clip at max.
     const gain = e.sign < 0 ? 0.14 : 0.11;
@@ -1515,7 +1573,7 @@ function drawBrain(t) {
   }
 
   // edges
-  for (const e of c.edges) {
+  for (const e of effectiveEdges()) {
     const a = pos[e.pre];
     const b = pos[e.post];
     if (!a || !b) continue;
@@ -1543,7 +1601,7 @@ function drawBrain(t) {
     ctx.beginPath();
     ctx.moveTo(a[0], a[1]);
     ctx.quadraticCurveTo(mx, my, b[0], b[1]);
-    const base = e.sign < 0 ? "251,113,133" : "125,211,252";
+    const base = edgeRgb(e);
     const boost = (state.stageFilter ? 0.18 : 0) + (onTrail ? 0.28 : 0);
     const alpha = e.sign < 0
       ? 0.16 + flow * 0.48 + (highlighted ? 0.22 : 0) + boost
@@ -1565,7 +1623,7 @@ function drawBrain(t) {
       ctx.save();
       ctx.translate(px, py);
       ctx.rotate(ang);
-      ctx.strokeStyle = "rgba(251,113,133,0.9)";
+      ctx.strokeStyle = `rgba(${base},0.9)`;
       ctx.lineWidth = 2;
       ctx.beginPath();
       ctx.moveTo(0, -5);
@@ -2020,7 +2078,7 @@ function drawNeuropil3D(t) {
 
     // synaptic edges (same palette / activity weighting as 2D)
     const edgeDraw = [];
-    for (const e of c.edges) {
+    for (const e of effectiveEdges()) {
       const a = screen[e.pre];
       const b = screen[e.post];
       if (!a || !b) continue;
@@ -2055,7 +2113,7 @@ function drawNeuropil3D(t) {
       ctx.beginPath();
       ctx.moveTo(a[0], a[1]);
       ctx.quadraticCurveTo(mx, my, b[0], b[1]);
-      const base = e.sign < 0 ? "251,113,133" : "125,211,252";
+      const base = edgeRgb(e);
       const boost = (state.stageFilter ? 0.18 : 0) + (onTrail ? 0.25 : 0);
       const alpha = e.sign < 0
         ? 0.16 + flow * 0.48 + (highlighted ? 0.22 : 0) + boost
@@ -2253,6 +2311,7 @@ function showTip(node, clientX, clientY) {
         ${urls.explorerSide ? `<a class="secondary" href="${urls.explorerSide}" target="_blank" rel="noreferrer">${node.side}</a>` : ""}
         <a class="secondary" href="${urls.codex}" target="_blank" rel="noreferrer">Codex</a>
         <a class="secondary" href="${urls.flywire}" target="_blank" rel="noreferrer">FlyWire</a>
+        ${urls.neuroglancer ? `<a class="secondary" href="${urls.neuroglancer}" target="_blank" rel="noreferrer">NG</a>` : ""}
       </div>`
     : "";
   brainTip.innerHTML = `
@@ -2403,6 +2462,8 @@ function tick(ts) {
   if (state.viewMode === "3d") drawNeuropil3D(ts);
   else drawBrain(ts);
   drawRaster();
+  if (typeof tickRateWorker === "function") tickRateWorker();
+  if (state.showColumns && typeof drawColumnsOverlay === "function") drawColumnsOverlay();
   requestAnimationFrame(tick);
 }
 
@@ -2569,21 +2630,248 @@ overlay.addEventListener("click", () => {
 setSpeed(1);
 setViewMode("3d");
 
-fetch("/api/circuit")
-  .then((r) => r.json())
-  .then((circuit) => {
-    state.circuit = circuit;
-    indexEdges(circuit);
-    indexStages(circuit);
-    buildPipelineDom();
-    renderEventLog();
-    renderProcess(null);
-    for (const n of circuit.nodes || []) state.activity[n.id] = 0.05;
-    const nTypes = circuit.source?.types_in_catalog ?? "—";
-    const nNodes = circuit.nodes?.length ?? 0;
-    const nEdges = circuit.edges?.length ?? 0;
-    document.getElementById("catalog-stat").textContent =
-      `каталог: ${nTypes} типов · контур: ${nNodes} узлов / ${nEdges} связей`;
+function updateSourceChrome(circuit) {
+  const src = circuit?.source || {};
+  const ds = src.dataset || state.dataset;
+  const cite = document.getElementById("cite-dataset");
+  if (cite) cite.innerHTML = `<code>${src.dataset_id || ds}</code>${src.sex ? ` · ${src.sex === "female" ? "♀" : src.sex === "male" ? "♂" : src.sex}` : ""}`;
+  const scale = document.getElementById("cite-scale");
+  if (scale) {
+    const n = src.neurons ? `${src.neurons.toLocaleString?.() || src.neurons} нейронов` : "размер неизвестен";
+    const s = src.synapses ? ` · ~${(src.synapses / 1e6).toFixed?.(0) || src.synapses}M синапсов` : "";
+    scale.textContent = n + s + (src.scaffold ? " · scaffold" : "");
+  }
+  const ws = src.weight_stats;
+  const wEl = document.getElementById("weight-stat");
+  if (wEl) {
+    wEl.textContent = ws
+      ? `веса: explorer ${ws.explorer} · heuristic ${ws.heuristic} · mirror ${ws.mirror || 0}`
+      : `веса: ${src.scaffold ? "scaffold / scaled" : "из контура"}`;
+  }
+  const note = document.getElementById("dataset-note");
+  if (note) note.textContent = src.limitation || src.auth_blocker || src.note || "";
+  const ng = document.getElementById("link-neuroglancer");
+  if (ng && src.neuroglancer) ng.href = src.neuroglancer;
+  const cx = document.getElementById("link-codex");
+  if (cx) cx.href = src.codex || `${CODEX_BASE}?dataset=${encodeURIComponent(ds)}`;
+  const brand = document.querySelector(".brand .mark");
+  if (brand) brand.textContent = src.sex === "female" ? "♀" : src.sex === "male" ? "♂" : "◈";
+  const h2 = document.querySelector(".brain-head h2");
+  if (h2) h2.textContent = `живой контур ${src.name || ds}`;
+}
+
+function fillPathways(circuit) {
+  const sel = document.getElementById("pathway-select");
+  if (!sel) return;
+  const items = circuit?.pathways || [];
+  sel.innerHTML = `<option value="">весь контур</option>` + items.map((p) =>
+    `<option value="${p.id}">${p.label || p.id}</option>`
+  ).join("");
+}
+
+function applyCircuit(circuit, datasetId) {
+  state.dataset = datasetId || circuit?.source?.dataset || "male-cns";
+  state.circuit = circuit;
+  state._nodeById = null;
+  state.pathwayId = null;
+  state.pathwayNodeSet = null;
+  indexEdges(circuit);
+  indexStages(circuit);
+  buildPipelineDom();
+  fillPathways(circuit);
+  updateSourceChrome(circuit);
+  resetBrainViz();
+  for (const n of circuit.nodes || []) state.activity[n.id] = 0.05;
+  const nTypes = circuit.source?.types_in_catalog ?? "—";
+  const nNodes = circuit.nodes?.length ?? 0;
+  const nEdges = circuit.edges?.length ?? 0;
+  const cat = document.getElementById("catalog-stat");
+  if (cat) cat.textContent = `каталог: ${nTypes} типов · контур: ${nNodes} узлов / ${nEdges} связей`;
+  if (state.rateMode) initRateWorker(circuit);
+  const dsSel = document.getElementById("dataset");
+  if (dsSel && [...dsSel.options].some((o) => o.value === state.dataset)) dsSel.value = state.dataset;
+}
+
+async function loadDataset(id) {
+  const r = await fetch(`/api/circuit?dataset=${encodeURIComponent(id)}`);
+  const circuit = await r.json();
+  state.circuits[id] = circuit;
+  applyCircuit(circuit, id);
+  pushEvent("decision", `датасет: ${id}`);
+  if (!state.started) startGame();
+  else restartGame();
+}
+
+function drawColumnsOverlay() {
+  const canvas = document.getElementById("columns");
+  if (!canvas) return;
+  canvas.classList.toggle("hidden", !state.showColumns);
+  if (!state.showColumns) return;
+  const ctx = canvas.getContext("2d");
+  const w = canvas.width;
+  const h = canvas.height;
+  ctx.clearRect(0, 0, w, h);
+  const colW = w / COLS;
+  for (let c = 0; c < COLS; c++) {
+    const x = c * colW;
+    const side = c < COLS / 2 ? "L" : "R";
+    const hue = side === "L" ? 270 : 200;
+    ctx.fillStyle = `hsla(${hue}, 70%, 60%, 0.07)`;
+    ctx.fillRect(x, 0, colW, h);
+    ctx.strokeStyle = `hsla(${hue}, 80%, 70%, 0.35)`;
+    ctx.beginPath();
+    ctx.moveTo(x + 0.5, 0);
+    ctx.lineTo(x + 0.5, h);
+    ctx.stroke();
+    ctx.fillStyle = `hsla(${hue}, 80%, 75%, 0.55)`;
+    ctx.font = "10px ui-monospace, Menlo, monospace";
+    ctx.fillText(`${side}${c % 5}`, x + 4, 14);
+  }
+  ctx.fillStyle = "rgba(232,237,245,0.55)";
+  ctx.font = "11px system-ui, sans-serif";
+  ctx.fillText("optic columns ← Tetris field", 8, h - 10);
+}
+
+function renderCompare() {
+  const panel = document.getElementById("compare-panel");
+  const chart = document.getElementById("compare-chart");
+  const note = document.getElementById("compare-note");
+  if (!panel || !chart) return;
+  const data = state.compareData;
+  if (!data) return;
+  if (note) {
+    note.textContent = data.auth_blocker
+      ? `FAFB CSV: нужен Google login. ${data.fafb_scaffold ? "Показан scaffold." : ""} ${data.auth_blocker}`
+      : (data.fafb_scaffold ? "FAFB scaffold (без CSV)." : "Реальные агрегаты FAFB CSV.");
+  }
+  const rows = data.rows || [];
+  const max = Math.max(1, ...rows.map((r) => Math.max(r.male_mcns, r.female_fafb)));
+  chart.innerHTML = rows.slice(0, 18).map((r) => `
+    <div class="compare-row">
+      <code>${r.type}</code>
+      <div class="bars">
+        <div class="bar male" title="♂ ${r.male_mcns}"><i style="width:${(100 * r.male_mcns / max).toFixed(1)}%"></i></div>
+        <div class="bar female" title="♀ ${r.female_fafb}"><i style="width:${(100 * r.female_fafb / max).toFixed(1)}%"></i></div>
+      </div>
+    </div>`).join("");
+  panel.classList.remove("hidden");
+}
+
+function initRateWorker(circuit) {
+  if (state.rateWorker) {
+    state.rateWorker.terminate();
+    state.rateWorker = null;
+  }
+  try {
+    const w = new Worker("/web/rate_worker.js");
+    state.rateWorker = w;
+    w.onmessage = (ev) => {
+      const msg = ev.data || {};
+      if (msg.type === "state" && state.rateMode) {
+        state.rateSynOps = msg.synOps || 0;
+        Object.assign(state.activity, msg.rates || {});
+        Object.assign(state.spikes, msg.spikes || {});
+        const el = document.getElementById("rate-stat");
+        if (el) {
+          el.classList.remove("hidden");
+          el.textContent = `rate: ~${state.rateSynOps} syn-ops / tick · worker`;
+        }
+      }
+    };
+    w.postMessage({ type: "init", nodes: circuit.nodes, edges: effectiveEdges() });
+  } catch (err) {
+    console.warn("rate worker failed", err);
+    state.rateMode = false;
+  }
+}
+
+function tickRateWorker() {
+  if (!state.rateMode || !state.rateWorker || !state.circuit) return;
+  const input = {};
+  for (const n of state.circuit.nodes || []) {
+    if ((n.type === "R1-R6" || n.role === "photoreceptor") && (state.activity[n.id] || 0) > 0.1) {
+      input[n.id] = state.activity[n.id];
+    }
+  }
+  state.rateWorker.postMessage({ type: "input", input });
+  state.rateWorker.postMessage({ type: "tick", steps: 4 });
+}
+
+document.getElementById("dataset")?.addEventListener("change", (e) => {
+  loadDataset(e.target.value).catch((err) => {
+    console.warn(err);
+    pushEvent("decision", `не удалось загрузить ${e.target.value}`);
+  });
+});
+document.getElementById("sex-play")?.addEventListener("change", (e) => {
+  state.sexPlay = e.target.value;
+  pushEvent("decision", `геймплей веса: ${state.sexPlay}`);
+  if (state.rateWorker) state.rateWorker.postMessage({ type: "init", nodes: state.circuit.nodes, edges: effectiveEdges() });
+});
+document.getElementById("pathway-select")?.addEventListener("change", (e) => {
+  const id = e.target.value || null;
+  state.pathwayId = id;
+  if (!id) {
+    state.pathwayNodeSet = null;
+    return;
+  }
+  const p = (state.circuit?.pathways || []).find((x) => x.id === id);
+  state.pathwayNodeSet = new Set(p?.nodes || []);
+  pushEvent("wave", `путь: ${p?.label || id}`);
+});
+document.getElementById("btn-columns")?.addEventListener("click", (e) => {
+  state.showColumns = !state.showColumns;
+  e.currentTarget.classList.toggle("on", state.showColumns);
+  drawColumnsOverlay();
+});
+document.getElementById("btn-compare")?.addEventListener("click", () => {
+  const panel = document.getElementById("compare-panel");
+  if (!panel) return;
+  if (!panel.classList.contains("hidden")) {
+    panel.classList.add("hidden");
+    return;
+  }
+  if (state.compareData) renderCompare();
+  else {
+    fetch("/api/compare").then((r) => r.json()).then((d) => {
+      state.compareData = d;
+      renderCompare();
+    });
+  }
+});
+document.getElementById("btn-compare-close")?.addEventListener("click", () => {
+  document.getElementById("compare-panel")?.classList.add("hidden");
+});
+document.getElementById("btn-nt-color")?.addEventListener("click", (e) => {
+  state.ntColor = !state.ntColor;
+  e.currentTarget.classList.toggle("on", state.ntColor);
+});
+document.getElementById("btn-rate")?.addEventListener("click", (e) => {
+  state.rateMode = !state.rateMode;
+  e.currentTarget.classList.toggle("on", state.rateMode);
+  const el = document.getElementById("rate-stat");
+  if (state.rateMode && state.circuit) {
+    initRateWorker(state.circuit);
+    if (el) el.classList.remove("hidden");
+  } else {
+    state.rateWorker?.terminate();
+    state.rateWorker = null;
+    if (el) el.classList.add("hidden");
+  }
+});
+
+Promise.all([
+  fetch("/api/circuit?dataset=male-cns").then((r) => r.json()),
+  fetch("/api/circuit?dataset=fafb").then((r) => r.json()).catch(() => null),
+  fetch("/api/nt").then((r) => r.json()).catch(() => null),
+  fetch("/api/compare").then((r) => r.json()).catch(() => null),
+])
+  .then(([mcns, fafb, nt, compare]) => {
+    state.circuits["male-cns"] = mcns;
+    if (fafb) state.circuits.fafb = fafb;
+    state.ntPalette = nt;
+    state.compareData = compare;
+    applyCircuit(mcns, "male-cns");
     startGame();
   })
   .catch(() => {

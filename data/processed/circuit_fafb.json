@@ -1,19 +1,19 @@
 {
   "source": {
-    "name": "Male CNS connectome v1.0",
-    "dataset": "male-cns",
+    "name": "FAFB v783 scaffold (\u2640)",
+    "dataset": "fafb",
     "dataset_id": "male-cns:v1.0",
-    "sex": "male",
+    "sex": "female",
     "uuid": "4b2087c0fbe046bfaf0d60bc970e3e5d",
-    "neurons": 166700,
-    "synapses": 125000000,
+    "neurons": 139255,
+    "synapses": null,
     "types_in_catalog": 11751,
     "blog": "https://research.google/blog/a-connectomics-milestone-mapping-the-complete-male-fruit-fly-brain/",
     "portal": "https://male-cns.janelia.org/",
     "neuprint": "https://neuprint.janelia.org/",
-    "codex": "https://codex.flywire.ai/?dataset=male-cns",
-    "codex_dataset": "male-cns",
-    "neuroglancer": "https://neuroglancer-demo.appspot.com/#!gs://flyem-male-cns/v1.0/male-cns-v1.0.jso",
+    "codex": "https://codex.flywire.ai/?dataset=fafb",
+    "codex_dataset": "fafb",
+    "neuroglancer": "https://codex.flywire.ai/?dataset=fafb",
     "explorer": "https://reiserlab.github.io/celltype-explorer-drosophila-male-cns/",
     "annotations": "gs://flyem-male-cns/v1.0/connectome-data/flat-connectome/body-annotations-male-cns-v1.0-minconf-0.5.feather",
     "license": "CC-BY",
@@ -23,7 +23,9 @@
       "mirror": 2,
       "explorer_hits_raw": 282
     },
-    "note": "Playable subgraph of the official visual\u2013motor / steering motif. Edge weights prefer Cell Type Explorer synapse counts; heuristics fill gaps. Not a full 166k-neuron simulation."
+    "note": "Scaffolded female weight set: MaleCNS topology \u00d7 public/literature-ish scales. Replace by running scripts/fetch_fafb.py after Codex login, then rebuild.",
+    "scaffold": true,
+    "auth_blocker": "Codex FAFB bulk CSV download requires FlyWire / Google login. Open https://codex.flywire.ai/api/download?dataset=fafb in a browser, sign in, then re-run with --cookie '...' or place CSVs manually under data/raw/fafb/. Roadmap continues with scaffolded FAFB circuit + MaleCNS comparison."
   },
   "nodes": [
     {
@@ -1378,92 +1380,92 @@
     {
       "pre": "AOTU103m_L",
       "post": "VES200m_L",
-      "weight": 4,
+      "weight": 3,
       "nt": "Glu",
       "sign": -1,
-      "evidence": "Cell Type Explorer VES200m upstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer VES200m upstream \u00b7 fafb scaffold scale 0.78",
+      "weight_source": "explorer+fafb_scale"
     },
     {
       "pre": "AOTU103m_L",
       "post": "VES200m_R",
-      "weight": 4,
+      "weight": 3,
       "nt": "Glu",
       "sign": -1,
-      "evidence": "Cell Type Explorer VES200m upstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer VES200m upstream \u00b7 fafb scaffold scale 0.78",
+      "weight_source": "explorer+fafb_scale"
     },
     {
       "pre": "SIP022_L",
       "post": "VES200m_L",
-      "weight": 3,
+      "weight": 2,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer VES200m upstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer VES200m upstream \u00b7 fafb scaffold scale 0.78",
+      "weight_source": "explorer+fafb_scale"
     },
     {
       "pre": "SIP022_L",
       "post": "VES200m_R",
-      "weight": 3,
+      "weight": 2,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer VES200m upstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer VES200m upstream \u00b7 fafb scaffold scale 0.78",
+      "weight_source": "explorer+fafb_scale"
     },
     {
       "pre": "VES085_a_L",
       "post": "VES200m_L",
-      "weight": 3,
+      "weight": 2,
       "nt": "GABA",
       "sign": -1,
-      "evidence": "Cell Type Explorer VES200m upstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer VES200m upstream \u00b7 fafb scaffold scale 0.78",
+      "weight_source": "explorer+fafb_scale"
     },
     {
       "pre": "VES085_a_L",
       "post": "VES200m_R",
+      "weight": 2,
+      "nt": "GABA",
+      "sign": -1,
+      "evidence": "Cell Type Explorer VES200m upstream \u00b7 fafb scaffold scale 0.78",
+      "weight_source": "explorer+fafb_scale"
+    },
+    {
+      "pre": "VES200m_L",
+      "post": "PS065_L",
+      "weight": 5,
+      "nt": "GABA",
+      "sign": -1,
+      "evidence": "Cell Type Explorer VES200m downstream \u00b7 fafb scaffold scale 0.78",
+      "weight_source": "explorer+fafb_scale"
+    },
+    {
+      "pre": "VES200m_R",
+      "post": "PS065_L",
+      "weight": 5,
+      "nt": "GABA",
+      "sign": -1,
+      "evidence": "Cell Type Explorer VES200m downstream \u00b7 fafb scaffold scale 0.78",
+      "weight_source": "explorer+fafb_scale"
+    },
+    {
+      "pre": "VES200m_L",
+      "post": "PLP225_L",
       "weight": 3,
-      "nt": "GABA",
-      "sign": -1,
-      "evidence": "Cell Type Explorer VES200m upstream",
-      "weight_source": "explorer"
-    },
-    {
-      "pre": "VES200m_L",
-      "post": "PS065_L",
-      "weight": 6,
-      "nt": "GABA",
-      "sign": -1,
-      "evidence": "Cell Type Explorer VES200m downstream",
-      "weight_source": "explorer"
-    },
-    {
-      "pre": "VES200m_R",
-      "post": "PS065_L",
-      "weight": 6,
-      "nt": "GABA",
-      "sign": -1,
-      "evidence": "Cell Type Explorer VES200m downstream",
-      "weight_source": "explorer"
-    },
-    {
-      "pre": "VES200m_L",
-      "post": "PLP225_L",
-      "weight": 4,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer VES200m downstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer VES200m downstream \u00b7 fafb scaffold scale 0.78",
+      "weight_source": "explorer+fafb_scale"
     },
     {
       "pre": "VES200m_R",
       "post": "PLP225_L",
-      "weight": 4,
+      "weight": 3,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer VES200m downstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer VES200m downstream \u00b7 fafb scaffold scale 0.78",
+      "weight_source": "explorer+fafb_scale"
     },
     {
       "pre": "VES200m_L",
@@ -1471,8 +1473,8 @@
       "weight": 2,
       "nt": "Glu",
       "sign": -1,
-      "evidence": "Cell Type Explorer VES200m downstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer VES200m downstream \u00b7 fafb scaffold scale 0.78",
+      "weight_source": "explorer+fafb_scale"
     },
     {
       "pre": "VES200m_R",
@@ -1480,134 +1482,134 @@
       "weight": 2,
       "nt": "Glu",
       "sign": -1,
-      "evidence": "Cell Type Explorer VES200m downstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer VES200m downstream \u00b7 fafb scaffold scale 0.78",
+      "weight_source": "explorer+fafb_scale"
     },
     {
       "pre": "PS065_L",
       "post": "VES200m_L",
-      "weight": 7,
+      "weight": 5,
       "nt": "GABA",
       "sign": -1,
-      "evidence": "Cell Type Explorer VES200m_R upstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer VES200m_R upstream \u00b7 fafb scaffold scale 0.78",
+      "weight_source": "explorer+fafb_scale"
     },
     {
       "pre": "PS065_L",
       "post": "VES200m_R",
-      "weight": 7,
+      "weight": 5,
       "nt": "GABA",
       "sign": -1,
-      "evidence": "Cell Type Explorer VES200m_R upstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer VES200m_R upstream \u00b7 fafb scaffold scale 0.78",
+      "weight_source": "explorer+fafb_scale"
     },
     {
       "pre": "LAL073_L",
       "post": "VES200m_L",
-      "weight": 4,
+      "weight": 3,
       "nt": "Glu",
       "sign": -1,
-      "evidence": "Cell Type Explorer VES200m_R upstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer VES200m_R upstream \u00b7 fafb scaffold scale 0.78",
+      "weight_source": "explorer+fafb_scale"
     },
     {
       "pre": "LAL073_L",
       "post": "VES200m_R",
-      "weight": 4,
+      "weight": 3,
       "nt": "Glu",
       "sign": -1,
-      "evidence": "Cell Type Explorer VES200m_R upstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer VES200m_R upstream \u00b7 fafb scaffold scale 0.78",
+      "weight_source": "explorer+fafb_scale"
     },
     {
       "pre": "VES200m_L",
       "post": "PVLP204m_L",
-      "weight": 6,
+      "weight": 5,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer VES200m_R downstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer VES200m_R downstream \u00b7 fafb scaffold scale 0.78",
+      "weight_source": "explorer+fafb_scale"
     },
     {
       "pre": "VES200m_R",
       "post": "PVLP204m_L",
-      "weight": 6,
+      "weight": 5,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer VES200m_R downstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer VES200m_R downstream \u00b7 fafb scaffold scale 0.78",
+      "weight_source": "explorer+fafb_scale"
     },
     {
       "pre": "VES200m_L",
       "post": "SIP022_L",
-      "weight": 6,
+      "weight": 5,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer VES200m_R downstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer VES200m_R downstream \u00b7 fafb scaffold scale 0.78",
+      "weight_source": "explorer+fafb_scale"
     },
     {
       "pre": "VES200m_R",
       "post": "SIP022_L",
-      "weight": 6,
+      "weight": 5,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer VES200m_R downstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer VES200m_R downstream \u00b7 fafb scaffold scale 0.78",
+      "weight_source": "explorer+fafb_scale"
     },
     {
       "pre": "VES200m_L",
       "post": "LoVP92_R",
-      "weight": 3,
+      "weight": 2,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer VES200m_R downstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer VES200m_R downstream \u00b7 fafb scaffold scale 0.68",
+      "weight_source": "explorer+fafb_scale"
     },
     {
       "pre": "VES200m_R",
       "post": "LoVP92_R",
-      "weight": 3,
+      "weight": 2,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer VES200m_R downstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer VES200m_R downstream \u00b7 fafb scaffold scale 0.68",
+      "weight_source": "explorer+fafb_scale"
     },
     {
       "pre": "VES200m_L",
       "post": "SIP136m_L",
-      "weight": 3,
+      "weight": 2,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer VES200m_R downstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer VES200m_R downstream \u00b7 fafb scaffold scale 0.78",
+      "weight_source": "explorer+fafb_scale"
     },
     {
       "pre": "VES200m_R",
       "post": "SIP136m_L",
-      "weight": 3,
+      "weight": 2,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer VES200m_R downstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer VES200m_R downstream \u00b7 fafb scaffold scale 0.78",
+      "weight_source": "explorer+fafb_scale"
     },
     {
       "pre": "VES200m_L",
       "post": "LoVP92_L",
-      "weight": 4,
+      "weight": 3,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer VES200m_L downstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer VES200m_L downstream \u00b7 fafb scaffold scale 0.68",
+      "weight_source": "explorer+fafb_scale"
     },
     {
       "pre": "VES200m_R",
       "post": "LoVP92_L",
-      "weight": 4,
+      "weight": 3,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer VES200m_L downstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer VES200m_L downstream \u00b7 fafb scaffold scale 0.68",
+      "weight_source": "explorer+fafb_scale"
     },
     {
       "pre": "VES200m_L",
@@ -1615,8 +1617,8 @@
       "weight": 1,
       "nt": "GABA",
       "sign": -1,
-      "evidence": "Cell Type Explorer VES200m_R downstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer VES200m_R downstream \u00b7 fafb scaffold scale 0.78",
+      "weight_source": "explorer+fafb_scale"
     },
     {
       "pre": "VES200m_R",
@@ -1624,8 +1626,8 @@
       "weight": 1,
       "nt": "GABA",
       "sign": -1,
-      "evidence": "Cell Type Explorer VES200m_R downstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer VES200m_R downstream \u00b7 fafb scaffold scale 0.78",
+      "weight_source": "explorer+fafb_scale"
     },
     {
       "pre": "VES200m_L",
@@ -1633,8 +1635,8 @@
       "weight": 1,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer VES200m_R downstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer VES200m_R downstream \u00b7 fafb scaffold scale 0.78",
+      "weight_source": "explorer+fafb_scale"
     },
     {
       "pre": "VES200m_R",
@@ -1642,8 +1644,8 @@
       "weight": 1,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer VES200m_R downstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer VES200m_R downstream \u00b7 fafb scaffold scale 0.78",
+      "weight_source": "explorer+fafb_scale"
     },
     {
       "pre": "VES200m_L",
@@ -1651,8 +1653,8 @@
       "weight": 1,
       "nt": "OA",
       "sign": 1,
-      "evidence": "Cell Type Explorer VES200m_R downstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer VES200m_R downstream \u00b7 fafb scaffold scale 0.78",
+      "weight_source": "explorer+fafb_scale"
     },
     {
       "pre": "VES200m_R",
@@ -1660,26 +1662,26 @@
       "weight": 1,
       "nt": "OA",
       "sign": 1,
-      "evidence": "Cell Type Explorer VES200m_R downstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer VES200m_R downstream \u00b7 fafb scaffold scale 0.78",
+      "weight_source": "explorer+fafb_scale"
     },
     {
       "pre": "AN05B007_L",
       "post": "GNG532_L",
-      "weight": 8,
+      "weight": 7,
       "nt": "GABA",
       "sign": -1,
-      "evidence": "Cell Type Explorer GNG532 upstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer GNG532 upstream \u00b7 fafb scaffold scale 0.90",
+      "weight_source": "explorer+fafb_scale"
     },
     {
       "pre": "AN05B007_L",
       "post": "GNG532_R",
-      "weight": 8,
+      "weight": 7,
       "nt": "GABA",
       "sign": -1,
-      "evidence": "Cell Type Explorer GNG532 upstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer GNG532 upstream \u00b7 fafb scaffold scale 0.90",
+      "weight_source": "explorer+fafb_scale"
     },
     {
       "pre": "DNg13_L",
@@ -1687,8 +1689,8 @@
       "weight": 1,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer GNG532 upstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer GNG532 upstream \u00b7 fafb scaffold scale 0.82",
+      "weight_source": "explorer+fafb_scale"
     },
     {
       "pre": "DNg13_R",
@@ -1696,8 +1698,8 @@
       "weight": 2,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer DNg13_R downstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer DNg13_R downstream \u00b7 fafb scaffold scale 0.82",
+      "weight_source": "explorer+fafb_scale"
     },
     {
       "pre": "GNG532_L",
@@ -1705,8 +1707,8 @@
       "weight": 1,
       "nt": "GABA",
       "sign": -1,
-      "evidence": "Cell Type Explorer GNG532 downstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer GNG532 downstream \u00b7 fafb scaffold scale 0.90",
+      "weight_source": "explorer+fafb_scale"
     },
     {
       "pre": "GNG532_R",
@@ -1714,44 +1716,44 @@
       "weight": 1,
       "nt": "GABA",
       "sign": -1,
-      "evidence": "Cell Type Explorer GNG532 downstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer GNG532 downstream \u00b7 fafb scaffold scale 0.90",
+      "weight_source": "explorer+fafb_scale"
     },
     {
       "pre": "OA-VUMa1",
       "post": "LAL073_L",
-      "weight": 35,
+      "weight": 32,
       "nt": "OA",
       "sign": 1,
-      "evidence": "Cell Type Explorer LAL073 upstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer LAL073 upstream \u00b7 fafb scaffold scale 0.90",
+      "weight_source": "explorer+fafb_scale"
     },
     {
       "pre": "OA-VUMa1",
       "post": "LAL073_R",
-      "weight": 35,
+      "weight": 32,
       "nt": "OA",
       "sign": 1,
-      "evidence": "Cell Type Explorer LAL073 upstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer LAL073 upstream \u00b7 fafb scaffold scale 0.90",
+      "weight_source": "explorer+fafb_scale"
     },
     {
       "pre": "SLP450_L",
       "post": "LAL073_L",
-      "weight": 6,
+      "weight": 5,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer LAL073 upstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer LAL073 upstream \u00b7 fafb scaffold scale 0.90",
+      "weight_source": "explorer+fafb_scale"
     },
     {
       "pre": "SLP450_L",
       "post": "LAL073_R",
-      "weight": 6,
+      "weight": 5,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer LAL073 upstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer LAL073 upstream \u00b7 fafb scaffold scale 0.90",
+      "weight_source": "explorer+fafb_scale"
     },
     {
       "pre": "LAL205_L",
@@ -1759,8 +1761,8 @@
       "weight": 3,
       "nt": "GABA",
       "sign": -1,
-      "evidence": "Cell Type Explorer LAL073 upstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer LAL073 upstream \u00b7 fafb scaffold scale 0.90",
+      "weight_source": "explorer+fafb_scale"
     },
     {
       "pre": "LAL205_L",
@@ -1768,8 +1770,8 @@
       "weight": 3,
       "nt": "GABA",
       "sign": -1,
-      "evidence": "Cell Type Explorer LAL073 upstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer LAL073 upstream \u00b7 fafb scaffold scale 0.90",
+      "weight_source": "explorer+fafb_scale"
     },
     {
       "pre": "PVLP114_L",
@@ -1777,8 +1779,8 @@
       "weight": 3,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer LAL073 upstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer LAL073 upstream \u00b7 fafb scaffold scale 0.90",
+      "weight_source": "explorer+fafb_scale"
     },
     {
       "pre": "PVLP114_L",
@@ -1786,8 +1788,8 @@
       "weight": 3,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer LAL073 upstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer LAL073 upstream \u00b7 fafb scaffold scale 0.90",
+      "weight_source": "explorer+fafb_scale"
     },
     {
       "pre": "CB0244_L",
@@ -1795,8 +1797,8 @@
       "weight": 1,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer LAL073 upstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer LAL073 upstream \u00b7 fafb scaffold scale 0.90",
+      "weight_source": "explorer+fafb_scale"
     },
     {
       "pre": "CB0244_R",
@@ -1804,8 +1806,8 @@
       "weight": 1,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer LAL073 upstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer LAL073 upstream \u00b7 fafb scaffold scale 0.90",
+      "weight_source": "explorer+fafb_scale"
     },
     {
       "pre": "LAL073_L",
@@ -1813,8 +1815,8 @@
       "weight": 4,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer LAL073 downstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer LAL073 downstream \u00b7 fafb scaffold scale 0.90",
+      "weight_source": "explorer+fafb_scale"
     },
     {
       "pre": "LAL073_R",
@@ -1822,8 +1824,8 @@
       "weight": 4,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer LAL073 downstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer LAL073 downstream \u00b7 fafb scaffold scale 0.90",
+      "weight_source": "explorer+fafb_scale"
     },
     {
       "pre": "LAL073_L",
@@ -1831,8 +1833,8 @@
       "weight": 4,
       "nt": "Glu",
       "sign": -1,
-      "evidence": "Cell Type Explorer LAL073 downstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer LAL073 downstream \u00b7 fafb scaffold scale 0.90",
+      "weight_source": "explorer+fafb_scale"
     },
     {
       "pre": "LAL073_R",
@@ -1840,44 +1842,44 @@
       "weight": 4,
       "nt": "Glu",
       "sign": -1,
-      "evidence": "Cell Type Explorer LAL073 downstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer LAL073 downstream \u00b7 fafb scaffold scale 0.90",
+      "weight_source": "explorer+fafb_scale"
     },
     {
       "pre": "OA-VUMa1",
       "post": "AOTU019_L",
-      "weight": 41,
+      "weight": 37,
       "nt": "OA",
       "sign": 1,
-      "evidence": "Cell Type Explorer AOTU019 upstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer AOTU019 upstream \u00b7 fafb scaffold scale 0.90",
+      "weight_source": "explorer+fafb_scale"
     },
     {
       "pre": "OA-VUMa1",
       "post": "AOTU019_R",
-      "weight": 41,
+      "weight": 37,
       "nt": "OA",
       "sign": 1,
-      "evidence": "Cell Type Explorer AOTU019 upstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer AOTU019 upstream \u00b7 fafb scaffold scale 0.90",
+      "weight_source": "explorer+fafb_scale"
     },
     {
       "pre": "AOTU019_L",
       "post": "OA-VUMa1",
-      "weight": 15,
+      "weight": 14,
       "nt": "OA",
       "sign": 1,
-      "evidence": "Cell Type Explorer AOTU019 downstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer AOTU019 downstream \u00b7 fafb scaffold scale 0.90",
+      "weight_source": "explorer+fafb_scale"
     },
     {
       "pre": "AOTU019_R",
       "post": "OA-VUMa1",
-      "weight": 15,
+      "weight": 14,
       "nt": "OA",
       "sign": 1,
-      "evidence": "Cell Type Explorer AOTU019 downstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer AOTU019 downstream \u00b7 fafb scaffold scale 0.90",
+      "weight_source": "explorer+fafb_scale"
     },
     {
       "pre": "AOTU019_L",
@@ -1885,8 +1887,8 @@
       "weight": 4,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer AOTU019 downstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer AOTU019 downstream \u00b7 fafb scaffold scale 0.90",
+      "weight_source": "explorer+fafb_scale"
     },
     {
       "pre": "AOTU019_R",
@@ -1894,8 +1896,8 @@
       "weight": 4,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer AOTU019 downstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer AOTU019 downstream \u00b7 fafb scaffold scale 0.90",
+      "weight_source": "explorer+fafb_scale"
     },
     {
       "pre": "AOTU019_L",
@@ -1903,8 +1905,8 @@
       "weight": 1,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer AOTU019 downstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer AOTU019 downstream \u00b7 fafb scaffold scale 0.90",
+      "weight_source": "explorer+fafb_scale"
     },
     {
       "pre": "AOTU019_R",
@@ -1912,8 +1914,8 @@
       "weight": 1,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer AOTU019 downstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer AOTU019 downstream \u00b7 fafb scaffold scale 0.90",
+      "weight_source": "explorer+fafb_scale"
     },
     {
       "pre": "AOTU019_L",
@@ -1921,8 +1923,8 @@
       "weight": 1,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer AOTU019 downstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer AOTU019 downstream \u00b7 fafb scaffold scale 0.90",
+      "weight_source": "explorer+fafb_scale"
     },
     {
       "pre": "AOTU019_R",
@@ -1930,8 +1932,8 @@
       "weight": 1,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer AOTU019 downstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer AOTU019 downstream \u00b7 fafb scaffold scale 0.90",
+      "weight_source": "explorer+fafb_scale"
     },
     {
       "pre": "PVLP114_L",
@@ -1939,8 +1941,8 @@
       "weight": 1,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer VES200m_L upstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer VES200m_L upstream \u00b7 fafb scaffold scale 0.78",
+      "weight_source": "explorer+fafb_scale"
     },
     {
       "pre": "PVLP114_L",
@@ -1948,26 +1950,26 @@
       "weight": 1,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer VES200m_L upstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer VES200m_L upstream \u00b7 fafb scaffold scale 0.78",
+      "weight_source": "explorer+fafb_scale"
     },
     {
       "pre": "OA-VUMa1",
       "post": "DNp13_L",
-      "weight": 20,
+      "weight": 18,
       "nt": "OA",
       "sign": 1,
-      "evidence": "Cell Type Explorer DNp13 upstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer DNp13 upstream \u00b7 fafb scaffold scale 0.90",
+      "weight_source": "explorer+fafb_scale"
     },
     {
       "pre": "OA-VUMa1",
       "post": "DNp13_R",
-      "weight": 20,
+      "weight": 18,
       "nt": "OA",
       "sign": 1,
-      "evidence": "Cell Type Explorer DNp13 upstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer DNp13 upstream \u00b7 fafb scaffold scale 0.90",
+      "weight_source": "explorer+fafb_scale"
     },
     {
       "pre": "DNp13_L",
@@ -1975,8 +1977,8 @@
       "weight": 1,
       "nt": "GABA",
       "sign": -1,
-      "evidence": "Cell Type Explorer DNp13 downstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer DNp13 downstream \u00b7 fafb scaffold scale 0.90",
+      "weight_source": "explorer+fafb_scale"
     },
     {
       "pre": "DNp13_R",
@@ -1984,8 +1986,8 @@
       "weight": 1,
       "nt": "GABA",
       "sign": -1,
-      "evidence": "Cell Type Explorer DNp13 downstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer DNp13 downstream \u00b7 fafb scaffold scale 0.90",
+      "weight_source": "explorer+fafb_scale"
     },
     {
       "pre": "DNp13_L",
@@ -1993,8 +1995,8 @@
       "weight": 1,
       "nt": "Glu",
       "sign": -1,
-      "evidence": "Cell Type Explorer DNp13 downstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer DNp13 downstream \u00b7 fafb scaffold scale 0.90",
+      "weight_source": "explorer+fafb_scale"
     },
     {
       "pre": "DNp13_R",
@@ -2002,26 +2004,26 @@
       "weight": 1,
       "nt": "Glu",
       "sign": -1,
-      "evidence": "Cell Type Explorer DNp13 downstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer DNp13 downstream \u00b7 fafb scaffold scale 0.90",
+      "weight_source": "explorer+fafb_scale"
     },
     {
       "pre": "OA-VUMa1",
       "post": "DNg97_L",
-      "weight": 39,
+      "weight": 35,
       "nt": "OA",
       "sign": 1,
-      "evidence": "Cell Type Explorer DNg97 upstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer DNg97 upstream \u00b7 fafb scaffold scale 0.90",
+      "weight_source": "explorer+fafb_scale"
     },
     {
       "pre": "OA-VUMa1",
       "post": "DNg97_R",
-      "weight": 39,
+      "weight": 35,
       "nt": "OA",
       "sign": 1,
-      "evidence": "Cell Type Explorer DNg97 upstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer DNg97 upstream \u00b7 fafb scaffold scale 0.90",
+      "weight_source": "explorer+fafb_scale"
     },
     {
       "pre": "DNg13_L",
@@ -2029,8 +2031,8 @@
       "weight": 2,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer DNg13_R downstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer DNg13_R downstream \u00b7 fafb scaffold scale 0.82",
+      "weight_source": "explorer+fafb_scale"
     },
     {
       "pre": "DNg13_R",
@@ -2038,8 +2040,8 @@
       "weight": 1,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer DNg97 upstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer DNg97 upstream \u00b7 fafb scaffold scale 0.82",
+      "weight_source": "explorer+fafb_scale"
     },
     {
       "pre": "SIP022_L",
@@ -2047,8 +2049,8 @@
       "weight": 1,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer DNg97 upstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer DNg97 upstream \u00b7 fafb scaffold scale 0.90",
+      "weight_source": "explorer+fafb_scale"
     },
     {
       "pre": "SIP022_L",
@@ -2056,8 +2058,8 @@
       "weight": 1,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer DNg97 upstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer DNg97 upstream \u00b7 fafb scaffold scale 0.90",
+      "weight_source": "explorer+fafb_scale"
     },
     {
       "pre": "DNg97_L",
@@ -2065,8 +2067,8 @@
       "weight": 2,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer DNg97 downstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer DNg97 downstream \u00b7 fafb scaffold scale 0.90",
+      "weight_source": "explorer+fafb_scale"
     },
     {
       "pre": "DNg97_R",
@@ -2074,8 +2076,8 @@
       "weight": 2,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer DNg97 downstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer DNg97 downstream \u00b7 fafb scaffold scale 0.90",
+      "weight_source": "explorer+fafb_scale"
     },
     {
       "pre": "DNge023_L",
@@ -2083,8 +2085,8 @@
       "weight": 1,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer IN17A025 upstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer IN17A025 upstream \u00b7 fafb scaffold scale 0.90",
+      "weight_source": "explorer+fafb_scale"
     },
     {
       "pre": "DNge023_L",
@@ -2092,296 +2094,296 @@
       "weight": 1,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer IN17A025 upstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer IN17A025 upstream \u00b7 fafb scaffold scale 0.90",
+      "weight_source": "explorer+fafb_scale"
     },
     {
       "pre": "VES200m_R",
       "post": "DNg13_L",
-      "weight": 194,
+      "weight": 136,
       "nt": "Glu",
       "sign": -1,
-      "evidence": "Cell Type Explorer DNg13_R upstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer DNg13_R upstream \u00b7 fafb scaffold scale 0.70",
+      "weight_source": "explorer+fafb_scale"
     },
     {
       "pre": "VES200m_R",
       "post": "DNg13_R",
-      "weight": 194,
+      "weight": 136,
       "nt": "Glu",
       "sign": -1,
-      "evidence": "Cell Type Explorer DNg13_R upstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer DNg13_R upstream \u00b7 fafb scaffold scale 0.70",
+      "weight_source": "explorer+fafb_scale"
     },
     {
       "pre": "LAL073_L",
       "post": "DNg13_L",
-      "weight": 166,
+      "weight": 137,
       "nt": "Glu",
       "sign": -1,
-      "evidence": "Cell Type Explorer DNg13_R upstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer DNg13_R upstream \u00b7 fafb scaffold scale 0.82",
+      "weight_source": "explorer+fafb_scale"
     },
     {
       "pre": "LAL073_L",
       "post": "DNg13_R",
-      "weight": 166,
+      "weight": 137,
       "nt": "Glu",
       "sign": -1,
-      "evidence": "Cell Type Explorer DNg13_R upstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer DNg13_R upstream \u00b7 fafb scaffold scale 0.82",
+      "weight_source": "explorer+fafb_scale"
     },
     {
       "pre": "GNG532_R",
       "post": "DNg13_L",
-      "weight": 157,
+      "weight": 130,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer DNg13_R upstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer DNg13_R upstream \u00b7 fafb scaffold scale 0.82",
+      "weight_source": "explorer+fafb_scale"
     },
     {
       "pre": "GNG532_R",
       "post": "DNg13_R",
-      "weight": 157,
+      "weight": 130,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer DNg13_R upstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer DNg13_R upstream \u00b7 fafb scaffold scale 0.82",
+      "weight_source": "explorer+fafb_scale"
     },
     {
       "pre": "CB0244_R",
       "post": "DNg13_L",
-      "weight": 157,
+      "weight": 130,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer DNg13_R upstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer DNg13_R upstream \u00b7 fafb scaffold scale 0.82",
+      "weight_source": "explorer+fafb_scale"
     },
     {
       "pre": "CB0244_R",
       "post": "DNg13_R",
-      "weight": 157,
+      "weight": 130,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer DNg13_R upstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer DNg13_R upstream \u00b7 fafb scaffold scale 0.82",
+      "weight_source": "explorer+fafb_scale"
     },
     {
       "pre": "DNg97_L",
       "post": "DNg13_L",
-      "weight": 96,
+      "weight": 79,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer DNg13_R upstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer DNg13_R upstream \u00b7 fafb scaffold scale 0.82",
+      "weight_source": "explorer+fafb_scale"
     },
     {
       "pre": "DNg97_L",
       "post": "DNg13_R",
-      "weight": 96,
+      "weight": 79,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer DNg13_R upstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer DNg13_R upstream \u00b7 fafb scaffold scale 0.82",
+      "weight_source": "explorer+fafb_scale"
     },
     {
       "pre": "DNp13_L",
       "post": "DNg13_L",
-      "weight": 93,
+      "weight": 77,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer DNg13_R upstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer DNg13_R upstream \u00b7 fafb scaffold scale 0.82",
+      "weight_source": "explorer+fafb_scale"
     },
     {
       "pre": "DNp13_L",
       "post": "DNg13_R",
-      "weight": 93,
+      "weight": 77,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer DNg13_R upstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer DNg13_R upstream \u00b7 fafb scaffold scale 0.82",
+      "weight_source": "explorer+fafb_scale"
     },
     {
       "pre": "OA-VUMa1",
       "post": "DNg13_L",
-      "weight": 45,
+      "weight": 37,
       "nt": "OA",
       "sign": 1,
-      "evidence": "Cell Type Explorer DNg13_R upstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer DNg13_R upstream \u00b7 fafb scaffold scale 0.82",
+      "weight_source": "explorer+fafb_scale"
     },
     {
       "pre": "OA-VUMa1",
       "post": "DNg13_R",
-      "weight": 45,
+      "weight": 37,
       "nt": "OA",
       "sign": 1,
-      "evidence": "Cell Type Explorer DNg13_R upstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer DNg13_R upstream \u00b7 fafb scaffold scale 0.82",
+      "weight_source": "explorer+fafb_scale"
     },
     {
       "pre": "LAL016_L",
       "post": "DNg13_L",
-      "weight": 19,
+      "weight": 16,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer DNg13_R upstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer DNg13_R upstream \u00b7 fafb scaffold scale 0.82",
+      "weight_source": "explorer+fafb_scale"
     },
     {
       "pre": "LAL016_L",
       "post": "DNg13_R",
-      "weight": 19,
+      "weight": 16,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer DNg13_R upstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer DNg13_R upstream \u00b7 fafb scaffold scale 0.82",
+      "weight_source": "explorer+fafb_scale"
     },
     {
       "pre": "LoVP92_R",
       "post": "DNg13_L",
-      "weight": 16,
+      "weight": 12,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer DNg13_R upstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer DNg13_R upstream \u00b7 fafb scaffold scale 0.72",
+      "weight_source": "explorer+fafb_scale"
     },
     {
       "pre": "LoVP92_R",
       "post": "DNg13_R",
-      "weight": 16,
+      "weight": 12,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer DNg13_R upstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer DNg13_R upstream \u00b7 fafb scaffold scale 0.72",
+      "weight_source": "explorer+fafb_scale"
     },
     {
       "pre": "LoVP92_L",
       "post": "DNg13_L",
-      "weight": 13,
+      "weight": 9,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer DNg13_R upstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer DNg13_R upstream \u00b7 fafb scaffold scale 0.72",
+      "weight_source": "explorer+fafb_scale"
     },
     {
       "pre": "LoVP92_L",
       "post": "DNg13_R",
-      "weight": 13,
+      "weight": 9,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer DNg13_R upstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer DNg13_R upstream \u00b7 fafb scaffold scale 0.72",
+      "weight_source": "explorer+fafb_scale"
     },
     {
       "pre": "DNge119_L",
       "post": "DNg13_L",
-      "weight": 9,
+      "weight": 7,
       "nt": "Glu",
       "sign": -1,
-      "evidence": "Cell Type Explorer DNg13_R upstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer DNg13_R upstream \u00b7 fafb scaffold scale 0.82",
+      "weight_source": "explorer+fafb_scale"
     },
     {
       "pre": "DNge119_L",
       "post": "DNg13_R",
-      "weight": 9,
+      "weight": 7,
       "nt": "Glu",
       "sign": -1,
-      "evidence": "Cell Type Explorer DNg13_R upstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer DNg13_R upstream \u00b7 fafb scaffold scale 0.82",
+      "weight_source": "explorer+fafb_scale"
     },
     {
       "pre": "IN16B045_L",
       "post": "DNg13_L",
-      "weight": 9,
+      "weight": 7,
       "nt": "Glu",
       "sign": -1,
-      "evidence": "Cell Type Explorer DNg13_R upstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer DNg13_R upstream \u00b7 fafb scaffold scale 0.82",
+      "weight_source": "explorer+fafb_scale"
     },
     {
       "pre": "IN16B045_L",
       "post": "DNg13_R",
-      "weight": 9,
+      "weight": 7,
       "nt": "Glu",
       "sign": -1,
-      "evidence": "Cell Type Explorer DNg13_R upstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer DNg13_R upstream \u00b7 fafb scaffold scale 0.82",
+      "weight_source": "explorer+fafb_scale"
     },
     {
       "pre": "PVLP114_L",
       "post": "DNg13_L",
-      "weight": 11,
+      "weight": 9,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer DNg13_L upstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer DNg13_L upstream \u00b7 fafb scaffold scale 0.82",
+      "weight_source": "explorer+fafb_scale"
     },
     {
       "pre": "PVLP114_L",
       "post": "DNg13_R",
-      "weight": 11,
+      "weight": 9,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer DNg13_L upstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer DNg13_L upstream \u00b7 fafb scaffold scale 0.82",
+      "weight_source": "explorer+fafb_scale"
     },
     {
       "pre": "AOTU019_L",
       "post": "DNg13_L",
-      "weight": 4,
+      "weight": 3,
       "nt": "GABA",
       "sign": -1,
-      "evidence": "Cell Type Explorer DNg13_R upstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer DNg13_R upstream \u00b7 fafb scaffold scale 0.82",
+      "weight_source": "explorer+fafb_scale"
     },
     {
       "pre": "AOTU019_L",
       "post": "DNg13_R",
-      "weight": 4,
+      "weight": 3,
       "nt": "GABA",
       "sign": -1,
-      "evidence": "Cell Type Explorer DNg13_R upstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer DNg13_R upstream \u00b7 fafb scaffold scale 0.82",
+      "weight_source": "explorer+fafb_scale"
     },
     {
       "pre": "LAL205_L",
       "post": "DNg13_L",
-      "weight": 3,
+      "weight": 2,
       "nt": "GABA",
       "sign": -1,
-      "evidence": "Cell Type Explorer DNg13_R upstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer DNg13_R upstream \u00b7 fafb scaffold scale 0.82",
+      "weight_source": "explorer+fafb_scale"
     },
     {
       "pre": "LAL205_L",
       "post": "DNg13_R",
-      "weight": 3,
+      "weight": 2,
       "nt": "GABA",
       "sign": -1,
-      "evidence": "Cell Type Explorer DNg13_R upstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer DNg13_R upstream \u00b7 fafb scaffold scale 0.82",
+      "weight_source": "explorer+fafb_scale"
     },
     {
       "pre": "AN06B009_L",
       "post": "DNg13_L",
-      "weight": 10,
+      "weight": 8,
       "nt": "GABA",
       "sign": -1,
-      "evidence": "Cell Type Explorer DNg13_L upstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer DNg13_L upstream \u00b7 fafb scaffold scale 0.82",
+      "weight_source": "explorer+fafb_scale"
     },
     {
       "pre": "AN06B009_L",
       "post": "DNg13_R",
-      "weight": 10,
+      "weight": 8,
       "nt": "GABA",
       "sign": -1,
-      "evidence": "Cell Type Explorer DNg13_L upstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer DNg13_L upstream \u00b7 fafb scaffold scale 0.82",
+      "weight_source": "explorer+fafb_scale"
     },
     {
       "pre": "IN17A025_L",
@@ -2389,8 +2391,8 @@
       "weight": 1,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer DNg13_R upstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer DNg13_R upstream \u00b7 fafb scaffold scale 0.82",
+      "weight_source": "explorer+fafb_scale"
     },
     {
       "pre": "IN17A025_L",
@@ -2398,26 +2400,26 @@
       "weight": 1,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer DNg13_R upstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer DNg13_R upstream \u00b7 fafb scaffold scale 0.82",
+      "weight_source": "explorer+fafb_scale"
     },
     {
       "pre": "VES200m_L",
       "post": "DNg13_L",
-      "weight": 167,
+      "weight": 117,
       "nt": "Glu",
       "sign": -1,
-      "evidence": "Cell Type Explorer DNg13_L upstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer DNg13_L upstream \u00b7 fafb scaffold scale 0.70",
+      "weight_source": "explorer+fafb_scale"
     },
     {
       "pre": "VES200m_L",
       "post": "DNg13_R",
-      "weight": 167,
+      "weight": 117,
       "nt": "Glu",
       "sign": -1,
-      "evidence": "Cell Type Explorer DNg13_L upstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer DNg13_L upstream \u00b7 fafb scaffold scale 0.70",
+      "weight_source": "explorer+fafb_scale"
     },
     {
       "pre": "PVLP204m_L",
@@ -2425,8 +2427,8 @@
       "weight": 1,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer DNg13_R upstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer DNg13_R upstream \u00b7 fafb scaffold scale 0.82",
+      "weight_source": "explorer+fafb_scale"
     },
     {
       "pre": "PVLP204m_L",
@@ -2434,8 +2436,8 @@
       "weight": 1,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer DNg13_R upstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer DNg13_R upstream \u00b7 fafb scaffold scale 0.82",
+      "weight_source": "explorer+fafb_scale"
     },
     {
       "pre": "DNa02",
@@ -2443,8 +2445,8 @@
       "weight": 1,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer DNg13_R upstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer DNg13_R upstream \u00b7 fafb scaffold scale 0.82",
+      "weight_source": "explorer+fafb_scale"
     },
     {
       "pre": "DNa02",
@@ -2452,152 +2454,152 @@
       "weight": 1,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer DNg13_R upstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer DNg13_R upstream \u00b7 fafb scaffold scale 0.82",
+      "weight_source": "explorer+fafb_scale"
     },
     {
       "pre": "DNg13_L",
       "post": "IN16B045_L",
-      "weight": 482,
+      "weight": 398,
       "nt": "Glu",
       "sign": -1,
-      "evidence": "Cell Type Explorer DNg13_R downstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer DNg13_R downstream \u00b7 fafb scaffold scale 0.82",
+      "weight_source": "explorer+fafb_scale"
     },
     {
       "pre": "DNg13_R",
       "post": "IN16B045_L",
-      "weight": 482,
+      "weight": 398,
       "nt": "Glu",
       "sign": -1,
-      "evidence": "Cell Type Explorer DNg13_R downstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer DNg13_R downstream \u00b7 fafb scaffold scale 0.82",
+      "weight_source": "explorer+fafb_scale"
     },
     {
       "pre": "DNg13_L",
       "post": "IN19A016_L",
-      "weight": 226,
+      "weight": 186,
       "nt": "GABA",
       "sign": -1,
-      "evidence": "Cell Type Explorer DNg13_R downstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer DNg13_R downstream \u00b7 fafb scaffold scale 0.82",
+      "weight_source": "explorer+fafb_scale"
     },
     {
       "pre": "DNg13_R",
       "post": "IN19A016_L",
-      "weight": 226,
+      "weight": 186,
       "nt": "GABA",
       "sign": -1,
-      "evidence": "Cell Type Explorer DNg13_R downstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer DNg13_R downstream \u00b7 fafb scaffold scale 0.82",
+      "weight_source": "explorer+fafb_scale"
     },
     {
       "pre": "DNg13_L",
       "post": "IN17A025_L",
-      "weight": 196,
+      "weight": 162,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer DNg13_R downstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer DNg13_R downstream \u00b7 fafb scaffold scale 0.82",
+      "weight_source": "explorer+fafb_scale"
     },
     {
       "pre": "DNg13_R",
       "post": "IN17A025_L",
-      "weight": 196,
+      "weight": 162,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer DNg13_R downstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer DNg13_R downstream \u00b7 fafb scaffold scale 0.82",
+      "weight_source": "explorer+fafb_scale"
     },
     {
       "pre": "DNg13_L",
       "post": "IN17A022_R",
-      "weight": 207,
+      "weight": 171,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer DNg13_L downstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer DNg13_L downstream \u00b7 fafb scaffold scale 0.82",
+      "weight_source": "explorer+fafb_scale"
     },
     {
       "pre": "DNg13_R",
       "post": "IN17A022_R",
-      "weight": 207,
+      "weight": 171,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer DNg13_L downstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer DNg13_L downstream \u00b7 fafb scaffold scale 0.82",
+      "weight_source": "explorer+fafb_scale"
     },
     {
       "pre": "DNg13_L",
       "post": "IN13B006_L",
-      "weight": 172,
+      "weight": 142,
       "nt": "GABA",
       "sign": -1,
-      "evidence": "Cell Type Explorer DNg13_L downstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer DNg13_L downstream \u00b7 fafb scaffold scale 0.82",
+      "weight_source": "explorer+fafb_scale"
     },
     {
       "pre": "DNg13_R",
       "post": "IN13B006_L",
-      "weight": 172,
+      "weight": 142,
       "nt": "GABA",
       "sign": -1,
-      "evidence": "Cell Type Explorer DNg13_L downstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer DNg13_L downstream \u00b7 fafb scaffold scale 0.82",
+      "weight_source": "explorer+fafb_scale"
     },
     {
       "pre": "DNg13_L",
       "post": "IN09A002",
-      "weight": 10,
+      "weight": 8,
       "nt": "GABA",
       "sign": -1,
-      "evidence": "Cell Type Explorer DNg13_R downstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer DNg13_R downstream \u00b7 fafb scaffold scale 0.82",
+      "weight_source": "explorer+fafb_scale"
     },
     {
       "pre": "DNg13_R",
       "post": "IN09A002",
-      "weight": 10,
+      "weight": 8,
       "nt": "GABA",
       "sign": -1,
-      "evidence": "Cell Type Explorer DNg13_R downstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer DNg13_R downstream \u00b7 fafb scaffold scale 0.82",
+      "weight_source": "explorer+fafb_scale"
     },
     {
       "pre": "DNg13_L",
       "post": "AOTU019_R",
-      "weight": 6,
+      "weight": 5,
       "nt": "GABA",
       "sign": -1,
-      "evidence": "Cell Type Explorer DNg13_R downstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer DNg13_R downstream \u00b7 fafb scaffold scale 0.82",
+      "weight_source": "explorer+fafb_scale"
     },
     {
       "pre": "DNg13_R",
       "post": "AOTU019_R",
-      "weight": 6,
+      "weight": 5,
       "nt": "GABA",
       "sign": -1,
-      "evidence": "Cell Type Explorer DNg13_R downstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer DNg13_R downstream \u00b7 fafb scaffold scale 0.82",
+      "weight_source": "explorer+fafb_scale"
     },
     {
       "pre": "DNg13_L",
       "post": "DNa02",
-      "weight": 3,
+      "weight": 2,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer DNg13_R downstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer DNg13_R downstream \u00b7 fafb scaffold scale 0.82",
+      "weight_source": "explorer+fafb_scale"
     },
     {
       "pre": "DNg13_R",
       "post": "DNa02",
-      "weight": 3,
+      "weight": 2,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer DNg13_R downstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer DNg13_R downstream \u00b7 fafb scaffold scale 0.82",
+      "weight_source": "explorer+fafb_scale"
     },
     {
       "pre": "DNg13_L",
@@ -2605,8 +2607,8 @@
       "weight": 2,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer DNg13_R downstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer DNg13_R downstream \u00b7 fafb scaffold scale 0.82",
+      "weight_source": "explorer+fafb_scale"
     },
     {
       "pre": "DNg13_R",
@@ -2614,8 +2616,8 @@
       "weight": 2,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer DNg13_R downstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer DNg13_R downstream \u00b7 fafb scaffold scale 0.82",
+      "weight_source": "explorer+fafb_scale"
     },
     {
       "pre": "DNg13_L",
@@ -2623,8 +2625,8 @@
       "weight": 1,
       "nt": "OA",
       "sign": 1,
-      "evidence": "Cell Type Explorer DNg13_R downstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer DNg13_R downstream \u00b7 fafb scaffold scale 0.82",
+      "weight_source": "explorer+fafb_scale"
     },
     {
       "pre": "DNg13_R",
@@ -2632,116 +2634,116 @@
       "weight": 1,
       "nt": "OA",
       "sign": 1,
-      "evidence": "Cell Type Explorer DNg13_R downstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer DNg13_R downstream \u00b7 fafb scaffold scale 0.82",
+      "weight_source": "explorer+fafb_scale"
     },
     {
       "pre": "DNg86_L",
       "post": "CB0244_L",
-      "weight": 11,
+      "weight": 10,
       "nt": "unc",
       "sign": 1,
-      "evidence": "Cell Type Explorer CB0244 upstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer CB0244 upstream \u00b7 fafb scaffold scale 0.90",
+      "weight_source": "explorer+fafb_scale"
     },
     {
       "pre": "DNg86_L",
       "post": "CB0244_R",
-      "weight": 11,
+      "weight": 10,
       "nt": "unc",
       "sign": 1,
-      "evidence": "Cell Type Explorer CB0244 upstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer CB0244 upstream \u00b7 fafb scaffold scale 0.90",
+      "weight_source": "explorer+fafb_scale"
     },
     {
       "pre": "AN05B007_L",
       "post": "CB0244_L",
-      "weight": 10,
+      "weight": 9,
       "nt": "GABA",
       "sign": -1,
-      "evidence": "Cell Type Explorer CB0244 upstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer CB0244 upstream \u00b7 fafb scaffold scale 0.90",
+      "weight_source": "explorer+fafb_scale"
     },
     {
       "pre": "AN05B007_L",
       "post": "CB0244_R",
-      "weight": 10,
+      "weight": 9,
       "nt": "GABA",
       "sign": -1,
-      "evidence": "Cell Type Explorer CB0244 upstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer CB0244 upstream \u00b7 fafb scaffold scale 0.90",
+      "weight_source": "explorer+fafb_scale"
     },
     {
       "pre": "LAL016_L",
       "post": "CB0244_L",
-      "weight": 5,
+      "weight": 4,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer CB0244 upstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer CB0244 upstream \u00b7 fafb scaffold scale 0.90",
+      "weight_source": "explorer+fafb_scale"
     },
     {
       "pre": "LAL016_L",
       "post": "CB0244_R",
-      "weight": 5,
+      "weight": 4,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer CB0244 upstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer CB0244 upstream \u00b7 fafb scaffold scale 0.90",
+      "weight_source": "explorer+fafb_scale"
     },
     {
       "pre": "CB0244_L",
       "post": "GNG469_L",
-      "weight": 10,
+      "weight": 9,
       "nt": "GABA",
       "sign": -1,
-      "evidence": "Cell Type Explorer CB0244 downstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer CB0244 downstream \u00b7 fafb scaffold scale 0.90",
+      "weight_source": "explorer+fafb_scale"
     },
     {
       "pre": "CB0244_R",
       "post": "GNG469_L",
-      "weight": 10,
+      "weight": 9,
       "nt": "GABA",
       "sign": -1,
-      "evidence": "Cell Type Explorer CB0244 downstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer CB0244 downstream \u00b7 fafb scaffold scale 0.90",
+      "weight_source": "explorer+fafb_scale"
     },
     {
       "pre": "CB0244_L",
       "post": "DNge023_L",
-      "weight": 5,
+      "weight": 4,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer CB0244 downstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer CB0244 downstream \u00b7 fafb scaffold scale 0.90",
+      "weight_source": "explorer+fafb_scale"
     },
     {
       "pre": "CB0244_R",
       "post": "DNge023_L",
-      "weight": 5,
+      "weight": 4,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer CB0244 downstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer CB0244 downstream \u00b7 fafb scaffold scale 0.90",
+      "weight_source": "explorer+fafb_scale"
     },
     {
       "pre": "CB0244_L",
       "post": "GNG552_L",
-      "weight": 5,
+      "weight": 4,
       "nt": "Glu",
       "sign": -1,
-      "evidence": "Cell Type Explorer CB0244 downstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer CB0244 downstream \u00b7 fafb scaffold scale 0.90",
+      "weight_source": "explorer+fafb_scale"
     },
     {
       "pre": "CB0244_R",
       "post": "GNG552_L",
-      "weight": 5,
+      "weight": 4,
       "nt": "Glu",
       "sign": -1,
-      "evidence": "Cell Type Explorer CB0244 downstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer CB0244 downstream \u00b7 fafb scaffold scale 0.90",
+      "weight_source": "explorer+fafb_scale"
     },
     {
       "pre": "CB0244_L",
@@ -2749,8 +2751,8 @@
       "weight": 2,
       "nt": "OA",
       "sign": 1,
-      "evidence": "Cell Type Explorer CB0244 downstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer CB0244 downstream \u00b7 fafb scaffold scale 0.90",
+      "weight_source": "explorer+fafb_scale"
     },
     {
       "pre": "CB0244_R",
@@ -2758,8 +2760,8 @@
       "weight": 2,
       "nt": "OA",
       "sign": 1,
-      "evidence": "Cell Type Explorer CB0244 downstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer CB0244 downstream \u00b7 fafb scaffold scale 0.90",
+      "weight_source": "explorer+fafb_scale"
     },
     {
       "pre": "CB0244_L",
@@ -2767,8 +2769,8 @@
       "weight": 2,
       "nt": "GABA",
       "sign": -1,
-      "evidence": "Cell Type Explorer CB0244 downstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer CB0244 downstream \u00b7 fafb scaffold scale 0.90",
+      "weight_source": "explorer+fafb_scale"
     },
     {
       "pre": "CB0244_R",
@@ -2776,8 +2778,8 @@
       "weight": 2,
       "nt": "GABA",
       "sign": -1,
-      "evidence": "Cell Type Explorer CB0244 downstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer CB0244 downstream \u00b7 fafb scaffold scale 0.90",
+      "weight_source": "explorer+fafb_scale"
     },
     {
       "pre": "CB0244_L",
@@ -2785,8 +2787,8 @@
       "weight": 1,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer CB0244 downstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer CB0244 downstream \u00b7 fafb scaffold scale 0.90",
+      "weight_source": "explorer+fafb_scale"
     },
     {
       "pre": "CB0244_R",
@@ -2794,8 +2796,8 @@
       "weight": 1,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer CB0244 downstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer CB0244 downstream \u00b7 fafb scaffold scale 0.90",
+      "weight_source": "explorer+fafb_scale"
     },
     {
       "pre": "CB0244_L",
@@ -2803,8 +2805,8 @@
       "weight": 1,
       "nt": "Glu",
       "sign": -1,
-      "evidence": "Cell Type Explorer CB0244 downstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer CB0244 downstream \u00b7 fafb scaffold scale 0.78",
+      "weight_source": "explorer+fafb_scale"
     },
     {
       "pre": "CB0244_R",
@@ -2812,233 +2814,233 @@
       "weight": 1,
       "nt": "Glu",
       "sign": -1,
-      "evidence": "Cell Type Explorer CB0244 downstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer CB0244 downstream \u00b7 fafb scaffold scale 0.78",
+      "weight_source": "explorer+fafb_scale"
     },
     {
       "pre": "LC10b_R",
       "post": "LoVP92_L",
-      "weight": 35,
+      "weight": 28,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer LoVP92_R upstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer LoVP92_R upstream \u00b7 fafb scaffold scale 0.80",
+      "weight_source": "explorer+fafb_scale"
     },
     {
       "pre": "LC10b_R",
       "post": "LoVP92_R",
-      "weight": 35,
+      "weight": 28,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer LoVP92_R upstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer LoVP92_R upstream \u00b7 fafb scaffold scale 0.80",
+      "weight_source": "explorer+fafb_scale"
     },
     {
       "pre": "LoVP50_L",
       "post": "LoVP92_L",
-      "weight": 10,
+      "weight": 8,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer LoVP92_R upstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer LoVP92_R upstream \u00b7 fafb scaffold scale 0.80",
+      "weight_source": "explorer+fafb_scale"
     },
     {
       "pre": "LoVP50_L",
       "post": "LoVP92_R",
-      "weight": 10,
+      "weight": 8,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer LoVP92_R upstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer LoVP92_R upstream \u00b7 fafb scaffold scale 0.80",
+      "weight_source": "explorer+fafb_scale"
     },
     {
       "pre": "LC10a_R",
       "post": "LoVP92_L",
-      "weight": 9,
+      "weight": 7,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer LoVP92_R upstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer LoVP92_R upstream \u00b7 fafb scaffold scale 0.77",
+      "weight_source": "explorer+fafb_scale"
     },
     {
       "pre": "LC10a_R",
       "post": "LoVP92_R",
-      "weight": 9,
+      "weight": 7,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer LoVP92_R upstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer LoVP92_R upstream \u00b7 fafb scaffold scale 0.77",
+      "weight_source": "explorer+fafb_scale"
     },
     {
       "pre": "LoVP92_R",
       "post": "LoVP92_L",
-      "weight": 8,
+      "weight": 6,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer LoVP92_R upstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer LoVP92_R upstream \u00b7 fafb scaffold scale 0.70",
+      "weight_source": "explorer+fafb_scale"
     },
     {
       "pre": "LoVP92_R",
       "post": "LoVP92_R",
-      "weight": 8,
+      "weight": 6,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer LoVP92_R upstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer LoVP92_R upstream \u00b7 fafb scaffold scale 0.70",
+      "weight_source": "explorer+fafb_scale"
     },
     {
       "pre": "AN06B009_L",
       "post": "LoVP92_L",
-      "weight": 3,
+      "weight": 2,
       "nt": "GABA",
       "sign": -1,
-      "evidence": "Cell Type Explorer LoVP92 upstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer LoVP92 upstream \u00b7 fafb scaffold scale 0.80",
+      "weight_source": "explorer+fafb_scale"
     },
     {
       "pre": "AN06B009_L",
       "post": "LoVP92_R",
-      "weight": 3,
+      "weight": 2,
       "nt": "GABA",
       "sign": -1,
-      "evidence": "Cell Type Explorer LoVP92 upstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer LoVP92 upstream \u00b7 fafb scaffold scale 0.80",
+      "weight_source": "explorer+fafb_scale"
     },
     {
       "pre": "LoVP92_L",
       "post": "LoVP92_R",
-      "weight": 8,
+      "weight": 6,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer LoVP92_R downstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer LoVP92_R downstream \u00b7 fafb scaffold scale 0.70",
+      "weight_source": "explorer+fafb_scale"
     },
     {
       "pre": "LoVP92_L",
       "post": "SIP136m_L",
-      "weight": 3,
+      "weight": 2,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer LoVP92 downstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer LoVP92 downstream \u00b7 fafb scaffold scale 0.80",
+      "weight_source": "explorer+fafb_scale"
     },
     {
       "pre": "LoVP92_R",
       "post": "SIP136m_L",
+      "weight": 2,
+      "nt": "ACh",
+      "sign": 1,
+      "evidence": "Cell Type Explorer LoVP92 downstream \u00b7 fafb scaffold scale 0.80",
+      "weight_source": "explorer+fafb_scale"
+    },
+    {
+      "pre": "Y12_L",
+      "post": "LoVP92_L",
+      "weight": 12,
+      "nt": "Glu",
+      "sign": -1,
+      "evidence": "Cell Type Explorer LoVP92 upstream \u00b7 fafb scaffold scale 0.80",
+      "weight_source": "explorer+fafb_scale"
+    },
+    {
+      "pre": "Y12_L",
+      "post": "LoVP92_R",
+      "weight": 12,
+      "nt": "Glu",
+      "sign": -1,
+      "evidence": "Cell Type Explorer LoVP92 upstream \u00b7 fafb scaffold scale 0.80",
+      "weight_source": "explorer+fafb_scale"
+    },
+    {
+      "pre": "Tm5a_L",
+      "post": "LoVP92_L",
+      "weight": 4,
+      "nt": "ACh",
+      "sign": 1,
+      "evidence": "Cell Type Explorer LoVP92 upstream \u00b7 fafb scaffold scale 0.80",
+      "weight_source": "explorer+fafb_scale"
+    },
+    {
+      "pre": "Tm5a_L",
+      "post": "LoVP92_R",
+      "weight": 4,
+      "nt": "ACh",
+      "sign": 1,
+      "evidence": "Cell Type Explorer LoVP92 upstream \u00b7 fafb scaffold scale 0.80",
+      "weight_source": "explorer+fafb_scale"
+    },
+    {
+      "pre": "LoVP92_L",
+      "post": "PVLP204m_L",
       "weight": 3,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer LoVP92 downstream",
-      "weight_source": "explorer"
-    },
-    {
-      "pre": "Y12_L",
-      "post": "LoVP92_L",
-      "weight": 15,
-      "nt": "Glu",
-      "sign": -1,
-      "evidence": "Cell Type Explorer LoVP92 upstream",
-      "weight_source": "explorer"
-    },
-    {
-      "pre": "Y12_L",
-      "post": "LoVP92_R",
-      "weight": 15,
-      "nt": "Glu",
-      "sign": -1,
-      "evidence": "Cell Type Explorer LoVP92 upstream",
-      "weight_source": "explorer"
-    },
-    {
-      "pre": "Tm5a_L",
-      "post": "LoVP92_L",
-      "weight": 5,
-      "nt": "ACh",
-      "sign": 1,
-      "evidence": "Cell Type Explorer LoVP92 upstream",
-      "weight_source": "explorer"
-    },
-    {
-      "pre": "Tm5a_L",
-      "post": "LoVP92_R",
-      "weight": 5,
-      "nt": "ACh",
-      "sign": 1,
-      "evidence": "Cell Type Explorer LoVP92 upstream",
-      "weight_source": "explorer"
-    },
-    {
-      "pre": "LoVP92_L",
-      "post": "PVLP204m_L",
-      "weight": 4,
-      "nt": "ACh",
-      "sign": 1,
-      "evidence": "Cell Type Explorer LoVP92 downstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer LoVP92 downstream \u00b7 fafb scaffold scale 0.80",
+      "weight_source": "explorer+fafb_scale"
     },
     {
       "pre": "LoVP92_R",
       "post": "PVLP204m_L",
-      "weight": 4,
+      "weight": 3,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer LoVP92 downstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer LoVP92 downstream \u00b7 fafb scaffold scale 0.80",
+      "weight_source": "explorer+fafb_scale"
     },
     {
       "pre": "LC6_L",
       "post": "LoVP92_L",
-      "weight": 7,
+      "weight": 5,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer LoVP92_L upstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer LoVP92_L upstream \u00b7 fafb scaffold scale 0.75",
+      "weight_source": "explorer+fafb_scale"
     },
     {
       "pre": "LC6_L",
       "post": "LoVP92_R",
-      "weight": 7,
+      "weight": 5,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer LoVP92_L upstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer LoVP92_L upstream \u00b7 fafb scaffold scale 0.75",
+      "weight_source": "explorer+fafb_scale"
     },
     {
       "pre": "LoVP92_L",
       "post": "VES200m_L",
-      "weight": 28,
+      "weight": 19,
       "nt": "Glu",
       "sign": -1,
-      "evidence": "Cell Type Explorer LoVP92_L downstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer LoVP92_L downstream \u00b7 fafb scaffold scale 0.68",
+      "weight_source": "explorer+fafb_scale"
     },
     {
       "pre": "LoVP92_R",
       "post": "VES200m_L",
-      "weight": 28,
+      "weight": 19,
       "nt": "Glu",
       "sign": -1,
-      "evidence": "Cell Type Explorer LoVP92_L downstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer LoVP92_L downstream \u00b7 fafb scaffold scale 0.68",
+      "weight_source": "explorer+fafb_scale"
     },
     {
       "pre": "OA-VUMa1",
       "post": "DNa02",
-      "weight": 44,
+      "weight": 40,
       "nt": "OA",
       "sign": 1,
-      "evidence": "Cell Type Explorer DNa02 upstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer DNa02 upstream \u00b7 fafb scaffold scale 0.90",
+      "weight_source": "explorer+fafb_scale"
     },
     {
       "pre": "PS002",
       "post": "DNa02",
-      "weight": 5,
+      "weight": 4,
       "nt": "GABA",
       "sign": -1,
-      "evidence": "Cell Type Explorer DNa02 upstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer DNa02 upstream \u00b7 fafb scaffold scale 0.90",
+      "weight_source": "explorer+fafb_scale"
     },
     {
       "pre": "PLP225_L",
@@ -3046,170 +3048,170 @@
       "weight": 1,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer DNa02 upstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer DNa02 upstream \u00b7 fafb scaffold scale 0.90",
+      "weight_source": "explorer+fafb_scale"
     },
     {
       "pre": "DNa02",
       "post": "GNG003",
-      "weight": 23,
+      "weight": 21,
       "nt": "GABA",
       "sign": -1,
-      "evidence": "Cell Type Explorer DNa02 downstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer DNa02 downstream \u00b7 fafb scaffold scale 0.90",
+      "weight_source": "explorer+fafb_scale"
     },
     {
       "pre": "DNa02",
       "post": "GNG283",
-      "weight": 12,
+      "weight": 11,
       "nt": "unc",
       "sign": 1,
-      "evidence": "Cell Type Explorer DNa02 downstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer DNa02 downstream \u00b7 fafb scaffold scale 0.90",
+      "weight_source": "explorer+fafb_scale"
     },
     {
       "pre": "DNa02",
       "post": "IN09A002",
-      "weight": 8,
+      "weight": 7,
       "nt": "GABA",
       "sign": -1,
-      "evidence": "Cell Type Explorer DNa02 downstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer DNa02 downstream \u00b7 fafb scaffold scale 0.90",
+      "weight_source": "explorer+fafb_scale"
     },
     {
       "pre": "DNa02",
       "post": "IN02A007",
-      "weight": 6,
+      "weight": 5,
       "nt": "Glu",
       "sign": -1,
-      "evidence": "Cell Type Explorer DNa02 downstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer DNa02 downstream \u00b7 fafb scaffold scale 0.90",
+      "weight_source": "explorer+fafb_scale"
     },
     {
       "pre": "CB0244_L",
       "post": "DNg13_L",
-      "weight": 167,
+      "weight": 138,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer DNg13_L upstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer DNg13_L upstream \u00b7 fafb scaffold scale 0.82",
+      "weight_source": "explorer+fafb_scale"
     },
     {
       "pre": "CB0244_L",
       "post": "DNg13_R",
-      "weight": 167,
+      "weight": 138,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer DNg13_L upstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer DNg13_L upstream \u00b7 fafb scaffold scale 0.82",
+      "weight_source": "explorer+fafb_scale"
     },
     {
       "pre": "LAL073_R",
       "post": "DNg13_L",
-      "weight": 161,
+      "weight": 133,
       "nt": "Glu",
       "sign": -1,
-      "evidence": "Cell Type Explorer DNg13_L upstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer DNg13_L upstream \u00b7 fafb scaffold scale 0.82",
+      "weight_source": "explorer+fafb_scale"
     },
     {
       "pre": "LAL073_R",
       "post": "DNg13_R",
-      "weight": 161,
+      "weight": 133,
       "nt": "Glu",
       "sign": -1,
-      "evidence": "Cell Type Explorer DNg13_L upstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer DNg13_L upstream \u00b7 fafb scaffold scale 0.82",
+      "weight_source": "explorer+fafb_scale"
     },
     {
       "pre": "GNG532_L",
       "post": "DNg13_L",
-      "weight": 156,
+      "weight": 129,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer DNg13_L upstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer DNg13_L upstream \u00b7 fafb scaffold scale 0.82",
+      "weight_source": "explorer+fafb_scale"
     },
     {
       "pre": "GNG532_L",
       "post": "DNg13_R",
-      "weight": 156,
+      "weight": 129,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer DNg13_L upstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer DNg13_L upstream \u00b7 fafb scaffold scale 0.82",
+      "weight_source": "explorer+fafb_scale"
     },
     {
       "pre": "DNg97_R",
       "post": "DNg13_L",
-      "weight": 140,
+      "weight": 116,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer DNg13_L upstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer DNg13_L upstream \u00b7 fafb scaffold scale 0.82",
+      "weight_source": "explorer+fafb_scale"
     },
     {
       "pre": "DNg97_R",
       "post": "DNg13_R",
-      "weight": 140,
+      "weight": 116,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer DNg13_L upstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer DNg13_L upstream \u00b7 fafb scaffold scale 0.82",
+      "weight_source": "explorer+fafb_scale"
     },
     {
       "pre": "DNp13_R",
       "post": "DNg13_L",
-      "weight": 98,
+      "weight": 81,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer DNg13_L upstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer DNg13_L upstream \u00b7 fafb scaffold scale 0.82",
+      "weight_source": "explorer+fafb_scale"
     },
     {
       "pre": "DNp13_R",
       "post": "DNg13_R",
-      "weight": 98,
+      "weight": 81,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer DNg13_L upstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer DNg13_L upstream \u00b7 fafb scaffold scale 0.82",
+      "weight_source": "explorer+fafb_scale"
     },
     {
       "pre": "AOTU019_R",
       "post": "DNg13_L",
-      "weight": 10,
+      "weight": 8,
       "nt": "GABA",
       "sign": -1,
-      "evidence": "Cell Type Explorer DNg13_L upstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer DNg13_L upstream \u00b7 fafb scaffold scale 0.82",
+      "weight_source": "explorer+fafb_scale"
     },
     {
       "pre": "AOTU019_R",
       "post": "DNg13_R",
-      "weight": 10,
+      "weight": 8,
       "nt": "GABA",
       "sign": -1,
-      "evidence": "Cell Type Explorer DNg13_L upstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer DNg13_L upstream \u00b7 fafb scaffold scale 0.82",
+      "weight_source": "explorer+fafb_scale"
     },
     {
       "pre": "IN16B045_R",
       "post": "DNg13_L",
-      "weight": 6,
+      "weight": 5,
       "nt": "Glu",
       "sign": -1,
-      "evidence": "Cell Type Explorer DNg13_L upstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer DNg13_L upstream \u00b7 fafb scaffold scale 0.82",
+      "weight_source": "explorer+fafb_scale"
     },
     {
       "pre": "IN16B045_R",
       "post": "DNg13_R",
-      "weight": 6,
+      "weight": 5,
       "nt": "Glu",
       "sign": -1,
-      "evidence": "Cell Type Explorer DNg13_L upstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer DNg13_L upstream \u00b7 fafb scaffold scale 0.82",
+      "weight_source": "explorer+fafb_scale"
     },
     {
       "pre": "GNG552_L",
@@ -3217,8 +3219,8 @@
       "weight": 2,
       "nt": "Glu",
       "sign": -1,
-      "evidence": "Cell Type Explorer DNg13_L upstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer DNg13_L upstream \u00b7 fafb scaffold scale 0.82",
+      "weight_source": "explorer+fafb_scale"
     },
     {
       "pre": "GNG552_L",
@@ -3226,8 +3228,8 @@
       "weight": 2,
       "nt": "Glu",
       "sign": -1,
-      "evidence": "Cell Type Explorer DNg13_L upstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer DNg13_L upstream \u00b7 fafb scaffold scale 0.82",
+      "weight_source": "explorer+fafb_scale"
     },
     {
       "pre": "IN17A022_R",
@@ -3235,8 +3237,8 @@
       "weight": 1,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer DNg13_L upstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer DNg13_L upstream \u00b7 fafb scaffold scale 0.82",
+      "weight_source": "explorer+fafb_scale"
     },
     {
       "pre": "IN17A022_R",
@@ -3244,8 +3246,8 @@
       "weight": 1,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer DNg13_L upstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer DNg13_L upstream \u00b7 fafb scaffold scale 0.82",
+      "weight_source": "explorer+fafb_scale"
     },
     {
       "pre": "PLP225_L",
@@ -3253,8 +3255,8 @@
       "weight": 1,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer DNg13_L upstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer DNg13_L upstream \u00b7 fafb scaffold scale 0.82",
+      "weight_source": "explorer+fafb_scale"
     },
     {
       "pre": "PLP225_L",
@@ -3262,8 +3264,8 @@
       "weight": 1,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer DNg13_L upstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer DNg13_L upstream \u00b7 fafb scaffold scale 0.82",
+      "weight_source": "explorer+fafb_scale"
     },
     {
       "pre": "DNge023_L",
@@ -3271,8 +3273,8 @@
       "weight": 1,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer DNg13_L upstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer DNg13_L upstream \u00b7 fafb scaffold scale 0.82",
+      "weight_source": "explorer+fafb_scale"
     },
     {
       "pre": "DNge023_L",
@@ -3280,62 +3282,62 @@
       "weight": 1,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer DNg13_L upstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer DNg13_L upstream \u00b7 fafb scaffold scale 0.82",
+      "weight_source": "explorer+fafb_scale"
     },
     {
       "pre": "DNg13_L",
       "post": "IN16B045_R",
-      "weight": 481,
+      "weight": 397,
       "nt": "Glu",
       "sign": -1,
-      "evidence": "Cell Type Explorer DNg13_L downstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer DNg13_L downstream \u00b7 fafb scaffold scale 0.82",
+      "weight_source": "explorer+fafb_scale"
     },
     {
       "pre": "DNg13_R",
       "post": "IN16B045_R",
-      "weight": 481,
+      "weight": 397,
       "nt": "Glu",
       "sign": -1,
-      "evidence": "Cell Type Explorer DNg13_L downstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer DNg13_L downstream \u00b7 fafb scaffold scale 0.82",
+      "weight_source": "explorer+fafb_scale"
     },
     {
       "pre": "DNg13_L",
       "post": "IN19A016_R",
-      "weight": 272,
+      "weight": 224,
       "nt": "GABA",
       "sign": -1,
-      "evidence": "Cell Type Explorer DNg13_L downstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer DNg13_L downstream \u00b7 fafb scaffold scale 0.82",
+      "weight_source": "explorer+fafb_scale"
     },
     {
       "pre": "DNg13_R",
       "post": "IN19A016_R",
-      "weight": 272,
+      "weight": 224,
       "nt": "GABA",
       "sign": -1,
-      "evidence": "Cell Type Explorer DNg13_L downstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer DNg13_L downstream \u00b7 fafb scaffold scale 0.82",
+      "weight_source": "explorer+fafb_scale"
     },
     {
       "pre": "DNg13_L",
       "post": "IN17A025_R",
-      "weight": 214,
+      "weight": 177,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer DNg13_L downstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer DNg13_L downstream \u00b7 fafb scaffold scale 0.82",
+      "weight_source": "explorer+fafb_scale"
     },
     {
       "pre": "DNg13_R",
       "post": "IN17A025_R",
-      "weight": 214,
+      "weight": 177,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer DNg13_L downstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer DNg13_L downstream \u00b7 fafb scaffold scale 0.82",
+      "weight_source": "explorer+fafb_scale"
     },
     {
       "pre": "DNg13_L",
@@ -3343,8 +3345,8 @@
       "weight": 1,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer DNg13_L downstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer DNg13_L downstream \u00b7 fafb scaffold scale 0.82",
+      "weight_source": "explorer+fafb_scale"
     },
     {
       "pre": "DNg13_R",
@@ -3352,8 +3354,8 @@
       "weight": 1,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer DNg13_L downstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer DNg13_L downstream \u00b7 fafb scaffold scale 0.82",
+      "weight_source": "explorer+fafb_scale"
     },
     {
       "pre": "DNg13_L",
@@ -3361,8 +3363,8 @@
       "weight": 1,
       "nt": "Glu",
       "sign": -1,
-      "evidence": "Cell Type Explorer DNg13_L downstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer DNg13_L downstream \u00b7 fafb scaffold scale 0.70",
+      "weight_source": "explorer+fafb_scale"
     },
     {
       "pre": "DNg13_R",
@@ -3370,8 +3372,8 @@
       "weight": 1,
       "nt": "Glu",
       "sign": -1,
-      "evidence": "Cell Type Explorer DNg13_L downstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer DNg13_L downstream \u00b7 fafb scaffold scale 0.70",
+      "weight_source": "explorer+fafb_scale"
     },
     {
       "pre": "DNg13_L",
@@ -3379,8 +3381,8 @@
       "weight": 1,
       "nt": "Glu",
       "sign": -1,
-      "evidence": "Cell Type Explorer DNg13_L downstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer DNg13_L downstream \u00b7 fafb scaffold scale 0.82",
+      "weight_source": "explorer+fafb_scale"
     },
     {
       "pre": "DNg13_R",
@@ -3388,8 +3390,8 @@
       "weight": 1,
       "nt": "Glu",
       "sign": -1,
-      "evidence": "Cell Type Explorer DNg13_L downstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer DNg13_L downstream \u00b7 fafb scaffold scale 0.82",
+      "weight_source": "explorer+fafb_scale"
     },
     {
       "pre": "DNg13_L",
@@ -3397,8 +3399,8 @@
       "weight": 1,
       "nt": "Glu",
       "sign": -1,
-      "evidence": "Cell Type Explorer DNg13_L downstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer DNg13_L downstream \u00b7 fafb scaffold scale 0.82",
+      "weight_source": "explorer+fafb_scale"
     },
     {
       "pre": "DNg13_R",
@@ -3406,8 +3408,8 @@
       "weight": 1,
       "nt": "Glu",
       "sign": -1,
-      "evidence": "Cell Type Explorer DNg13_L downstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer DNg13_L downstream \u00b7 fafb scaffold scale 0.82",
+      "weight_source": "explorer+fafb_scale"
     },
     {
       "pre": "DNg13_L",
@@ -3415,8 +3417,8 @@
       "weight": 1,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer DNg13_L downstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer DNg13_L downstream \u00b7 fafb scaffold scale 0.82",
+      "weight_source": "explorer+fafb_scale"
     },
     {
       "pre": "DNg13_R",
@@ -3424,8 +3426,8 @@
       "weight": 1,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer DNg13_L downstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer DNg13_L downstream \u00b7 fafb scaffold scale 0.82",
+      "weight_source": "explorer+fafb_scale"
     },
     {
       "pre": "DNg13_L",
@@ -3433,8 +3435,8 @@
       "weight": 1,
       "nt": "GABA",
       "sign": -1,
-      "evidence": "Cell Type Explorer DNg13_L downstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer DNg13_L downstream \u00b7 fafb scaffold scale 0.82",
+      "weight_source": "explorer+fafb_scale"
     },
     {
       "pre": "DNg13_R",
@@ -3442,8 +3444,8 @@
       "weight": 1,
       "nt": "GABA",
       "sign": -1,
-      "evidence": "Cell Type Explorer DNg13_L downstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer DNg13_L downstream \u00b7 fafb scaffold scale 0.82",
+      "weight_source": "explorer+fafb_scale"
     },
     {
       "pre": "R1-R6_L",
@@ -3451,107 +3453,107 @@
       "weight": 80,
       "nt": "His",
       "sign": 1,
-      "evidence": "optic-lobe feedforward (heuristic fallback)",
-      "weight_source": "heuristic"
+      "evidence": "optic-lobe feedforward (heuristic fallback) \u00b7 fafb scaffold scale 1.00",
+      "weight_source": "heuristic+fafb_scale"
     },
     {
       "pre": "R1-R6_L",
       "post": "L2_L",
-      "weight": 70,
+      "weight": 68,
       "nt": "His",
       "sign": 1,
-      "evidence": "optic-lobe feedforward (heuristic fallback)",
-      "weight_source": "heuristic"
+      "evidence": "optic-lobe feedforward (heuristic fallback) \u00b7 fafb scaffold scale 0.97",
+      "weight_source": "heuristic+fafb_scale"
     },
     {
       "pre": "R1-R6_L",
       "post": "L3_L",
-      "weight": 55,
+      "weight": 51,
       "nt": "His",
       "sign": 1,
-      "evidence": "lamina L3 pathway (heuristic fallback)",
-      "weight_source": "heuristic"
+      "evidence": "lamina L3 pathway (heuristic fallback) \u00b7 fafb scaffold scale 0.93",
+      "weight_source": "heuristic+fafb_scale"
     },
     {
       "pre": "L1_L",
       "post": "C2_L",
-      "weight": 30,
+      "weight": 29,
       "nt": "His",
       "sign": 1,
-      "evidence": "lamina \u2192 C2 feedback (heuristic fallback)",
-      "weight_source": "heuristic"
+      "evidence": "lamina \u2192 C2 feedback (heuristic fallback) \u00b7 fafb scaffold scale 0.98",
+      "weight_source": "heuristic+fafb_scale"
     },
     {
       "pre": "C2_L",
       "post": "L1_L",
-      "weight": 22,
+      "weight": 21,
       "nt": "GABA",
       "sign": -1,
-      "evidence": "C2 inhibitory feedback (heuristic fallback)",
-      "weight_source": "heuristic"
+      "evidence": "C2 inhibitory feedback (heuristic fallback) \u00b7 fafb scaffold scale 0.98",
+      "weight_source": "heuristic+fafb_scale"
     },
     {
       "pre": "C2_L",
       "post": "L2_L",
-      "weight": 18,
+      "weight": 17,
       "nt": "GABA",
       "sign": -1,
-      "evidence": "C2 inhibitory feedback (heuristic fallback)",
-      "weight_source": "heuristic"
+      "evidence": "C2 inhibitory feedback (heuristic fallback) \u00b7 fafb scaffold scale 0.95",
+      "weight_source": "heuristic+fafb_scale"
     },
     {
       "pre": "L1_L",
       "post": "Mi1_L",
-      "weight": 55,
+      "weight": 59,
       "nt": "His",
       "sign": 1,
-      "evidence": "lamina \u2192 medulla (heuristic fallback)",
-      "weight_source": "heuristic"
+      "evidence": "lamina \u2192 medulla (heuristic fallback) \u00b7 fafb scaffold scale 1.08",
+      "weight_source": "heuristic+fafb_scale"
     },
     {
       "pre": "L2_L",
       "post": "Mi1_L",
-      "weight": 48,
+      "weight": 50,
       "nt": "His",
       "sign": 1,
-      "evidence": "lamina \u2192 medulla (heuristic fallback)",
-      "weight_source": "heuristic"
+      "evidence": "lamina \u2192 medulla (heuristic fallback) \u00b7 fafb scaffold scale 1.05",
+      "weight_source": "heuristic+fafb_scale"
     },
     {
       "pre": "L2_L",
       "post": "Tm3_L",
-      "weight": 42,
+      "weight": 43,
       "nt": "His",
       "sign": 1,
-      "evidence": "lamina \u2192 Tm3 (heuristic fallback)",
-      "weight_source": "heuristic"
+      "evidence": "lamina \u2192 Tm3 (heuristic fallback) \u00b7 fafb scaffold scale 1.02",
+      "weight_source": "heuristic+fafb_scale"
     },
     {
       "pre": "L3_L",
       "post": "Tm3_L",
-      "weight": 36,
+      "weight": 35,
       "nt": "His",
       "sign": 1,
-      "evidence": "L3 \u2192 Tm3 (heuristic fallback)",
-      "weight_source": "heuristic"
+      "evidence": "L3 \u2192 Tm3 (heuristic fallback) \u00b7 fafb scaffold scale 0.98",
+      "weight_source": "heuristic+fafb_scale"
     },
     {
       "pre": "Mi1_L",
       "post": "T4a_L",
-      "weight": 42,
+      "weight": 47,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "medulla \u2192 lobula plate motion (heuristic fallback)",
-      "weight_source": "heuristic"
+      "evidence": "medulla \u2192 lobula plate motion (heuristic fallback) \u00b7 fafb scaffold scale 1.12",
+      "weight_source": "heuristic+fafb_scale"
     },
     {
       "pre": "Tm3_L",
       "post": "T4b_L",
-      "weight": 38,
+      "weight": 41,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Tm3 \u2192 T4b motion (heuristic fallback)",
-      "weight_source": "heuristic"
+      "evidence": "Tm3 \u2192 T4b motion (heuristic fallback) \u00b7 fafb scaffold scale 1.08",
+      "weight_source": "heuristic+fafb_scale"
     },
     {
       "pre": "Mi1_L",
@@ -3559,26 +3561,26 @@
       "weight": 20,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Mi1 \u2192 Mi4 (heuristic fallback)",
-      "weight_source": "heuristic"
+      "evidence": "Mi1 \u2192 Mi4 (heuristic fallback) \u00b7 fafb scaffold scale 1.00",
+      "weight_source": "heuristic+fafb_scale"
     },
     {
       "pre": "Mi4_L",
       "post": "T4a_L",
-      "weight": 24,
+      "weight": 25,
       "nt": "GABA",
       "sign": -1,
-      "evidence": "Mi4 motion gain control (heuristic fallback)",
-      "weight_source": "heuristic"
+      "evidence": "Mi4 motion gain control (heuristic fallback) \u00b7 fafb scaffold scale 1.02",
+      "weight_source": "heuristic+fafb_scale"
     },
     {
       "pre": "L2_L",
       "post": "T5a_L",
-      "weight": 38,
+      "weight": 42,
       "nt": "His",
       "sign": 1,
-      "evidence": "lamina/lobula motion pathway (heuristic fallback)",
-      "weight_source": "heuristic"
+      "evidence": "lamina/lobula motion pathway (heuristic fallback) \u00b7 fafb scaffold scale 1.10",
+      "weight_source": "heuristic+fafb_scale"
     },
     {
       "pre": "T4a_L",
@@ -3586,8 +3588,8 @@
       "weight": 36,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "motion \u2192 object feature (heuristic fallback)",
-      "weight_source": "heuristic"
+      "evidence": "motion \u2192 object feature (heuristic fallback) \u00b7 fafb scaffold scale 1.00",
+      "weight_source": "heuristic+fafb_scale"
     },
     {
       "pre": "T4b_L",
@@ -3595,17 +3597,17 @@
       "weight": 32,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "motion \u2192 LC10b (heuristic fallback)",
-      "weight_source": "heuristic"
+      "evidence": "motion \u2192 LC10b (heuristic fallback) \u00b7 fafb scaffold scale 1.00",
+      "weight_source": "heuristic+fafb_scale"
     },
     {
       "pre": "T5a_L",
       "post": "LC10a_L",
-      "weight": 28,
+      "weight": 29,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "motion \u2192 object feature (heuristic fallback)",
-      "weight_source": "heuristic"
+      "evidence": "motion \u2192 object feature (heuristic fallback) \u00b7 fafb scaffold scale 1.02",
+      "weight_source": "heuristic+fafb_scale"
     },
     {
       "pre": "T5a_L",
@@ -3613,8 +3615,8 @@
       "weight": 22,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "motion \u2192 LC6 (heuristic fallback)",
-      "weight_source": "heuristic"
+      "evidence": "motion \u2192 LC6 (heuristic fallback) \u00b7 fafb scaffold scale 1.00",
+      "weight_source": "heuristic+fafb_scale"
     },
     {
       "pre": "Mi1_L",
@@ -3622,8 +3624,8 @@
       "weight": 26,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "medulla \u2192 MeTu relay (heuristic fallback)",
-      "weight_source": "heuristic"
+      "evidence": "medulla \u2192 MeTu relay (heuristic fallback) \u00b7 fafb scaffold scale 1.00",
+      "weight_source": "heuristic+fafb_scale"
     },
     {
       "pre": "Tm3_L",
@@ -3631,53 +3633,53 @@
       "weight": 20,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Tm3 \u2192 MeTu (heuristic fallback)",
-      "weight_source": "heuristic"
+      "evidence": "Tm3 \u2192 MeTu (heuristic fallback) \u00b7 fafb scaffold scale 0.98",
+      "weight_source": "heuristic+fafb_scale"
     },
     {
       "pre": "LC10a_L",
       "post": "LoVP92_L",
-      "weight": 24,
+      "weight": 19,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "VPN convergence (heuristic fallback)",
-      "weight_source": "heuristic"
+      "evidence": "VPN convergence (heuristic fallback) \u00b7 fafb scaffold scale 0.77",
+      "weight_source": "heuristic+fafb_scale"
     },
     {
       "pre": "LC10b_L",
       "post": "LoVP92_L",
-      "weight": 18,
+      "weight": 14,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "LC10b \u2192 LoVP92 (heuristic fallback)",
-      "weight_source": "heuristic"
+      "evidence": "LC10b \u2192 LoVP92 (heuristic fallback) \u00b7 fafb scaffold scale 0.80",
+      "weight_source": "heuristic+fafb_scale"
     },
     {
       "pre": "LC6_L",
       "post": "LoVP11_L",
-      "weight": 16,
+      "weight": 14,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "LC6 \u2192 LoVP11 (heuristic fallback)",
-      "weight_source": "heuristic"
+      "evidence": "LC6 \u2192 LoVP11 (heuristic fallback) \u00b7 fafb scaffold scale 0.85",
+      "weight_source": "heuristic+fafb_scale"
     },
     {
       "pre": "MeTu1_L",
       "post": "LoVP92_L",
-      "weight": 14,
+      "weight": 11,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "MeTu \u2192 VPN (heuristic fallback)",
-      "weight_source": "heuristic"
+      "evidence": "MeTu \u2192 VPN (heuristic fallback) \u00b7 fafb scaffold scale 0.80",
+      "weight_source": "heuristic+fafb_scale"
     },
     {
       "pre": "LoVP11_L",
       "post": "LoVP92_L",
-      "weight": 12,
+      "weight": 10,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "VPN local mix (heuristic fallback)",
-      "weight_source": "heuristic"
+      "evidence": "VPN local mix (heuristic fallback) \u00b7 fafb scaffold scale 0.80",
+      "weight_source": "heuristic+fafb_scale"
     },
     {
       "pre": "R1-R6_R",
@@ -3685,107 +3687,107 @@
       "weight": 80,
       "nt": "His",
       "sign": 1,
-      "evidence": "optic-lobe feedforward (heuristic fallback)",
-      "weight_source": "heuristic"
+      "evidence": "optic-lobe feedforward (heuristic fallback) \u00b7 fafb scaffold scale 1.00",
+      "weight_source": "heuristic+fafb_scale"
     },
     {
       "pre": "R1-R6_R",
       "post": "L2_R",
-      "weight": 70,
+      "weight": 68,
       "nt": "His",
       "sign": 1,
-      "evidence": "optic-lobe feedforward (heuristic fallback)",
-      "weight_source": "heuristic"
+      "evidence": "optic-lobe feedforward (heuristic fallback) \u00b7 fafb scaffold scale 0.97",
+      "weight_source": "heuristic+fafb_scale"
     },
     {
       "pre": "R1-R6_R",
       "post": "L3_R",
-      "weight": 55,
+      "weight": 51,
       "nt": "His",
       "sign": 1,
-      "evidence": "lamina L3 pathway (heuristic fallback)",
-      "weight_source": "heuristic"
+      "evidence": "lamina L3 pathway (heuristic fallback) \u00b7 fafb scaffold scale 0.93",
+      "weight_source": "heuristic+fafb_scale"
     },
     {
       "pre": "L1_R",
       "post": "C2_R",
-      "weight": 30,
+      "weight": 29,
       "nt": "His",
       "sign": 1,
-      "evidence": "lamina \u2192 C2 feedback (heuristic fallback)",
-      "weight_source": "heuristic"
+      "evidence": "lamina \u2192 C2 feedback (heuristic fallback) \u00b7 fafb scaffold scale 0.98",
+      "weight_source": "heuristic+fafb_scale"
     },
     {
       "pre": "C2_R",
       "post": "L1_R",
-      "weight": 22,
+      "weight": 21,
       "nt": "GABA",
       "sign": -1,
-      "evidence": "C2 inhibitory feedback (heuristic fallback)",
-      "weight_source": "heuristic"
+      "evidence": "C2 inhibitory feedback (heuristic fallback) \u00b7 fafb scaffold scale 0.98",
+      "weight_source": "heuristic+fafb_scale"
     },
     {
       "pre": "C2_R",
       "post": "L2_R",
-      "weight": 18,
+      "weight": 17,
       "nt": "GABA",
       "sign": -1,
-      "evidence": "C2 inhibitory feedback (heuristic fallback)",
-      "weight_source": "heuristic"
+      "evidence": "C2 inhibitory feedback (heuristic fallback) \u00b7 fafb scaffold scale 0.95",
+      "weight_source": "heuristic+fafb_scale"
     },
     {
       "pre": "L1_R",
       "post": "Mi1_R",
-      "weight": 55,
+      "weight": 59,
       "nt": "His",
       "sign": 1,
-      "evidence": "lamina \u2192 medulla (heuristic fallback)",
-      "weight_source": "heuristic"
+      "evidence": "lamina \u2192 medulla (heuristic fallback) \u00b7 fafb scaffold scale 1.08",
+      "weight_source": "heuristic+fafb_scale"
     },
     {
       "pre": "L2_R",
       "post": "Mi1_R",
-      "weight": 48,
+      "weight": 50,
       "nt": "His",
       "sign": 1,
-      "evidence": "lamina \u2192 medulla (heuristic fallback)",
-      "weight_source": "heuristic"
+      "evidence": "lamina \u2192 medulla (heuristic fallback) \u00b7 fafb scaffold scale 1.05",
+      "weight_source": "heuristic+fafb_scale"
     },
     {
       "pre": "L2_R",
       "post": "Tm3_R",
-      "weight": 42,
+      "weight": 43,
       "nt": "His",
       "sign": 1,
-      "evidence": "lamina \u2192 Tm3 (heuristic fallback)",
-      "weight_source": "heuristic"
+      "evidence": "lamina \u2192 Tm3 (heuristic fallback) \u00b7 fafb scaffold scale 1.02",
+      "weight_source": "heuristic+fafb_scale"
     },
     {
       "pre": "L3_R",
       "post": "Tm3_R",
-      "weight": 36,
+      "weight": 35,
       "nt": "His",
       "sign": 1,
-      "evidence": "L3 \u2192 Tm3 (heuristic fallback)",
-      "weight_source": "heuristic"
+      "evidence": "L3 \u2192 Tm3 (heuristic fallback) \u00b7 fafb scaffold scale 0.98",
+      "weight_source": "heuristic+fafb_scale"
     },
     {
       "pre": "Mi1_R",
       "post": "T4a_R",
-      "weight": 42,
+      "weight": 47,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "medulla \u2192 lobula plate motion (heuristic fallback)",
-      "weight_source": "heuristic"
+      "evidence": "medulla \u2192 lobula plate motion (heuristic fallback) \u00b7 fafb scaffold scale 1.12",
+      "weight_source": "heuristic+fafb_scale"
     },
     {
       "pre": "Tm3_R",
       "post": "T4b_R",
-      "weight": 38,
+      "weight": 41,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Tm3 \u2192 T4b motion (heuristic fallback)",
-      "weight_source": "heuristic"
+      "evidence": "Tm3 \u2192 T4b motion (heuristic fallback) \u00b7 fafb scaffold scale 1.08",
+      "weight_source": "heuristic+fafb_scale"
     },
     {
       "pre": "Mi1_R",
@@ -3793,26 +3795,26 @@
       "weight": 20,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Mi1 \u2192 Mi4 (heuristic fallback)",
-      "weight_source": "heuristic"
+      "evidence": "Mi1 \u2192 Mi4 (heuristic fallback) \u00b7 fafb scaffold scale 1.00",
+      "weight_source": "heuristic+fafb_scale"
     },
     {
       "pre": "Mi4_R",
       "post": "T4a_R",
-      "weight": 24,
+      "weight": 25,
       "nt": "GABA",
       "sign": -1,
-      "evidence": "Mi4 motion gain control (heuristic fallback)",
-      "weight_source": "heuristic"
+      "evidence": "Mi4 motion gain control (heuristic fallback) \u00b7 fafb scaffold scale 1.02",
+      "weight_source": "heuristic+fafb_scale"
     },
     {
       "pre": "L2_R",
       "post": "T5a_R",
-      "weight": 38,
+      "weight": 42,
       "nt": "His",
       "sign": 1,
-      "evidence": "lamina/lobula motion pathway (heuristic fallback)",
-      "weight_source": "heuristic"
+      "evidence": "lamina/lobula motion pathway (heuristic fallback) \u00b7 fafb scaffold scale 1.10",
+      "weight_source": "heuristic+fafb_scale"
     },
     {
       "pre": "T4a_R",
@@ -3820,8 +3822,8 @@
       "weight": 36,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "motion \u2192 object feature (heuristic fallback)",
-      "weight_source": "heuristic"
+      "evidence": "motion \u2192 object feature (heuristic fallback) \u00b7 fafb scaffold scale 1.00",
+      "weight_source": "heuristic+fafb_scale"
     },
     {
       "pre": "T4b_R",
@@ -3829,17 +3831,17 @@
       "weight": 32,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "motion \u2192 LC10b (heuristic fallback)",
-      "weight_source": "heuristic"
+      "evidence": "motion \u2192 LC10b (heuristic fallback) \u00b7 fafb scaffold scale 1.00",
+      "weight_source": "heuristic+fafb_scale"
     },
     {
       "pre": "T5a_R",
       "post": "LC10a_R",
-      "weight": 28,
+      "weight": 29,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "motion \u2192 object feature (heuristic fallback)",
-      "weight_source": "heuristic"
+      "evidence": "motion \u2192 object feature (heuristic fallback) \u00b7 fafb scaffold scale 1.02",
+      "weight_source": "heuristic+fafb_scale"
     },
     {
       "pre": "T5a_R",
@@ -3847,8 +3849,8 @@
       "weight": 22,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "motion \u2192 LC6 (heuristic fallback)",
-      "weight_source": "heuristic"
+      "evidence": "motion \u2192 LC6 (heuristic fallback) \u00b7 fafb scaffold scale 1.00",
+      "weight_source": "heuristic+fafb_scale"
     },
     {
       "pre": "Mi1_R",
@@ -3856,8 +3858,8 @@
       "weight": 26,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "medulla \u2192 MeTu relay (heuristic fallback)",
-      "weight_source": "heuristic"
+      "evidence": "medulla \u2192 MeTu relay (heuristic fallback) \u00b7 fafb scaffold scale 1.00",
+      "weight_source": "heuristic+fafb_scale"
     },
     {
       "pre": "Tm3_R",
@@ -3865,305 +3867,305 @@
       "weight": 20,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Tm3 \u2192 MeTu (heuristic fallback)",
-      "weight_source": "heuristic"
+      "evidence": "Tm3 \u2192 MeTu (heuristic fallback) \u00b7 fafb scaffold scale 0.98",
+      "weight_source": "heuristic+fafb_scale"
     },
     {
       "pre": "LC6_R",
       "post": "LoVP11_R",
-      "weight": 16,
+      "weight": 14,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "LC6 \u2192 LoVP11 (heuristic fallback)",
-      "weight_source": "heuristic"
+      "evidence": "LC6 \u2192 LoVP11 (heuristic fallback) \u00b7 fafb scaffold scale 0.85",
+      "weight_source": "heuristic+fafb_scale"
     },
     {
       "pre": "MeTu1_R",
       "post": "LoVP92_R",
-      "weight": 14,
+      "weight": 11,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "MeTu \u2192 VPN (heuristic fallback)",
-      "weight_source": "heuristic"
+      "evidence": "MeTu \u2192 VPN (heuristic fallback) \u00b7 fafb scaffold scale 0.80",
+      "weight_source": "heuristic+fafb_scale"
     },
     {
       "pre": "LoVP11_R",
       "post": "LoVP92_R",
-      "weight": 12,
+      "weight": 10,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "VPN local mix (heuristic fallback)",
-      "weight_source": "heuristic"
+      "evidence": "VPN local mix (heuristic fallback) \u00b7 fafb scaffold scale 0.80",
+      "weight_source": "heuristic+fafb_scale"
     },
     {
       "pre": "LoVP92_R",
       "post": "VES200m_R",
-      "weight": 90,
+      "weight": 61,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell paper frontal VPN\u2192VES200m",
-      "weight_source": "heuristic"
+      "evidence": "Cell paper frontal VPN\u2192VES200m \u00b7 fafb scaffold scale 0.68",
+      "weight_source": "heuristic+fafb_scale"
     },
     {
       "pre": "LoVP92_L",
       "post": "VES200m_R",
-      "weight": 40,
+      "weight": 27,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell paper bilateral VES200m",
-      "weight_source": "heuristic"
+      "evidence": "Cell paper bilateral VES200m \u00b7 fafb scaffold scale 0.68",
+      "weight_source": "heuristic+fafb_scale"
     },
     {
       "pre": "LoVP92_L",
       "post": "AOTU019_L",
-      "weight": 40,
+      "weight": 32,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "VPN \u2192 AOTU (heuristic fallback)",
-      "weight_source": "heuristic"
+      "evidence": "VPN \u2192 AOTU (heuristic fallback) \u00b7 fafb scaffold scale 0.80",
+      "weight_source": "heuristic+fafb_scale"
     },
     {
       "pre": "MeTu1_L",
       "post": "AOTU019_L",
-      "weight": 28,
+      "weight": 25,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "MeTu \u2192 AOTU (heuristic fallback)",
-      "weight_source": "heuristic"
+      "evidence": "MeTu \u2192 AOTU (heuristic fallback) \u00b7 fafb scaffold scale 0.90",
+      "weight_source": "heuristic+fafb_scale"
     },
     {
       "pre": "AOTU019_L",
       "post": "LAL073_L",
-      "weight": 30,
+      "weight": 27,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "AOTU \u2192 LAL (heuristic fallback)",
-      "weight_source": "heuristic"
+      "evidence": "AOTU \u2192 LAL (heuristic fallback) \u00b7 fafb scaffold scale 0.90",
+      "weight_source": "heuristic+fafb_scale"
     },
     {
       "pre": "LoVP92_L",
       "post": "CB0244_L",
-      "weight": 36,
+      "weight": 29,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "VPN \u2192 central integrator (heuristic fallback)",
-      "weight_source": "heuristic"
+      "evidence": "VPN \u2192 central integrator (heuristic fallback) \u00b7 fafb scaffold scale 0.80",
+      "weight_source": "heuristic+fafb_scale"
     },
     {
       "pre": "LoVP92_L",
       "post": "LAL073_L",
-      "weight": 28,
+      "weight": 22,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "VPN \u2192 LAL (heuristic fallback)",
-      "weight_source": "heuristic"
+      "evidence": "VPN \u2192 LAL (heuristic fallback) \u00b7 fafb scaffold scale 0.80",
+      "weight_source": "heuristic+fafb_scale"
     },
     {
       "pre": "LoVP11_L",
       "post": "SMP108_L",
-      "weight": 18,
+      "weight": 16,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "VPN \u2192 SMP (heuristic fallback)",
-      "weight_source": "heuristic"
+      "evidence": "VPN \u2192 SMP (heuristic fallback) \u00b7 fafb scaffold scale 0.90",
+      "weight_source": "heuristic+fafb_scale"
     },
     {
       "pre": "SMP108_L",
       "post": "GNG532_L",
-      "weight": 22,
+      "weight": 20,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "SMP \u2192 GNG (heuristic fallback)",
-      "weight_source": "heuristic"
+      "evidence": "SMP \u2192 GNG (heuristic fallback) \u00b7 fafb scaffold scale 0.90",
+      "weight_source": "heuristic+fafb_scale"
     },
     {
       "pre": "CB0244_L",
       "post": "GNG532_L",
-      "weight": 26,
+      "weight": 23,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "proto \u2192 GNG (heuristic fallback)",
-      "weight_source": "heuristic"
+      "evidence": "proto \u2192 GNG (heuristic fallback) \u00b7 fafb scaffold scale 0.90",
+      "weight_source": "heuristic+fafb_scale"
     },
     {
       "pre": "GNG532_L",
       "post": "DNg97_L",
-      "weight": 24,
+      "weight": 22,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "GNG \u2192 DNg97 (heuristic fallback)",
-      "weight_source": "heuristic"
+      "evidence": "GNG \u2192 DNg97 (heuristic fallback) \u00b7 fafb scaffold scale 0.90",
+      "weight_source": "heuristic+fafb_scale"
     },
     {
       "pre": "CB0244_L",
       "post": "DNp13_L",
-      "weight": 20,
+      "weight": 18,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "proto \u2192 DNp13 (heuristic fallback)",
-      "weight_source": "heuristic"
+      "evidence": "proto \u2192 DNp13 (heuristic fallback) \u00b7 fafb scaffold scale 0.90",
+      "weight_source": "heuristic+fafb_scale"
     },
     {
       "pre": "LoVP92_R",
       "post": "AOTU019_R",
-      "weight": 40,
+      "weight": 32,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "VPN \u2192 AOTU (heuristic fallback)",
-      "weight_source": "heuristic"
+      "evidence": "VPN \u2192 AOTU (heuristic fallback) \u00b7 fafb scaffold scale 0.80",
+      "weight_source": "heuristic+fafb_scale"
     },
     {
       "pre": "MeTu1_R",
       "post": "AOTU019_R",
-      "weight": 28,
+      "weight": 25,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "MeTu \u2192 AOTU (heuristic fallback)",
-      "weight_source": "heuristic"
+      "evidence": "MeTu \u2192 AOTU (heuristic fallback) \u00b7 fafb scaffold scale 0.90",
+      "weight_source": "heuristic+fafb_scale"
     },
     {
       "pre": "AOTU019_R",
       "post": "LAL073_R",
-      "weight": 30,
+      "weight": 27,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "AOTU \u2192 LAL (heuristic fallback)",
-      "weight_source": "heuristic"
+      "evidence": "AOTU \u2192 LAL (heuristic fallback) \u00b7 fafb scaffold scale 0.90",
+      "weight_source": "heuristic+fafb_scale"
     },
     {
       "pre": "LoVP92_R",
       "post": "CB0244_R",
-      "weight": 36,
+      "weight": 29,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "VPN \u2192 central integrator (heuristic fallback)",
-      "weight_source": "heuristic"
+      "evidence": "VPN \u2192 central integrator (heuristic fallback) \u00b7 fafb scaffold scale 0.80",
+      "weight_source": "heuristic+fafb_scale"
     },
     {
       "pre": "LoVP92_R",
       "post": "LAL073_R",
-      "weight": 28,
+      "weight": 22,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "VPN \u2192 LAL (heuristic fallback)",
-      "weight_source": "heuristic"
+      "evidence": "VPN \u2192 LAL (heuristic fallback) \u00b7 fafb scaffold scale 0.80",
+      "weight_source": "heuristic+fafb_scale"
     },
     {
       "pre": "LoVP11_R",
       "post": "SMP108_R",
-      "weight": 18,
+      "weight": 16,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "VPN \u2192 SMP (heuristic fallback)",
-      "weight_source": "heuristic"
+      "evidence": "VPN \u2192 SMP (heuristic fallback) \u00b7 fafb scaffold scale 0.90",
+      "weight_source": "heuristic+fafb_scale"
     },
     {
       "pre": "SMP108_R",
       "post": "GNG532_R",
-      "weight": 22,
+      "weight": 20,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "SMP \u2192 GNG (heuristic fallback)",
-      "weight_source": "heuristic"
+      "evidence": "SMP \u2192 GNG (heuristic fallback) \u00b7 fafb scaffold scale 0.90",
+      "weight_source": "heuristic+fafb_scale"
     },
     {
       "pre": "CB0244_R",
       "post": "GNG532_R",
-      "weight": 26,
+      "weight": 23,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "proto \u2192 GNG (heuristic fallback)",
-      "weight_source": "heuristic"
+      "evidence": "proto \u2192 GNG (heuristic fallback) \u00b7 fafb scaffold scale 0.90",
+      "weight_source": "heuristic+fafb_scale"
     },
     {
       "pre": "GNG532_R",
       "post": "DNg97_R",
-      "weight": 24,
+      "weight": 22,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "GNG \u2192 DNg97 (heuristic fallback)",
-      "weight_source": "heuristic"
+      "evidence": "GNG \u2192 DNg97 (heuristic fallback) \u00b7 fafb scaffold scale 0.90",
+      "weight_source": "heuristic+fafb_scale"
     },
     {
       "pre": "CB0244_R",
       "post": "DNp13_R",
-      "weight": 20,
+      "weight": 18,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "proto \u2192 DNp13 (heuristic fallback)",
-      "weight_source": "heuristic"
+      "evidence": "proto \u2192 DNp13 (heuristic fallback) \u00b7 fafb scaffold scale 0.90",
+      "weight_source": "heuristic+fafb_scale"
     },
     {
       "pre": "CB0244_L",
       "post": "DNa02",
-      "weight": 44,
+      "weight": 40,
       "nt": "OA",
       "sign": 1,
-      "evidence": "DNa02 upstream",
-      "weight_source": "mirror"
+      "evidence": "DNa02 upstream \u00b7 fafb scaffold scale 0.90",
+      "weight_source": "mirror+fafb_scale"
     },
     {
       "pre": "CB0244_R",
       "post": "DNa02",
-      "weight": 44,
+      "weight": 40,
       "nt": "OA",
       "sign": 1,
-      "evidence": "DNa02 upstream",
-      "weight_source": "mirror"
+      "evidence": "DNa02 upstream \u00b7 fafb scaffold scale 0.90",
+      "weight_source": "mirror+fafb_scale"
     },
     {
       "pre": "LAL073_L",
       "post": "DNa02",
-      "weight": 18,
+      "weight": 16,
       "nt": "Glu",
       "sign": -1,
-      "evidence": "DNa02 LAL mix",
-      "weight_source": "heuristic"
+      "evidence": "DNa02 LAL mix \u00b7 fafb scaffold scale 0.90",
+      "weight_source": "heuristic+fafb_scale"
     },
     {
       "pre": "LAL073_R",
       "post": "DNa02",
-      "weight": 18,
+      "weight": 16,
       "nt": "Glu",
       "sign": -1,
-      "evidence": "DNa02 LAL mix",
-      "weight_source": "heuristic"
+      "evidence": "DNa02 LAL mix \u00b7 fafb scaffold scale 0.90",
+      "weight_source": "heuristic+fafb_scale"
     },
     {
       "pre": "DNa02",
       "post": "IN17A025_L",
-      "weight": 28,
+      "weight": 25,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "DNa02 \u2192 VNC",
-      "weight_source": "heuristic"
+      "evidence": "DNa02 \u2192 VNC \u00b7 fafb scaffold scale 0.90",
+      "weight_source": "heuristic+fafb_scale"
     },
     {
       "pre": "DNa02",
       "post": "IN17A025_R",
-      "weight": 28,
+      "weight": 25,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "DNa02 \u2192 VNC",
-      "weight_source": "heuristic"
+      "evidence": "DNa02 \u2192 VNC \u00b7 fafb scaffold scale 0.90",
+      "weight_source": "heuristic+fafb_scale"
     },
     {
       "pre": "DNg13_L",
       "post": "DNg13_R",
-      "weight": 90,
+      "weight": 68,
       "nt": "Glu",
       "sign": -1,
-      "evidence": "bilateral DN mutual inhibition",
-      "weight_source": "heuristic"
+      "evidence": "bilateral DN mutual inhibition \u00b7 fafb scaffold scale 0.75",
+      "weight_source": "heuristic+fafb_scale"
     },
     {
       "pre": "DNg13_R",
       "post": "DNg13_L",
-      "weight": 90,
+      "weight": 68,
       "nt": "Glu",
       "sign": -1,
-      "evidence": "bilateral DN mutual inhibition",
-      "weight_source": "heuristic"
+      "evidence": "bilateral DN mutual inhibition \u00b7 fafb scaffold scale 0.75",
+      "weight_source": "heuristic+fafb_scale"
     }
   ],
   "pathways": [

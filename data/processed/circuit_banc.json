@@ -1,18 +1,18 @@
 {
   "source": {
-    "name": "Male CNS connectome v1.0",
-    "dataset": "male-cns",
+    "name": "BANC (scaffold)",
+    "dataset": "banc",
     "dataset_id": "male-cns:v1.0",
-    "sex": "male",
+    "sex": "mixed",
     "uuid": "4b2087c0fbe046bfaf0d60bc970e3e5d",
-    "neurons": 166700,
+    "neurons": null,
     "synapses": 125000000,
     "types_in_catalog": 11751,
     "blog": "https://research.google/blog/a-connectomics-milestone-mapping-the-complete-male-fruit-fly-brain/",
     "portal": "https://male-cns.janelia.org/",
     "neuprint": "https://neuprint.janelia.org/",
-    "codex": "https://codex.flywire.ai/?dataset=male-cns",
-    "codex_dataset": "male-cns",
+    "codex": "https://codex.flywire.ai/?dataset=banc",
+    "codex_dataset": "banc",
     "neuroglancer": "https://neuroglancer-demo.appspot.com/#!gs://flyem-male-cns/v1.0/male-cns-v1.0.jso",
     "explorer": "https://reiserlab.github.io/celltype-explorer-drosophila-male-cns/",
     "annotations": "gs://flyem-male-cns/v1.0/connectome-data/flat-connectome/body-annotations-male-cns-v1.0-minconf-0.5.feather",
@@ -23,7 +23,9 @@
       "mirror": 2,
       "explorer_hits_raw": 282
     },
-    "note": "Playable subgraph of the official visual\u2013motor / steering motif. Edge weights prefer Cell Type Explorer synapse counts; heuristics fill gaps. Not a full 166k-neuron simulation."
+    "note": "BANC bulk download also goes through Codex (login). Scaffold reuses MaleCNS topology with mild weight scaling until CSVs are placed in data/raw/banc/.",
+    "scaffold": true,
+    "limitation": "No local BANC CSV \u2014 scaffold only."
   },
   "nodes": [
     {
@@ -1381,8 +1383,8 @@
       "weight": 4,
       "nt": "Glu",
       "sign": -1,
-      "evidence": "Cell Type Explorer VES200m upstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer VES200m upstream \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "AOTU103m_L",
@@ -1390,8 +1392,8 @@
       "weight": 4,
       "nt": "Glu",
       "sign": -1,
-      "evidence": "Cell Type Explorer VES200m upstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer VES200m upstream \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "SIP022_L",
@@ -1399,8 +1401,8 @@
       "weight": 3,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer VES200m upstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer VES200m upstream \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "SIP022_L",
@@ -1408,8 +1410,8 @@
       "weight": 3,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer VES200m upstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer VES200m upstream \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "VES085_a_L",
@@ -1417,8 +1419,8 @@
       "weight": 3,
       "nt": "GABA",
       "sign": -1,
-      "evidence": "Cell Type Explorer VES200m upstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer VES200m upstream \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "VES085_a_L",
@@ -1426,8 +1428,8 @@
       "weight": 3,
       "nt": "GABA",
       "sign": -1,
-      "evidence": "Cell Type Explorer VES200m upstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer VES200m upstream \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "VES200m_L",
@@ -1435,8 +1437,8 @@
       "weight": 6,
       "nt": "GABA",
       "sign": -1,
-      "evidence": "Cell Type Explorer VES200m downstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer VES200m downstream \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "VES200m_R",
@@ -1444,8 +1446,8 @@
       "weight": 6,
       "nt": "GABA",
       "sign": -1,
-      "evidence": "Cell Type Explorer VES200m downstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer VES200m downstream \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "VES200m_L",
@@ -1453,8 +1455,8 @@
       "weight": 4,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer VES200m downstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer VES200m downstream \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "VES200m_R",
@@ -1462,8 +1464,8 @@
       "weight": 4,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer VES200m downstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer VES200m downstream \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "VES200m_L",
@@ -1471,8 +1473,8 @@
       "weight": 2,
       "nt": "Glu",
       "sign": -1,
-      "evidence": "Cell Type Explorer VES200m downstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer VES200m downstream \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "VES200m_R",
@@ -1480,26 +1482,26 @@
       "weight": 2,
       "nt": "Glu",
       "sign": -1,
-      "evidence": "Cell Type Explorer VES200m downstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer VES200m downstream \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "PS065_L",
       "post": "VES200m_L",
-      "weight": 7,
+      "weight": 6,
       "nt": "GABA",
       "sign": -1,
-      "evidence": "Cell Type Explorer VES200m_R upstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer VES200m_R upstream \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "PS065_L",
       "post": "VES200m_R",
-      "weight": 7,
+      "weight": 6,
       "nt": "GABA",
       "sign": -1,
-      "evidence": "Cell Type Explorer VES200m_R upstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer VES200m_R upstream \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "LAL073_L",
@@ -1507,8 +1509,8 @@
       "weight": 4,
       "nt": "Glu",
       "sign": -1,
-      "evidence": "Cell Type Explorer VES200m_R upstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer VES200m_R upstream \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "LAL073_L",
@@ -1516,8 +1518,8 @@
       "weight": 4,
       "nt": "Glu",
       "sign": -1,
-      "evidence": "Cell Type Explorer VES200m_R upstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer VES200m_R upstream \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "VES200m_L",
@@ -1525,8 +1527,8 @@
       "weight": 6,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer VES200m_R downstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer VES200m_R downstream \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "VES200m_R",
@@ -1534,8 +1536,8 @@
       "weight": 6,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer VES200m_R downstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer VES200m_R downstream \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "VES200m_L",
@@ -1543,8 +1545,8 @@
       "weight": 6,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer VES200m_R downstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer VES200m_R downstream \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "VES200m_R",
@@ -1552,8 +1554,8 @@
       "weight": 6,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer VES200m_R downstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer VES200m_R downstream \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "VES200m_L",
@@ -1561,8 +1563,8 @@
       "weight": 3,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer VES200m_R downstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer VES200m_R downstream \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "VES200m_R",
@@ -1570,8 +1572,8 @@
       "weight": 3,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer VES200m_R downstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer VES200m_R downstream \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "VES200m_L",
@@ -1579,8 +1581,8 @@
       "weight": 3,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer VES200m_R downstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer VES200m_R downstream \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "VES200m_R",
@@ -1588,8 +1590,8 @@
       "weight": 3,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer VES200m_R downstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer VES200m_R downstream \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "VES200m_L",
@@ -1597,8 +1599,8 @@
       "weight": 4,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer VES200m_L downstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer VES200m_L downstream \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "VES200m_R",
@@ -1606,8 +1608,8 @@
       "weight": 4,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer VES200m_L downstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer VES200m_L downstream \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "VES200m_L",
@@ -1615,8 +1617,8 @@
       "weight": 1,
       "nt": "GABA",
       "sign": -1,
-      "evidence": "Cell Type Explorer VES200m_R downstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer VES200m_R downstream \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "VES200m_R",
@@ -1624,8 +1626,8 @@
       "weight": 1,
       "nt": "GABA",
       "sign": -1,
-      "evidence": "Cell Type Explorer VES200m_R downstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer VES200m_R downstream \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "VES200m_L",
@@ -1633,8 +1635,8 @@
       "weight": 1,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer VES200m_R downstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer VES200m_R downstream \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "VES200m_R",
@@ -1642,8 +1644,8 @@
       "weight": 1,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer VES200m_R downstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer VES200m_R downstream \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "VES200m_L",
@@ -1651,8 +1653,8 @@
       "weight": 1,
       "nt": "OA",
       "sign": 1,
-      "evidence": "Cell Type Explorer VES200m_R downstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer VES200m_R downstream \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "VES200m_R",
@@ -1660,26 +1662,26 @@
       "weight": 1,
       "nt": "OA",
       "sign": 1,
-      "evidence": "Cell Type Explorer VES200m_R downstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer VES200m_R downstream \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "AN05B007_L",
       "post": "GNG532_L",
-      "weight": 8,
+      "weight": 7,
       "nt": "GABA",
       "sign": -1,
-      "evidence": "Cell Type Explorer GNG532 upstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer GNG532 upstream \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "AN05B007_L",
       "post": "GNG532_R",
-      "weight": 8,
+      "weight": 7,
       "nt": "GABA",
       "sign": -1,
-      "evidence": "Cell Type Explorer GNG532 upstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer GNG532 upstream \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "DNg13_L",
@@ -1687,8 +1689,8 @@
       "weight": 1,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer GNG532 upstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer GNG532 upstream \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "DNg13_R",
@@ -1696,8 +1698,8 @@
       "weight": 2,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer DNg13_R downstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer DNg13_R downstream \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "GNG532_L",
@@ -1705,8 +1707,8 @@
       "weight": 1,
       "nt": "GABA",
       "sign": -1,
-      "evidence": "Cell Type Explorer GNG532 downstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer GNG532 downstream \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "GNG532_R",
@@ -1714,26 +1716,26 @@
       "weight": 1,
       "nt": "GABA",
       "sign": -1,
-      "evidence": "Cell Type Explorer GNG532 downstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer GNG532 downstream \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "OA-VUMa1",
       "post": "LAL073_L",
-      "weight": 35,
+      "weight": 32,
       "nt": "OA",
       "sign": 1,
-      "evidence": "Cell Type Explorer LAL073 upstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer LAL073 upstream \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "OA-VUMa1",
       "post": "LAL073_R",
-      "weight": 35,
+      "weight": 32,
       "nt": "OA",
       "sign": 1,
-      "evidence": "Cell Type Explorer LAL073 upstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer LAL073 upstream \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "SLP450_L",
@@ -1741,8 +1743,8 @@
       "weight": 6,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer LAL073 upstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer LAL073 upstream \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "SLP450_L",
@@ -1750,8 +1752,8 @@
       "weight": 6,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer LAL073 upstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer LAL073 upstream \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "LAL205_L",
@@ -1759,8 +1761,8 @@
       "weight": 3,
       "nt": "GABA",
       "sign": -1,
-      "evidence": "Cell Type Explorer LAL073 upstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer LAL073 upstream \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "LAL205_L",
@@ -1768,8 +1770,8 @@
       "weight": 3,
       "nt": "GABA",
       "sign": -1,
-      "evidence": "Cell Type Explorer LAL073 upstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer LAL073 upstream \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "PVLP114_L",
@@ -1777,8 +1779,8 @@
       "weight": 3,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer LAL073 upstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer LAL073 upstream \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "PVLP114_L",
@@ -1786,8 +1788,8 @@
       "weight": 3,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer LAL073 upstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer LAL073 upstream \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "CB0244_L",
@@ -1795,8 +1797,8 @@
       "weight": 1,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer LAL073 upstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer LAL073 upstream \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "CB0244_R",
@@ -1804,8 +1806,8 @@
       "weight": 1,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer LAL073 upstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer LAL073 upstream \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "LAL073_L",
@@ -1813,8 +1815,8 @@
       "weight": 4,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer LAL073 downstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer LAL073 downstream \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "LAL073_R",
@@ -1822,8 +1824,8 @@
       "weight": 4,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer LAL073 downstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer LAL073 downstream \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "LAL073_L",
@@ -1831,8 +1833,8 @@
       "weight": 4,
       "nt": "Glu",
       "sign": -1,
-      "evidence": "Cell Type Explorer LAL073 downstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer LAL073 downstream \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "LAL073_R",
@@ -1840,44 +1842,44 @@
       "weight": 4,
       "nt": "Glu",
       "sign": -1,
-      "evidence": "Cell Type Explorer LAL073 downstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer LAL073 downstream \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "OA-VUMa1",
       "post": "AOTU019_L",
-      "weight": 41,
+      "weight": 38,
       "nt": "OA",
       "sign": 1,
-      "evidence": "Cell Type Explorer AOTU019 upstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer AOTU019 upstream \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "OA-VUMa1",
       "post": "AOTU019_R",
-      "weight": 41,
+      "weight": 38,
       "nt": "OA",
       "sign": 1,
-      "evidence": "Cell Type Explorer AOTU019 upstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer AOTU019 upstream \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "AOTU019_L",
       "post": "OA-VUMa1",
-      "weight": 15,
+      "weight": 14,
       "nt": "OA",
       "sign": 1,
-      "evidence": "Cell Type Explorer AOTU019 downstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer AOTU019 downstream \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "AOTU019_R",
       "post": "OA-VUMa1",
-      "weight": 15,
+      "weight": 14,
       "nt": "OA",
       "sign": 1,
-      "evidence": "Cell Type Explorer AOTU019 downstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer AOTU019 downstream \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "AOTU019_L",
@@ -1885,8 +1887,8 @@
       "weight": 4,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer AOTU019 downstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer AOTU019 downstream \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "AOTU019_R",
@@ -1894,8 +1896,8 @@
       "weight": 4,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer AOTU019 downstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer AOTU019 downstream \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "AOTU019_L",
@@ -1903,8 +1905,8 @@
       "weight": 1,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer AOTU019 downstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer AOTU019 downstream \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "AOTU019_R",
@@ -1912,8 +1914,8 @@
       "weight": 1,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer AOTU019 downstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer AOTU019 downstream \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "AOTU019_L",
@@ -1921,8 +1923,8 @@
       "weight": 1,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer AOTU019 downstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer AOTU019 downstream \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "AOTU019_R",
@@ -1930,8 +1932,8 @@
       "weight": 1,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer AOTU019 downstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer AOTU019 downstream \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "PVLP114_L",
@@ -1939,8 +1941,8 @@
       "weight": 1,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer VES200m_L upstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer VES200m_L upstream \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "PVLP114_L",
@@ -1948,26 +1950,26 @@
       "weight": 1,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer VES200m_L upstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer VES200m_L upstream \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "OA-VUMa1",
       "post": "DNp13_L",
-      "weight": 20,
+      "weight": 18,
       "nt": "OA",
       "sign": 1,
-      "evidence": "Cell Type Explorer DNp13 upstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer DNp13 upstream \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "OA-VUMa1",
       "post": "DNp13_R",
-      "weight": 20,
+      "weight": 18,
       "nt": "OA",
       "sign": 1,
-      "evidence": "Cell Type Explorer DNp13 upstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer DNp13 upstream \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "DNp13_L",
@@ -1975,8 +1977,8 @@
       "weight": 1,
       "nt": "GABA",
       "sign": -1,
-      "evidence": "Cell Type Explorer DNp13 downstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer DNp13 downstream \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "DNp13_R",
@@ -1984,8 +1986,8 @@
       "weight": 1,
       "nt": "GABA",
       "sign": -1,
-      "evidence": "Cell Type Explorer DNp13 downstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer DNp13 downstream \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "DNp13_L",
@@ -1993,8 +1995,8 @@
       "weight": 1,
       "nt": "Glu",
       "sign": -1,
-      "evidence": "Cell Type Explorer DNp13 downstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer DNp13 downstream \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "DNp13_R",
@@ -2002,26 +2004,26 @@
       "weight": 1,
       "nt": "Glu",
       "sign": -1,
-      "evidence": "Cell Type Explorer DNp13 downstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer DNp13 downstream \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "OA-VUMa1",
       "post": "DNg97_L",
-      "weight": 39,
+      "weight": 36,
       "nt": "OA",
       "sign": 1,
-      "evidence": "Cell Type Explorer DNg97 upstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer DNg97 upstream \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "OA-VUMa1",
       "post": "DNg97_R",
-      "weight": 39,
+      "weight": 36,
       "nt": "OA",
       "sign": 1,
-      "evidence": "Cell Type Explorer DNg97 upstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer DNg97 upstream \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "DNg13_L",
@@ -2029,8 +2031,8 @@
       "weight": 2,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer DNg13_R downstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer DNg13_R downstream \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "DNg13_R",
@@ -2038,8 +2040,8 @@
       "weight": 1,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer DNg97 upstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer DNg97 upstream \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "SIP022_L",
@@ -2047,8 +2049,8 @@
       "weight": 1,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer DNg97 upstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer DNg97 upstream \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "SIP022_L",
@@ -2056,8 +2058,8 @@
       "weight": 1,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer DNg97 upstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer DNg97 upstream \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "DNg97_L",
@@ -2065,8 +2067,8 @@
       "weight": 2,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer DNg97 downstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer DNg97 downstream \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "DNg97_R",
@@ -2074,8 +2076,8 @@
       "weight": 2,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer DNg97 downstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer DNg97 downstream \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "DNge023_L",
@@ -2083,8 +2085,8 @@
       "weight": 1,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer IN17A025 upstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer IN17A025 upstream \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "DNge023_L",
@@ -2092,242 +2094,242 @@
       "weight": 1,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer IN17A025 upstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer IN17A025 upstream \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "VES200m_R",
       "post": "DNg13_L",
-      "weight": 194,
+      "weight": 178,
       "nt": "Glu",
       "sign": -1,
-      "evidence": "Cell Type Explorer DNg13_R upstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer DNg13_R upstream \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "VES200m_R",
       "post": "DNg13_R",
-      "weight": 194,
+      "weight": 178,
       "nt": "Glu",
       "sign": -1,
-      "evidence": "Cell Type Explorer DNg13_R upstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer DNg13_R upstream \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "LAL073_L",
       "post": "DNg13_L",
-      "weight": 166,
+      "weight": 153,
       "nt": "Glu",
       "sign": -1,
-      "evidence": "Cell Type Explorer DNg13_R upstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer DNg13_R upstream \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "LAL073_L",
       "post": "DNg13_R",
-      "weight": 166,
+      "weight": 153,
       "nt": "Glu",
       "sign": -1,
-      "evidence": "Cell Type Explorer DNg13_R upstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer DNg13_R upstream \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "GNG532_R",
       "post": "DNg13_L",
-      "weight": 157,
+      "weight": 144,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer DNg13_R upstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer DNg13_R upstream \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "GNG532_R",
       "post": "DNg13_R",
-      "weight": 157,
+      "weight": 144,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer DNg13_R upstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer DNg13_R upstream \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "CB0244_R",
       "post": "DNg13_L",
-      "weight": 157,
+      "weight": 144,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer DNg13_R upstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer DNg13_R upstream \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "CB0244_R",
       "post": "DNg13_R",
-      "weight": 157,
+      "weight": 144,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer DNg13_R upstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer DNg13_R upstream \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "DNg97_L",
       "post": "DNg13_L",
-      "weight": 96,
+      "weight": 88,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer DNg13_R upstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer DNg13_R upstream \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "DNg97_L",
       "post": "DNg13_R",
-      "weight": 96,
+      "weight": 88,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer DNg13_R upstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer DNg13_R upstream \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "DNp13_L",
       "post": "DNg13_L",
-      "weight": 93,
+      "weight": 86,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer DNg13_R upstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer DNg13_R upstream \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "DNp13_L",
       "post": "DNg13_R",
-      "weight": 93,
+      "weight": 86,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer DNg13_R upstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer DNg13_R upstream \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "OA-VUMa1",
       "post": "DNg13_L",
-      "weight": 45,
+      "weight": 41,
       "nt": "OA",
       "sign": 1,
-      "evidence": "Cell Type Explorer DNg13_R upstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer DNg13_R upstream \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "OA-VUMa1",
       "post": "DNg13_R",
-      "weight": 45,
+      "weight": 41,
       "nt": "OA",
       "sign": 1,
-      "evidence": "Cell Type Explorer DNg13_R upstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer DNg13_R upstream \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "LAL016_L",
       "post": "DNg13_L",
-      "weight": 19,
+      "weight": 17,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer DNg13_R upstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer DNg13_R upstream \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "LAL016_L",
       "post": "DNg13_R",
-      "weight": 19,
+      "weight": 17,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer DNg13_R upstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer DNg13_R upstream \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "LoVP92_R",
       "post": "DNg13_L",
-      "weight": 16,
+      "weight": 15,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer DNg13_R upstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer DNg13_R upstream \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "LoVP92_R",
       "post": "DNg13_R",
-      "weight": 16,
+      "weight": 15,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer DNg13_R upstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer DNg13_R upstream \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "LoVP92_L",
       "post": "DNg13_L",
-      "weight": 13,
+      "weight": 12,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer DNg13_R upstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer DNg13_R upstream \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "LoVP92_L",
       "post": "DNg13_R",
-      "weight": 13,
+      "weight": 12,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer DNg13_R upstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer DNg13_R upstream \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "DNge119_L",
       "post": "DNg13_L",
-      "weight": 9,
+      "weight": 8,
       "nt": "Glu",
       "sign": -1,
-      "evidence": "Cell Type Explorer DNg13_R upstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer DNg13_R upstream \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "DNge119_L",
       "post": "DNg13_R",
-      "weight": 9,
+      "weight": 8,
       "nt": "Glu",
       "sign": -1,
-      "evidence": "Cell Type Explorer DNg13_R upstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer DNg13_R upstream \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "IN16B045_L",
       "post": "DNg13_L",
-      "weight": 9,
+      "weight": 8,
       "nt": "Glu",
       "sign": -1,
-      "evidence": "Cell Type Explorer DNg13_R upstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer DNg13_R upstream \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "IN16B045_L",
       "post": "DNg13_R",
-      "weight": 9,
+      "weight": 8,
       "nt": "Glu",
       "sign": -1,
-      "evidence": "Cell Type Explorer DNg13_R upstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer DNg13_R upstream \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "PVLP114_L",
       "post": "DNg13_L",
-      "weight": 11,
+      "weight": 10,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer DNg13_L upstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer DNg13_L upstream \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "PVLP114_L",
       "post": "DNg13_R",
-      "weight": 11,
+      "weight": 10,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer DNg13_L upstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer DNg13_L upstream \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "AOTU019_L",
@@ -2335,8 +2337,8 @@
       "weight": 4,
       "nt": "GABA",
       "sign": -1,
-      "evidence": "Cell Type Explorer DNg13_R upstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer DNg13_R upstream \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "AOTU019_L",
@@ -2344,8 +2346,8 @@
       "weight": 4,
       "nt": "GABA",
       "sign": -1,
-      "evidence": "Cell Type Explorer DNg13_R upstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer DNg13_R upstream \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "LAL205_L",
@@ -2353,8 +2355,8 @@
       "weight": 3,
       "nt": "GABA",
       "sign": -1,
-      "evidence": "Cell Type Explorer DNg13_R upstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer DNg13_R upstream \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "LAL205_L",
@@ -2362,26 +2364,26 @@
       "weight": 3,
       "nt": "GABA",
       "sign": -1,
-      "evidence": "Cell Type Explorer DNg13_R upstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer DNg13_R upstream \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "AN06B009_L",
       "post": "DNg13_L",
-      "weight": 10,
+      "weight": 9,
       "nt": "GABA",
       "sign": -1,
-      "evidence": "Cell Type Explorer DNg13_L upstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer DNg13_L upstream \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "AN06B009_L",
       "post": "DNg13_R",
-      "weight": 10,
+      "weight": 9,
       "nt": "GABA",
       "sign": -1,
-      "evidence": "Cell Type Explorer DNg13_L upstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer DNg13_L upstream \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "IN17A025_L",
@@ -2389,8 +2391,8 @@
       "weight": 1,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer DNg13_R upstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer DNg13_R upstream \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "IN17A025_L",
@@ -2398,26 +2400,26 @@
       "weight": 1,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer DNg13_R upstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer DNg13_R upstream \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "VES200m_L",
       "post": "DNg13_L",
-      "weight": 167,
+      "weight": 154,
       "nt": "Glu",
       "sign": -1,
-      "evidence": "Cell Type Explorer DNg13_L upstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer DNg13_L upstream \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "VES200m_L",
       "post": "DNg13_R",
-      "weight": 167,
+      "weight": 154,
       "nt": "Glu",
       "sign": -1,
-      "evidence": "Cell Type Explorer DNg13_L upstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer DNg13_L upstream \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "PVLP204m_L",
@@ -2425,8 +2427,8 @@
       "weight": 1,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer DNg13_R upstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer DNg13_R upstream \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "PVLP204m_L",
@@ -2434,8 +2436,8 @@
       "weight": 1,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer DNg13_R upstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer DNg13_R upstream \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "DNa02",
@@ -2443,8 +2445,8 @@
       "weight": 1,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer DNg13_R upstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer DNg13_R upstream \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "DNa02",
@@ -2452,116 +2454,116 @@
       "weight": 1,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer DNg13_R upstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer DNg13_R upstream \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "DNg13_L",
       "post": "IN16B045_L",
-      "weight": 482,
+      "weight": 443,
       "nt": "Glu",
       "sign": -1,
-      "evidence": "Cell Type Explorer DNg13_R downstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer DNg13_R downstream \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "DNg13_R",
       "post": "IN16B045_L",
-      "weight": 482,
+      "weight": 443,
       "nt": "Glu",
       "sign": -1,
-      "evidence": "Cell Type Explorer DNg13_R downstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer DNg13_R downstream \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "DNg13_L",
       "post": "IN19A016_L",
-      "weight": 226,
+      "weight": 208,
       "nt": "GABA",
       "sign": -1,
-      "evidence": "Cell Type Explorer DNg13_R downstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer DNg13_R downstream \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "DNg13_R",
       "post": "IN19A016_L",
-      "weight": 226,
+      "weight": 208,
       "nt": "GABA",
       "sign": -1,
-      "evidence": "Cell Type Explorer DNg13_R downstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer DNg13_R downstream \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "DNg13_L",
       "post": "IN17A025_L",
-      "weight": 196,
+      "weight": 180,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer DNg13_R downstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer DNg13_R downstream \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "DNg13_R",
       "post": "IN17A025_L",
-      "weight": 196,
+      "weight": 180,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer DNg13_R downstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer DNg13_R downstream \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "DNg13_L",
       "post": "IN17A022_R",
-      "weight": 207,
+      "weight": 190,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer DNg13_L downstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer DNg13_L downstream \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "DNg13_R",
       "post": "IN17A022_R",
-      "weight": 207,
+      "weight": 190,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer DNg13_L downstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer DNg13_L downstream \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "DNg13_L",
       "post": "IN13B006_L",
-      "weight": 172,
+      "weight": 158,
       "nt": "GABA",
       "sign": -1,
-      "evidence": "Cell Type Explorer DNg13_L downstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer DNg13_L downstream \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "DNg13_R",
       "post": "IN13B006_L",
-      "weight": 172,
+      "weight": 158,
       "nt": "GABA",
       "sign": -1,
-      "evidence": "Cell Type Explorer DNg13_L downstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer DNg13_L downstream \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "DNg13_L",
       "post": "IN09A002",
-      "weight": 10,
+      "weight": 9,
       "nt": "GABA",
       "sign": -1,
-      "evidence": "Cell Type Explorer DNg13_R downstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer DNg13_R downstream \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "DNg13_R",
       "post": "IN09A002",
-      "weight": 10,
+      "weight": 9,
       "nt": "GABA",
       "sign": -1,
-      "evidence": "Cell Type Explorer DNg13_R downstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer DNg13_R downstream \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "DNg13_L",
@@ -2569,8 +2571,8 @@
       "weight": 6,
       "nt": "GABA",
       "sign": -1,
-      "evidence": "Cell Type Explorer DNg13_R downstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer DNg13_R downstream \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "DNg13_R",
@@ -2578,8 +2580,8 @@
       "weight": 6,
       "nt": "GABA",
       "sign": -1,
-      "evidence": "Cell Type Explorer DNg13_R downstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer DNg13_R downstream \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "DNg13_L",
@@ -2587,8 +2589,8 @@
       "weight": 3,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer DNg13_R downstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer DNg13_R downstream \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "DNg13_R",
@@ -2596,8 +2598,8 @@
       "weight": 3,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer DNg13_R downstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer DNg13_R downstream \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "DNg13_L",
@@ -2605,8 +2607,8 @@
       "weight": 2,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer DNg13_R downstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer DNg13_R downstream \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "DNg13_R",
@@ -2614,8 +2616,8 @@
       "weight": 2,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer DNg13_R downstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer DNg13_R downstream \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "DNg13_L",
@@ -2623,8 +2625,8 @@
       "weight": 1,
       "nt": "OA",
       "sign": 1,
-      "evidence": "Cell Type Explorer DNg13_R downstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer DNg13_R downstream \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "DNg13_R",
@@ -2632,44 +2634,44 @@
       "weight": 1,
       "nt": "OA",
       "sign": 1,
-      "evidence": "Cell Type Explorer DNg13_R downstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer DNg13_R downstream \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "DNg86_L",
       "post": "CB0244_L",
-      "weight": 11,
+      "weight": 10,
       "nt": "unc",
       "sign": 1,
-      "evidence": "Cell Type Explorer CB0244 upstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer CB0244 upstream \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "DNg86_L",
       "post": "CB0244_R",
-      "weight": 11,
+      "weight": 10,
       "nt": "unc",
       "sign": 1,
-      "evidence": "Cell Type Explorer CB0244 upstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer CB0244 upstream \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "AN05B007_L",
       "post": "CB0244_L",
-      "weight": 10,
+      "weight": 9,
       "nt": "GABA",
       "sign": -1,
-      "evidence": "Cell Type Explorer CB0244 upstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer CB0244 upstream \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "AN05B007_L",
       "post": "CB0244_R",
-      "weight": 10,
+      "weight": 9,
       "nt": "GABA",
       "sign": -1,
-      "evidence": "Cell Type Explorer CB0244 upstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer CB0244 upstream \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "LAL016_L",
@@ -2677,8 +2679,8 @@
       "weight": 5,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer CB0244 upstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer CB0244 upstream \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "LAL016_L",
@@ -2686,26 +2688,26 @@
       "weight": 5,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer CB0244 upstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer CB0244 upstream \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "CB0244_L",
       "post": "GNG469_L",
-      "weight": 10,
+      "weight": 9,
       "nt": "GABA",
       "sign": -1,
-      "evidence": "Cell Type Explorer CB0244 downstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer CB0244 downstream \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "CB0244_R",
       "post": "GNG469_L",
-      "weight": 10,
+      "weight": 9,
       "nt": "GABA",
       "sign": -1,
-      "evidence": "Cell Type Explorer CB0244 downstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer CB0244 downstream \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "CB0244_L",
@@ -2713,8 +2715,8 @@
       "weight": 5,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer CB0244 downstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer CB0244 downstream \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "CB0244_R",
@@ -2722,8 +2724,8 @@
       "weight": 5,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer CB0244 downstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer CB0244 downstream \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "CB0244_L",
@@ -2731,8 +2733,8 @@
       "weight": 5,
       "nt": "Glu",
       "sign": -1,
-      "evidence": "Cell Type Explorer CB0244 downstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer CB0244 downstream \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "CB0244_R",
@@ -2740,8 +2742,8 @@
       "weight": 5,
       "nt": "Glu",
       "sign": -1,
-      "evidence": "Cell Type Explorer CB0244 downstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer CB0244 downstream \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "CB0244_L",
@@ -2749,8 +2751,8 @@
       "weight": 2,
       "nt": "OA",
       "sign": 1,
-      "evidence": "Cell Type Explorer CB0244 downstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer CB0244 downstream \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "CB0244_R",
@@ -2758,8 +2760,8 @@
       "weight": 2,
       "nt": "OA",
       "sign": 1,
-      "evidence": "Cell Type Explorer CB0244 downstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer CB0244 downstream \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "CB0244_L",
@@ -2767,8 +2769,8 @@
       "weight": 2,
       "nt": "GABA",
       "sign": -1,
-      "evidence": "Cell Type Explorer CB0244 downstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer CB0244 downstream \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "CB0244_R",
@@ -2776,8 +2778,8 @@
       "weight": 2,
       "nt": "GABA",
       "sign": -1,
-      "evidence": "Cell Type Explorer CB0244 downstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer CB0244 downstream \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "CB0244_L",
@@ -2785,8 +2787,8 @@
       "weight": 1,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer CB0244 downstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer CB0244 downstream \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "CB0244_R",
@@ -2794,8 +2796,8 @@
       "weight": 1,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer CB0244 downstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer CB0244 downstream \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "CB0244_L",
@@ -2803,8 +2805,8 @@
       "weight": 1,
       "nt": "Glu",
       "sign": -1,
-      "evidence": "Cell Type Explorer CB0244 downstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer CB0244 downstream \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "CB0244_R",
@@ -2812,80 +2814,80 @@
       "weight": 1,
       "nt": "Glu",
       "sign": -1,
-      "evidence": "Cell Type Explorer CB0244 downstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer CB0244 downstream \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "LC10b_R",
       "post": "LoVP92_L",
-      "weight": 35,
+      "weight": 32,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer LoVP92_R upstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer LoVP92_R upstream \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "LC10b_R",
       "post": "LoVP92_R",
-      "weight": 35,
+      "weight": 32,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer LoVP92_R upstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer LoVP92_R upstream \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "LoVP50_L",
       "post": "LoVP92_L",
-      "weight": 10,
+      "weight": 9,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer LoVP92_R upstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer LoVP92_R upstream \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "LoVP50_L",
       "post": "LoVP92_R",
-      "weight": 10,
+      "weight": 9,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer LoVP92_R upstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer LoVP92_R upstream \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "LC10a_R",
       "post": "LoVP92_L",
-      "weight": 9,
+      "weight": 8,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer LoVP92_R upstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer LoVP92_R upstream \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "LC10a_R",
       "post": "LoVP92_R",
-      "weight": 9,
+      "weight": 8,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer LoVP92_R upstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer LoVP92_R upstream \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "LoVP92_R",
       "post": "LoVP92_L",
-      "weight": 8,
+      "weight": 7,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer LoVP92_R upstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer LoVP92_R upstream \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "LoVP92_R",
       "post": "LoVP92_R",
-      "weight": 8,
+      "weight": 7,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer LoVP92_R upstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer LoVP92_R upstream \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "AN06B009_L",
@@ -2893,8 +2895,8 @@
       "weight": 3,
       "nt": "GABA",
       "sign": -1,
-      "evidence": "Cell Type Explorer LoVP92 upstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer LoVP92 upstream \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "AN06B009_L",
@@ -2902,17 +2904,17 @@
       "weight": 3,
       "nt": "GABA",
       "sign": -1,
-      "evidence": "Cell Type Explorer LoVP92 upstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer LoVP92 upstream \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "LoVP92_L",
       "post": "LoVP92_R",
-      "weight": 8,
+      "weight": 7,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer LoVP92_R downstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer LoVP92_R downstream \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "LoVP92_L",
@@ -2920,8 +2922,8 @@
       "weight": 3,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer LoVP92 downstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer LoVP92 downstream \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "LoVP92_R",
@@ -2929,26 +2931,26 @@
       "weight": 3,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer LoVP92 downstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer LoVP92 downstream \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "Y12_L",
       "post": "LoVP92_L",
-      "weight": 15,
+      "weight": 14,
       "nt": "Glu",
       "sign": -1,
-      "evidence": "Cell Type Explorer LoVP92 upstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer LoVP92 upstream \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "Y12_L",
       "post": "LoVP92_R",
-      "weight": 15,
+      "weight": 14,
       "nt": "Glu",
       "sign": -1,
-      "evidence": "Cell Type Explorer LoVP92 upstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer LoVP92 upstream \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "Tm5a_L",
@@ -2956,8 +2958,8 @@
       "weight": 5,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer LoVP92 upstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer LoVP92 upstream \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "Tm5a_L",
@@ -2965,8 +2967,8 @@
       "weight": 5,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer LoVP92 upstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer LoVP92 upstream \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "LoVP92_L",
@@ -2974,8 +2976,8 @@
       "weight": 4,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer LoVP92 downstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer LoVP92 downstream \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "LoVP92_R",
@@ -2983,53 +2985,53 @@
       "weight": 4,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer LoVP92 downstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer LoVP92 downstream \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "LC6_L",
       "post": "LoVP92_L",
-      "weight": 7,
+      "weight": 6,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer LoVP92_L upstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer LoVP92_L upstream \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "LC6_L",
       "post": "LoVP92_R",
-      "weight": 7,
+      "weight": 6,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer LoVP92_L upstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer LoVP92_L upstream \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "LoVP92_L",
       "post": "VES200m_L",
-      "weight": 28,
+      "weight": 26,
       "nt": "Glu",
       "sign": -1,
-      "evidence": "Cell Type Explorer LoVP92_L downstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer LoVP92_L downstream \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "LoVP92_R",
       "post": "VES200m_L",
-      "weight": 28,
+      "weight": 26,
       "nt": "Glu",
       "sign": -1,
-      "evidence": "Cell Type Explorer LoVP92_L downstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer LoVP92_L downstream \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "OA-VUMa1",
       "post": "DNa02",
-      "weight": 44,
+      "weight": 40,
       "nt": "OA",
       "sign": 1,
-      "evidence": "Cell Type Explorer DNa02 upstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer DNa02 upstream \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "PS002",
@@ -3037,8 +3039,8 @@
       "weight": 5,
       "nt": "GABA",
       "sign": -1,
-      "evidence": "Cell Type Explorer DNa02 upstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer DNa02 upstream \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "PLP225_L",
@@ -3046,35 +3048,35 @@
       "weight": 1,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer DNa02 upstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer DNa02 upstream \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "DNa02",
       "post": "GNG003",
-      "weight": 23,
+      "weight": 21,
       "nt": "GABA",
       "sign": -1,
-      "evidence": "Cell Type Explorer DNa02 downstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer DNa02 downstream \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "DNa02",
       "post": "GNG283",
-      "weight": 12,
+      "weight": 11,
       "nt": "unc",
       "sign": 1,
-      "evidence": "Cell Type Explorer DNa02 downstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer DNa02 downstream \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "DNa02",
       "post": "IN09A002",
-      "weight": 8,
+      "weight": 7,
       "nt": "GABA",
       "sign": -1,
-      "evidence": "Cell Type Explorer DNa02 downstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer DNa02 downstream \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "DNa02",
@@ -3082,116 +3084,116 @@
       "weight": 6,
       "nt": "Glu",
       "sign": -1,
-      "evidence": "Cell Type Explorer DNa02 downstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer DNa02 downstream \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "CB0244_L",
       "post": "DNg13_L",
-      "weight": 167,
+      "weight": 154,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer DNg13_L upstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer DNg13_L upstream \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "CB0244_L",
       "post": "DNg13_R",
-      "weight": 167,
+      "weight": 154,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer DNg13_L upstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer DNg13_L upstream \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "LAL073_R",
       "post": "DNg13_L",
-      "weight": 161,
+      "weight": 148,
       "nt": "Glu",
       "sign": -1,
-      "evidence": "Cell Type Explorer DNg13_L upstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer DNg13_L upstream \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "LAL073_R",
       "post": "DNg13_R",
-      "weight": 161,
+      "weight": 148,
       "nt": "Glu",
       "sign": -1,
-      "evidence": "Cell Type Explorer DNg13_L upstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer DNg13_L upstream \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "GNG532_L",
       "post": "DNg13_L",
-      "weight": 156,
+      "weight": 144,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer DNg13_L upstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer DNg13_L upstream \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "GNG532_L",
       "post": "DNg13_R",
-      "weight": 156,
+      "weight": 144,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer DNg13_L upstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer DNg13_L upstream \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "DNg97_R",
       "post": "DNg13_L",
-      "weight": 140,
+      "weight": 129,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer DNg13_L upstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer DNg13_L upstream \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "DNg97_R",
       "post": "DNg13_R",
-      "weight": 140,
+      "weight": 129,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer DNg13_L upstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer DNg13_L upstream \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "DNp13_R",
       "post": "DNg13_L",
-      "weight": 98,
+      "weight": 90,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer DNg13_L upstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer DNg13_L upstream \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "DNp13_R",
       "post": "DNg13_R",
-      "weight": 98,
+      "weight": 90,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer DNg13_L upstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer DNg13_L upstream \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "AOTU019_R",
       "post": "DNg13_L",
-      "weight": 10,
+      "weight": 9,
       "nt": "GABA",
       "sign": -1,
-      "evidence": "Cell Type Explorer DNg13_L upstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer DNg13_L upstream \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "AOTU019_R",
       "post": "DNg13_R",
-      "weight": 10,
+      "weight": 9,
       "nt": "GABA",
       "sign": -1,
-      "evidence": "Cell Type Explorer DNg13_L upstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer DNg13_L upstream \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "IN16B045_R",
@@ -3199,8 +3201,8 @@
       "weight": 6,
       "nt": "Glu",
       "sign": -1,
-      "evidence": "Cell Type Explorer DNg13_L upstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer DNg13_L upstream \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "IN16B045_R",
@@ -3208,8 +3210,8 @@
       "weight": 6,
       "nt": "Glu",
       "sign": -1,
-      "evidence": "Cell Type Explorer DNg13_L upstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer DNg13_L upstream \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "GNG552_L",
@@ -3217,8 +3219,8 @@
       "weight": 2,
       "nt": "Glu",
       "sign": -1,
-      "evidence": "Cell Type Explorer DNg13_L upstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer DNg13_L upstream \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "GNG552_L",
@@ -3226,8 +3228,8 @@
       "weight": 2,
       "nt": "Glu",
       "sign": -1,
-      "evidence": "Cell Type Explorer DNg13_L upstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer DNg13_L upstream \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "IN17A022_R",
@@ -3235,8 +3237,8 @@
       "weight": 1,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer DNg13_L upstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer DNg13_L upstream \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "IN17A022_R",
@@ -3244,8 +3246,8 @@
       "weight": 1,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer DNg13_L upstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer DNg13_L upstream \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "PLP225_L",
@@ -3253,8 +3255,8 @@
       "weight": 1,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer DNg13_L upstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer DNg13_L upstream \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "PLP225_L",
@@ -3262,8 +3264,8 @@
       "weight": 1,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer DNg13_L upstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer DNg13_L upstream \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "DNge023_L",
@@ -3271,8 +3273,8 @@
       "weight": 1,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer DNg13_L upstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer DNg13_L upstream \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "DNge023_L",
@@ -3280,62 +3282,62 @@
       "weight": 1,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer DNg13_L upstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer DNg13_L upstream \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "DNg13_L",
       "post": "IN16B045_R",
-      "weight": 481,
+      "weight": 443,
       "nt": "Glu",
       "sign": -1,
-      "evidence": "Cell Type Explorer DNg13_L downstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer DNg13_L downstream \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "DNg13_R",
       "post": "IN16B045_R",
-      "weight": 481,
+      "weight": 443,
       "nt": "Glu",
       "sign": -1,
-      "evidence": "Cell Type Explorer DNg13_L downstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer DNg13_L downstream \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "DNg13_L",
       "post": "IN19A016_R",
-      "weight": 272,
+      "weight": 250,
       "nt": "GABA",
       "sign": -1,
-      "evidence": "Cell Type Explorer DNg13_L downstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer DNg13_L downstream \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "DNg13_R",
       "post": "IN19A016_R",
-      "weight": 272,
+      "weight": 250,
       "nt": "GABA",
       "sign": -1,
-      "evidence": "Cell Type Explorer DNg13_L downstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer DNg13_L downstream \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "DNg13_L",
       "post": "IN17A025_R",
-      "weight": 214,
+      "weight": 197,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer DNg13_L downstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer DNg13_L downstream \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "DNg13_R",
       "post": "IN17A025_R",
-      "weight": 214,
+      "weight": 197,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer DNg13_L downstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer DNg13_L downstream \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "DNg13_L",
@@ -3343,8 +3345,8 @@
       "weight": 1,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer DNg13_L downstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer DNg13_L downstream \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "DNg13_R",
@@ -3352,8 +3354,8 @@
       "weight": 1,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer DNg13_L downstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer DNg13_L downstream \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "DNg13_L",
@@ -3361,8 +3363,8 @@
       "weight": 1,
       "nt": "Glu",
       "sign": -1,
-      "evidence": "Cell Type Explorer DNg13_L downstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer DNg13_L downstream \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "DNg13_R",
@@ -3370,8 +3372,8 @@
       "weight": 1,
       "nt": "Glu",
       "sign": -1,
-      "evidence": "Cell Type Explorer DNg13_L downstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer DNg13_L downstream \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "DNg13_L",
@@ -3379,8 +3381,8 @@
       "weight": 1,
       "nt": "Glu",
       "sign": -1,
-      "evidence": "Cell Type Explorer DNg13_L downstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer DNg13_L downstream \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "DNg13_R",
@@ -3388,8 +3390,8 @@
       "weight": 1,
       "nt": "Glu",
       "sign": -1,
-      "evidence": "Cell Type Explorer DNg13_L downstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer DNg13_L downstream \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "DNg13_L",
@@ -3397,8 +3399,8 @@
       "weight": 1,
       "nt": "Glu",
       "sign": -1,
-      "evidence": "Cell Type Explorer DNg13_L downstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer DNg13_L downstream \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "DNg13_R",
@@ -3406,8 +3408,8 @@
       "weight": 1,
       "nt": "Glu",
       "sign": -1,
-      "evidence": "Cell Type Explorer DNg13_L downstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer DNg13_L downstream \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "DNg13_L",
@@ -3415,8 +3417,8 @@
       "weight": 1,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer DNg13_L downstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer DNg13_L downstream \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "DNg13_R",
@@ -3424,8 +3426,8 @@
       "weight": 1,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell Type Explorer DNg13_L downstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer DNg13_L downstream \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "DNg13_L",
@@ -3433,8 +3435,8 @@
       "weight": 1,
       "nt": "GABA",
       "sign": -1,
-      "evidence": "Cell Type Explorer DNg13_L downstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer DNg13_L downstream \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "DNg13_R",
@@ -3442,728 +3444,728 @@
       "weight": 1,
       "nt": "GABA",
       "sign": -1,
-      "evidence": "Cell Type Explorer DNg13_L downstream",
-      "weight_source": "explorer"
+      "evidence": "Cell Type Explorer DNg13_L downstream \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "R1-R6_L",
       "post": "L1_L",
-      "weight": 80,
+      "weight": 74,
       "nt": "His",
       "sign": 1,
-      "evidence": "optic-lobe feedforward (heuristic fallback)",
-      "weight_source": "heuristic"
+      "evidence": "optic-lobe feedforward (heuristic fallback) \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "R1-R6_L",
       "post": "L2_L",
-      "weight": 70,
+      "weight": 64,
       "nt": "His",
       "sign": 1,
-      "evidence": "optic-lobe feedforward (heuristic fallback)",
-      "weight_source": "heuristic"
+      "evidence": "optic-lobe feedforward (heuristic fallback) \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "R1-R6_L",
       "post": "L3_L",
-      "weight": 55,
+      "weight": 51,
       "nt": "His",
       "sign": 1,
-      "evidence": "lamina L3 pathway (heuristic fallback)",
-      "weight_source": "heuristic"
+      "evidence": "lamina L3 pathway (heuristic fallback) \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "L1_L",
       "post": "C2_L",
-      "weight": 30,
+      "weight": 28,
       "nt": "His",
       "sign": 1,
-      "evidence": "lamina \u2192 C2 feedback (heuristic fallback)",
-      "weight_source": "heuristic"
+      "evidence": "lamina \u2192 C2 feedback (heuristic fallback) \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "C2_L",
       "post": "L1_L",
-      "weight": 22,
+      "weight": 20,
       "nt": "GABA",
       "sign": -1,
-      "evidence": "C2 inhibitory feedback (heuristic fallback)",
-      "weight_source": "heuristic"
+      "evidence": "C2 inhibitory feedback (heuristic fallback) \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "C2_L",
       "post": "L2_L",
-      "weight": 18,
+      "weight": 17,
       "nt": "GABA",
       "sign": -1,
-      "evidence": "C2 inhibitory feedback (heuristic fallback)",
-      "weight_source": "heuristic"
+      "evidence": "C2 inhibitory feedback (heuristic fallback) \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "L1_L",
       "post": "Mi1_L",
-      "weight": 55,
+      "weight": 51,
       "nt": "His",
       "sign": 1,
-      "evidence": "lamina \u2192 medulla (heuristic fallback)",
-      "weight_source": "heuristic"
+      "evidence": "lamina \u2192 medulla (heuristic fallback) \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "L2_L",
       "post": "Mi1_L",
-      "weight": 48,
+      "weight": 44,
       "nt": "His",
       "sign": 1,
-      "evidence": "lamina \u2192 medulla (heuristic fallback)",
-      "weight_source": "heuristic"
+      "evidence": "lamina \u2192 medulla (heuristic fallback) \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "L2_L",
       "post": "Tm3_L",
-      "weight": 42,
+      "weight": 39,
       "nt": "His",
       "sign": 1,
-      "evidence": "lamina \u2192 Tm3 (heuristic fallback)",
-      "weight_source": "heuristic"
+      "evidence": "lamina \u2192 Tm3 (heuristic fallback) \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "L3_L",
       "post": "Tm3_L",
-      "weight": 36,
+      "weight": 33,
       "nt": "His",
       "sign": 1,
-      "evidence": "L3 \u2192 Tm3 (heuristic fallback)",
-      "weight_source": "heuristic"
+      "evidence": "L3 \u2192 Tm3 (heuristic fallback) \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "Mi1_L",
       "post": "T4a_L",
-      "weight": 42,
+      "weight": 39,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "medulla \u2192 lobula plate motion (heuristic fallback)",
-      "weight_source": "heuristic"
+      "evidence": "medulla \u2192 lobula plate motion (heuristic fallback) \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "Tm3_L",
       "post": "T4b_L",
-      "weight": 38,
+      "weight": 35,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Tm3 \u2192 T4b motion (heuristic fallback)",
-      "weight_source": "heuristic"
+      "evidence": "Tm3 \u2192 T4b motion (heuristic fallback) \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "Mi1_L",
       "post": "Mi4_L",
-      "weight": 20,
+      "weight": 18,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Mi1 \u2192 Mi4 (heuristic fallback)",
-      "weight_source": "heuristic"
+      "evidence": "Mi1 \u2192 Mi4 (heuristic fallback) \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "Mi4_L",
       "post": "T4a_L",
-      "weight": 24,
+      "weight": 22,
       "nt": "GABA",
       "sign": -1,
-      "evidence": "Mi4 motion gain control (heuristic fallback)",
-      "weight_source": "heuristic"
+      "evidence": "Mi4 motion gain control (heuristic fallback) \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "L2_L",
       "post": "T5a_L",
-      "weight": 38,
+      "weight": 35,
       "nt": "His",
       "sign": 1,
-      "evidence": "lamina/lobula motion pathway (heuristic fallback)",
-      "weight_source": "heuristic"
+      "evidence": "lamina/lobula motion pathway (heuristic fallback) \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "T4a_L",
       "post": "LC10a_L",
-      "weight": 36,
+      "weight": 33,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "motion \u2192 object feature (heuristic fallback)",
-      "weight_source": "heuristic"
+      "evidence": "motion \u2192 object feature (heuristic fallback) \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "T4b_L",
       "post": "LC10b_L",
-      "weight": 32,
+      "weight": 29,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "motion \u2192 LC10b (heuristic fallback)",
-      "weight_source": "heuristic"
+      "evidence": "motion \u2192 LC10b (heuristic fallback) \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "T5a_L",
       "post": "LC10a_L",
-      "weight": 28,
+      "weight": 26,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "motion \u2192 object feature (heuristic fallback)",
-      "weight_source": "heuristic"
+      "evidence": "motion \u2192 object feature (heuristic fallback) \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "T5a_L",
       "post": "LC6_L",
-      "weight": 22,
+      "weight": 20,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "motion \u2192 LC6 (heuristic fallback)",
-      "weight_source": "heuristic"
+      "evidence": "motion \u2192 LC6 (heuristic fallback) \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "Mi1_L",
       "post": "MeTu1_L",
-      "weight": 26,
+      "weight": 24,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "medulla \u2192 MeTu relay (heuristic fallback)",
-      "weight_source": "heuristic"
+      "evidence": "medulla \u2192 MeTu relay (heuristic fallback) \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "Tm3_L",
       "post": "MeTu1_L",
-      "weight": 20,
+      "weight": 18,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Tm3 \u2192 MeTu (heuristic fallback)",
-      "weight_source": "heuristic"
+      "evidence": "Tm3 \u2192 MeTu (heuristic fallback) \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "LC10a_L",
       "post": "LoVP92_L",
-      "weight": 24,
+      "weight": 22,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "VPN convergence (heuristic fallback)",
-      "weight_source": "heuristic"
+      "evidence": "VPN convergence (heuristic fallback) \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "LC10b_L",
       "post": "LoVP92_L",
-      "weight": 18,
+      "weight": 17,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "LC10b \u2192 LoVP92 (heuristic fallback)",
-      "weight_source": "heuristic"
+      "evidence": "LC10b \u2192 LoVP92 (heuristic fallback) \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "LC6_L",
       "post": "LoVP11_L",
-      "weight": 16,
+      "weight": 15,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "LC6 \u2192 LoVP11 (heuristic fallback)",
-      "weight_source": "heuristic"
+      "evidence": "LC6 \u2192 LoVP11 (heuristic fallback) \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "MeTu1_L",
       "post": "LoVP92_L",
-      "weight": 14,
+      "weight": 13,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "MeTu \u2192 VPN (heuristic fallback)",
-      "weight_source": "heuristic"
+      "evidence": "MeTu \u2192 VPN (heuristic fallback) \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "LoVP11_L",
       "post": "LoVP92_L",
-      "weight": 12,
+      "weight": 11,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "VPN local mix (heuristic fallback)",
-      "weight_source": "heuristic"
+      "evidence": "VPN local mix (heuristic fallback) \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "R1-R6_R",
       "post": "L1_R",
-      "weight": 80,
+      "weight": 74,
       "nt": "His",
       "sign": 1,
-      "evidence": "optic-lobe feedforward (heuristic fallback)",
-      "weight_source": "heuristic"
+      "evidence": "optic-lobe feedforward (heuristic fallback) \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "R1-R6_R",
       "post": "L2_R",
-      "weight": 70,
+      "weight": 64,
       "nt": "His",
       "sign": 1,
-      "evidence": "optic-lobe feedforward (heuristic fallback)",
-      "weight_source": "heuristic"
+      "evidence": "optic-lobe feedforward (heuristic fallback) \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "R1-R6_R",
       "post": "L3_R",
-      "weight": 55,
+      "weight": 51,
       "nt": "His",
       "sign": 1,
-      "evidence": "lamina L3 pathway (heuristic fallback)",
-      "weight_source": "heuristic"
+      "evidence": "lamina L3 pathway (heuristic fallback) \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "L1_R",
       "post": "C2_R",
-      "weight": 30,
+      "weight": 28,
       "nt": "His",
       "sign": 1,
-      "evidence": "lamina \u2192 C2 feedback (heuristic fallback)",
-      "weight_source": "heuristic"
+      "evidence": "lamina \u2192 C2 feedback (heuristic fallback) \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "C2_R",
       "post": "L1_R",
-      "weight": 22,
+      "weight": 20,
       "nt": "GABA",
       "sign": -1,
-      "evidence": "C2 inhibitory feedback (heuristic fallback)",
-      "weight_source": "heuristic"
+      "evidence": "C2 inhibitory feedback (heuristic fallback) \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "C2_R",
       "post": "L2_R",
-      "weight": 18,
+      "weight": 17,
       "nt": "GABA",
       "sign": -1,
-      "evidence": "C2 inhibitory feedback (heuristic fallback)",
-      "weight_source": "heuristic"
+      "evidence": "C2 inhibitory feedback (heuristic fallback) \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "L1_R",
       "post": "Mi1_R",
-      "weight": 55,
+      "weight": 51,
       "nt": "His",
       "sign": 1,
-      "evidence": "lamina \u2192 medulla (heuristic fallback)",
-      "weight_source": "heuristic"
+      "evidence": "lamina \u2192 medulla (heuristic fallback) \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "L2_R",
       "post": "Mi1_R",
-      "weight": 48,
+      "weight": 44,
       "nt": "His",
       "sign": 1,
-      "evidence": "lamina \u2192 medulla (heuristic fallback)",
-      "weight_source": "heuristic"
+      "evidence": "lamina \u2192 medulla (heuristic fallback) \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "L2_R",
       "post": "Tm3_R",
-      "weight": 42,
+      "weight": 39,
       "nt": "His",
       "sign": 1,
-      "evidence": "lamina \u2192 Tm3 (heuristic fallback)",
-      "weight_source": "heuristic"
+      "evidence": "lamina \u2192 Tm3 (heuristic fallback) \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "L3_R",
       "post": "Tm3_R",
-      "weight": 36,
+      "weight": 33,
       "nt": "His",
       "sign": 1,
-      "evidence": "L3 \u2192 Tm3 (heuristic fallback)",
-      "weight_source": "heuristic"
+      "evidence": "L3 \u2192 Tm3 (heuristic fallback) \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "Mi1_R",
       "post": "T4a_R",
-      "weight": 42,
+      "weight": 39,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "medulla \u2192 lobula plate motion (heuristic fallback)",
-      "weight_source": "heuristic"
+      "evidence": "medulla \u2192 lobula plate motion (heuristic fallback) \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "Tm3_R",
       "post": "T4b_R",
-      "weight": 38,
+      "weight": 35,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Tm3 \u2192 T4b motion (heuristic fallback)",
-      "weight_source": "heuristic"
+      "evidence": "Tm3 \u2192 T4b motion (heuristic fallback) \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "Mi1_R",
       "post": "Mi4_R",
-      "weight": 20,
+      "weight": 18,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Mi1 \u2192 Mi4 (heuristic fallback)",
-      "weight_source": "heuristic"
+      "evidence": "Mi1 \u2192 Mi4 (heuristic fallback) \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "Mi4_R",
       "post": "T4a_R",
-      "weight": 24,
+      "weight": 22,
       "nt": "GABA",
       "sign": -1,
-      "evidence": "Mi4 motion gain control (heuristic fallback)",
-      "weight_source": "heuristic"
+      "evidence": "Mi4 motion gain control (heuristic fallback) \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "L2_R",
       "post": "T5a_R",
-      "weight": 38,
+      "weight": 35,
       "nt": "His",
       "sign": 1,
-      "evidence": "lamina/lobula motion pathway (heuristic fallback)",
-      "weight_source": "heuristic"
+      "evidence": "lamina/lobula motion pathway (heuristic fallback) \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "T4a_R",
       "post": "LC10a_R",
-      "weight": 36,
+      "weight": 33,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "motion \u2192 object feature (heuristic fallback)",
-      "weight_source": "heuristic"
+      "evidence": "motion \u2192 object feature (heuristic fallback) \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "T4b_R",
       "post": "LC10b_R",
-      "weight": 32,
+      "weight": 29,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "motion \u2192 LC10b (heuristic fallback)",
-      "weight_source": "heuristic"
+      "evidence": "motion \u2192 LC10b (heuristic fallback) \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "T5a_R",
       "post": "LC10a_R",
-      "weight": 28,
+      "weight": 26,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "motion \u2192 object feature (heuristic fallback)",
-      "weight_source": "heuristic"
+      "evidence": "motion \u2192 object feature (heuristic fallback) \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "T5a_R",
       "post": "LC6_R",
-      "weight": 22,
+      "weight": 20,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "motion \u2192 LC6 (heuristic fallback)",
-      "weight_source": "heuristic"
+      "evidence": "motion \u2192 LC6 (heuristic fallback) \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "Mi1_R",
       "post": "MeTu1_R",
-      "weight": 26,
+      "weight": 24,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "medulla \u2192 MeTu relay (heuristic fallback)",
-      "weight_source": "heuristic"
+      "evidence": "medulla \u2192 MeTu relay (heuristic fallback) \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "Tm3_R",
       "post": "MeTu1_R",
-      "weight": 20,
+      "weight": 18,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Tm3 \u2192 MeTu (heuristic fallback)",
-      "weight_source": "heuristic"
+      "evidence": "Tm3 \u2192 MeTu (heuristic fallback) \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "LC6_R",
       "post": "LoVP11_R",
-      "weight": 16,
+      "weight": 15,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "LC6 \u2192 LoVP11 (heuristic fallback)",
-      "weight_source": "heuristic"
+      "evidence": "LC6 \u2192 LoVP11 (heuristic fallback) \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "MeTu1_R",
       "post": "LoVP92_R",
-      "weight": 14,
+      "weight": 13,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "MeTu \u2192 VPN (heuristic fallback)",
-      "weight_source": "heuristic"
+      "evidence": "MeTu \u2192 VPN (heuristic fallback) \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "LoVP11_R",
       "post": "LoVP92_R",
-      "weight": 12,
+      "weight": 11,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "VPN local mix (heuristic fallback)",
-      "weight_source": "heuristic"
+      "evidence": "VPN local mix (heuristic fallback) \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "LoVP92_R",
       "post": "VES200m_R",
-      "weight": 90,
+      "weight": 83,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell paper frontal VPN\u2192VES200m",
-      "weight_source": "heuristic"
+      "evidence": "Cell paper frontal VPN\u2192VES200m \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "LoVP92_L",
       "post": "VES200m_R",
-      "weight": 40,
+      "weight": 37,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "Cell paper bilateral VES200m",
-      "weight_source": "heuristic"
+      "evidence": "Cell paper bilateral VES200m \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "LoVP92_L",
       "post": "AOTU019_L",
-      "weight": 40,
+      "weight": 37,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "VPN \u2192 AOTU (heuristic fallback)",
-      "weight_source": "heuristic"
+      "evidence": "VPN \u2192 AOTU (heuristic fallback) \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "MeTu1_L",
       "post": "AOTU019_L",
-      "weight": 28,
+      "weight": 26,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "MeTu \u2192 AOTU (heuristic fallback)",
-      "weight_source": "heuristic"
+      "evidence": "MeTu \u2192 AOTU (heuristic fallback) \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "AOTU019_L",
       "post": "LAL073_L",
-      "weight": 30,
+      "weight": 28,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "AOTU \u2192 LAL (heuristic fallback)",
-      "weight_source": "heuristic"
+      "evidence": "AOTU \u2192 LAL (heuristic fallback) \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "LoVP92_L",
       "post": "CB0244_L",
-      "weight": 36,
+      "weight": 33,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "VPN \u2192 central integrator (heuristic fallback)",
-      "weight_source": "heuristic"
+      "evidence": "VPN \u2192 central integrator (heuristic fallback) \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "LoVP92_L",
       "post": "LAL073_L",
-      "weight": 28,
+      "weight": 26,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "VPN \u2192 LAL (heuristic fallback)",
-      "weight_source": "heuristic"
+      "evidence": "VPN \u2192 LAL (heuristic fallback) \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "LoVP11_L",
       "post": "SMP108_L",
-      "weight": 18,
+      "weight": 17,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "VPN \u2192 SMP (heuristic fallback)",
-      "weight_source": "heuristic"
+      "evidence": "VPN \u2192 SMP (heuristic fallback) \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "SMP108_L",
       "post": "GNG532_L",
-      "weight": 22,
+      "weight": 20,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "SMP \u2192 GNG (heuristic fallback)",
-      "weight_source": "heuristic"
+      "evidence": "SMP \u2192 GNG (heuristic fallback) \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "CB0244_L",
       "post": "GNG532_L",
-      "weight": 26,
+      "weight": 24,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "proto \u2192 GNG (heuristic fallback)",
-      "weight_source": "heuristic"
+      "evidence": "proto \u2192 GNG (heuristic fallback) \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "GNG532_L",
       "post": "DNg97_L",
-      "weight": 24,
+      "weight": 22,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "GNG \u2192 DNg97 (heuristic fallback)",
-      "weight_source": "heuristic"
+      "evidence": "GNG \u2192 DNg97 (heuristic fallback) \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "CB0244_L",
       "post": "DNp13_L",
-      "weight": 20,
+      "weight": 18,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "proto \u2192 DNp13 (heuristic fallback)",
-      "weight_source": "heuristic"
+      "evidence": "proto \u2192 DNp13 (heuristic fallback) \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "LoVP92_R",
       "post": "AOTU019_R",
-      "weight": 40,
+      "weight": 37,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "VPN \u2192 AOTU (heuristic fallback)",
-      "weight_source": "heuristic"
+      "evidence": "VPN \u2192 AOTU (heuristic fallback) \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "MeTu1_R",
       "post": "AOTU019_R",
-      "weight": 28,
+      "weight": 26,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "MeTu \u2192 AOTU (heuristic fallback)",
-      "weight_source": "heuristic"
+      "evidence": "MeTu \u2192 AOTU (heuristic fallback) \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "AOTU019_R",
       "post": "LAL073_R",
-      "weight": 30,
+      "weight": 28,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "AOTU \u2192 LAL (heuristic fallback)",
-      "weight_source": "heuristic"
+      "evidence": "AOTU \u2192 LAL (heuristic fallback) \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "LoVP92_R",
       "post": "CB0244_R",
-      "weight": 36,
+      "weight": 33,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "VPN \u2192 central integrator (heuristic fallback)",
-      "weight_source": "heuristic"
+      "evidence": "VPN \u2192 central integrator (heuristic fallback) \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "LoVP92_R",
       "post": "LAL073_R",
-      "weight": 28,
+      "weight": 26,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "VPN \u2192 LAL (heuristic fallback)",
-      "weight_source": "heuristic"
+      "evidence": "VPN \u2192 LAL (heuristic fallback) \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "LoVP11_R",
       "post": "SMP108_R",
-      "weight": 18,
+      "weight": 17,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "VPN \u2192 SMP (heuristic fallback)",
-      "weight_source": "heuristic"
+      "evidence": "VPN \u2192 SMP (heuristic fallback) \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "SMP108_R",
       "post": "GNG532_R",
-      "weight": 22,
+      "weight": 20,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "SMP \u2192 GNG (heuristic fallback)",
-      "weight_source": "heuristic"
+      "evidence": "SMP \u2192 GNG (heuristic fallback) \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "CB0244_R",
       "post": "GNG532_R",
-      "weight": 26,
+      "weight": 24,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "proto \u2192 GNG (heuristic fallback)",
-      "weight_source": "heuristic"
+      "evidence": "proto \u2192 GNG (heuristic fallback) \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "GNG532_R",
       "post": "DNg97_R",
-      "weight": 24,
+      "weight": 22,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "GNG \u2192 DNg97 (heuristic fallback)",
-      "weight_source": "heuristic"
+      "evidence": "GNG \u2192 DNg97 (heuristic fallback) \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "CB0244_R",
       "post": "DNp13_R",
-      "weight": 20,
+      "weight": 18,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "proto \u2192 DNp13 (heuristic fallback)",
-      "weight_source": "heuristic"
+      "evidence": "proto \u2192 DNp13 (heuristic fallback) \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "CB0244_L",
       "post": "DNa02",
-      "weight": 44,
+      "weight": 40,
       "nt": "OA",
       "sign": 1,
-      "evidence": "DNa02 upstream",
-      "weight_source": "mirror"
+      "evidence": "DNa02 upstream \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "CB0244_R",
       "post": "DNa02",
-      "weight": 44,
+      "weight": 40,
       "nt": "OA",
       "sign": 1,
-      "evidence": "DNa02 upstream",
-      "weight_source": "mirror"
+      "evidence": "DNa02 upstream \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "LAL073_L",
       "post": "DNa02",
-      "weight": 18,
+      "weight": 17,
       "nt": "Glu",
       "sign": -1,
-      "evidence": "DNa02 LAL mix",
-      "weight_source": "heuristic"
+      "evidence": "DNa02 LAL mix \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "LAL073_R",
       "post": "DNa02",
-      "weight": 18,
+      "weight": 17,
       "nt": "Glu",
       "sign": -1,
-      "evidence": "DNa02 LAL mix",
-      "weight_source": "heuristic"
+      "evidence": "DNa02 LAL mix \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "DNa02",
       "post": "IN17A025_L",
-      "weight": 28,
+      "weight": 26,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "DNa02 \u2192 VNC",
-      "weight_source": "heuristic"
+      "evidence": "DNa02 \u2192 VNC \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "DNa02",
       "post": "IN17A025_R",
-      "weight": 28,
+      "weight": 26,
       "nt": "ACh",
       "sign": 1,
-      "evidence": "DNa02 \u2192 VNC",
-      "weight_source": "heuristic"
+      "evidence": "DNa02 \u2192 VNC \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "DNg13_L",
       "post": "DNg13_R",
-      "weight": 90,
+      "weight": 83,
       "nt": "Glu",
       "sign": -1,
-      "evidence": "bilateral DN mutual inhibition",
-      "weight_source": "heuristic"
+      "evidence": "bilateral DN mutual inhibition \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     },
     {
       "pre": "DNg13_R",
       "post": "DNg13_L",
-      "weight": 90,
+      "weight": 83,
       "nt": "Glu",
       "sign": -1,
-      "evidence": "bilateral DN mutual inhibition",
-      "weight_source": "heuristic"
+      "evidence": "bilateral DN mutual inhibition \u00b7 banc scaffold scale 0.92",
+      "weight_source": "scaffold"
     }
   ],
   "pathways": [

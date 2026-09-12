@@ -33,13 +33,40 @@ NEURONS_JSON = (
 TYPE_BASE = "https://reiserlab.github.io/celltype-explorer-drosophila-male-cns/types"
 TYPE_PAGES = [
     "DNg13_L",
+    "DNg13_R",
     "DNa02",
     "LoVP92",
+    "LoVP92_L",
+    "LoVP92_R",
     "VES200m",
+    "VES200m_L",
+    "VES200m_R",
     "R1-R6",
     "L1",
+    "L2",
+    "L3",
+    "C2",
+    "Mi1",
+    "Tm3",
+    "Mi4",
     "T4a",
+    "T4b",
+    "T5a",
     "LC10a",
+    "LC10b",
+    "LC6",
+    "MeTu1",
+    "LoVP11",
+    "AOTU019",
+    "CB0244",
+    "LAL073",
+    "GNG532",
+    "SMP108",
+    "DNg97",
+    "DNp13",
+    "IN16B045",
+    "IN19A016",
+    "IN17A025",
 ]
 
 UA = (
@@ -85,7 +112,7 @@ def main() -> int:
         except Exception as exc:
             print(f"WARN failed {url}: {exc}", file=sys.stderr)
 
-    print("Done. Next: python3 scripts/build_circuit.py")
+    print("Done. Next: python3 scripts/build_circuit.py && python3 scripts/build_datasets.py")
     return 0
 
 

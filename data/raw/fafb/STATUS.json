@@ -1,0 +1,40 @@
+{
+  "dataset": "fafb",
+  "sex": "female",
+  "portal": "https://codex.flywire.ai/api/download?dataset=fafb",
+  "fetched_at": "2026-09-12T11:20:50.271151+00:00",
+  "auth_required": true,
+  "files": {
+    "download_portal": {
+      "ok": true,
+      "bytes": 25638,
+      "content_type": "text/html; charset=utf-8"
+    },
+    "consolidated_cell_types": {
+      "ok": false,
+      "http": 401,
+      "error": "HTTP Error 401: Unauthorized"
+    },
+    "connections_princeton": {
+      "ok": false,
+      "http": 401,
+      "error": "HTTP Error 401: Unauthorized"
+    },
+    "connections_princeton_no_threshold": {
+      "ok": false,
+      "http": 401,
+      "error": "HTTP Error 401: Unauthorized"
+    },
+    "classification": {
+      "ok": false,
+      "http": 401,
+      "error": "HTTP Error 401: Unauthorized"
+    },
+    "neurons": {
+      "ok": false,
+      "http": 401,
+      "error": "HTTP Error 401: Unauthorized"
+    }
+  },
+  "note": "Codex FAFB bulk CSV download requires FlyWire / Google login. Open https://codex.flywire.ai/api/download?dataset=fafb in a browser, sign in, then re-run with --cookie '...' or place CSVs manually under data/raw/fafb/. Roadmap continues with scaffolded FAFB circuit + MaleCNS comparison."
+}
