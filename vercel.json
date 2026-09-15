@@ -7,6 +7,7 @@
     { "source": "/about", "destination": "/web/about" },
     { "source": "/tour", "destination": "/web/about" },
     { "source": "/onboarding", "destination": "/web/about" },
+    { "source": "/promo/promo-extended.mp4", "destination": "/web/promo/promo-extended.mp4" },
     { "source": "/api/nt", "destination": "/data/processed/nt_palette.json" },
     { "source": "/api/compare", "destination": "/data/processed/compare_fafb_mcns.json" },
     { "source": "/api/pathways", "destination": "/data/processed/pathways.json" },
