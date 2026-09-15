@@ -1,0 +1,35 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "framework": null,
+  "cleanUrls": true,
+  "rewrites": [
+    { "source": "/", "destination": "/web/index.html" },
+    { "source": "/about", "destination": "/web/about.html" },
+    { "source": "/about.html", "destination": "/web/about.html" },
+    { "source": "/tour", "destination": "/web/about.html" },
+    { "source": "/tour.html", "destination": "/web/about.html" },
+    { "source": "/onboarding", "destination": "/web/about.html" },
+    { "source": "/onboarding.html", "destination": "/web/about.html" },
+    { "source": "/api/nt", "destination": "/data/processed/nt_palette.json" },
+    { "source": "/api/compare", "destination": "/data/processed/compare_fafb_mcns.json" },
+    { "source": "/api/pathways", "destination": "/data/processed/pathways.json" },
+    { "source": "/api/datasets", "destination": "/data/processed/datasets.json" },
+    { "source": "/api/circuit", "destination": "/data/processed/circuit_malecns.json" }
+  ],
+  "headers": [
+    {
+      "source": "/data/processed/(.*)",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=3600, stale-while-revalidate=86400" },
+        { "key": "Content-Type", "value": "application/json; charset=utf-8" }
+      ]
+    },
+    {
+      "source": "/api/(.*)",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=3600, stale-while-revalidate=86400" },
+        { "key": "Content-Type", "value": "application/json; charset=utf-8" }
+      ]
+    }
+  ]
+}

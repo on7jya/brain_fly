@@ -50,6 +50,25 @@ const PIPELINE = [
 ];
 const PIPE_HINT_DEFAULT = "клик по стадии — фильтр узлов / связей / растра · «?» ниже — что делает каждая стадия";
 
+/** Static JSON paths (works on Vercel and with `python3 server.py`). */
+const CIRCUIT_FILES = {
+  "male-cns": "/data/processed/circuit_malecns.json",
+  malecns: "/data/processed/circuit_malecns.json",
+  mcns: "/data/processed/circuit_malecns.json",
+  fafb: "/data/processed/circuit_fafb.json",
+  banc: "/data/processed/circuit_banc.json",
+  manc: "/data/processed/circuit_manc.json",
+  maol: "/data/processed/circuit_maol.json",
+};
+const DATA_URLS = {
+  nt: "/data/processed/nt_palette.json",
+  compare: "/data/processed/compare_fafb_mcns.json",
+  pathways: "/data/processed/pathways.json",
+};
+function circuitUrl(id) {
+  return CIRCUIT_FILES[(id || "male-cns").toLowerCase()] || CIRCUIT_FILES["male-cns"];
+}
+
 const boardCanvas = document.getElementById("board");
 const nextCanvas = document.getElementById("next");
 const holdCanvas = document.getElementById("hold");
@@ -2737,7 +2756,7 @@ function applyCircuit(circuit, datasetId) {
 }
 
 async function loadDataset(id) {
-  const r = await fetch(`/api/circuit?dataset=${encodeURIComponent(id)}`);
+  const r = await fetch(circuitUrl(id));
   const circuit = await r.json();
   state.circuits[id] = circuit;
   applyCircuit(circuit, id);
@@ -2892,7 +2911,7 @@ document.getElementById("btn-compare")?.addEventListener("click", () => {
   }
   if (state.compareData) renderCompare();
   else {
-    fetch("/api/compare").then((r) => r.json()).then((d) => {
+    fetch(DATA_URLS.compare).then((r) => r.json()).then((d) => {
       state.compareData = d;
       renderCompare();
     });
@@ -2927,10 +2946,10 @@ document.getElementById("btn-rate")?.addEventListener("click", (e) => {
 });
 
 Promise.all([
-  fetch("/api/circuit?dataset=male-cns").then((r) => r.json()),
-  fetch("/api/circuit?dataset=fafb").then((r) => r.json()).catch(() => null),
-  fetch("/api/nt").then((r) => r.json()).catch(() => null),
-  fetch("/api/compare").then((r) => r.json()).catch(() => null),
+  fetch(circuitUrl("male-cns")).then((r) => r.json()),
+  fetch(circuitUrl("fafb")).then((r) => r.json()).catch(() => null),
+  fetch(DATA_URLS.nt).then((r) => r.json()).catch(() => null),
+  fetch(DATA_URLS.compare).then((r) => r.json()).catch(() => null),
 ])
   .then(([mcns, fafb, nt, compare]) => {
     state.circuits["male-cns"] = mcns;

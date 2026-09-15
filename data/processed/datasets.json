@@ -1,0 +1,49 @@
+{
+  "datasets": [
+    {
+      "id": "male-cns",
+      "file": "circuit_malecns.json",
+      "available": true,
+      "name": "Male CNS connectome v1.0",
+      "sex": "male",
+      "scaffold": false,
+      "limitation": null
+    },
+    {
+      "id": "fafb",
+      "file": "circuit_fafb.json",
+      "available": true,
+      "name": "FAFB v783 (FlyWire ♀ brain)",
+      "sex": "female",
+      "scaffold": false,
+      "limitation": null
+    },
+    {
+      "id": "banc",
+      "file": "circuit_banc.json",
+      "available": true,
+      "name": "BANC (scaffold)",
+      "sex": "mixed",
+      "scaffold": true,
+      "limitation": "No local BANC CSV — scaffold only."
+    },
+    {
+      "id": "manc",
+      "file": "circuit_manc.json",
+      "available": true,
+      "name": "MANC VNC-only (stub from MaleCNS DN/VNC)",
+      "sex": "male",
+      "scaffold": true,
+      "limitation": "Full MANC connectome bulk tables are not bundled. This mode filters descending + VNC nodes from the MaleCNS playable circuit as a teaching stub. Browse MANC on neuPrint / Codex for the real ventral nerve cord."
+    },
+    {
+      "id": "maol",
+      "file": "circuit_maol.json",
+      "available": true,
+      "name": "MAOL mini optic lobe (teaching)",
+      "sex": "male",
+      "scaffold": true,
+      "limitation": "MAOL (Male Adult Optic Lobe) full release is not downloaded here. This mode keeps only optic-lobe nodes from the MaleCNS circuit for teaching columnar / lamina–medulla–lobula flow."
+    }
+  ]
+}

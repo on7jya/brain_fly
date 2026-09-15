@@ -58,6 +58,10 @@ class Handler(SimpleHTTPRequestHandler):
             return circuit.read_bytes() if circuit.exists() else b"{}"
 
         if path == "/api/datasets":
+            # Prefer committed static snapshot (same file Vercel serves).
+            snap = PROC / "datasets.json"
+            if snap.exists():
+                return snap.read_bytes()
             available = []
             for key, fname in [
                 ("male-cns", "circuit_malecns.json"),

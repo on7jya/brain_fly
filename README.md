@@ -33,7 +33,7 @@ python3 scripts/build_circuit.py && python3 scripts/build_datasets.py
 python3 server.py
 ```
 
-## Запуск
+## Запуск (локально)
 
 ```bash
 cd /Users/on7j/Projects/brain_fly
@@ -43,6 +43,29 @@ python3 server.py
 ```
 
 Открой http://127.0.0.1:8080/
+
+UI читает готовые JSON из `data/processed/` (те же пути, что и на Vercel). Python-сервер по-прежнему отдаёт `/api/*` как совместимый слой.
+
+## Deploy (Vercel, static)
+
+Репозиторий: https://github.com/on7jya/brain_fly
+
+Сайт — статика: `web/` + `data/processed/`. Сборка Python на Vercel не нужна. Конфиг: `vercel.json` (rewrites `/` → `web/index.html`, `/api/*` → JSON).
+
+```bash
+cd /Users/on7j/Projects/brain_fly
+# один раз: войти и привязать проект
+npx vercel login
+npx vercel link --yes --project brain_fly
+# preview
+npx vercel
+# production
+npx vercel --prod
+```
+
+Или подключи GitHub-репо в [Vercel Dashboard](https://vercel.com/new) → Root Directory = `.` (корень репо) → Deploy. Production branch можно поставить `main` или `feat/codex-roadmap`.
+
+Не коммить сырые CSV/`data/raw` (~сотни MB) — в деплой уходят только `data/processed/*.json`.
 
 Перекачать источники:
 
