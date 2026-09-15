@@ -1,4 +1,6 @@
 .venv/
+.vercel/
+.vercel-tools/
 __pycache__/
 *.pyc
 .DS_Store
